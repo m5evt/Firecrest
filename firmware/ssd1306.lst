@@ -1,0 +1,319 @@
+   1               		.file	"ssd1306.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   9               	ssd1306SendByte:
+  10               	/* prologue: function */
+  11               	/* frame size = 0 */
+  12               	/* stack size = 0 */
+  13               	.L__stack_usage = 0
+  14 0000 2F9A      		sbi 0x5,7
+  15 0002 27E0      		ldi r18,lo8(7)
+  16 0004 30E0      		ldi r19,0
+  17 0006 90E0      		ldi r25,0
+  18               	.L4:
+  19 0008 2F98      		cbi 0x5,7
+  20 000a AC01      		movw r20,r24
+  21 000c 022E      		mov r0,r18
+  22 000e 00C0      		rjmp 2f
+  23               		1:
+  24 0010 5595      		asr r21
+  25 0012 4795      		ror r20
+  26               		2:
+  27 0014 0A94      		dec r0
+  28 0016 02F4      		brpl 1b
+  29 0018 40FF      		sbrs r20,0
+  30 001a 00C0      		rjmp .L2
+  31 001c 2D9A      		sbi 0x5,5
+  32 001e 00C0      		rjmp .L3
+  33               	.L2:
+  34 0020 2D98      		cbi 0x5,5
+  35               	.L3:
+  36 0022 2F9A      		sbi 0x5,7
+  37 0024 2150      		subi r18,1
+  38 0026 3109      		sbc r19,__zero_reg__
+  39 0028 00F4      		brcc .L4
+  40               	/* epilogue start */
+  41 002a 0895      		ret
+  43               	.global	ssd1306Init
+  45               	ssd1306Init:
+  46 002c CF93      		push r28
+  47               	/* prologue: function */
+  48               	/* frame size = 0 */
+  49               	/* stack size = 1 */
+  50               	.L__stack_usage = 1
+  51 002e C82F      		mov r28,r24
+  52 0030 2B9A      		sbi 0x5,3
+  53 0032 0E94 0000 		call yackbeat
+  54 0036 2B98      		cbi 0x5,3
+  55 0038 0E94 0000 		call yackbeat
+  56 003c 0E94 0000 		call yackbeat
+  57 0040 2B9A      		sbi 0x5,3
+  58 0042 2C9A      		sbi 0x5,4
+  59 0044 2A98      		cbi 0x5,2
+  60 0046 2C98      		cbi 0x5,4
+  61 0048 8EEA      		ldi r24,lo8(-82)
+  62 004a 0E94 0000 		call ssd1306SendByte
+  63 004e 2C9A      		sbi 0x5,4
+  64 0050 2C9A      		sbi 0x5,4
+  65 0052 2A98      		cbi 0x5,2
+  66 0054 2C98      		cbi 0x5,4
+  67 0056 85ED      		ldi r24,lo8(-43)
+  68 0058 0E94 0000 		call ssd1306SendByte
+  69 005c 2C9A      		sbi 0x5,4
+  70 005e 2C9A      		sbi 0x5,4
+  71 0060 2A98      		cbi 0x5,2
+  72 0062 2C98      		cbi 0x5,4
+  73 0064 81E4      		ldi r24,lo8(65)
+  74 0066 0E94 0000 		call ssd1306SendByte
+  75 006a 2C9A      		sbi 0x5,4
+  76 006c 2C9A      		sbi 0x5,4
+  77 006e 2A98      		cbi 0x5,2
+  78 0070 2C98      		cbi 0x5,4
+  79 0072 88EA      		ldi r24,lo8(-88)
+  80 0074 0E94 0000 		call ssd1306SendByte
+  81 0078 2C9A      		sbi 0x5,4
+  82 007a 2C9A      		sbi 0x5,4
+  83 007c 2A98      		cbi 0x5,2
+  84 007e 2C98      		cbi 0x5,4
+  85 0080 8FE1      		ldi r24,lo8(31)
+  86 0082 0E94 0000 		call ssd1306SendByte
+  87 0086 2C9A      		sbi 0x5,4
+  88 0088 2C9A      		sbi 0x5,4
+  89 008a 2A98      		cbi 0x5,2
+  90 008c 2C98      		cbi 0x5,4
+  91 008e 83ED      		ldi r24,lo8(-45)
+  92 0090 0E94 0000 		call ssd1306SendByte
+  93 0094 2C9A      		sbi 0x5,4
+  94 0096 2C9A      		sbi 0x5,4
+  95 0098 2A98      		cbi 0x5,2
+  96 009a 2C98      		cbi 0x5,4
+  97 009c 80E0      		ldi r24,0
+  98 009e 0E94 0000 		call ssd1306SendByte
+  99 00a2 2C9A      		sbi 0x5,4
+ 100 00a4 2C9A      		sbi 0x5,4
+ 101 00a6 2A98      		cbi 0x5,2
+ 102 00a8 2C98      		cbi 0x5,4
+ 103 00aa 80E4      		ldi r24,lo8(64)
+ 104 00ac 0E94 0000 		call ssd1306SendByte
+ 105 00b0 2C9A      		sbi 0x5,4
+ 106 00b2 2C9A      		sbi 0x5,4
+ 107 00b4 2A98      		cbi 0x5,2
+ 108 00b6 2C98      		cbi 0x5,4
+ 109 00b8 8DE8      		ldi r24,lo8(-115)
+ 110 00ba 0E94 0000 		call ssd1306SendByte
+ 111 00be 2C9A      		sbi 0x5,4
+ 112 00c0 2C9A      		sbi 0x5,4
+ 113 00c2 2A98      		cbi 0x5,2
+ 114 00c4 2C98      		cbi 0x5,4
+ 115 00c6 C130      		cpi r28,lo8(1)
+ 116 00c8 01F4      		brne .L8
+ 117 00ca 80E1      		ldi r24,lo8(16)
+ 118 00cc 00C0      		rjmp .L12
+ 119               	.L8:
+ 120 00ce 84E1      		ldi r24,lo8(20)
+ 121               	.L12:
+ 122 00d0 0E94 0000 		call ssd1306SendByte
+ 123 00d4 2C9A      		sbi 0x5,4
+ 124 00d6 2C9A      		sbi 0x5,4
+ 125 00d8 2A98      		cbi 0x5,2
+ 126 00da 2C98      		cbi 0x5,4
+ 127 00dc 80E2      		ldi r24,lo8(32)
+ 128 00de 0E94 0000 		call ssd1306SendByte
+ 129 00e2 2C9A      		sbi 0x5,4
+ 130 00e4 2C9A      		sbi 0x5,4
+ 131 00e6 2A98      		cbi 0x5,2
+ 132 00e8 2C98      		cbi 0x5,4
+ 133 00ea 80E0      		ldi r24,0
+ 134 00ec 0E94 0000 		call ssd1306SendByte
+ 135 00f0 2C9A      		sbi 0x5,4
+ 136 00f2 2C9A      		sbi 0x5,4
+ 137 00f4 2A98      		cbi 0x5,2
+ 138 00f6 2C98      		cbi 0x5,4
+ 139 00f8 81EA      		ldi r24,lo8(-95)
+ 140 00fa 0E94 0000 		call ssd1306SendByte
+ 141 00fe 2C9A      		sbi 0x5,4
+ 142 0100 2C9A      		sbi 0x5,4
+ 143 0102 2A98      		cbi 0x5,2
+ 144 0104 2C98      		cbi 0x5,4
+ 145 0106 88EC      		ldi r24,lo8(-56)
+ 146 0108 0E94 0000 		call ssd1306SendByte
+ 147 010c 2C9A      		sbi 0x5,4
+ 148 010e 2C9A      		sbi 0x5,4
+ 149 0110 2A98      		cbi 0x5,2
+ 150 0112 2C98      		cbi 0x5,4
+ 151 0114 8AED      		ldi r24,lo8(-38)
+ 152 0116 0E94 0000 		call ssd1306SendByte
+ 153 011a 2C9A      		sbi 0x5,4
+ 154 011c 2C9A      		sbi 0x5,4
+ 155 011e 2A98      		cbi 0x5,2
+ 156 0120 2C98      		cbi 0x5,4
+ 157 0122 82E0      		ldi r24,lo8(2)
+ 158 0124 0E94 0000 		call ssd1306SendByte
+ 159 0128 2C9A      		sbi 0x5,4
+ 160 012a 2C9A      		sbi 0x5,4
+ 161 012c 2A98      		cbi 0x5,2
+ 162 012e 2C98      		cbi 0x5,4
+ 163 0130 8FEF      		ldi r24,lo8(-1)
+ 164 0132 0E94 0000 		call ssd1306SendByte
+ 165 0136 2C9A      		sbi 0x5,4
+ 166 0138 2C9A      		sbi 0x5,4
+ 167 013a 2A98      		cbi 0x5,2
+ 168 013c 2C98      		cbi 0x5,4
+ 169 013e 80E0      		ldi r24,0
+ 170 0140 0E94 0000 		call ssd1306SendByte
+ 171 0144 2C9A      		sbi 0x5,4
+ 172 0146 2C9A      		sbi 0x5,4
+ 173 0148 2A98      		cbi 0x5,2
+ 174 014a 2C98      		cbi 0x5,4
+ 175 014c 89ED      		ldi r24,lo8(-39)
+ 176 014e 0E94 0000 		call ssd1306SendByte
+ 177 0152 2C9A      		sbi 0x5,4
+ 178 0154 2C9A      		sbi 0x5,4
+ 179 0156 2A98      		cbi 0x5,2
+ 180 0158 2C98      		cbi 0x5,4
+ 181 015a C130      		cpi r28,lo8(1)
+ 182 015c 01F4      		brne .L10
+ 183 015e 82E2      		ldi r24,lo8(34)
+ 184 0160 00C0      		rjmp .L13
+ 185               	.L10:
+ 186 0162 81EF      		ldi r24,lo8(-15)
+ 187               	.L13:
+ 188 0164 0E94 0000 		call ssd1306SendByte
+ 189 0168 2C9A      		sbi 0x5,4
+ 190 016a 2C9A      		sbi 0x5,4
+ 191 016c 2A98      		cbi 0x5,2
+ 192 016e 2C98      		cbi 0x5,4
+ 193 0170 8BED      		ldi r24,lo8(-37)
+ 194 0172 0E94 0000 		call ssd1306SendByte
+ 195 0176 2C9A      		sbi 0x5,4
+ 196 0178 2C9A      		sbi 0x5,4
+ 197 017a 2A98      		cbi 0x5,2
+ 198 017c 2C98      		cbi 0x5,4
+ 199 017e 80E4      		ldi r24,lo8(64)
+ 200 0180 0E94 0000 		call ssd1306SendByte
+ 201 0184 2C9A      		sbi 0x5,4
+ 202 0186 2C9A      		sbi 0x5,4
+ 203 0188 2A98      		cbi 0x5,2
+ 204 018a 2C98      		cbi 0x5,4
+ 205 018c 84EA      		ldi r24,lo8(-92)
+ 206 018e 0E94 0000 		call ssd1306SendByte
+ 207 0192 2C9A      		sbi 0x5,4
+ 208 0194 2C9A      		sbi 0x5,4
+ 209 0196 2A98      		cbi 0x5,2
+ 210 0198 2C98      		cbi 0x5,4
+ 211 019a 86EA      		ldi r24,lo8(-90)
+ 212 019c 0E94 0000 		call ssd1306SendByte
+ 213 01a0 2C9A      		sbi 0x5,4
+ 214 01a2 2C9A      		sbi 0x5,4
+ 215 01a4 2A98      		cbi 0x5,2
+ 216 01a6 2C98      		cbi 0x5,4
+ 217 01a8 8FEA      		ldi r24,lo8(-81)
+ 218 01aa 0E94 0000 		call ssd1306SendByte
+ 219 01ae 2C9A      		sbi 0x5,4
+ 220               	/* epilogue start */
+ 221 01b0 CF91      		pop r28
+ 222 01b2 0895      		ret
+ 224               	.global	ssd1306ClearScreen
+ 226               	ssd1306ClearScreen:
+ 227               	/* prologue: function */
+ 228               	/* frame size = 0 */
+ 229               	/* stack size = 0 */
+ 230               	.L__stack_usage = 0
+ 231 01b4 80E0      		ldi r24,0
+ 232 01b6 92E0      		ldi r25,lo8(2)
+ 233 01b8 E0E0      		ldi r30,lo8(OLEDbuffer)
+ 234 01ba F0E0      		ldi r31,hi8(OLEDbuffer)
+ 235 01bc DF01      		movw r26,r30
+ 236 01be 9C01      		movw r18,r24
+ 237               		0:
+ 238 01c0 1D92      		st X+,__zero_reg__
+ 239 01c2 2150      		subi r18,1
+ 240 01c4 3040      		sbci r19,0
+ 241 01c6 01F4      		brne 0b
+ 242 01c8 0895      		ret
+ 244               	.global	ssd1306Refresh
+ 246               	ssd1306Refresh:
+ 247 01ca CF93      		push r28
+ 248 01cc DF93      		push r29
+ 249               	/* prologue: function */
+ 250               	/* frame size = 0 */
+ 251               	/* stack size = 2 */
+ 252               	.L__stack_usage = 2
+ 253 01ce 2C9A      		sbi 0x5,4
+ 254 01d0 2A98      		cbi 0x5,2
+ 255 01d2 2C98      		cbi 0x5,4
+ 256 01d4 81E2      		ldi r24,lo8(33)
+ 257 01d6 0E94 0000 		call ssd1306SendByte
+ 258 01da 2C9A      		sbi 0x5,4
+ 259 01dc 2C9A      		sbi 0x5,4
+ 260 01de 2A98      		cbi 0x5,2
+ 261 01e0 2C98      		cbi 0x5,4
+ 262 01e2 80E0      		ldi r24,0
+ 263 01e4 0E94 0000 		call ssd1306SendByte
+ 264 01e8 2C9A      		sbi 0x5,4
+ 265 01ea 2C9A      		sbi 0x5,4
+ 266 01ec 2A98      		cbi 0x5,2
+ 267 01ee 2C98      		cbi 0x5,4
+ 268 01f0 8FE7      		ldi r24,lo8(127)
+ 269 01f2 0E94 0000 		call ssd1306SendByte
+ 270 01f6 2C9A      		sbi 0x5,4
+ 271 01f8 2C9A      		sbi 0x5,4
+ 272 01fa 2A98      		cbi 0x5,2
+ 273 01fc 2C98      		cbi 0x5,4
+ 274 01fe 82E2      		ldi r24,lo8(34)
+ 275 0200 0E94 0000 		call ssd1306SendByte
+ 276 0204 2C9A      		sbi 0x5,4
+ 277 0206 2C9A      		sbi 0x5,4
+ 278 0208 2A98      		cbi 0x5,2
+ 279 020a 2C98      		cbi 0x5,4
+ 280 020c 80E0      		ldi r24,0
+ 281 020e 0E94 0000 		call ssd1306SendByte
+ 282 0212 2C9A      		sbi 0x5,4
+ 283 0214 2C9A      		sbi 0x5,4
+ 284 0216 2A98      		cbi 0x5,2
+ 285 0218 2C98      		cbi 0x5,4
+ 286 021a 83E0      		ldi r24,lo8(3)
+ 287 021c 0E94 0000 		call ssd1306SendByte
+ 288 0220 2C9A      		sbi 0x5,4
+ 289 0222 C0E0      		ldi r28,lo8(OLEDbuffer)
+ 290 0224 D0E0      		ldi r29,hi8(OLEDbuffer)
+ 291               	.L16:
+ 292 0226 2C9A      		sbi 0x5,4
+ 293 0228 2A9A      		sbi 0x5,2
+ 294 022a 2C98      		cbi 0x5,4
+ 295 022c 8991      		ld r24,Y+
+ 296 022e 0E94 0000 		call ssd1306SendByte
+ 297 0232 2C9A      		sbi 0x5,4
+ 298 0234 80E0      		ldi r24,hi8(OLEDbuffer+512)
+ 299 0236 C030      		cpi r28,lo8(OLEDbuffer+512)
+ 300 0238 D807      		cpc r29,r24
+ 301 023a 01F4      		brne .L16
+ 302               	/* epilogue start */
+ 303 023c DF91      		pop r29
+ 304 023e CF91      		pop r28
+ 305 0240 0895      		ret
+ 307               		.comm	callStr,15,1
+ 308               		.comm	OLEDbuffer,512,1
+ 309               		.ident	"GCC: (GNU) 5.4.0"
+ 310               	.global __do_clear_bss
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 ssd1306.c
+     /tmp/ccRz706J.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccRz706J.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccRz706J.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccRz706J.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccRz706J.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccRz706J.s:9      .text:0000000000000000 ssd1306SendByte
+     /tmp/ccRz706J.s:45     .text:000000000000002c ssd1306Init
+     /tmp/ccRz706J.s:226    .text:00000000000001b4 ssd1306ClearScreen
+                            *COM*:0000000000000200 OLEDbuffer
+     /tmp/ccRz706J.s:246    .text:00000000000001ca ssd1306Refresh
+                            *COM*:000000000000000f callStr
+
+UNDEFINED SYMBOLS
+yackbeat
+__do_clear_bss

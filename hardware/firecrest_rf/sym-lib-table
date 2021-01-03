@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name Firecrest-eagle-import)(type Legacy)(uri ${KIPRJMOD}/Firecrest-eagle-import.lib)(options "")(descr ""))
+  (lib (name Firecrest-rescue)(type Legacy)(uri ${KIPRJMOD}/Firecrest-rescue.lib)(options "")(descr ""))
+)

@@ -1,0 +1,1123 @@
+   1               		.file	"yack.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   9               	keylatch:
+  10               	/* prologue: function */
+  11               	/* frame size = 0 */
+  12               	/* stack size = 0 */
+  13               	.L__stack_usage = 0
+  14 0000 8091 0000 		lds r24,yackflags
+  15 0004 8078      		andi r24,lo8(-128)
+  16 0006 0599      		sbic 0,5
+  17 0008 00C0      		rjmp .L2
+  18 000a 8111      		cpse r24,__zero_reg__
+  19 000c 00C0      		rjmp .L6
+  20 000e 91E0      		ldi r25,lo8(1)
+  21 0010 00C0      		rjmp .L3
+  22               	.L6:
+  23 0012 92E0      		ldi r25,lo8(2)
+  24               	.L3:
+  25 0014 2091 0000 		lds r18,volflags
+  26 0018 922B      		or r25,r18
+  27 001a 9093 0000 		sts volflags,r25
+  28               	.L2:
+  29 001e 0699      		sbic 0,6
+  30 0020 00C0      		rjmp .L1
+  31 0022 8111      		cpse r24,__zero_reg__
+  32 0024 00C0      		rjmp .L7
+  33 0026 82E0      		ldi r24,lo8(2)
+  34 0028 00C0      		rjmp .L5
+  35               	.L7:
+  36 002a 81E0      		ldi r24,lo8(1)
+  37               	.L5:
+  38 002c 9091 0000 		lds r25,volflags
+  39 0030 892B      		or r24,r25
+  40 0032 8093 0000 		sts volflags,r24
+  41               	.L1:
+  42 0036 0895      		ret
+  44               	.global	yackreset
+  46               	yackreset:
+  47               	/* prologue: function */
+  48               	/* frame size = 0 */
+  49               	/* stack size = 0 */
+  50               	.L__stack_usage = 0
+  51 0038 6091 0000 		lds r22,wpm
+  52 003c 70E0      		ldi r23,0
+  53 003e 80EF      		ldi r24,lo8(-16)
+  54 0040 90E0      		ldi r25,0
+  55 0042 0E94 0000 		call __divmodhi4
+  56 0046 7093 0000 		sts wpmcnt+1,r23
+  57 004a 6093 0000 		sts wpmcnt,r22
+  58 004e 80E3      		ldi r24,lo8(48)
+  59 0050 8093 0000 		sts yackflags,r24
+  60 0054 8091 0000 		lds r24,volflags
+  61 0058 8460      		ori r24,lo8(4)
+  62 005a 8093 0000 		sts volflags,r24
+  63 005e 0895      		ret
+  65               	.global	yackwpm
+  67               	yackwpm:
+  68               	/* prologue: function */
+  69               	/* frame size = 0 */
+  70               	/* stack size = 0 */
+  71               	.L__stack_usage = 0
+  72 0060 8091 0000 		lds r24,wpm
+  73 0064 90E0      		ldi r25,0
+  74 0066 0895      		ret
+  76               	.global	yackbeat
+  78               	yackbeat:
+  79               	/* prologue: function */
+  80               	/* frame size = 0 */
+  81               	/* stack size = 0 */
+  82               	.L__stack_usage = 0
+  83               	.L12:
+  84 0068 B19B      		sbis 0x16,1
+  85 006a 00C0      		rjmp .L12
+  86 006c B19A      		sbi 0x16,1
+  87 006e 0895      		ret
+  89               	.global	yackmode
+  91               	yackmode:
+  92               	/* prologue: function */
+  93               	/* frame size = 0 */
+  94               	/* stack size = 0 */
+  95               	.L__stack_usage = 0
+  96 0070 9091 0000 		lds r25,yackflags
+  97 0074 937F      		andi r25,lo8(-13)
+  98 0076 892B      		or r24,r25
+  99 0078 8093 0000 		sts yackflags,r24
+ 100 007c 8091 0000 		lds r24,volflags
+ 101 0080 8460      		ori r24,lo8(4)
+ 102 0082 8093 0000 		sts volflags,r24
+ 103 0086 0895      		ret
+ 105               	.global	yackflag
+ 107               	yackflag:
+ 108               	/* prologue: function */
+ 109               	/* frame size = 0 */
+ 110               	/* stack size = 0 */
+ 111               	.L__stack_usage = 0
+ 112 0088 9091 0000 		lds r25,yackflags
+ 113 008c 8923      		and r24,r25
+ 114 008e 0895      		ret
+ 116               	.global	yacktoggle
+ 118               	yacktoggle:
+ 119               	/* prologue: function */
+ 120               	/* frame size = 0 */
+ 121               	/* stack size = 0 */
+ 122               	.L__stack_usage = 0
+ 123 0090 9091 0000 		lds r25,yackflags
+ 124 0094 8927      		eor r24,r25
+ 125 0096 8093 0000 		sts yackflags,r24
+ 126 009a 8091 0000 		lds r24,volflags
+ 127 009e 8460      		ori r24,lo8(4)
+ 128 00a0 8093 0000 		sts volflags,r24
+ 129 00a4 0895      		ret
+ 131               	.global	key
+ 133               	key:
+ 134               	/* prologue: function */
+ 135               	/* frame size = 0 */
+ 136               	/* stack size = 0 */
+ 137               	.L__stack_usage = 0
+ 138 00a6 8230      		cpi r24,lo8(2)
+ 139 00a8 01F4      		brne .L19
+ 140 00aa 9091 0000 		lds r25,volflags
+ 141 00ae 94FD      		sbrc r25,4
+ 142 00b0 8093 6E00 		sts 110,r24
+ 143               	.L20:
+ 144 00b4 8091 0000 		lds r24,volflags
+ 145 00b8 85FF      		sbrs r24,5
+ 146 00ba 00C0      		rjmp .L18
+ 147 00bc 8091 0000 		lds r24,yackflags
+ 148 00c0 86FF      		sbrs r24,6
+ 149 00c2 00C0      		rjmp .L38
+ 150 00c4 00C0      		rjmp .L24
+ 151               	.L19:
+ 152 00c6 8130      		cpi r24,lo8(1)
+ 153 00c8 01F4      		brne .L18
+ 154 00ca 8091 0000 		lds r24,volflags
+ 155 00ce 84FD      		sbrc r24,4
+ 156 00d0 1092 6E00 		sts 110,__zero_reg__
+ 157               	.L23:
+ 158 00d4 8091 0000 		lds r24,volflags
+ 159 00d8 85FF      		sbrs r24,5
+ 160 00da 00C0      		rjmp .L18
+ 161 00dc 8091 0000 		lds r24,yackflags
+ 162 00e0 86FF      		sbrs r24,6
+ 163 00e2 00C0      		rjmp .L24
+ 164               	.L38:
+ 165 00e4 5A9A      		sbi 0xb,2
+ 166 00e6 0895      		ret
+ 167               	.L24:
+ 168 00e8 5A98      		cbi 0xb,2
+ 169               	.L18:
+ 170 00ea 0895      		ret
+ 173               	yackinhibit.part.1:
+ 174               	/* prologue: function */
+ 175               	/* frame size = 0 */
+ 176               	/* stack size = 0 */
+ 177               	.L__stack_usage = 0
+ 178 00ec 8091 0000 		lds r24,yackflags
+ 179 00f0 982F      		mov r25,r24
+ 180 00f2 9073      		andi r25,lo8(48)
+ 181 00f4 8091 0000 		lds r24,volflags
+ 182 00f8 8F7C      		andi r24,lo8(-49)
+ 183 00fa 892B      		or r24,r25
+ 184 00fc 8093 0000 		sts volflags,r24
+ 185 0100 81E0      		ldi r24,lo8(1)
+ 186 0102 0C94 0000 		jmp key
+ 188               	.global	yackinhibit
+ 190               	yackinhibit:
+ 191               	/* prologue: function */
+ 192               	/* frame size = 0 */
+ 193               	/* stack size = 0 */
+ 194               	.L__stack_usage = 0
+ 195 0106 8823      		tst r24
+ 196 0108 01F0      		breq .L41
+ 197 010a 8091 0000 		lds r24,volflags
+ 198 010e 8F7C      		andi r24,lo8(-49)
+ 199 0110 8061      		ori r24,lo8(16)
+ 200 0112 8093 0000 		sts volflags,r24
+ 201 0116 0895      		ret
+ 202               	.L41:
+ 203 0118 0C94 0000 		jmp yackinhibit.part.1
+ 205               	.global	yackinit
+ 207               	yackinit:
+ 208               	/* prologue: function */
+ 209               	/* frame size = 0 */
+ 210               	/* stack size = 0 */
+ 211               	.L__stack_usage = 0
+ 212 011c 0E94 0000 		call yackreset
+ 213 0120 0C94 0000 		jmp yackinhibit.part.1
+ 215               	.global	yacktune
+ 217               	yacktune:
+ 218 0124 0F93      		push r16
+ 219 0126 1F93      		push r17
+ 220 0128 CF93      		push r28
+ 221 012a DF93      		push r29
+ 222               	/* prologue: function */
+ 223               	/* frame size = 0 */
+ 224               	/* stack size = 4 */
+ 225               	.L__stack_usage = 4
+ 226 012c 0E94 0000 		call yackinhibit.part.1
+ 227 0130 0E94 0000 		call transition_to_tx
+ 228 0134 82E0      		ldi r24,lo8(2)
+ 229 0136 0E94 0000 		call key
+ 230 013a 00ED      		ldi r16,lo8(-48)
+ 231 013c 17E0      		ldi r17,lo8(7)
+ 232 013e C0E0      		ldi r28,0
+ 233 0140 D0E0      		ldi r29,0
+ 234               	.L46:
+ 235 0142 0599      		sbic 0,5
+ 236 0144 00C0      		rjmp .L54
+ 237               	.L48:
+ 238 0146 81E0      		ldi r24,lo8(1)
+ 239 0148 0E94 0000 		call key
+ 240               	/* epilogue start */
+ 241 014c DF91      		pop r29
+ 242 014e CF91      		pop r28
+ 243 0150 1F91      		pop r17
+ 244 0152 0F91      		pop r16
+ 245 0154 0C94 0000 		jmp transistion_to_rx
+ 246               	.L54:
+ 247 0158 069B      		sbis 0,6
+ 248 015a 00C0      		rjmp .L48
+ 249 015c 0E94 0000 		call yackbeat
+ 250 0160 2196      		adiw r28,1
+ 251 0162 C233      		cpi r28,50
+ 252 0164 D105      		cpc r29,__zero_reg__
+ 253 0166 01F4      		brne .L47
+ 254 0168 0E94 0000 		call service_vswr
+ 255 016c C0E0      		ldi r28,0
+ 256 016e D0E0      		ldi r29,0
+ 257               	.L47:
+ 258 0170 0150      		subi r16,1
+ 259 0172 1109      		sbc r17,__zero_reg__
+ 260 0174 01F4      		brne .L46
+ 261 0176 00C0      		rjmp .L48
+ 263               	.global	yackdelay
+ 265               	yackdelay:
+ 266 0178 CF93      		push r28
+ 267 017a DF93      		push r29
+ 268               	/* prologue: function */
+ 269               	/* frame size = 0 */
+ 270               	/* stack size = 2 */
+ 271               	.L__stack_usage = 2
+ 272 017c C82F      		mov r28,r24
+ 273               	.L56:
+ 274 017e CC23      		tst r28
+ 275 0180 01F0      		breq .L60
+ 276 0182 D091 0000 		lds r29,wpmcnt
+ 277               	.L57:
+ 278 0186 DD23      		tst r29
+ 279 0188 01F0      		breq .L61
+ 280 018a 0E94 0000 		call yackbeat
+ 281 018e D150      		subi r29,lo8(-(-1))
+ 282 0190 00C0      		rjmp .L57
+ 283               	.L61:
+ 284 0192 C150      		subi r28,lo8(-(-1))
+ 285 0194 00C0      		rjmp .L56
+ 286               	.L60:
+ 287               	/* epilogue start */
+ 288 0196 DF91      		pop r29
+ 289 0198 CF91      		pop r28
+ 290 019a 0895      		ret
+ 292               	.global	yackplay
+ 294               	yackplay:
+ 295 019c CF93      		push r28
+ 296               	/* prologue: function */
+ 297               	/* frame size = 0 */
+ 298               	/* stack size = 1 */
+ 299               	.L__stack_usage = 1
+ 300 019e C82F      		mov r28,r24
+ 301 01a0 82E0      		ldi r24,lo8(2)
+ 302 01a2 0E94 0000 		call key
+ 303 01a6 C130      		cpi r28,lo8(1)
+ 304 01a8 01F0      		breq .L64
+ 305 01aa C230      		cpi r28,lo8(2)
+ 306 01ac 01F4      		brne .L63
+ 307 01ae 83E0      		ldi r24,lo8(3)
+ 308 01b0 00C0      		rjmp .L66
+ 309               	.L64:
+ 310 01b2 81E0      		ldi r24,lo8(1)
+ 311               	.L66:
+ 312 01b4 0E94 0000 		call yackdelay
+ 313               	.L63:
+ 314 01b8 81E0      		ldi r24,lo8(1)
+ 315               	/* epilogue start */
+ 316 01ba CF91      		pop r28
+ 317 01bc 0C94 0000 		jmp key
+ 319               	.global	yackspeed
+ 321               	yackspeed:
+ 322               	/* prologue: function */
+ 323               	/* frame size = 0 */
+ 324               	/* stack size = 0 */
+ 325               	.L__stack_usage = 0
+ 326 01c0 6130      		cpi r22,lo8(1)
+ 327 01c2 01F4      		brne .L68
+ 328 01c4 8130      		cpi r24,lo8(1)
+ 329 01c6 01F4      		brne .L69
+ 330 01c8 8091 0000 		lds r24,farnsworth
+ 331 01cc 8823      		tst r24
+ 332 01ce 01F0      		breq .L71
+ 333 01d0 8150      		subi r24,lo8(-(-1))
+ 334 01d2 00C0      		rjmp .L82
+ 335               	.L69:
+ 336 01d4 8230      		cpi r24,lo8(2)
+ 337 01d6 01F4      		brne .L71
+ 338 01d8 8091 0000 		lds r24,farnsworth
+ 339 01dc 8F3F      		cpi r24,lo8(-1)
+ 340 01de 01F0      		breq .L71
+ 341 01e0 8F5F      		subi r24,lo8(-(1))
+ 342               	.L82:
+ 343 01e2 8093 0000 		sts farnsworth,r24
+ 344 01e6 00C0      		rjmp .L71
+ 345               	.L68:
+ 346 01e8 9091 0000 		lds r25,wpm
+ 347 01ec 8130      		cpi r24,lo8(1)
+ 348 01ee 01F4      		brne .L72
+ 349 01f0 9233      		cpi r25,lo8(50)
+ 350 01f2 00F4      		brsh .L74
+ 351 01f4 9F5F      		subi r25,lo8(-(1))
+ 352 01f6 00C0      		rjmp .L81
+ 353               	.L72:
+ 354 01f8 8230      		cpi r24,lo8(2)
+ 355 01fa 01F4      		brne .L74
+ 356 01fc 9B30      		cpi r25,lo8(11)
+ 357 01fe 00F0      		brlo .L74
+ 358 0200 9150      		subi r25,lo8(-(-1))
+ 359               	.L81:
+ 360 0202 9093 0000 		sts wpm,r25
+ 361               	.L74:
+ 362 0206 6091 0000 		lds r22,wpm
+ 363 020a 70E0      		ldi r23,0
+ 364 020c 80EF      		ldi r24,lo8(-16)
+ 365 020e 90E0      		ldi r25,0
+ 366 0210 0E94 0000 		call __divmodhi4
+ 367 0214 7093 0000 		sts wpmcnt+1,r23
+ 368 0218 6093 0000 		sts wpmcnt,r22
+ 369               	.L71:
+ 370 021c 8091 0000 		lds r24,volflags
+ 371 0220 8460      		ori r24,lo8(4)
+ 372 0222 8093 0000 		sts volflags,r24
+ 373 0226 81E0      		ldi r24,lo8(1)
+ 374 0228 0E94 0000 		call yackplay
+ 375 022c 81E0      		ldi r24,lo8(1)
+ 376 022e 0E94 0000 		call yackdelay
+ 377 0232 82E0      		ldi r24,lo8(2)
+ 378 0234 0E94 0000 		call yackplay
+ 379 0238 83E0      		ldi r24,lo8(3)
+ 380 023a 0C94 0000 		jmp yackdelay
+ 383               	yackchar:
+ 384 023e CF93      		push r28
+ 385               	/* prologue: function */
+ 386               	/* frame size = 0 */
+ 387               	/* stack size = 1 */
+ 388               	.L__stack_usage = 1
+ 389 0240 90ED      		ldi r25,lo8(-48)
+ 390 0242 980F      		add r25,r24
+ 391 0244 9A30      		cpi r25,lo8(10)
+ 392 0246 00F4      		brsh .L94
+ 393 0248 E82F      		mov r30,r24
+ 394 024a F0E0      		ldi r31,0
+ 395 024c E050      		subi r30,lo8(-(morse-48))
+ 396 024e F040      		sbci r31,hi8(-(morse-48))
+ 397               	/* #APP */
+ 398               	 ;  528 "yack.c" 1
+ 399 0250 C491      		lpm r28, Z
+ 400               		
+ 401               	 ;  0 "" 2
+ 402               	/* #NOAPP */
+ 403 0252 00C0      		rjmp .L84
+ 404               	.L94:
+ 405 0254 C0E8      		ldi r28,lo8(-128)
+ 406               	.L84:
+ 407 0256 9FE9      		ldi r25,lo8(-97)
+ 408 0258 980F      		add r25,r24
+ 409 025a 9A31      		cpi r25,lo8(26)
+ 410 025c 00F4      		brsh .L85
+ 411 025e E82F      		mov r30,r24
+ 412 0260 F0E0      		ldi r31,0
+ 413 0262 E050      		subi r30,lo8(-(morse-87))
+ 414 0264 F040      		sbci r31,hi8(-(morse-87))
+ 415               	/* #APP */
+ 416               	 ;  531 "yack.c" 1
+ 417 0266 C491      		lpm r28, Z
+ 418               		
+ 419               	 ;  0 "" 2
+ 420               	/* #NOAPP */
+ 421               	.L85:
+ 422 0268 9FEB      		ldi r25,lo8(-65)
+ 423 026a 980F      		add r25,r24
+ 424 026c 9A31      		cpi r25,lo8(26)
+ 425 026e 00F4      		brsh .L86
+ 426 0270 E82F      		mov r30,r24
+ 427 0272 F0E0      		ldi r31,0
+ 428 0274 E050      		subi r30,lo8(-(morse-55))
+ 429 0276 F040      		sbci r31,hi8(-(morse-55))
+ 430               	/* #APP */
+ 431               	 ;  534 "yack.c" 1
+ 432 0278 C491      		lpm r28, Z
+ 433               		
+ 434               	 ;  0 "" 2
+ 435               	/* #NOAPP */
+ 436               	.L86:
+ 437 027a 20E0      		ldi r18,0
+ 438 027c 30E0      		ldi r19,0
+ 439               	.L88:
+ 440 027e F901      		movw r30,r18
+ 441 0280 E050      		subi r30,lo8(-(spechar))
+ 442 0282 F040      		sbci r31,hi8(-(spechar))
+ 443               	/* #APP */
+ 444               	 ;  540 "yack.c" 1
+ 445 0284 E491      		lpm r30, Z
+ 446               		
+ 447               	 ;  0 "" 2
+ 448               	/* #NOAPP */
+ 449 0286 8E13      		cpse r24,r30
+ 450 0288 00C0      		rjmp .L87
+ 451 028a F901      		movw r30,r18
+ 452 028c E050      		subi r30,lo8(-(morse+36))
+ 453 028e F040      		sbci r31,hi8(-(morse+36))
+ 454               	/* #APP */
+ 455               	 ;  541 "yack.c" 1
+ 456 0290 C491      		lpm r28, Z
+ 457               		
+ 458               	 ;  0 "" 2
+ 459               	/* #NOAPP */
+ 460               	.L87:
+ 461 0292 2F5F      		subi r18,-1
+ 462 0294 3F4F      		sbci r19,-1
+ 463 0296 2630      		cpi r18,6
+ 464 0298 3105      		cpc r19,__zero_reg__
+ 465 029a 01F4      		brne .L88
+ 466 029c 8032      		cpi r24,lo8(32)
+ 467 029e 01F4      		brne .L90
+ 468 02a0 84E0      		ldi r24,lo8(4)
+ 469 02a2 00C0      		rjmp .L97
+ 470               	.L93:
+ 471 02a4 C7FF      		sbrs r28,7
+ 472 02a6 00C0      		rjmp .L91
+ 473 02a8 82E0      		ldi r24,lo8(2)
+ 474               	.L96:
+ 475 02aa 0E94 0000 		call yackplay
+ 476 02ae 81E0      		ldi r24,lo8(1)
+ 477 02b0 0E94 0000 		call yackdelay
+ 478 02b4 CC0F      		lsl r28
+ 479               	.L90:
+ 480 02b6 C038      		cpi r28,lo8(-128)
+ 481 02b8 01F4      		brne .L93
+ 482 02ba 00C0      		rjmp .L98
+ 483               	.L91:
+ 484 02bc 81E0      		ldi r24,lo8(1)
+ 485 02be 00C0      		rjmp .L96
+ 486               	.L98:
+ 487 02c0 82E0      		ldi r24,lo8(2)
+ 488               	.L97:
+ 489               	/* epilogue start */
+ 490 02c2 CF91      		pop r28
+ 491 02c4 0C94 0000 		jmp yackdelay
+ 494               	yackerror:
+ 495 02c8 CF93      		push r28
+ 496               	/* prologue: function */
+ 497               	/* frame size = 0 */
+ 498               	/* stack size = 1 */
+ 499               	.L__stack_usage = 1
+ 500 02ca C8E0      		ldi r28,lo8(8)
+ 501               	.L100:
+ 502 02cc 81E0      		ldi r24,lo8(1)
+ 503 02ce 0E94 0000 		call yackplay
+ 504 02d2 81E0      		ldi r24,lo8(1)
+ 505 02d4 0E94 0000 		call yackdelay
+ 506 02d8 C150      		subi r28,lo8(-(-1))
+ 507 02da 01F4      		brne .L100
+ 508 02dc 83E0      		ldi r24,lo8(3)
+ 509               	/* epilogue start */
+ 510 02de CF91      		pop r28
+ 511 02e0 0C94 0000 		jmp yackdelay
+ 513               	.global	yackstring
+ 515               	yackstring:
+ 516 02e4 0F93      		push r16
+ 517 02e6 1F93      		push r17
+ 518 02e8 CF93      		push r28
+ 519 02ea DF93      		push r29
+ 520               	/* prologue: function */
+ 521               	/* frame size = 0 */
+ 522               	/* stack size = 4 */
+ 523               	.L__stack_usage = 4
+ 524 02ec FC01      		movw r30,r24
+ 525               		0:
+ 526 02ee 0190      		ld __tmp_reg__,Z+
+ 527 02f0 0020      		tst __tmp_reg__
+ 528 02f2 01F4      		brne 0b
+ 529 02f4 3197      		sbiw r30,1
+ 530 02f6 CE2F      		mov r28,r30
+ 531 02f8 C81B      		sub r28,r24
+ 532 02fa D82F      		mov r29,r24
+ 533 02fc 8C01      		movw r16,r24
+ 534               	.L103:
+ 535 02fe 802F      		mov r24,r16
+ 536 0300 8D1B      		sub r24,r29
+ 537 0302 8C17      		cp r24,r28
+ 538 0304 00F4      		brsh .L102
+ 539 0306 059B      		sbis 0,5
+ 540 0308 00C0      		rjmp .L102
+ 541 030a 069B      		sbis 0,6
+ 542 030c 00C0      		rjmp .L102
+ 543 030e F801      		movw r30,r16
+ 544 0310 8191      		ld r24,Z+
+ 545 0312 8F01      		movw r16,r30
+ 546 0314 0E94 0000 		call yackchar
+ 547 0318 00C0      		rjmp .L103
+ 548               	.L102:
+ 549               	/* epilogue start */
+ 550 031a DF91      		pop r29
+ 551 031c CF91      		pop r28
+ 552 031e 1F91      		pop r17
+ 553 0320 0F91      		pop r16
+ 554 0322 0895      		ret
+ 556               	.global	yacknumber
+ 558               	yacknumber:
+ 559 0324 1F93      		push r17
+ 560 0326 CF93      		push r28
+ 561 0328 DF93      		push r29
+ 562 032a 00D0      		rcall .
+ 563 032c 00D0      		rcall .
+ 564 032e 1F92      		push __zero_reg__
+ 565 0330 CDB7      		in r28,__SP_L__
+ 566 0332 DEB7      		in r29,__SP_H__
+ 567               	/* prologue: function */
+ 568               	/* frame size = 5 */
+ 569               	/* stack size = 8 */
+ 570               	.L__stack_usage = 8
+ 571 0334 10E0      		ldi r17,0
+ 572 0336 2AE0      		ldi r18,lo8(10)
+ 573 0338 30E0      		ldi r19,0
+ 574               	.L110:
+ 575 033a 0097      		sbiw r24,0
+ 576 033c 01F0      		breq .L112
+ 577 033e E1E0      		ldi r30,lo8(1)
+ 578 0340 F0E0      		ldi r31,0
+ 579 0342 EC0F      		add r30,r28
+ 580 0344 FD1F      		adc r31,r29
+ 581 0346 E10F      		add r30,r17
+ 582 0348 F11D      		adc r31,__zero_reg__
+ 583 034a B901      		movw r22,r18
+ 584 034c 0E94 0000 		call __udivmodhi4
+ 585 0350 805D      		subi r24,lo8(-(48))
+ 586 0352 8083      		st Z,r24
+ 587 0354 CB01      		movw r24,r22
+ 588 0356 1F5F      		subi r17,lo8(-(1))
+ 589 0358 00C0      		rjmp .L110
+ 590               	.L112:
+ 591 035a 1123      		tst r17
+ 592 035c 01F0      		breq .L114
+ 593 035e 1150      		subi r17,lo8(-(-1))
+ 594 0360 E1E0      		ldi r30,lo8(1)
+ 595 0362 F0E0      		ldi r31,0
+ 596 0364 EC0F      		add r30,r28
+ 597 0366 FD1F      		adc r31,r29
+ 598 0368 E10F      		add r30,r17
+ 599 036a F11D      		adc r31,__zero_reg__
+ 600 036c 8081      		ld r24,Z
+ 601 036e 0E94 0000 		call yackchar
+ 602 0372 00C0      		rjmp .L112
+ 603               	.L114:
+ 604 0374 80E2      		ldi r24,lo8(32)
+ 605               	/* epilogue start */
+ 606 0376 0F90      		pop __tmp_reg__
+ 607 0378 0F90      		pop __tmp_reg__
+ 608 037a 0F90      		pop __tmp_reg__
+ 609 037c 0F90      		pop __tmp_reg__
+ 610 037e 0F90      		pop __tmp_reg__
+ 611 0380 DF91      		pop r29
+ 612 0382 CF91      		pop r28
+ 613 0384 1F91      		pop r17
+ 614 0386 0C94 0000 		jmp yackchar
+ 616               	.global	yackiambic
+ 618               	yackiambic:
+ 619 038a CF93      		push r28
+ 620               	/* prologue: function */
+ 621               	/* frame size = 0 */
+ 622               	/* stack size = 1 */
+ 623               	.L__stack_usage = 1
+ 624 038c C82F      		mov r28,r24
+ 625 038e 8091 0000 		lds r24,timer.2343
+ 626 0392 9091 0000 		lds r25,timer.2343+1
+ 627 0396 0097      		sbiw r24,0
+ 628 0398 01F0      		breq .L116
+ 629 039a 0197      		sbiw r24,1
+ 630 039c 9093 0000 		sts timer.2343+1,r25
+ 631 03a0 8093 0000 		sts timer.2343,r24
+ 632               	.L116:
+ 633 03a4 C111      		cpse r28,__zero_reg__
+ 634 03a6 00C0      		rjmp .L117
+ 635 03a8 1092 0000 		sts iwgflag.2347,__zero_reg__
+ 636               	.L117:
+ 637 03ac 8091 0000 		lds r24,fsms.2342
+ 638 03b0 8130      		cpi r24,lo8(1)
+ 639 03b2 01F4      		brne .+2
+ 640 03b4 00C0      		rjmp .L119
+ 641 03b6 00F0      		brlo .L120
+ 642 03b8 8230      		cpi r24,lo8(2)
+ 643 03ba 01F4      		brne .+2
+ 644 03bc 00C0      		rjmp .L121
+ 645 03be 00C0      		rjmp .L156
+ 646               	.L120:
+ 647 03c0 0E94 0000 		call keylatch
+ 648 03c4 8091 0000 		lds r24,yackflags
+ 649 03c8 8C70      		andi r24,lo8(12)
+ 650 03ca 8430      		cpi r24,lo8(4)
+ 651 03cc 01F0      		breq .L123
+ 652 03ce 00F4      		brsh .L124
+ 653 03d0 8823      		tst r24
+ 654 03d2 01F0      		breq .L123
+ 655 03d4 00C0      		rjmp .L122
+ 656               	.L124:
+ 657 03d6 8830      		cpi r24,lo8(8)
+ 658 03d8 01F0      		breq .L125
+ 659 03da 8C30      		cpi r24,lo8(12)
+ 660 03dc 01F0      		breq .L126
+ 661 03de 00C0      		rjmp .L122
+ 662               	.L123:
+ 663 03e0 8091 0000 		lds r24,lastsymbol.2344
+ 664 03e4 8095      		com r24
+ 665 03e6 9091 0000 		lds r25,volflags
+ 666 03ea 8923      		and r24,r25
+ 667 03ec 8093 0000 		sts volflags,r24
+ 668 03f0 1092 0000 		sts lastsymbol.2344,__zero_reg__
+ 669 03f4 00C0      		rjmp .L122
+ 670               	.L125:
+ 671 03f6 8091 0000 		lds r24,volflags
+ 672 03fa 982F      		mov r25,r24
+ 673 03fc 9370      		andi r25,lo8(3)
+ 674 03fe 9330      		cpi r25,lo8(3)
+ 675 0400 01F4      		brne .L127
+ 676 0402 9091 0000 		lds r25,ultimem.2348
+ 677 0406 9923      		tst r25
+ 678 0408 01F0      		breq .L157
+ 679 040a 9095      		com r25
+ 680 040c 8923      		and r24,r25
+ 681 040e 00C0      		rjmp .L158
+ 682               	.L127:
+ 683 0410 9093 0000 		sts ultimem.2348,r25
+ 684 0414 00C0      		rjmp .L122
+ 685               	.L126:
+ 686 0416 8091 0000 		lds r24,volflags
+ 687 041a 982F      		mov r25,r24
+ 688 041c 9370      		andi r25,lo8(3)
+ 689 041e 9330      		cpi r25,lo8(3)
+ 690 0420 01F4      		brne .L122
+ 691               	.L157:
+ 692 0422 8E7F      		andi r24,lo8(-2)
+ 693               	.L158:
+ 694 0424 8093 0000 		sts volflags,r24
+ 695               	.L122:
+ 696 0428 8091 0000 		lds r24,timer.2343
+ 697 042c 9091 0000 		lds r25,timer.2343+1
+ 698 0430 892B      		or r24,r25
+ 699 0432 01F0      		breq .+2
+ 700 0434 00C0      		rjmp .L129
+ 701 0436 8091 0000 		lds r24,bcntr.2346
+ 702 043a 8823      		tst r24
+ 703 043c 01F4      		brne .+2
+ 704 043e 00C0      		rjmp .L130
+ 705 0440 9091 0000 		lds r25,buffer.2345
+ 706 0444 990F      		lsl r25
+ 707 0446 9160      		ori r25,lo8(1)
+ 708 0448 27E0      		ldi r18,lo8(7)
+ 709 044a 30E0      		ldi r19,0
+ 710 044c 281B      		sub r18,r24
+ 711 044e 3109      		sbc r19,__zero_reg__
+ 712 0450 00C0      		rjmp 2f
+ 713               		1:
+ 714 0452 990F      		lsl r25
+ 715               		2:
+ 716 0454 2A95      		dec r18
+ 717 0456 02F4      		brpl 1b
+ 718 0458 20E0      		ldi r18,0
+ 719 045a 30E0      		ldi r19,0
+ 720               	.L135:
+ 721 045c 822F      		mov r24,r18
+ 722 045e F901      		movw r30,r18
+ 723 0460 E050      		subi r30,lo8(-(morse))
+ 724 0462 F040      		sbci r31,hi8(-(morse))
+ 725               	/* #APP */
+ 726               	 ;  677 "yack.c" 1
+ 727 0464 E491      		lpm r30, Z
+ 728               		
+ 729               	 ;  0 "" 2
+ 730               	/* #NOAPP */
+ 731 0466 9E13      		cpse r25,r30
+ 732 0468 00C0      		rjmp .L131
+ 733 046a 2A30      		cpi r18,lo8(10)
+ 734 046c 00F4      		brsh .L132
+ 735 046e 805D      		subi r24,lo8(-(48))
+ 736 0470 00C0      		rjmp .L133
+ 737               	.L132:
+ 738 0472 2432      		cpi r18,lo8(36)
+ 739 0474 00F4      		brsh .L134
+ 740 0476 895C      		subi r24,lo8(-(55))
+ 741 0478 00C0      		rjmp .L133
+ 742               	.L134:
+ 743 047a F901      		movw r30,r18
+ 744 047c E050      		subi r30,lo8(-(spechar-36))
+ 745 047e F040      		sbci r31,hi8(-(spechar-36))
+ 746               	/* #APP */
+ 747               	 ;  681 "yack.c" 1
+ 748 0480 8491      		lpm r24, Z
+ 749               		
+ 750               	 ;  0 "" 2
+ 751               	/* #NOAPP */
+ 752 0482 00C0      		rjmp .L133
+ 753               	.L131:
+ 754 0484 2F5F      		subi r18,-1
+ 755 0486 3F4F      		sbci r19,-1
+ 756 0488 2A32      		cpi r18,42
+ 757 048a 3105      		cpc r19,__zero_reg__
+ 758 048c 01F4      		brne .L135
+ 759 048e 80E0      		ldi r24,0
+ 760               	.L133:
+ 761 0490 1092 0000 		sts bcntr.2346,__zero_reg__
+ 762 0494 1092 0000 		sts buffer.2345,__zero_reg__
+ 763 0498 2091 0000 		lds r18,wpmcnt
+ 764 049c 3091 0000 		lds r19,wpmcnt+1
+ 765 04a0 220F      		lsl r18
+ 766 04a2 331F      		rol r19
+ 767 04a4 220F      		lsl r18
+ 768 04a6 331F      		rol r19
+ 769 04a8 3093 0000 		sts timer.2343+1,r19
+ 770 04ac 2093 0000 		sts timer.2343,r18
+ 771 04b0 91E0      		ldi r25,lo8(1)
+ 772 04b2 9093 0000 		sts iwgflag.2347,r25
+ 773 04b6 00C0      		rjmp .L118
+ 774               	.L130:
+ 775 04b8 8091 0000 		lds r24,iwgflag.2347
+ 776 04bc 8823      		tst r24
+ 777 04be 01F0      		breq .L129
+ 778 04c0 1092 0000 		sts iwgflag.2347,__zero_reg__
+ 779 04c4 80E2      		ldi r24,lo8(32)
+ 780 04c6 00C0      		rjmp .L118
+ 781               	.L129:
+ 782 04c8 9091 0000 		lds r25,volflags
+ 783 04cc 892F      		mov r24,r25
+ 784 04ce 8370      		andi r24,lo8(3)
+ 785 04d0 01F4      		brne .+2
+ 786 04d2 00C0      		rjmp .L156
+ 787 04d4 1092 0000 		sts iwgflag.2347,__zero_reg__
+ 788 04d8 8091 0000 		lds r24,bcntr.2346
+ 789 04dc 8F5F      		subi r24,lo8(-(1))
+ 790 04de 8093 0000 		sts bcntr.2346,r24
+ 791 04e2 8091 0000 		lds r24,buffer.2345
+ 792 04e6 880F      		lsl r24
+ 793 04e8 8093 0000 		sts buffer.2345,r24
+ 794 04ec 2091 0000 		lds r18,wpmcnt
+ 795 04f0 3091 0000 		lds r19,wpmcnt+1
+ 796 04f4 90FF      		sbrs r25,0
+ 797 04f6 00C0      		rjmp .L137
+ 798 04f8 3093 0000 		sts timer.2343+1,r19
+ 799 04fc 2093 0000 		sts timer.2343,r18
+ 800 0500 81E0      		ldi r24,lo8(1)
+ 801 0502 8093 0000 		sts lastsymbol.2344,r24
+ 802 0506 00C0      		rjmp .L138
+ 803               	.L137:
+ 804 0508 A901      		movw r20,r18
+ 805 050a 440F      		lsl r20
+ 806 050c 551F      		rol r21
+ 807 050e 240F      		add r18,r20
+ 808 0510 351F      		adc r19,r21
+ 809 0512 3093 0000 		sts timer.2343+1,r19
+ 810 0516 2093 0000 		sts timer.2343,r18
+ 811 051a 92E0      		ldi r25,lo8(2)
+ 812 051c 9093 0000 		sts lastsymbol.2344,r25
+ 813 0520 8160      		ori r24,lo8(1)
+ 814 0522 8093 0000 		sts buffer.2345,r24
+ 815               	.L138:
+ 816 0526 C111      		cpse r28,__zero_reg__
+ 817 0528 00C0      		rjmp .L139
+ 818 052a 0E94 0000 		call transition_to_tx
+ 819               	.L139:
+ 820 052e 82E0      		ldi r24,lo8(2)
+ 821 0530 0E94 0000 		call key
+ 822 0534 8091 0000 		lds r24,volflags
+ 823 0538 8C7F      		andi r24,lo8(-4)
+ 824 053a 8093 0000 		sts volflags,r24
+ 825 053e 81E0      		ldi r24,lo8(1)
+ 826 0540 8093 0000 		sts fsms.2342,r24
+ 827 0544 0E94 0000 		call disable_memory_replay
+ 828 0548 00C0      		rjmp .L156
+ 829               	.L119:
+ 830 054a 8091 0000 		lds r24,yackflags
+ 831 054e 8C70      		andi r24,lo8(12)
+ 832 0550 8430      		cpi r24,lo8(4)
+ 833 0552 01F4      		brne .L140
+ 834 0554 0E94 0000 		call keylatch
+ 835               	.L140:
+ 836 0558 8091 0000 		lds r24,timer.2343
+ 837 055c 9091 0000 		lds r25,timer.2343+1
+ 838 0560 892B      		or r24,r25
+ 839 0562 01F4      		brne .L156
+ 840 0564 81E0      		ldi r24,lo8(1)
+ 841 0566 0E94 0000 		call key
+ 842 056a 8091 0000 		lds r24,wpmcnt
+ 843 056e 9091 0000 		lds r25,wpmcnt+1
+ 844 0572 9093 0000 		sts timer.2343+1,r25
+ 845 0576 8093 0000 		sts timer.2343,r24
+ 846 057a 82E0      		ldi r24,lo8(2)
+ 847 057c 8093 0000 		sts fsms.2342,r24
+ 848 0580 00C0      		rjmp .L156
+ 849               	.L121:
+ 850 0582 0E94 0000 		call keylatch
+ 851 0586 8091 0000 		lds r24,timer.2343
+ 852 058a 9091 0000 		lds r25,timer.2343+1
+ 853 058e 892B      		or r24,r25
+ 854 0590 01F4      		brne .L156
+ 855 0592 1092 0000 		sts fsms.2342,__zero_reg__
+ 856 0596 8091 0000 		lds r24,wpmcnt
+ 857 059a 9091 0000 		lds r25,wpmcnt+1
+ 858 059e 9093 0000 		sts timer.2343+1,r25
+ 859 05a2 8093 0000 		sts timer.2343,r24
+ 860 05a6 C111      		cpse r28,__zero_reg__
+ 861 05a8 00C0      		rjmp .L156
+ 862 05aa 0E94 0000 		call transistion_to_rx
+ 863               	.L156:
+ 864 05ae 80E0      		ldi r24,0
+ 865               	.L118:
+ 866               	/* epilogue start */
+ 867 05b0 CF91      		pop r28
+ 868 05b2 0895      		ret
+ 870               		.section	.rodata.str1.1,"aMS",@progbits,1
+ 871               	.LC0:
+ 872 0000 6520 6520 		.string	"e e e e t"
+ 872      6520 6520 
+ 872      7400 
+ 873               		.text
+ 874               	.global	yackmessage
+ 876               	yackmessage:
+ 877 05b4 8F92      		push r8
+ 878 05b6 9F92      		push r9
+ 879 05b8 AF92      		push r10
+ 880 05ba BF92      		push r11
+ 881 05bc CF92      		push r12
+ 882 05be DF92      		push r13
+ 883 05c0 EF92      		push r14
+ 884 05c2 FF92      		push r15
+ 885 05c4 0F93      		push r16
+ 886 05c6 1F93      		push r17
+ 887 05c8 CF93      		push r28
+ 888 05ca DF93      		push r29
+ 889 05cc CDB7      		in r28,__SP_L__
+ 890 05ce DEB7      		in r29,__SP_H__
+ 891 05d0 C456      		subi r28,100
+ 892 05d2 D109      		sbc r29,__zero_reg__
+ 893 05d4 0FB6      		in __tmp_reg__,__SREG__
+ 894 05d6 F894      		cli
+ 895 05d8 DEBF      		out __SP_H__,r29
+ 896 05da 0FBE      		out __SREG__,__tmp_reg__
+ 897 05dc CDBF      		out __SP_L__,r28
+ 898               	/* prologue: function */
+ 899               	/* frame size = 100 */
+ 900               	/* stack size = 112 */
+ 901               	.L__stack_usage = 112
+ 902 05de 8130      		cpi r24,lo8(1)
+ 903 05e0 01F0      		breq .+2
+ 904 05e2 00C0      		rjmp .L160
+ 905 05e4 08EC      		ldi r16,lo8(-56)
+ 906 05e6 10E0      		ldi r17,0
+ 907               	.L161:
+ 908 05e8 0E94 0000 		call yackbeat
+ 909 05ec 0150      		subi r16,1
+ 910 05ee 1109      		sbc r17,__zero_reg__
+ 911 05f0 01F4      		brne .L161
+ 912 05f2 81E0      		ldi r24,lo8(1)
+ 913 05f4 0E94 0000 		call yackinhibit
+ 914 05f8 80E0      		ldi r24,lo8(.LC0)
+ 915 05fa 90E0      		ldi r25,hi8(.LC0)
+ 916 05fc 0E94 0000 		call yackstring
+ 917 0600 F090 0000 		lds r15,wpm
+ 918 0604 8CE0      		ldi r24,lo8(12)
+ 919 0606 8093 0000 		sts wpm,r24
+ 920 060a 84E1      		ldi r24,lo8(20)
+ 921 060c 90E0      		ldi r25,0
+ 922 060e 9093 0000 		sts wpmcnt+1,r25
+ 923 0612 8093 0000 		sts wpmcnt,r24
+ 924 0616 10E0      		ldi r17,0
+ 925 0618 98EB      		ldi r25,lo8(-72)
+ 926 061a C92E      		mov r12,r25
+ 927 061c 9BE0      		ldi r25,lo8(11)
+ 928 061e D92E      		mov r13,r25
+ 929               	.L165:
+ 930 0620 81E0      		ldi r24,lo8(1)
+ 931 0622 0E94 0000 		call yackiambic
+ 932 0626 8111      		cpse r24,__zero_reg__
+ 933 0628 00C0      		rjmp .L162
+ 934 062a 81E0      		ldi r24,1
+ 935 062c C81A      		sub r12,r24
+ 936 062e D108      		sbc r13,__zero_reg__
+ 937 0630 00C0      		rjmp .L163
+ 938               	.L162:
+ 939 0632 E1E0      		ldi r30,lo8(1)
+ 940 0634 F0E0      		ldi r31,0
+ 941 0636 EC0F      		add r30,r28
+ 942 0638 FD1F      		adc r31,r29
+ 943 063a E10F      		add r30,r17
+ 944 063c F11D      		adc r31,__zero_reg__
+ 945 063e 8083      		st Z,r24
+ 946 0640 1F5F      		subi r17,lo8(-(1))
+ 947 0642 88EB      		ldi r24,lo8(-72)
+ 948 0644 C82E      		mov r12,r24
+ 949 0646 8BE0      		ldi r24,lo8(11)
+ 950 0648 D82E      		mov r13,r24
+ 951               	.L163:
+ 952 064a 1436      		cpi r17,lo8(100)
+ 953 064c 00F0      		brlo .L164
+ 954 064e 0E94 0000 		call yackerror
+ 955 0652 10E0      		ldi r17,0
+ 956               	.L164:
+ 957 0654 0E94 0000 		call yackbeat
+ 958 0658 C114      		cp r12,__zero_reg__
+ 959 065a D104      		cpc r13,__zero_reg__
+ 960 065c 01F4      		brne .L165
+ 961 065e 1123      		tst r17
+ 962 0660 01F0      		breq .L166
+ 963 0662 F092 0000 		sts wpm,r15
+ 964 0666 6F2D      		mov r22,r15
+ 965 0668 70E0      		ldi r23,0
+ 966 066a 80EF      		ldi r24,lo8(-16)
+ 967 066c 90E0      		ldi r25,0
+ 968 066e 0E94 0000 		call __divmodhi4
+ 969 0672 7093 0000 		sts wpmcnt+1,r23
+ 970 0676 6093 0000 		sts wpmcnt,r22
+ 971 067a 1150      		subi r17,lo8(-(-1))
+ 972 067c E12E      		mov r14,r17
+ 973 067e F12C      		mov r15,__zero_reg__
+ 974 0680 DE01      		movw r26,r28
+ 975 0682 1196      		adiw r26,1
+ 976 0684 6D01      		movw r12,r26
+ 977 0686 FD01      		movw r30,r26
+ 978 0688 EE0D      		add r30,r14
+ 979 068a FF1D      		adc r31,r15
+ 980 068c 1082      		st Z,__zero_reg__
+ 981 068e 8FE0      		ldi r24,lo8(15)
+ 982 0690 E0E0      		ldi r30,lo8(callStr)
+ 983 0692 F0E0      		ldi r31,hi8(callStr)
+ 984 0694 DF01      		movw r26,r30
+ 985               		0:
+ 986 0696 1D92      		st X+,__zero_reg__
+ 987 0698 8A95      		dec r24
+ 988 069a 01F4      		brne 0b
+ 989 069c 4F01      		movw r8,r30
+ 990 069e 5601      		movw r10,r12
+ 991               	.L167:
+ 992 06a0 8A2D      		mov r24,r10
+ 993 06a2 8C19      		sub r24,r12
+ 994 06a4 8117      		cp r24,r17
+ 995 06a6 00F4      		brsh .L171
+ 996 06a8 F501      		movw r30,r10
+ 997 06aa 0191      		ld r16,Z+
+ 998 06ac 5F01      		movw r10,r30
+ 999 06ae 802F      		mov r24,r16
+ 1000 06b0 0E94 0000 		call yackchar
+ 1001 06b4 D401      		movw r26,r8
+ 1002 06b6 0D93      		st X+,r16
+ 1003 06b8 4D01      		movw r8,r26
+ 1004 06ba 00C0      		rjmp .L167
+ 1005               	.L171:
+ 1006 06bc F701      		movw r30,r14
+ 1007 06be E050      		subi r30,lo8(-(callStr))
+ 1008 06c0 F040      		sbci r31,hi8(-(callStr))
+ 1009 06c2 1182      		std Z+1,__zero_reg__
+ 1010 06c4 00C0      		rjmp .L160
+ 1011               	.L166:
+ 1012 06c6 0E94 0000 		call yackerror
+ 1013               	.L160:
+ 1014               	/* epilogue start */
+ 1015 06ca CC59      		subi r28,-100
+ 1016 06cc DF4F      		sbci r29,-1
+ 1017 06ce 0FB6      		in __tmp_reg__,__SREG__
+ 1018 06d0 F894      		cli
+ 1019 06d2 DEBF      		out __SP_H__,r29
+ 1020 06d4 0FBE      		out __SREG__,__tmp_reg__
+ 1021 06d6 CDBF      		out __SP_L__,r28
+ 1022 06d8 DF91      		pop r29
+ 1023 06da CF91      		pop r28
+ 1024 06dc 1F91      		pop r17
+ 1025 06de 0F91      		pop r16
+ 1026 06e0 FF90      		pop r15
+ 1027 06e2 EF90      		pop r14
+ 1028 06e4 DF90      		pop r13
+ 1029 06e6 CF90      		pop r12
+ 1030 06e8 BF90      		pop r11
+ 1031 06ea AF90      		pop r10
+ 1032 06ec 9F90      		pop r9
+ 1033 06ee 8F90      		pop r8
+ 1034 06f0 0C94 0000 		jmp yackinhibit.part.1
+ 1036               		.local	buffer.2345
+ 1037               		.comm	buffer.2345,1,1
+ 1038               		.local	bcntr.2346
+ 1039               		.comm	bcntr.2346,1,1
+ 1040               		.local	ultimem.2348
+ 1041               		.comm	ultimem.2348,1,1
+ 1042               		.local	lastsymbol.2344
+ 1043               		.comm	lastsymbol.2344,1,1
+ 1044               		.local	fsms.2342
+ 1045               		.comm	fsms.2342,1,1
+ 1046               		.local	iwgflag.2347
+ 1047               		.comm	iwgflag.2347,1,1
+ 1048               		.local	timer.2343
+ 1049               		.comm	timer.2343,2,1
+ 1050               	.global	spechar
+ 1051               		.section	.progmem.data,"a",@progbits
+ 1054               	spechar:
+ 1055 0000 3F3D 2E23 		.ascii	"?=.#$/"
+ 1055      242F 
+ 1056               	.global	morse
+ 1059               	morse:
+ 1060 0006 FC        		.byte	-4
+ 1061 0007 7C        		.byte	124
+ 1062 0008 3C        		.byte	60
+ 1063 0009 1C        		.byte	28
+ 1064 000a 0C        		.byte	12
+ 1065 000b 04        		.byte	4
+ 1066 000c 84        		.byte	-124
+ 1067 000d C4        		.byte	-60
+ 1068 000e E4        		.byte	-28
+ 1069 000f F4        		.byte	-12
+ 1070 0010 60        		.byte	96
+ 1071 0011 88        		.byte	-120
+ 1072 0012 A8        		.byte	-88
+ 1073 0013 90        		.byte	-112
+ 1074 0014 40        		.byte	64
+ 1075 0015 28        		.byte	40
+ 1076 0016 D0        		.byte	-48
+ 1077 0017 08        		.byte	8
+ 1078 0018 20        		.byte	32
+ 1079 0019 78        		.byte	120
+ 1080 001a B0        		.byte	-80
+ 1081 001b 48        		.byte	72
+ 1082 001c E0        		.byte	-32
+ 1083 001d A0        		.byte	-96
+ 1084 001e F0        		.byte	-16
+ 1085 001f 68        		.byte	104
+ 1086 0020 D8        		.byte	-40
+ 1087 0021 50        		.byte	80
+ 1088 0022 10        		.byte	16
+ 1089 0023 C0        		.byte	-64
+ 1090 0024 30        		.byte	48
+ 1091 0025 18        		.byte	24
+ 1092 0026 70        		.byte	112
+ 1093 0027 98        		.byte	-104
+ 1094 0028 B8        		.byte	-72
+ 1095 0029 C8        		.byte	-56
+ 1096 002a 32        		.byte	50
+ 1097 002b 8C        		.byte	-116
+ 1098 002c 56        		.byte	86
+ 1099 002d 16        		.byte	22
+ 1100 002e 54        		.byte	84
+ 1101 002f 94        		.byte	-108
+ 1102               		.local	farnsworth
+ 1103               		.comm	farnsworth,1,1
+ 1104               		.local	volflags
+ 1105               		.comm	volflags,1,1
+ 1106               		.local	yackflags
+ 1107               		.comm	yackflags,1,1
+ 1108               		.comm	wpm,1,1
+ 1109               		.comm	wpmcnt,2,1
+ 1110               		.comm	callStr,15,1
+ 1111               		.ident	"GCC: (GNU) 5.4.0"
+ 1112               	.global __do_copy_data
+ 1113               	.global __do_clear_bss
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 yack.c
+     /tmp/ccWQasoz.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccWQasoz.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccWQasoz.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccWQasoz.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccWQasoz.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccWQasoz.s:9      .text:0000000000000000 keylatch
+     /tmp/ccWQasoz.s:1105   .bss:000000000000000a yackflags
+     /tmp/ccWQasoz.s:1103   .bss:0000000000000009 volflags
+     /tmp/ccWQasoz.s:46     .text:0000000000000038 yackreset
+                            *COM*:0000000000000001 wpm
+                            *COM*:0000000000000002 wpmcnt
+     /tmp/ccWQasoz.s:67     .text:0000000000000060 yackwpm
+     /tmp/ccWQasoz.s:78     .text:0000000000000068 yackbeat
+     /tmp/ccWQasoz.s:91     .text:0000000000000070 yackmode
+     /tmp/ccWQasoz.s:107    .text:0000000000000088 yackflag
+     /tmp/ccWQasoz.s:118    .text:0000000000000090 yacktoggle
+     /tmp/ccWQasoz.s:133    .text:00000000000000a6 key
+     /tmp/ccWQasoz.s:173    .text:00000000000000ec yackinhibit.part.1
+     /tmp/ccWQasoz.s:190    .text:0000000000000106 yackinhibit
+     /tmp/ccWQasoz.s:207    .text:000000000000011c yackinit
+     /tmp/ccWQasoz.s:217    .text:0000000000000124 yacktune
+     /tmp/ccWQasoz.s:265    .text:0000000000000178 yackdelay
+     /tmp/ccWQasoz.s:294    .text:000000000000019c yackplay
+     /tmp/ccWQasoz.s:321    .text:00000000000001c0 yackspeed
+     /tmp/ccWQasoz.s:1049   .bss:0000000000000008 farnsworth
+     /tmp/ccWQasoz.s:383    .text:000000000000023e yackchar
+     /tmp/ccWQasoz.s:1059   .progmem.data:0000000000000006 morse
+     /tmp/ccWQasoz.s:1054   .progmem.data:0000000000000000 spechar
+     /tmp/ccWQasoz.s:494    .text:00000000000002c8 yackerror
+     /tmp/ccWQasoz.s:515    .text:00000000000002e4 yackstring
+     /tmp/ccWQasoz.s:558    .text:0000000000000324 yacknumber
+     /tmp/ccWQasoz.s:618    .text:000000000000038a yackiambic
+     /tmp/ccWQasoz.s:1047   .bss:0000000000000006 timer.2343
+     /tmp/ccWQasoz.s:1045   .bss:0000000000000005 iwgflag.2347
+     /tmp/ccWQasoz.s:1043   .bss:0000000000000004 fsms.2342
+     /tmp/ccWQasoz.s:1041   .bss:0000000000000003 lastsymbol.2344
+     /tmp/ccWQasoz.s:1039   .bss:0000000000000002 ultimem.2348
+     /tmp/ccWQasoz.s:1037   .bss:0000000000000001 bcntr.2346
+                             .bss:0000000000000000 buffer.2345
+     /tmp/ccWQasoz.s:876    .text:00000000000005b4 yackmessage
+                            *COM*:000000000000000f callStr
+
+UNDEFINED SYMBOLS
+__divmodhi4
+transition_to_tx
+transistion_to_rx
+service_vswr
+__udivmodhi4
+disable_memory_replay
+__do_copy_data
+__do_clear_bss

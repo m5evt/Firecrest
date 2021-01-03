@@ -1,0 +1,695 @@
+   1               		.file	"si5351a.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               	.global	__floatunsisf
+   8               	.global	__divsf3
+   9               	.global	__mulsf3
+  10               	.global	__fixunssfsi
+  11               		.text
+  12               	.global	setupPLL
+  14               	setupPLL:
+  15 0000 4F92      		push r4
+  16 0002 5F92      		push r5
+  17 0004 6F92      		push r6
+  18 0006 7F92      		push r7
+  19 0008 8F92      		push r8
+  20 000a 9F92      		push r9
+  21 000c AF92      		push r10
+  22 000e BF92      		push r11
+  23 0010 CF92      		push r12
+  24 0012 DF92      		push r13
+  25 0014 EF92      		push r14
+  26 0016 FF92      		push r15
+  27 0018 0F93      		push r16
+  28 001a 1F93      		push r17
+  29 001c CF93      		push r28
+  30 001e DF93      		push r29
+  31               	/* prologue: function */
+  32               	/* frame size = 0 */
+  33               	/* stack size = 16 */
+  34               	.L__stack_usage = 16
+  35 0020 C82F      		mov r28,r24
+  36 0022 D62F      		mov r29,r22
+  37 0024 4901      		movw r8,r18
+  38 0026 5A01      		movw r10,r20
+  39 0028 6701      		movw r12,r14
+  40 002a 7801      		movw r14,r16
+  41 002c CA01      		movw r24,r20
+  42 002e B901      		movw r22,r18
+  43 0030 0E94 0000 		call __floatunsisf
+  44 0034 2B01      		movw r4,r22
+  45 0036 3C01      		movw r6,r24
+  46 0038 C701      		movw r24,r14
+  47 003a B601      		movw r22,r12
+  48 003c 0E94 0000 		call __floatunsisf
+  49 0040 9B01      		movw r18,r22
+  50 0042 AC01      		movw r20,r24
+  51 0044 C301      		movw r24,r6
+  52 0046 B201      		movw r22,r4
+  53 0048 0E94 0000 		call __divsf3
+  54 004c 20E0      		ldi r18,0
+  55 004e 30E0      		ldi r19,0
+  56 0050 40E0      		ldi r20,0
+  57 0052 53E4      		ldi r21,lo8(67)
+  58 0054 0E94 0000 		call __mulsf3
+  59 0058 0E94 0000 		call __fixunssfsi
+  60 005c 4D2E      		mov r4,r29
+  61 005e 512C      		mov r5,__zero_reg__
+  62 0060 612C      		mov r6,__zero_reg__
+  63 0062 712C      		mov r7,__zero_reg__
+  64 0064 27E0      		ldi r18,7
+  65               		1:
+  66 0066 440C      		lsl r4
+  67 0068 551C      		rol r5
+  68 006a 661C      		rol r6
+  69 006c 771C      		rol r7
+  70 006e 2A95      		dec r18
+  71 0070 01F4      		brne 1b
+  72 0072 22E0      		ldi r18,2
+  73 0074 521A      		sub r5,r18
+  74 0076 6108      		sbc r6,__zero_reg__
+  75 0078 7108      		sbc r7,__zero_reg__
+  76 007a 460E      		add r4,r22
+  77 007c 571E      		adc r5,r23
+  78 007e 681E      		adc r6,r24
+  79 0080 791E      		adc r7,r25
+  80 0082 37E0      		ldi r19,7
+  81               		1:
+  82 0084 880C      		lsl r8
+  83 0086 991C      		rol r9
+  84 0088 AA1C      		rol r10
+  85 008a BB1C      		rol r11
+  86 008c 3A95      		dec r19
+  87 008e 01F4      		brne 1b
+  88 0090 A701      		movw r20,r14
+  89 0092 9601      		movw r18,r12
+  90 0094 0E94 0000 		call __mulsi3
+  91 0098 861A      		sub r8,r22
+  92 009a 970A      		sbc r9,r23
+  93 009c A80A      		sbc r10,r24
+  94 009e B90A      		sbc r11,r25
+  95 00a0 6D2D      		mov r22,r13
+  96 00a2 8C2F      		mov r24,r28
+  97 00a4 0E94 0000 		call i2cSendRegister
+  98 00a8 6C2D      		mov r22,r12
+  99 00aa 81E0      		ldi r24,lo8(1)
+ 100 00ac 8C0F      		add r24,r28
+ 101 00ae 0E94 0000 		call i2cSendRegister
+ 102 00b2 D301      		movw r26,r6
+ 103 00b4 C201      		movw r24,r4
+ 104 00b6 8827      		clr r24
+ 105 00b8 9927      		clr r25
+ 106 00ba A370      		andi r26,3
+ 107 00bc BB27      		clr r27
+ 108 00be BD01      		movw r22,r26
+ 109 00c0 8827      		clr r24
+ 110 00c2 9927      		clr r25
+ 111 00c4 82E0      		ldi r24,lo8(2)
+ 112 00c6 8C0F      		add r24,r28
+ 113 00c8 0E94 0000 		call i2cSendRegister
+ 114 00cc 652D      		mov r22,r5
+ 115 00ce 83E0      		ldi r24,lo8(3)
+ 116 00d0 8C0F      		add r24,r28
+ 117 00d2 0E94 0000 		call i2cSendRegister
+ 118 00d6 642D      		mov r22,r4
+ 119 00d8 84E0      		ldi r24,lo8(4)
+ 120 00da 8C0F      		add r24,r28
+ 121 00dc 0E94 0000 		call i2cSendRegister
+ 122 00e0 CC24      		clr r12
+ 123 00e2 DD24      		clr r13
+ 124 00e4 8FE0      		ldi r24,15
+ 125 00e6 E822      		and r14,r24
+ 126 00e8 FF24      		clr r15
+ 127 00ea 5CE0      		ldi r21,12
+ 128               		1:
+ 129 00ec F694      		lsr r15
+ 130 00ee E794      		ror r14
+ 131 00f0 D794      		ror r13
+ 132 00f2 C794      		ror r12
+ 133 00f4 5A95      		dec r21
+ 134 00f6 01F4      		brne 1b
+ 135 00f8 D501      		movw r26,r10
+ 136 00fa C401      		movw r24,r8
+ 137 00fc 8827      		clr r24
+ 138 00fe 9927      		clr r25
+ 139 0100 AF70      		andi r26,15
+ 140 0102 BB27      		clr r27
+ 141 0104 6C2D      		mov r22,r12
+ 142 0106 6A2B      		or r22,r26
+ 143 0108 85E0      		ldi r24,lo8(5)
+ 144 010a 8C0F      		add r24,r28
+ 145 010c 0E94 0000 		call i2cSendRegister
+ 146 0110 692D      		mov r22,r9
+ 147 0112 86E0      		ldi r24,lo8(6)
+ 148 0114 8C0F      		add r24,r28
+ 149 0116 0E94 0000 		call i2cSendRegister
+ 150 011a 682D      		mov r22,r8
+ 151 011c 87E0      		ldi r24,lo8(7)
+ 152 011e 8C0F      		add r24,r28
+ 153               	/* epilogue start */
+ 154 0120 DF91      		pop r29
+ 155 0122 CF91      		pop r28
+ 156 0124 1F91      		pop r17
+ 157 0126 0F91      		pop r16
+ 158 0128 FF90      		pop r15
+ 159 012a EF90      		pop r14
+ 160 012c DF90      		pop r13
+ 161 012e CF90      		pop r12
+ 162 0130 BF90      		pop r11
+ 163 0132 AF90      		pop r10
+ 164 0134 9F90      		pop r9
+ 165 0136 8F90      		pop r8
+ 166 0138 7F90      		pop r7
+ 167 013a 6F90      		pop r6
+ 168 013c 5F90      		pop r5
+ 169 013e 4F90      		pop r4
+ 170 0140 0C94 0000 		jmp i2cSendRegister
+ 172               	.global	setupMultisynth
+ 174               	setupMultisynth:
+ 175 0144 CF92      		push r12
+ 176 0146 DF92      		push r13
+ 177 0148 EF92      		push r14
+ 178 014a FF92      		push r15
+ 179 014c CF93      		push r28
+ 180 014e DF93      		push r29
+ 181               	/* prologue: function */
+ 182               	/* frame size = 0 */
+ 183               	/* stack size = 6 */
+ 184               	.L__stack_usage = 6
+ 185 0150 C82F      		mov r28,r24
+ 186 0152 D22F      		mov r29,r18
+ 187 0154 4450      		subi r20,4
+ 188 0156 5109      		sbc r21,__zero_reg__
+ 189 0158 6109      		sbc r22,__zero_reg__
+ 190 015a 7E4F      		sbci r23,-2
+ 191 015c 6A01      		movw r12,r20
+ 192 015e 7B01      		movw r14,r22
+ 193 0160 87E0      		ldi r24,7
+ 194               		1:
+ 195 0162 CC0C      		lsl r12
+ 196 0164 DD1C      		rol r13
+ 197 0166 EE1C      		rol r14
+ 198 0168 FF1C      		rol r15
+ 199 016a 8A95      		dec r24
+ 200 016c 01F4      		brne 1b
+ 201 016e 60E0      		ldi r22,0
+ 202 0170 8C2F      		mov r24,r28
+ 203 0172 0E94 0000 		call i2cSendRegister
+ 204 0176 61E0      		ldi r22,lo8(1)
+ 205 0178 81E0      		ldi r24,lo8(1)
+ 206 017a 8C0F      		add r24,r28
+ 207 017c 0E94 0000 		call i2cSendRegister
+ 208 0180 D701      		movw r26,r14
+ 209 0182 C601      		movw r24,r12
+ 210 0184 8827      		clr r24
+ 211 0186 9927      		clr r25
+ 212 0188 A370      		andi r26,3
+ 213 018a BB27      		clr r27
+ 214 018c 6D2F      		mov r22,r29
+ 215 018e 6A2B      		or r22,r26
+ 216 0190 82E0      		ldi r24,lo8(2)
+ 217 0192 8C0F      		add r24,r28
+ 218 0194 0E94 0000 		call i2cSendRegister
+ 219 0198 6D2D      		mov r22,r13
+ 220 019a 83E0      		ldi r24,lo8(3)
+ 221 019c 8C0F      		add r24,r28
+ 222 019e 0E94 0000 		call i2cSendRegister
+ 223 01a2 6C2D      		mov r22,r12
+ 224 01a4 84E0      		ldi r24,lo8(4)
+ 225 01a6 8C0F      		add r24,r28
+ 226 01a8 0E94 0000 		call i2cSendRegister
+ 227 01ac 60E0      		ldi r22,0
+ 228 01ae 85E0      		ldi r24,lo8(5)
+ 229 01b0 8C0F      		add r24,r28
+ 230 01b2 0E94 0000 		call i2cSendRegister
+ 231 01b6 60E0      		ldi r22,0
+ 232 01b8 86E0      		ldi r24,lo8(6)
+ 233 01ba 8C0F      		add r24,r28
+ 234 01bc 0E94 0000 		call i2cSendRegister
+ 235 01c0 60E0      		ldi r22,0
+ 236 01c2 87E0      		ldi r24,lo8(7)
+ 237 01c4 8C0F      		add r24,r28
+ 238               	/* epilogue start */
+ 239 01c6 DF91      		pop r29
+ 240 01c8 CF91      		pop r28
+ 241 01ca FF90      		pop r15
+ 242 01cc EF90      		pop r14
+ 243 01ce DF90      		pop r13
+ 244 01d0 CF90      		pop r12
+ 245 01d2 0C94 0000 		jmp i2cSendRegister
+ 247               	.global	si5351_clock_enable
+ 249               	si5351_clock_enable:
+ 250 01d6 1F93      		push r17
+ 251 01d8 CF93      		push r28
+ 252 01da DF93      		push r29
+ 253               	/* prologue: function */
+ 254               	/* frame size = 0 */
+ 255               	/* stack size = 3 */
+ 256               	.L__stack_usage = 3
+ 257 01dc C82F      		mov r28,r24
+ 258 01de 162F      		mov r17,r22
+ 259 01e0 0E94 0000 		call i2c_start
+ 260 01e4 8830      		cpi r24,lo8(8)
+ 261 01e6 01F4      		brne .L9
+ 262 01e8 80EC      		ldi r24,lo8(-64)
+ 263 01ea 0E94 0000 		call i2c_write
+ 264 01ee 8831      		cpi r24,lo8(24)
+ 265 01f0 01F4      		brne .L9
+ 266 01f2 83E0      		ldi r24,lo8(3)
+ 267 01f4 0E94 0000 		call i2c_write
+ 268 01f8 8832      		cpi r24,lo8(40)
+ 269 01fa 01F4      		brne .L9
+ 270 01fc 0E94 0000 		call i2c_start
+ 271 0200 8031      		cpi r24,lo8(16)
+ 272 0202 01F4      		brne .L9
+ 273 0204 81EC      		ldi r24,lo8(-63)
+ 274 0206 0E94 0000 		call i2c_write
+ 275 020a 8034      		cpi r24,lo8(64)
+ 276 020c 01F4      		brne .L9
+ 277 020e 0E94 0000 		call i2c_read_nack
+ 278 0212 D82F      		mov r29,r24
+ 279 0214 0E94 0000 		call i2c_stop
+ 280 0218 81E0      		ldi r24,lo8(1)
+ 281 021a 90E0      		ldi r25,0
+ 282 021c 00C0      		rjmp 2f
+ 283               		1:
+ 284 021e 880F      		lsl r24
+ 285               		2:
+ 286 0220 CA95      		dec r28
+ 287 0222 02F4      		brpl 1b
+ 288 0224 1130      		cpi r17,lo8(1)
+ 289 0226 01F4      		brne .L6
+ 290 0228 C82F      		mov r28,r24
+ 291 022a C095      		com r28
+ 292 022c CD23      		and r28,r29
+ 293 022e 00C0      		rjmp .L7
+ 294               	.L6:
+ 295 0230 CD2F      		mov r28,r29
+ 296 0232 C82B      		or r28,r24
+ 297               	.L7:
+ 298 0234 0E94 0000 		call i2c_start
+ 299 0238 8830      		cpi r24,lo8(8)
+ 300 023a 01F0      		breq .L8
+ 301               	.L9:
+ 302               	/* epilogue start */
+ 303 023c DF91      		pop r29
+ 304 023e CF91      		pop r28
+ 305 0240 1F91      		pop r17
+ 306 0242 0C94 0000 		jmp i2c_stop
+ 307               	.L8:
+ 308 0246 80EC      		ldi r24,lo8(-64)
+ 309 0248 0E94 0000 		call i2c_write
+ 310 024c 8831      		cpi r24,lo8(24)
+ 311 024e 01F4      		brne .L9
+ 312 0250 83E0      		ldi r24,lo8(3)
+ 313 0252 0E94 0000 		call i2c_write
+ 314 0256 8832      		cpi r24,lo8(40)
+ 315 0258 01F4      		brne .L9
+ 316 025a 8C2F      		mov r24,r28
+ 317 025c 0E94 0000 		call i2c_write
+ 318 0260 00C0      		rjmp .L9
+ 320               	.global	si5351aSetInitFrequency
+ 322               	si5351aSetInitFrequency:
+ 323 0262 8F92      		push r8
+ 324 0264 9F92      		push r9
+ 325 0266 AF92      		push r10
+ 326 0268 BF92      		push r11
+ 327 026a CF92      		push r12
+ 328 026c DF92      		push r13
+ 329 026e EF92      		push r14
+ 330 0270 FF92      		push r15
+ 331 0272 0F93      		push r16
+ 332 0274 1F93      		push r17
+ 333               	/* prologue: function */
+ 334               	/* frame size = 0 */
+ 335               	/* stack size = 10 */
+ 336               	.L__stack_usage = 10
+ 337 0276 6B01      		movw r12,r22
+ 338 0278 7C01      		movw r14,r24
+ 339 027a 60E0      		ldi r22,0
+ 340 027c 79EE      		ldi r23,lo8(-23)
+ 341 027e 84EA      		ldi r24,lo8(-92)
+ 342 0280 95E3      		ldi r25,lo8(53)
+ 343 0282 A701      		movw r20,r14
+ 344 0284 9601      		movw r18,r12
+ 345 0286 0E94 0000 		call __udivmodsi4
+ 346 028a 4901      		movw r8,r18
+ 347 028c 5A01      		movw r10,r20
+ 348 028e 20FF      		sbrs r18,0
+ 349 0290 00C0      		rjmp .L12
+ 350 0292 81E0      		ldi r24,1
+ 351 0294 881A      		sub r8,r24
+ 352 0296 9108      		sbc r9,__zero_reg__
+ 353 0298 A108      		sbc r10,__zero_reg__
+ 354 029a B108      		sbc r11,__zero_reg__
+ 355               	.L12:
+ 356 029c A501      		movw r20,r10
+ 357 029e 9401      		movw r18,r8
+ 358 02a0 C701      		movw r24,r14
+ 359 02a2 B601      		movw r22,r12
+ 360 02a4 0E94 0000 		call __mulsi3
+ 361 02a8 20EC      		ldi r18,lo8(-64)
+ 362 02aa 3CEF      		ldi r19,lo8(-4)
+ 363 02ac 4BE9      		ldi r20,lo8(-101)
+ 364 02ae 51E0      		ldi r21,lo8(1)
+ 365 02b0 0E94 0000 		call __udivmodsi4
+ 366 02b4 D22E      		mov r13,r18
+ 367 02b6 0E94 0000 		call __floatunsisf
+ 368 02ba 20EF      		ldi r18,lo8(-16)
+ 369 02bc 3FEF      		ldi r19,lo8(-1)
+ 370 02be 4FE7      		ldi r20,lo8(127)
+ 371 02c0 59E4      		ldi r21,lo8(73)
+ 372 02c2 0E94 0000 		call __mulsf3
+ 373 02c6 20E6      		ldi r18,lo8(96)
+ 374 02c8 3EEF      		ldi r19,lo8(-2)
+ 375 02ca 4DEC      		ldi r20,lo8(-51)
+ 376 02cc 5BE4      		ldi r21,lo8(75)
+ 377 02ce 0E94 0000 		call __divsf3
+ 378 02d2 0E94 0000 		call __fixunssfsi
+ 379 02d6 9B01      		movw r18,r22
+ 380 02d8 AC01      		movw r20,r24
+ 381 02da EE24      		clr r14
+ 382 02dc EA94      		dec r14
+ 383 02de FE2C      		mov r15,r14
+ 384 02e0 0FE0      		ldi r16,lo8(15)
+ 385 02e2 10E0      		ldi r17,0
+ 386 02e4 6D2D      		mov r22,r13
+ 387 02e6 8AE1      		ldi r24,lo8(26)
+ 388 02e8 0E94 0000 		call setupPLL
+ 389 02ec 20E0      		ldi r18,0
+ 390 02ee B501      		movw r22,r10
+ 391 02f0 A401      		movw r20,r8
+ 392 02f2 8AE2      		ldi r24,lo8(42)
+ 393 02f4 0E94 0000 		call setupMultisynth
+ 394 02f8 60EA      		ldi r22,lo8(-96)
+ 395 02fa 81EB      		ldi r24,lo8(-79)
+ 396 02fc 0E94 0000 		call i2cSendRegister
+ 397 0300 6FE4      		ldi r22,lo8(79)
+ 398 0302 80E1      		ldi r24,lo8(16)
+ 399               	/* epilogue start */
+ 400 0304 1F91      		pop r17
+ 401 0306 0F91      		pop r16
+ 402 0308 FF90      		pop r15
+ 403 030a EF90      		pop r14
+ 404 030c DF90      		pop r13
+ 405 030e CF90      		pop r12
+ 406 0310 BF90      		pop r11
+ 407 0312 AF90      		pop r10
+ 408 0314 9F90      		pop r9
+ 409 0316 8F90      		pop r8
+ 410 0318 0C94 0000 		jmp i2cSendRegister
+ 412               	.global	si5351aSetInitTXFrequency
+ 414               	si5351aSetInitTXFrequency:
+ 415 031c 8F92      		push r8
+ 416 031e 9F92      		push r9
+ 417 0320 AF92      		push r10
+ 418 0322 BF92      		push r11
+ 419 0324 CF92      		push r12
+ 420 0326 DF92      		push r13
+ 421 0328 EF92      		push r14
+ 422 032a FF92      		push r15
+ 423 032c 0F93      		push r16
+ 424 032e 1F93      		push r17
+ 425               	/* prologue: function */
+ 426               	/* frame size = 0 */
+ 427               	/* stack size = 10 */
+ 428               	.L__stack_usage = 10
+ 429 0330 6B01      		movw r12,r22
+ 430 0332 7C01      		movw r14,r24
+ 431 0334 60E0      		ldi r22,0
+ 432 0336 79EE      		ldi r23,lo8(-23)
+ 433 0338 84EA      		ldi r24,lo8(-92)
+ 434 033a 95E3      		ldi r25,lo8(53)
+ 435 033c A701      		movw r20,r14
+ 436 033e 9601      		movw r18,r12
+ 437 0340 0E94 0000 		call __udivmodsi4
+ 438 0344 4901      		movw r8,r18
+ 439 0346 5A01      		movw r10,r20
+ 440 0348 20FF      		sbrs r18,0
+ 441 034a 00C0      		rjmp .L17
+ 442 034c 81E0      		ldi r24,1
+ 443 034e 881A      		sub r8,r24
+ 444 0350 9108      		sbc r9,__zero_reg__
+ 445 0352 A108      		sbc r10,__zero_reg__
+ 446 0354 B108      		sbc r11,__zero_reg__
+ 447               	.L17:
+ 448 0356 A501      		movw r20,r10
+ 449 0358 9401      		movw r18,r8
+ 450 035a C701      		movw r24,r14
+ 451 035c B601      		movw r22,r12
+ 452 035e 0E94 0000 		call __mulsi3
+ 453 0362 20EC      		ldi r18,lo8(-64)
+ 454 0364 3CEF      		ldi r19,lo8(-4)
+ 455 0366 4BE9      		ldi r20,lo8(-101)
+ 456 0368 51E0      		ldi r21,lo8(1)
+ 457 036a 0E94 0000 		call __udivmodsi4
+ 458 036e D22E      		mov r13,r18
+ 459 0370 0E94 0000 		call __floatunsisf
+ 460 0374 20EF      		ldi r18,lo8(-16)
+ 461 0376 3FEF      		ldi r19,lo8(-1)
+ 462 0378 4FE7      		ldi r20,lo8(127)
+ 463 037a 59E4      		ldi r21,lo8(73)
+ 464 037c 0E94 0000 		call __mulsf3
+ 465 0380 20E6      		ldi r18,lo8(96)
+ 466 0382 3EEF      		ldi r19,lo8(-2)
+ 467 0384 4DEC      		ldi r20,lo8(-51)
+ 468 0386 5BE4      		ldi r21,lo8(75)
+ 469 0388 0E94 0000 		call __divsf3
+ 470 038c 0E94 0000 		call __fixunssfsi
+ 471 0390 9B01      		movw r18,r22
+ 472 0392 AC01      		movw r20,r24
+ 473 0394 EE24      		clr r14
+ 474 0396 EA94      		dec r14
+ 475 0398 FE2C      		mov r15,r14
+ 476 039a 0FE0      		ldi r16,lo8(15)
+ 477 039c 10E0      		ldi r17,0
+ 478 039e 6D2D      		mov r22,r13
+ 479 03a0 82E2      		ldi r24,lo8(34)
+ 480 03a2 0E94 0000 		call setupPLL
+ 481 03a6 20E0      		ldi r18,0
+ 482 03a8 B501      		movw r22,r10
+ 483 03aa A401      		movw r20,r8
+ 484 03ac 8AE3      		ldi r24,lo8(58)
+ 485 03ae 0E94 0000 		call setupMultisynth
+ 486 03b2 60EA      		ldi r22,lo8(-96)
+ 487 03b4 81EB      		ldi r24,lo8(-79)
+ 488 03b6 0E94 0000 		call i2cSendRegister
+ 489 03ba 6FE6      		ldi r22,lo8(111)
+ 490 03bc 82E1      		ldi r24,lo8(18)
+ 491               	/* epilogue start */
+ 492 03be 1F91      		pop r17
+ 493 03c0 0F91      		pop r16
+ 494 03c2 FF90      		pop r15
+ 495 03c4 EF90      		pop r14
+ 496 03c6 DF90      		pop r13
+ 497 03c8 CF90      		pop r12
+ 498 03ca BF90      		pop r11
+ 499 03cc AF90      		pop r10
+ 500 03ce 9F90      		pop r9
+ 501 03d0 8F90      		pop r8
+ 502 03d2 0C94 0000 		jmp i2cSendRegister
+ 504               	.global	si5351aSetTXFrequency
+ 506               	si5351aSetTXFrequency:
+ 507 03d6 8F92      		push r8
+ 508 03d8 9F92      		push r9
+ 509 03da AF92      		push r10
+ 510 03dc BF92      		push r11
+ 511 03de CF92      		push r12
+ 512 03e0 DF92      		push r13
+ 513 03e2 EF92      		push r14
+ 514 03e4 FF92      		push r15
+ 515 03e6 0F93      		push r16
+ 516 03e8 1F93      		push r17
+ 517               	/* prologue: function */
+ 518               	/* frame size = 0 */
+ 519               	/* stack size = 10 */
+ 520               	.L__stack_usage = 10
+ 521 03ea 6B01      		movw r12,r22
+ 522 03ec 7C01      		movw r14,r24
+ 523 03ee 60E0      		ldi r22,0
+ 524 03f0 79EE      		ldi r23,lo8(-23)
+ 525 03f2 84EA      		ldi r24,lo8(-92)
+ 526 03f4 95E3      		ldi r25,lo8(53)
+ 527 03f6 A701      		movw r20,r14
+ 528 03f8 9601      		movw r18,r12
+ 529 03fa 0E94 0000 		call __udivmodsi4
+ 530 03fe 4901      		movw r8,r18
+ 531 0400 5A01      		movw r10,r20
+ 532 0402 20FF      		sbrs r18,0
+ 533 0404 00C0      		rjmp .L22
+ 534 0406 81E0      		ldi r24,1
+ 535 0408 881A      		sub r8,r24
+ 536 040a 9108      		sbc r9,__zero_reg__
+ 537 040c A108      		sbc r10,__zero_reg__
+ 538 040e B108      		sbc r11,__zero_reg__
+ 539               	.L22:
+ 540 0410 A501      		movw r20,r10
+ 541 0412 9401      		movw r18,r8
+ 542 0414 C701      		movw r24,r14
+ 543 0416 B601      		movw r22,r12
+ 544 0418 0E94 0000 		call __mulsi3
+ 545 041c 20EC      		ldi r18,lo8(-64)
+ 546 041e 3CEF      		ldi r19,lo8(-4)
+ 547 0420 4BE9      		ldi r20,lo8(-101)
+ 548 0422 51E0      		ldi r21,lo8(1)
+ 549 0424 0E94 0000 		call __udivmodsi4
+ 550 0428 D22E      		mov r13,r18
+ 551 042a 0E94 0000 		call __floatunsisf
+ 552 042e 20EF      		ldi r18,lo8(-16)
+ 553 0430 3FEF      		ldi r19,lo8(-1)
+ 554 0432 4FE7      		ldi r20,lo8(127)
+ 555 0434 59E4      		ldi r21,lo8(73)
+ 556 0436 0E94 0000 		call __mulsf3
+ 557 043a 20E6      		ldi r18,lo8(96)
+ 558 043c 3EEF      		ldi r19,lo8(-2)
+ 559 043e 4DEC      		ldi r20,lo8(-51)
+ 560 0440 5BE4      		ldi r21,lo8(75)
+ 561 0442 0E94 0000 		call __divsf3
+ 562 0446 0E94 0000 		call __fixunssfsi
+ 563 044a 9B01      		movw r18,r22
+ 564 044c AC01      		movw r20,r24
+ 565 044e EE24      		clr r14
+ 566 0450 EA94      		dec r14
+ 567 0452 FE2C      		mov r15,r14
+ 568 0454 0FE0      		ldi r16,lo8(15)
+ 569 0456 10E0      		ldi r17,0
+ 570 0458 6D2D      		mov r22,r13
+ 571 045a 82E2      		ldi r24,lo8(34)
+ 572 045c 0E94 0000 		call setupPLL
+ 573 0460 20E0      		ldi r18,0
+ 574 0462 B501      		movw r22,r10
+ 575 0464 A401      		movw r20,r8
+ 576 0466 8AE3      		ldi r24,lo8(58)
+ 577 0468 0E94 0000 		call setupMultisynth
+ 578 046c 6FE6      		ldi r22,lo8(111)
+ 579 046e 82E1      		ldi r24,lo8(18)
+ 580               	/* epilogue start */
+ 581 0470 1F91      		pop r17
+ 582 0472 0F91      		pop r16
+ 583 0474 FF90      		pop r15
+ 584 0476 EF90      		pop r14
+ 585 0478 DF90      		pop r13
+ 586 047a CF90      		pop r12
+ 587 047c BF90      		pop r11
+ 588 047e AF90      		pop r10
+ 589 0480 9F90      		pop r9
+ 590 0482 8F90      		pop r8
+ 591 0484 0C94 0000 		jmp i2cSendRegister
+ 593               	.global	si5351aSetFrequency
+ 595               	si5351aSetFrequency:
+ 596 0488 8F92      		push r8
+ 597 048a 9F92      		push r9
+ 598 048c AF92      		push r10
+ 599 048e BF92      		push r11
+ 600 0490 CF92      		push r12
+ 601 0492 DF92      		push r13
+ 602 0494 EF92      		push r14
+ 603 0496 FF92      		push r15
+ 604 0498 0F93      		push r16
+ 605 049a 1F93      		push r17
+ 606               	/* prologue: function */
+ 607               	/* frame size = 0 */
+ 608               	/* stack size = 10 */
+ 609               	.L__stack_usage = 10
+ 610 049c 6B01      		movw r12,r22
+ 611 049e 7C01      		movw r14,r24
+ 612 04a0 60E0      		ldi r22,0
+ 613 04a2 79EE      		ldi r23,lo8(-23)
+ 614 04a4 84EA      		ldi r24,lo8(-92)
+ 615 04a6 95E3      		ldi r25,lo8(53)
+ 616 04a8 A701      		movw r20,r14
+ 617 04aa 9601      		movw r18,r12
+ 618 04ac 0E94 0000 		call __udivmodsi4
+ 619 04b0 4901      		movw r8,r18
+ 620 04b2 5A01      		movw r10,r20
+ 621 04b4 20FF      		sbrs r18,0
+ 622 04b6 00C0      		rjmp .L27
+ 623 04b8 81E0      		ldi r24,1
+ 624 04ba 881A      		sub r8,r24
+ 625 04bc 9108      		sbc r9,__zero_reg__
+ 626 04be A108      		sbc r10,__zero_reg__
+ 627 04c0 B108      		sbc r11,__zero_reg__
+ 628               	.L27:
+ 629 04c2 A501      		movw r20,r10
+ 630 04c4 9401      		movw r18,r8
+ 631 04c6 C701      		movw r24,r14
+ 632 04c8 B601      		movw r22,r12
+ 633 04ca 0E94 0000 		call __mulsi3
+ 634 04ce 20EC      		ldi r18,lo8(-64)
+ 635 04d0 3CEF      		ldi r19,lo8(-4)
+ 636 04d2 4BE9      		ldi r20,lo8(-101)
+ 637 04d4 51E0      		ldi r21,lo8(1)
+ 638 04d6 0E94 0000 		call __udivmodsi4
+ 639 04da D22E      		mov r13,r18
+ 640 04dc 0E94 0000 		call __floatunsisf
+ 641 04e0 20EF      		ldi r18,lo8(-16)
+ 642 04e2 3FEF      		ldi r19,lo8(-1)
+ 643 04e4 4FE7      		ldi r20,lo8(127)
+ 644 04e6 59E4      		ldi r21,lo8(73)
+ 645 04e8 0E94 0000 		call __mulsf3
+ 646 04ec 20E6      		ldi r18,lo8(96)
+ 647 04ee 3EEF      		ldi r19,lo8(-2)
+ 648 04f0 4DEC      		ldi r20,lo8(-51)
+ 649 04f2 5BE4      		ldi r21,lo8(75)
+ 650 04f4 0E94 0000 		call __divsf3
+ 651 04f8 0E94 0000 		call __fixunssfsi
+ 652 04fc 9B01      		movw r18,r22
+ 653 04fe AC01      		movw r20,r24
+ 654 0500 EE24      		clr r14
+ 655 0502 EA94      		dec r14
+ 656 0504 FE2C      		mov r15,r14
+ 657 0506 0FE0      		ldi r16,lo8(15)
+ 658 0508 10E0      		ldi r17,0
+ 659 050a 6D2D      		mov r22,r13
+ 660 050c 8AE1      		ldi r24,lo8(26)
+ 661 050e 0E94 0000 		call setupPLL
+ 662 0512 20E0      		ldi r18,0
+ 663 0514 B501      		movw r22,r10
+ 664 0516 A401      		movw r20,r8
+ 665 0518 8AE2      		ldi r24,lo8(42)
+ 666 051a 0E94 0000 		call setupMultisynth
+ 667 051e 6FE4      		ldi r22,lo8(79)
+ 668 0520 80E1      		ldi r24,lo8(16)
+ 669               	/* epilogue start */
+ 670 0522 1F91      		pop r17
+ 671 0524 0F91      		pop r16
+ 672 0526 FF90      		pop r15
+ 673 0528 EF90      		pop r14
+ 674 052a DF90      		pop r13
+ 675 052c CF90      		pop r12
+ 676 052e BF90      		pop r11
+ 677 0530 AF90      		pop r10
+ 678 0532 9F90      		pop r9
+ 679 0534 8F90      		pop r8
+ 680 0536 0C94 0000 		jmp i2cSendRegister
+ 682               		.ident	"GCC: (GNU) 5.4.0"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 si5351a.c
+     /tmp/cci11u6j.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cci11u6j.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cci11u6j.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cci11u6j.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cci11u6j.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cci11u6j.s:14     .text:0000000000000000 setupPLL
+     /tmp/cci11u6j.s:174    .text:0000000000000144 setupMultisynth
+     /tmp/cci11u6j.s:249    .text:00000000000001d6 si5351_clock_enable
+     /tmp/cci11u6j.s:322    .text:0000000000000262 si5351aSetInitFrequency
+     /tmp/cci11u6j.s:414    .text:000000000000031c si5351aSetInitTXFrequency
+     /tmp/cci11u6j.s:506    .text:00000000000003d6 si5351aSetTXFrequency
+     /tmp/cci11u6j.s:595    .text:0000000000000488 si5351aSetFrequency
+
+UNDEFINED SYMBOLS
+__floatunsisf
+__divsf3
+__mulsf3
+__fixunssfsi
+__mulsi3
+i2cSendRegister
+i2c_start
+i2c_write
+i2c_read_nack
+i2c_stop
+__udivmodsi4

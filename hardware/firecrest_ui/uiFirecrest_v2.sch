@@ -1,0 +1,2919 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 20571 14892
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Wire Wire Line
+	1600 2400 1600 3000
+Text Label 1600 2400 0    10   ~ 0
+GND
+Wire Wire Line
+	16050 12150 16050 11900
+Text Label 16050 12150 0    10   ~ 0
+GND
+Wire Wire Line
+	10800 4600 10800 4500
+Text Label 10800 4600 0    10   ~ 0
+GND
+Wire Wire Line
+	8300 4200 8300 4300
+Wire Wire Line
+	8300 4300 8500 4300
+Wire Wire Line
+	8500 4300 9000 4300
+Wire Wire Line
+	8300 4400 8300 4300
+Wire Wire Line
+	8600 4100 8500 4100
+Wire Wire Line
+	8500 4100 8500 4300
+Connection ~ 8300 4300
+Connection ~ 8500 4300
+Text Label 8300 4200 0    10   ~ 0
+GND
+Wire Wire Line
+	17500 9700 17500 9800
+Text Label 17500 9700 0    10   ~ 0
+GND
+Wire Wire Line
+	18300 9700 18300 9800
+Text Label 18300 9700 0    10   ~ 0
+GND
+Wire Wire Line
+	5400 11600 5400 11700
+Text Label 5400 11600 0    10   ~ 0
+GND
+Wire Wire Line
+	2700 13000 2700 12900
+Text Label 2700 13000 0    10   ~ 0
+GND
+Wire Wire Line
+	3200 13000 3200 12500
+Text Label 3200 13000 0    10   ~ 0
+GND
+Wire Wire Line
+	12600 11600 12000 11600
+Wire Wire Line
+	12000 11600 12000 11700
+Wire Wire Line
+	12000 11700 12000 11800
+Wire Wire Line
+	12600 11700 12000 11700
+Connection ~ 12000 11700
+Text Label 12600 11600 0    10   ~ 0
+GND
+Wire Wire Line
+	18800 5100 18100 5100
+Text Label 18800 5100 0    10   ~ 0
+GND
+Wire Wire Line
+	14000 4600 14000 4500
+Text Label 14000 4600 0    10   ~ 0
+GND
+Wire Wire Line
+	11500 4200 11500 4300
+Wire Wire Line
+	11500 4300 11700 4300
+Wire Wire Line
+	11700 4300 12200 4300
+Wire Wire Line
+	11500 4400 11500 4300
+Wire Wire Line
+	11800 4100 11700 4100
+Wire Wire Line
+	11700 4100 11700 4300
+Connection ~ 11500 4300
+Connection ~ 11700 4300
+Text Label 11500 4200 0    10   ~ 0
+GND
+Wire Wire Line
+	2300 4300 2300 4400
+Wire Wire Line
+	2300 4400 2600 4400
+Wire Wire Line
+	2600 4400 2600 4300
+Connection ~ 2600 4400
+Text Label 2300 4300 0    10   ~ 0
+GND
+Wire Wire Line
+	4100 4300 4100 4400
+Wire Wire Line
+	4100 4400 4400 4400
+Wire Wire Line
+	4400 4400 4400 4300
+Connection ~ 4100 4400
+Text Label 4100 4300 0    10   ~ 0
+GND
+Wire Wire Line
+	1600 5400 1500 5400
+Wire Wire Line
+	1500 5400 1500 4800
+Wire Wire Line
+	1500 4800 1600 4800
+Connection ~ 1500 5400
+Text Label 1600 5400 0    10   ~ 0
+GND
+Wire Wire Line
+	5200 5400 5300 5400
+Wire Wire Line
+	5300 5400 5300 4800
+Wire Wire Line
+	5300 4800 5200 4800
+Connection ~ 5300 5400
+Text Label 5200 5400 0    10   ~ 0
+GND
+Wire Wire Line
+	5000 2700 5000 2600
+Wire Wire Line
+	5000 2600 5000 2400
+Wire Wire Line
+	5000 2400 5100 2400
+Connection ~ 5000 2600
+Text Label 5000 2700 0    10   ~ 0
+GND
+Wire Wire Line
+	8300 2500 8300 2400
+Text Label 8300 2500 0    10   ~ 0
+GND
+Wire Wire Line
+	9100 2600 9100 2700
+Text Label 9100 2600 0    10   ~ 0
+GND
+Wire Wire Line
+	9500 2600 9500 2700
+Text Label 9500 2600 0    10   ~ 0
+GND
+Wire Wire Line
+	6500 1500 7500 1500
+Wire Wire Line
+	7500 1500 7500 1900
+Text Label 6500 1500 0    10   ~ 0
+GND
+Wire Wire Line
+	16100 1600 16700 1600
+Text Label 16100 1600 0    10   ~ 0
+GND
+Wire Wire Line
+	10700 8500 10700 8600
+Wire Wire Line
+	10700 8600 10700 8700
+Wire Wire Line
+	10700 8700 10700 8800
+Wire Wire Line
+	10700 8800 10700 9000
+Wire Wire Line
+	10600 8500 10700 8500
+Wire Wire Line
+	10600 8600 10700 8600
+Wire Wire Line
+	10600 8700 10700 8700
+Wire Wire Line
+	10600 8800 10700 8800
+Connection ~ 10700 8600
+Connection ~ 10700 8700
+Connection ~ 10700 8800
+Text Label 10700 8500 0    10   ~ 0
+GND
+Wire Wire Line
+	8500 5900 8400 5900
+Wire Wire Line
+	8400 5900 8400 6000
+Text Label 8500 5900 0    10   ~ 0
+GND
+Wire Wire Line
+	18900 3200 18400 3200
+Text Label 18900 3200 0    10   ~ 0
+GND
+Wire Wire Line
+	18900 2000 18000 2000
+Text Label 18900 2000 0    10   ~ 0
+GND
+Wire Wire Line
+	8600 12100 8600 12000
+Text Label 8600 12100 0    10   ~ 0
+GND
+Wire Wire Line
+	9300 12100 9300 12000
+Text Label 9300 12100 0    10   ~ 0
+GND
+Wire Wire Line
+	10000 12500 10000 12400
+Text Label 10000 12500 0    10   ~ 0
+GND
+Wire Wire Line
+	10800 1800 10800 1900
+Wire Wire Line
+	10800 1900 10800 2800
+Wire Wire Line
+	11100 1900 10800 1900
+Connection ~ 10800 1900
+Text Label 10800 1800 0    10   ~ 0
+GND
+Wire Wire Line
+	13600 3000 13600 2900
+Text Label 13600 3000 0    10   ~ 0
+GND
+Wire Wire Line
+	14300 2100 14300 2400
+Wire Wire Line
+	14300 2400 14300 2900
+Wire Wire Line
+	14800 2100 14800 2400
+Wire Wire Line
+	14800 2400 14300 2400
+Connection ~ 14300 2400
+Text Label 14300 2100 0    10   ~ 0
+GND
+Wire Wire Line
+	6900 3300 6900 3400
+Wire Wire Line
+	6900 3400 7000 3400
+Wire Wire Line
+	7000 3400 7100 3400
+Wire Wire Line
+	7100 3400 7100 3300
+Connection ~ 7000 3400
+Text Label 6900 3300 0    10   ~ 0
+GND
+Wire Wire Line
+	16000 7500 15600 7500
+Wire Wire Line
+	15600 7500 15600 7600
+Text Label 16000 7500 0    10   ~ 0
+GND
+Wire Wire Line
+	16000 6800 15600 6800
+Wire Wire Line
+	16000 6700 15600 6700
+Wire Wire Line
+	15600 6800 15600 6700
+Wire Wire Line
+	16000 6600 15600 6600
+Wire Wire Line
+	15600 6700 15600 6600
+Wire Wire Line
+	16000 6500 15600 6500
+Wire Wire Line
+	15600 6600 15600 6500
+Connection ~ 15600 6700
+Connection ~ 15600 6600
+Connection ~ 15600 6500
+Text Label 16000 6800 0    10   ~ 0
+GND
+Wire Wire Line
+	14900 7300 14900 7700
+Wire Wire Line
+	14900 7200 14900 7300
+Connection ~ 14900 7300
+Text Label 14900 7300 0    10   ~ 0
+GND
+Wire Wire Line
+	18900 9200 17900 9200
+Wire Wire Line
+	17900 9200 17900 9800
+Text Label 18900 9200 0    10   ~ 0
+GND
+Wire Wire Line
+	3100 3100 3000 3100
+Text Label 3100 3100 0    10   ~ 0
+GND
+Wire Wire Line
+	6400 3500 6400 3400
+Text Label 6400 3500 0    10   ~ 0
+GND
+Wire Wire Line
+	7600 3500 7600 3400
+Text Label 7600 3500 0    10   ~ 0
+GND
+Wire Wire Line
+	4300 9200 4300 8700
+Text Label 4300 9200 0    10   ~ 0
+GND
+Wire Wire Line
+	2500 9200 2500 8700
+Text Label 2500 9200 0    10   ~ 0
+GND
+Wire Wire Line
+	1700 9200 1700 9000
+Text Label 1700 9200 0    10   ~ 0
+GND
+Wire Wire Line
+	3400 9100 3400 9200
+Text Label 3400 9100 0    10   ~ 0
+GND
+Wire Wire Line
+	18900 2800 18400 2800
+Text Label 18400 2800 0    70   ~ 0
+SIDETONE
+Wire Wire Line
+	10000 12000 10000 11900
+Wire Wire Line
+	10000 11900 10000 11800
+Wire Wire Line
+	10000 11900 10500 11900
+Connection ~ 10000 11900
+Text Label 10100 11900 0    70   ~ 0
+SIDETONE
+Wire Wire Line
+	4800 11200 5100 11200
+Wire Wire Line
+	5100 11200 5400 11200
+Wire Wire Line
+	5000 12000 5100 12000
+Wire Wire Line
+	5100 12000 5100 11200
+Wire Wire Line
+	5400 11200 5400 11300
+Text Label 5200 11200 0    70   ~ 0
+TXV
+Connection ~ 5100 11200
+Wire Wire Line
+	18900 1700 18400 1700
+Text Label 18400 1700 0    70   ~ 0
+TXV
+Wire Wire Line
+	18900 2700 18400 2700
+Text Label 18400 2700 0    70   ~ 0
+SDA
+Wire Wire Line
+	9200 7900 8700 7900
+Text Label 8700 7900 0    70   ~ 0
+SDA
+Wire Wire Line
+	18900 2600 18400 2600
+Text Label 18400 2600 0    70   ~ 0
+SCL
+Wire Wire Line
+	9200 7800 8700 7800
+Text Label 8700 7800 0    70   ~ 0
+SCL
+Wire Wire Line
+	9200 8300 8700 8300
+Text Label 8700 8300 0    70   ~ 0
+U_D
+Wire Wire Line
+	18900 3000 18400 3000
+Text Label 18400 3000 0    70   ~ 0
+U_D
+Wire Wire Line
+	9200 8200 8700 8200
+Text Label 8700 8200 0    70   ~ 0
+FIL_CS
+Wire Wire Line
+	18900 2900 18400 2900
+Text Label 18400 2900 0    70   ~ 0
+FIL_CS
+Wire Wire Line
+	16050 11450 16050 11600
+Text Label 16050 11450 0    10   ~ 0
++5V
+Wire Wire Line
+	15700 1700 16300 1700
+Text Label 15700 1700 0    10   ~ 0
++5V
+Wire Wire Line
+	10400 3800 10800 3800
+Wire Wire Line
+	10800 3800 10800 4200
+Connection ~ 10800 3800
+Text Label 10400 3800 0    10   ~ 0
++5V
+Wire Wire Line
+	18900 1900 18000 1900
+Text Label 18900 1900 0    10   ~ 0
++5V
+Wire Wire Line
+	15600 6200 15600 6300
+Wire Wire Line
+	15600 6300 16000 6300
+Wire Wire Line
+	15200 6700 15200 6300
+Wire Wire Line
+	15200 6300 15600 6300
+Connection ~ 15600 6300
+Text Label 15600 6200 0    10   ~ 0
++5V
+Wire Wire Line
+	4300 7400 4300 7500
+Text Label 4300 7400 0    10   ~ 0
++5V
+Wire Wire Line
+	2500 7400 2500 7500
+Text Label 2500 7400 0    10   ~ 0
++5V
+Wire Wire Line
+	9200 8100 8700 8100
+Text Label 8700 8100 0    70   ~ 0
+VOL_CS
+Wire Wire Line
+	18900 3100 18400 3100
+Text Label 18400 3100 0    70   ~ 0
+VOL_CS
+Wire Wire Line
+	9200 6900 8700 6900
+Text Label 8700 6900 0    70   ~ 0
+TX0
+Wire Wire Line
+	18900 8200 18300 8200
+Text Label 18400 8200 0    70   ~ 0
+TX0
+Wire Wire Line
+	9200 6800 8700 6800
+Text Label 8700 6800 0    70   ~ 0
+RX0
+Wire Wire Line
+	18900 8300 18300 8300
+Text Label 18400 8300 0    70   ~ 0
+RX0
+Wire Wire Line
+	6500 8100 6400 8100
+Wire Wire Line
+	6400 8100 6400 8500
+Wire Wire Line
+	7000 8300 6800 8300
+Wire Wire Line
+	6800 8300 6800 8500
+Wire Wire Line
+	15800 1400 15200 1400
+Text Label 15300 1400 0    70   ~ 0
+MISO
+Wire Wire Line
+	10600 8200 11200 8200
+Text Label 10700 8200 0    70   ~ 0
+MISO
+Wire Wire Line
+	15800 1500 15200 1500
+Text Label 15300 1500 0    70   ~ 0
+SCK
+Wire Wire Line
+	10600 8300 11200 8300
+Text Label 10700 8300 0    70   ~ 0
+SCK
+Text Label 16700 4700 0    70   ~ 0
+SCK
+Wire Wire Line
+	15800 1600 15200 1600
+Text Label 15300 1600 0    70   ~ 0
+RESET
+Wire Wire Line
+	11000 6200 10600 6200
+Text Label 10700 6200 0    70   ~ 0
+RESET
+Wire Wire Line
+	16700 1500 16100 1500
+Text Label 16400 1500 0    70   ~ 0
+MOSI
+Wire Wire Line
+	10600 8100 11200 8100
+Text Label 10700 8100 0    70   ~ 0
+MOSI
+Wire Wire Line
+	17100 4800 16500 4800
+Text Label 16700 4800 0    70   ~ 0
+MOSI
+Wire Wire Line
+	13600 3800 14000 3800
+Wire Wire Line
+	14000 3800 14000 4200
+Connection ~ 14000 3800
+Text Label 13600 3800 0    10   ~ 0
++3V3
+Wire Wire Line
+	16500 5000 18800 5000
+Text Label 16500 5000 0    10   ~ 0
++3V3
+Wire Wire Line
+	11900 5500 12300 5500
+Wire Wire Line
+	11100 5500 11500 5500
+Wire Wire Line
+	11500 5500 11900 5500
+Wire Wire Line
+	12300 5500 12300 5400
+Wire Wire Line
+	10800 5700 10600 5700
+Wire Wire Line
+	10800 5800 10800 5700
+Wire Wire Line
+	10600 5800 10800 5800
+Wire Wire Line
+	10800 5900 10800 5800
+Wire Wire Line
+	10600 5900 10800 5900
+Wire Wire Line
+	10800 6000 10800 5900
+Wire Wire Line
+	10600 6000 10800 6000
+Wire Wire Line
+	10800 5700 10800 5500
+Wire Wire Line
+	10800 5500 11100 5500
+Connection ~ 11900 5500
+Connection ~ 11500 5500
+Connection ~ 12300 5500
+Connection ~ 10800 5800
+Connection ~ 10800 5900
+Connection ~ 10800 5700
+Connection ~ 11100 5500
+Text Label 11900 5500 0    10   ~ 0
++3V3
+Wire Wire Line
+	10600 6400 11700 6400
+Wire Wire Line
+	11700 6400 11700 6200
+Wire Wire Line
+	11700 6200 11400 6200
+Connection ~ 11700 6200
+Text Label 10600 6400 0    10   ~ 0
++3V3
+Wire Wire Line
+	18900 2500 18400 2500
+Text Label 18900 2500 0    10   ~ 0
++3V3
+Wire Wire Line
+	16100 1400 16700 1400
+Text Label 16100 1400 0    10   ~ 0
++3V3
+Wire Wire Line
+	2600 2500 2000 2500
+Wire Wire Line
+	2000 2500 2000 2900
+Wire Wire Line
+	2000 2900 2200 2900
+Wire Wire Line
+	2200 2900 3600 2900
+Wire Wire Line
+	2400 3100 2200 3100
+Wire Wire Line
+	2200 3100 2200 2900
+Connection ~ 2200 2900
+Wire Wire Line
+	3700 2500 4400 2500
+Wire Wire Line
+	4400 2500 4400 2900
+Wire Wire Line
+	4200 2900 4400 2900
+Wire Wire Line
+	2300 3800 2300 3900
+Wire Wire Line
+	2600 3900 2600 3800
+Wire Wire Line
+	2600 3800 2300 3800
+Wire Wire Line
+	2300 3800 2100 3800
+Wire Wire Line
+	2100 3800 2100 4500
+Wire Wire Line
+	2400 3300 2300 3300
+Wire Wire Line
+	2300 3300 2300 3800
+Connection ~ 2300 3800
+Wire Wire Line
+	4400 3800 4400 3900
+Wire Wire Line
+	4100 3900 4100 3800
+Wire Wire Line
+	4100 3800 4400 3800
+Wire Wire Line
+	4400 3800 4600 3800
+Wire Wire Line
+	4600 3800 4600 4500
+Wire Wire Line
+	3000 3300 4100 3300
+Wire Wire Line
+	4100 3300 4100 3800
+Wire Wire Line
+	4200 3100 4300 3100
+Wire Wire Line
+	4300 3100 4300 3300
+Wire Wire Line
+	4300 3300 4100 3300
+Connection ~ 4400 3800
+Connection ~ 4100 3800
+Connection ~ 4100 3300
+Wire Wire Line
+	2100 4700 2100 4800
+Wire Wire Line
+	2100 4800 2100 4900
+Wire Wire Line
+	1900 4800 2100 4800
+Connection ~ 2100 4800
+Wire Wire Line
+	2000 5400 2100 5400
+Wire Wire Line
+	2100 5400 2100 5300
+Wire Wire Line
+	2100 5400 2100 5600
+Connection ~ 2100 5400
+Wire Wire Line
+	4600 4700 4600 4800
+Wire Wire Line
+	4600 4800 4600 4900
+Wire Wire Line
+	4600 4800 4900 4800
+Connection ~ 4600 4800
+Wire Wire Line
+	4600 5300 4600 5400
+Wire Wire Line
+	4600 5400 4800 5400
+Wire Wire Line
+	4600 5400 4600 5600
+Connection ~ 4600 5400
+Wire Wire Line
+	2100 6000 2100 6200
+Wire Wire Line
+	2100 6200 2500 6200
+Text Label 2200 6200 0    70   ~ 0
+VFWD
+Wire Wire Line
+	10600 6700 11200 6700
+Text Label 10700 6700 0    70   ~ 0
+VFWD
+Wire Wire Line
+	4600 6000 4600 6200
+Wire Wire Line
+	4600 6200 4200 6200
+Text Label 4300 6200 0    70   ~ 0
+VREV
+Wire Wire Line
+	11200 6800 10600 6800
+Text Label 10700 6800 0    70   ~ 0
+VREV
+Wire Wire Line
+	4500 11400 4500 11500
+Wire Wire Line
+	4500 11500 4500 12000
+Wire Wire Line
+	4500 12000 4700 12000
+Wire Wire Line
+	4400 12000 4500 12000
+Wire Wire Line
+	4400 11500 4500 11500
+Connection ~ 4500 12000
+Connection ~ 4500 11500
+Wire Wire Line
+	4400 11200 3800 11200
+Wire Wire Line
+	3800 11200 3500 11200
+Wire Wire Line
+	4000 11500 3800 11500
+Wire Wire Line
+	3800 11500 3800 11200
+Wire Wire Line
+	3800 11600 3800 11500
+Text Label 3500 11200 0    70   ~ 0
+VIN
+Connection ~ 3800 11200
+Connection ~ 3800 11500
+Wire Wire Line
+	8400 1400 8600 1400
+Wire Wire Line
+	8600 1400 9100 1400
+Wire Wire Line
+	9100 1400 9100 1600
+Wire Wire Line
+	8600 1700 8600 1400
+Wire Wire Line
+	9100 1400 9800 1400
+Wire Wire Line
+	9800 1400 9800 1600
+Text Label 8800 1400 0    70   ~ 0
+VIN
+Connection ~ 9100 1400
+Connection ~ 8600 1400
+Wire Wire Line
+	8300 3800 8300 3900
+Wire Wire Line
+	9000 3800 8900 3800
+Wire Wire Line
+	8900 3800 8300 3800
+Wire Wire Line
+	9000 4000 8900 4000
+Wire Wire Line
+	8900 4000 8900 3800
+Connection ~ 8900 3800
+Text Label 8400 3800 0    70   ~ 0
+VIN
+Wire Wire Line
+	11100 1500 11000 1500
+Wire Wire Line
+	11000 1500 10800 1500
+Wire Wire Line
+	10800 1500 10500 1500
+Wire Wire Line
+	11100 1600 11000 1600
+Wire Wire Line
+	11000 1600 11000 1500
+Connection ~ 10800 1500
+Connection ~ 11000 1500
+Text Label 10500 1500 0    70   ~ 0
+VIN
+Wire Wire Line
+	6600 2900 6400 2900
+Wire Wire Line
+	6400 2900 6200 2900
+Wire Wire Line
+	6400 3100 6400 2900
+Text Label 6200 2900 0    70   ~ 0
+VIN
+Connection ~ 6400 2900
+Wire Wire Line
+	8300 1600 8300 2000
+Wire Wire Line
+	8600 1900 8600 2000
+Wire Wire Line
+	8600 2000 8300 2000
+Connection ~ 8300 2000
+Wire Wire Line
+	9100 2000 9100 2100
+Wire Wire Line
+	9100 2100 9100 2200
+Wire Wire Line
+	9100 2100 9500 2100
+Wire Wire Line
+	9500 2100 9500 2300
+Connection ~ 9100 2100
+Text Label 9200 2100 0    70   ~ 0
+VBAT
+Wire Wire Line
+	10600 6900 11200 6900
+Text Label 10700 6900 0    70   ~ 0
+VBAT
+Wire Wire Line
+	17500 9400 17500 9100
+Wire Wire Line
+	17500 9100 18900 9100
+Text Label 18400 9100 0    70   ~ 0
+DIT
+Wire Wire Line
+	10600 7200 11200 7200
+Text Label 10700 7200 0    70   ~ 0
+DIT
+Wire Wire Line
+	10600 7300 11200 7300
+Text Label 10700 7300 0    70   ~ 0
+DAH
+Wire Wire Line
+	18900 9300 18300 9300
+Wire Wire Line
+	18300 9300 18300 9400
+Text Label 18400 9300 0    70   ~ 0
+DAH
+Wire Wire Line
+	3700 1800 4200 1800
+Text Label 3700 1800 0    70   ~ 0
+VSWRCTL+
+Wire Wire Line
+	4300 7900 4300 8000
+Wire Wire Line
+	4300 8000 4300 8300
+Wire Wire Line
+	4300 8000 5000 8000
+Connection ~ 4300 8000
+Text Label 4500 8000 0    70   ~ 0
+VSWRCTL+
+Wire Wire Line
+	2600 1800 2100 1800
+Text Label 2100 1800 0    70   ~ 0
+VSWRCTL-
+Wire Wire Line
+	2500 7900 2500 8000
+Wire Wire Line
+	2500 8000 2500 8300
+Wire Wire Line
+	2500 8000 3100 8000
+Connection ~ 2500 8000
+Text Label 2600 8000 0    70   ~ 0
+VSWRCTL-
+Wire Wire Line
+	2600 2300 1600 2300
+Wire Wire Line
+	2600 2100 2200 2100
+Text Label 2200 2100 0    70   ~ 0
+ANT
+Wire Wire Line
+	3800 2100 4200 2100
+Text Label 3900 2100 0    70   ~ 0
+ANT
+Wire Wire Line
+	3700 12000 3800 12000
+Wire Wire Line
+	3800 12000 4000 12000
+Wire Wire Line
+	3800 11800 3800 12000
+Connection ~ 3800 12000
+Wire Wire Line
+	2700 12500 2700 12400
+Wire Wire Line
+	2700 12400 3000 12400
+Text Label 2700 12400 0    70   ~ 0
+TXVC
+Wire Wire Line
+	9200 7000 8700 7000
+Text Label 8700 7000 0    70   ~ 0
+TXVC
+Wire Wire Line
+	12600 11400 12100 11400
+Text Label 12100 11400 0    70   ~ 0
+ROTA
+Wire Wire Line
+	9200 8500 8700 8500
+Text Label 8700 8500 0    70   ~ 0
+ROTA
+Wire Wire Line
+	12600 11500 12100 11500
+Text Label 12100 11500 0    70   ~ 0
+ROTB
+Text Label 8700 8400 0    70   ~ 0
+ROTB
+Wire Wire Line
+	18800 4400 18100 4400
+Text Label 18100 4400 0    70   ~ 0
+DISP_CS
+Wire Wire Line
+	10600 8000 11200 8000
+Text Label 10700 8000 0    70   ~ 0
+DISP_CS
+Wire Wire Line
+	18800 4500 18100 4500
+Text Label 18100 4500 0    70   ~ 0
+DISP_RST
+Wire Wire Line
+	10600 7900 11200 7900
+Text Label 10700 7900 0    70   ~ 0
+DISP_RST
+Wire Wire Line
+	18800 4600 18100 4600
+Text Label 18100 4600 0    70   ~ 0
+DISP_D_C
+Wire Wire Line
+	10600 7800 11200 7800
+Text Label 10700 7800 0    70   ~ 0
+DISP_D_C
+Wire Wire Line
+	17500 4700 18800 4700
+Wire Wire Line
+	17500 4800 18800 4800
+Wire Wire Line
+	8900 4100 9000 4100
+Wire Wire Line
+	12100 4100 12200 4100
+Wire Wire Line
+	6500 1400 7200 1400
+Wire Wire Line
+	7600 1400 8000 1400
+Wire Wire Line
+	9200 6000 8800 6000
+Wire Wire Line
+	8800 5800 9100 5800
+Wire Wire Line
+	9100 5800 9100 5700
+Wire Wire Line
+	9100 5700 9200 5700
+Wire Wire Line
+	6900 8100 7400 8100
+Text Label 7000 8100 0    70   ~ 0
+HEART
+Wire Wire Line
+	7400 8300 8000 8300
+Text Label 7500 8300 0    70   ~ 0
+INDTX
+Wire Wire Line
+	12600 11800 12100 11800
+Text Label 12100 11800 0    70   ~ 0
+ROTSEL
+Wire Wire Line
+	9200 8000 8700 8000
+Text Label 8700 8000 0    70   ~ 0
+ROTSEL
+Wire Wire Line
+	18900 1800 18400 1800
+Text Label 18400 1800 0    70   ~ 0
+RXMUTE
+Wire Wire Line
+	17400 6600 17900 6600
+Text Label 17500 6600 0    70   ~ 0
+RXMUTE
+Wire Wire Line
+	17400 6300 17900 6300
+Text Label 17500 6300 0    70   ~ 0
+BANDA
+Wire Wire Line
+	18900 1600 18400 1600
+Text Label 18400 1600 0    70   ~ 0
+BANDA
+Wire Wire Line
+	17400 6400 17900 6400
+Text Label 17500 6400 0    70   ~ 0
+BANDB
+Wire Wire Line
+	18900 1500 18400 1500
+Text Label 18400 1500 0    70   ~ 0
+BANDB
+Wire Wire Line
+	7900 11400 8100 11400
+Wire Wire Line
+	8400 11400 8600 11400
+Wire Wire Line
+	8600 11400 8800 11400
+Wire Wire Line
+	8600 11600 8600 11400
+Connection ~ 8600 11400
+Wire Wire Line
+	9100 11400 9300 11400
+Wire Wire Line
+	9300 11400 10000 11400
+Wire Wire Line
+	9300 11600 9300 11400
+Connection ~ 9300 11400
+Wire Wire Line
+	7500 11400 6900 11400
+Text Label 7000 11400 0    70   ~ 0
+SQUARE
+Wire Wire Line
+	9200 7300 8700 7300
+Text Label 8700 7300 0    70   ~ 0
+SQUARE
+Wire Wire Line
+	12300 1500 12500 1500
+Wire Wire Line
+	13600 1700 13600 1900
+Wire Wire Line
+	14300 1800 14300 1700
+Wire Wire Line
+	14300 1700 14800 1700
+Wire Wire Line
+	14800 1700 14800 1800
+Wire Wire Line
+	13600 1700 14300 1700
+Connection ~ 14300 1700
+Connection ~ 13600 1700
+Text Label 14500 1700 0    70   ~ 0
+3V6
+Wire Wire Line
+	11500 3800 11500 3900
+Wire Wire Line
+	12200 3800 12100 3800
+Wire Wire Line
+	12100 3800 11500 3800
+Wire Wire Line
+	12200 4000 12100 4000
+Wire Wire Line
+	12100 4000 12100 3800
+Connection ~ 12100 3800
+Text Label 11600 3800 0    70   ~ 0
+3V6
+Wire Wire Line
+	13600 2300 13600 2400
+Wire Wire Line
+	13600 2400 13600 2500
+Wire Wire Line
+	13600 2400 12500 2400
+Wire Wire Line
+	12500 2400 12500 1900
+Wire Wire Line
+	12500 1900 12300 1900
+Connection ~ 13600 2400
+Wire Wire Line
+	12800 1500 13000 1500
+Wire Wire Line
+	13000 1500 13000 1700
+Wire Wire Line
+	13000 1700 12800 1700
+Wire Wire Line
+	12800 1700 12300 1700
+Wire Wire Line
+	13100 1700 13000 1700
+Wire Wire Line
+	12800 1900 12800 1700
+Connection ~ 13000 1700
+Connection ~ 12800 1700
+Wire Wire Line
+	3200 12100 3200 12000
+Wire Wire Line
+	3200 12000 3300 12000
+Wire Wire Line
+	7400 2900 7600 2900
+Wire Wire Line
+	7600 2900 7800 2900
+Wire Wire Line
+	7600 3100 7600 2900
+Text Label 7600 2900 0    70   ~ 0
+8V
+Connection ~ 7600 2900
+Wire Wire Line
+	16000 7000 15600 7000
+Text Label 15600 7000 0    70   ~ 0
+BA_3V3
+Wire Wire Line
+	9200 7100 8700 7100
+Text Label 8700 7100 0    70   ~ 0
+BA_3V3
+Wire Wire Line
+	16000 7100 15600 7100
+Text Label 15600 7100 0    70   ~ 0
+BB_3V3
+Wire Wire Line
+	9200 7200 8700 7200
+Text Label 8700 7200 0    70   ~ 0
+BB_3V3
+Wire Wire Line
+	16000 7300 15600 7300
+Text Label 15600 7300 0    70   ~ 0
+TXM_3V3
+Wire Wire Line
+	9200 7400 8700 7400
+Text Label 8700 7400 0    70   ~ 0
+TXM_3V3
+Wire Wire Line
+	9200 7500 8700 7500
+Wire Wire Line
+	3700 2300 5100 2300
+Wire Wire Line
+	16000 7200 15200 7200
+Wire Wire Line
+	15200 7200 15200 7100
+Text Label 10700 7600 0    70   ~ 0
+UCVSWRCTL-
+Wire Wire Line
+	1700 8600 2300 8600
+Text Label 1700 8600 0    70   ~ 0
+UCVSWRCTL-
+Wire Wire Line
+	10600 7700 11200 7700
+Text Label 10700 7700 0    70   ~ 0
+UCVSWRCTL+
+Wire Wire Line
+	4100 8600 3400 8600
+Wire Wire Line
+	3400 8600 3400 8700
+Text Label 3400 8600 0    70   ~ 0
+UCVSWRCTL+
+$Comp
+L uiFirecrest_v2-eagle-import:BSP170P Q4
+U 1 1 323115D8
+P 4600 11300
+F 0 "Q4" H 4150 11250 59  0000 L BNN
+F 1 "NDT2955" H 4150 11150 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOT223" H 4600 11300 50  0001 C CNN
+F 3 "" H 4600 11300 50  0001 C CNN
+F 4 "Mouser: 512-NDT2955 " H 4600 11300 50  0001 C CNN "Vendor"
+	1    4600 11300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND027
+U 1 1 419D9C11
+P 3200 13100
+F 0 "#GND027" H 3200 13100 50  0001 C CNN
+F 1 "GND" H 3100 13000 59  0000 L BNN
+F 2 "" H 3200 13100 50  0001 C CNN
+F 3 "" H 3200 13100 50  0001 C CNN
+	1    3200 13100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND01
+U 1 1 DB8695AC
+P 1600 3100
+F 0 "#GND01" H 1600 3100 50  0001 C CNN
+F 1 "GND" H 1500 3000 59  0000 L BNN
+F 2 "" H 1600 3100 50  0001 C CNN
+F 3 "" H 1600 3100 50  0001 C CNN
+	1    1600 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C71
+U 1 1 D96E3D98
+P 16050 11700
+F 0 "C71" H 16110 11715 59  0000 L BNN
+F 1 "100n" H 16110 11515 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 16050 11700 50  0001 C CNN
+F 3 "" H 16050 11700 50  0001 C CNN
+	1    16050 11700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C43
+U 1 1 D78D529F
+P 10800 4400
+F 0 "C43" H 10860 4415 59  0000 L BNN
+F 1 "1u" H 10860 4215 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 10800 4400 50  0001 C CNN
+F 3 "" H 10800 4400 50  0001 C CNN
+	1    10800 4400
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND048
+U 1 1 6421A367
+P 10800 4700
+F 0 "#GND048" H 10800 4700 50  0001 C CNN
+F 1 "GND" H 10700 4600 59  0000 L BNN
+F 2 "" H 10800 4700 50  0001 C CNN
+F 3 "" H 10800 4700 50  0001 C CNN
+	1    10800 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:BSS123 Q3
+U 1 1 A3E817C2
+P 3200 12300
+F 0 "Q3" H 3300 12300 59  0000 L BNN
+F 1 "BSS123" H 3300 12200 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOT23" H 3200 12300 50  0001 C CNN
+F 3 "" H 3200 12300 50  0001 C CNN
+F 4 "Mouser: 512-BSS123" H 3200 12300 50  0001 C CNN "Vendor"
+	1    3200 12300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+5V #P+08
+U 1 1 B54CCCBB
+P 16050 11350
+F 0 "#P+08" H 16050 11350 50  0001 C CNN
+F 1 "+5V" H 16150 11450 59  0000 R TNN
+F 2 "" H 16050 11350 50  0001 C CNN
+F 3 "" H 16050 11350 50  0001 C CNN
+	1    16050 11350
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:LP2985-10DBVR U4
+U 1 1 7C57E89D
+P 9700 3900
+F 0 "U4" H 9534 4290 69  0000 L BNN
+F 1 "LP2992AIM5-5.0" H 9560 3127 69  0000 L BNN
+F 2 "uiFirecrest_v2:SOT95P280X145-5N" H 9700 3900 50  0001 C CNN
+F 3 "" H 9700 3900 50  0001 C CNN
+F 4 "Mouser: 926-LP2992AIM550NOPB " H 9700 3900 50  0001 C CNN "Vendor"
+	1    9700 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND074
+U 1 1 AB4F6B88
+P 8300 4500
+F 0 "#GND074" H 8300 4500 50  0001 C CNN
+F 1 "GND" H 8200 4400 59  0000 L BNN
+F 2 "" H 8300 4500 50  0001 C CNN
+F 3 "" H 8300 4500 50  0001 C CNN
+	1    8300 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:PINHD-2X3 JP3
+U 1 1 ACD8E5B6
+P 15900 1500
+F 0 "JP3" H 15650 1725 59  0000 L BNN
+F 1 "PINHD-2X3" H 15650 1200 59  0000 L BNN
+F 2 "uiFirecrest_v2:2X03" H 15900 1500 50  0001 C CNN
+F 3 "" H 15900 1500 50  0001 C CNN
+	1    15900 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C6
+U 1 1 E451E4D4
+P 11500 5600
+F 0 "C6" H 11560 5615 59  0000 L BNN
+F 1 "100n" H 11560 5415 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 11500 5600 50  0001 C CNN
+F 3 "" H 11500 5600 50  0001 C CNN
+	1    11500 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C1
+U 1 1 3BB99FBE
+P 11900 5600
+F 0 "C1" H 11960 5615 59  0000 L BNN
+F 1 "100n" H 11960 5415 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 11900 5600 50  0001 C CNN
+F 3 "" H 11900 5600 50  0001 C CNN
+	1    11900 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C8
+U 1 1 78291C28
+P 12300 5600
+F 0 "C8" H 12360 5615 59  0000 L BNN
+F 1 "100n" H 12360 5415 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 12300 5600 50  0001 C CNN
+F 3 "" H 12300 5600 50  0001 C CNN
+	1    12300 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C3
+U 1 1 10D33965
+P 11100 5600
+F 0 "C3" H 11160 5615 59  0000 L BNN
+F 1 "100n" H 11160 5415 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 11100 5600 50  0001 C CNN
+F 3 "" H 11100 5600 50  0001 C CNN
+	1    11100 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:ATMEGA164PA-AU U3
+U 1 1 9A04CEE8
+P 9900 7100
+F 0 "U3" H 9682 8756 69  0000 L BNN
+F 1 "ATMEGA324PA-AU" H 9799 5098 69  0000 L BNN
+F 2 "uiFirecrest_v2:QFP80P1200X1200X120-44N" H 9900 7100 50  0001 C CNN
+F 3 "" H 9900 7100 50  0001 C CNN
+F 4 "Mouser: 556-ATMEGA324PA-AU" H 9900 7100 50  0001 C CNN "Vendor"
+	1    9900 7100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:LEDSML0805 LED1
+U 1 1 D5D4A691
+P 6400 8600
+F 0 "LED1" V 6540 8420 59  0000 L BNN
+F 1 "DNF" V 6625 8420 59  0000 L BNN
+F 2 "uiFirecrest_v2:SML0805" H 6400 8600 50  0001 C CNN
+F 3 "" H 6400 8600 50  0001 C CNN
+	1    6400 8600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R25
+U 1 1 CDD22603
+P 7200 8300
+F 0 "R25" H 7050 8359 59  0000 L BNN
+F 1 "DNF" H 7050 8170 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 7200 8300 50  0001 C CNN
+F 3 "" H 7200 8300 50  0001 C CNN
+	1    7200 8300
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R26
+U 1 1 E9C9498E
+P 11200 6200
+F 0 "R26" H 11050 6259 59  0000 L BNN
+F 1 "15k" H 11050 6070 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 11200 6200 50  0001 C CNN
+F 3 "" H 11200 6200 50  0001 C CNN
+	1    11200 6200
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:OLED U$1
+U 1 1 BABD3B23
+P 19100 4600
+F 0 "U$1" H 19100 4600 50  0001 C CNN
+F 1 "OLED" H 19100 4600 50  0001 C CNN
+F 2 "uiFirecrest_v2:OLED_LCD" H 19100 4600 50  0001 C CNN
+F 3 "" H 19100 4600 50  0001 C CNN
+F 4 "https://www.adafruit.com/product/661" H 19100 4600 50  0001 C CNN "Vendor"
+	1    19100 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:PINHD-1X3_90 JP14
+U 1 1 F95814ED
+P 19000 9200
+F 0 "JP14" H 18750 9425 59  0000 L BNN
+F 1 "PINHD-1X3_90" H 18750 8900 59  0000 L BNN
+F 2 "uiFirecrest_v2:1X03_90" H 19000 9200 50  0001 C CNN
+F 3 "" H 19000 9200 50  0001 C CNN
+	1    19000 9200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0805 R3
+U 1 1 1C562E25
+P 4400 4100
+F 0 "R3" H 4250 4159 59  0000 L BNN
+F 1 "100" H 4250 3970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0805" H 4400 4100 50  0001 C CNN
+F 3 "" H 4400 4100 50  0001 C CNN
+	1    4400 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0805 R4
+U 1 1 A2882DFC
+P 4100 4100
+F 0 "R4" H 3950 4159 59  0000 L BNN
+F 1 "100" H 3950 3970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0805" H 4100 4100 50  0001 C CNN
+F 3 "" H 4100 4100 50  0001 C CNN
+	1    4100 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0805 R5
+U 1 1 3D30C464
+P 2300 4100
+F 0 "R5" H 2150 4159 59  0000 L BNN
+F 1 "100" H 2150 3970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0805" H 2300 4100 50  0001 C CNN
+F 3 "" H 2300 4100 50  0001 C CNN
+	1    2300 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0805 R6
+U 1 1 ACB3C639
+P 2600 4100
+F 0 "R6" H 2450 4159 59  0000 L BNN
+F 1 "100" H 2450 3970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0805" H 2600 4100 50  0001 C CNN
+F 3 "" H 2600 4100 50  0001 C CNN
+	1    2600 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:DIODE-SOD123 D3
+U 1 1 39967F7A
+P 4600 4600
+F 0 "D3" V 4625 4400 59  0000 L BNN
+F 1 "PMEG6010CEH" V 4600 4700 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOD123" H 4600 4600 50  0001 C CNN
+F 3 "" H 4600 4600 50  0001 C CNN
+F 4 "Mouser: 771-PMEG6010CEH-T/R " H 4600 4600 50  0001 C CNN "Vendor"
+	1    4600 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:DIODE-SOD123 D4
+U 1 1 DCE5EB0D
+P 2100 4600
+F 0 "D4" V 2125 4400 59  0000 L BNN
+F 1 "PMEG6010CEH" V 2200 4725 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOD123" H 2100 4600 50  0001 C CNN
+F 3 "" H 2100 4600 50  0001 C CNN
+F 4 "Mouser: 771-PMEG6010CEH-T/R " H 2100 4600 50  0001 C CNN "Vendor"
+	1    2100 4600
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R7
+U 1 1 6C07DF10
+P 4600 5100
+F 0 "R7" H 4450 5159 59  0000 L BNN
+F 1 "0" H 4450 4970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 4600 5100 50  0001 C CNN
+F 3 "" H 4600 5100 50  0001 C CNN
+	1    4600 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R8
+U 1 1 41D68848
+P 2100 5100
+F 0 "R8" H 1950 5159 59  0000 L BNN
+F 1 "0" H 1950 4970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 2100 5100 50  0001 C CNN
+F 3 "" H 2100 5100 50  0001 C CNN
+	1    2100 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C2
+U 1 1 500D594B
+P 5100 4800
+F 0 "C2" H 5160 4815 59  0000 L BNN
+F 1 "1u" H 5160 4615 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 5100 4800 50  0001 C CNN
+F 3 "" H 5100 4800 50  0001 C CNN
+	1    5100 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R9
+U 1 1 C428CFE7
+P 1800 5400
+F 0 "R9" H 1650 5459 59  0000 L BNN
+F 1 "2k2" H 1650 5270 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 1800 5400 50  0001 C CNN
+F 3 "" H 1800 5400 50  0001 C CNN
+	1    1800 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C7
+U 1 1 80E40AD5
+P 1800 4800
+F 0 "C7" H 1860 4815 59  0000 L BNN
+F 1 "1u" H 1860 4615 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 1800 4800 50  0001 C CNN
+F 3 "" H 1800 4800 50  0001 C CNN
+	1    1800 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R10
+U 1 1 93CCDBC7
+P 5000 5400
+F 0 "R10" H 4850 5459 59  0000 L BNN
+F 1 "2k2" H 4850 5270 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 5000 5400 50  0001 C CNN
+F 3 "" H 5000 5400 50  0001 C CNN
+	1    5000 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0805 R11
+U 1 1 BC22C716
+P 2100 5800
+F 0 "R11" H 1950 5859 59  0000 L BNN
+F 1 "0" H 1950 5670 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0805" H 2100 5800 50  0001 C CNN
+F 3 "" H 2100 5800 50  0001 C CNN
+	1    2100 5800
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0805 R12
+U 1 1 0E8BF63E
+P 4600 5800
+F 0 "R12" H 4450 5859 59  0000 L BNN
+F 1 "0" H 4450 5670 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0805" H 4600 5800 50  0001 C CNN
+F 3 "" H 4600 5800 50  0001 C CNN
+	1    4600 5800
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C9
+U 1 1 802CB90C
+P 4900 12000
+F 0 "C9" H 4960 12015 59  0000 L BNN
+F 1 "22n" H 4960 11815 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 4900 12000 50  0001 C CNN
+F 3 "" H 4900 12000 50  0001 C CNN
+	1    4900 12000
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R14
+U 1 1 14576384
+P 4200 12000
+F 0 "R14" H 4050 12059 59  0000 L BNN
+F 1 "22k" H 4050 11870 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 4200 12000 50  0001 C CNN
+F 3 "" H 4200 12000 50  0001 C CNN
+	1    4200 12000
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R15
+U 1 1 768F36EB
+P 4200 11500
+F 0 "R15" H 4050 11559 59  0000 L BNN
+F 1 "91k" H 4050 11370 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 4200 11500 50  0001 C CNN
+F 3 "" H 4200 11500 50  0001 C CNN
+	1    4200 11500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:PINHD-1X2 JP4
+U 1 1 47274FB3
+P 6400 1500
+F 0 "JP4" H 6150 1725 59  0000 L BNN
+F 1 "PINHD-1X2" H 6150 1300 59  0000 L BNN
+F 2 "uiFirecrest_v2:1X02" H 6400 1500 50  0001 C CNN
+F 3 "" H 6400 1500 50  0001 C CNN
+	1    6400 1500
+	-1   0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:BSP170P Q1
+U 1 1 7A211019
+P 8200 1500
+F 0 "Q1" H 7750 1450 59  0000 L BNN
+F 1 "NDT2955" H 7750 1350 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOT223" H 8200 1500 50  0001 C CNN
+F 3 "" H 8200 1500 50  0001 C CNN
+F 4 "Mouser: 512-NDT2955 " H 8200 1500 50  0001 C CNN "Vendor"
+	1    8200 1500
+	0    1    -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R16
+U 1 1 D5A58622
+P 8300 2200
+F 0 "R16" H 8150 2259 59  0000 L BNN
+F 1 "10k" H 8150 2070 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 8300 2200 50  0001 C CNN
+F 3 "" H 8300 2200 50  0001 C CNN
+	1    8300 2200
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R17
+U 1 1 2CF26059
+P 9100 1800
+F 0 "R17" H 8950 1859 59  0000 L BNN
+F 1 "122k" H 8950 1670 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 9100 1800 50  0001 C CNN
+F 3 "" H 9100 1800 50  0001 C CNN
+	1    9100 1800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R18
+U 1 1 61829E0C
+P 9100 2400
+F 0 "R18" H 8950 2459 59  0000 L BNN
+F 1 "22.6k" H 8950 2270 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 9100 2400 50  0001 C CNN
+F 3 "" H 9100 2400 50  0001 C CNN
+	1    9100 2400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C10
+U 1 1 BF98E6C5
+P 9500 2500
+F 0 "C10" H 9275 2525 59  0000 L BNN
+F 1 "100n" H 9250 2300 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 9500 2500 50  0001 C CNN
+F 3 "" H 9500 2500 50  0001 C CNN
+	1    9500 2500
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND025
+U 1 1 2EE633C3
+P 17900 9900
+F 0 "#GND025" H 17900 9900 50  0001 C CNN
+F 1 "GND" H 17800 9800 59  0000 L BNN
+F 2 "" H 17900 9900 50  0001 C CNN
+F 3 "" H 17900 9900 50  0001 C CNN
+	1    17900 9900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C11
+U 1 1 7A0AFDEE
+P 18300 9600
+F 0 "C11" H 18360 9615 59  0000 L BNN
+F 1 "10n" H 18360 9415 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 18300 9600 50  0001 C CNN
+F 3 "" H 18300 9600 50  0001 C CNN
+	1    18300 9600
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C14
+U 1 1 5D428A48
+P 17500 9600
+F 0 "C14" H 17560 9615 59  0000 L BNN
+F 1 "10n" H 17560 9415 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 17500 9600 50  0001 C CNN
+F 3 "" H 17500 9600 50  0001 C CNN
+	1    17500 9600
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND029
+U 1 1 BFC01DE5
+P 18300 9900
+F 0 "#GND029" H 18300 9900 50  0001 C CNN
+F 1 "GND" H 18200 9800 59  0000 L BNN
+F 2 "" H 18300 9900 50  0001 C CNN
+F 3 "" H 18300 9900 50  0001 C CNN
+	1    18300 9900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND030
+U 1 1 E66C1352
+P 17500 9900
+F 0 "#GND030" H 17500 9900 50  0001 C CNN
+F 1 "GND" H 17400 9800 59  0000 L BNN
+F 2 "" H 17500 9900 50  0001 C CNN
+F 3 "" H 17500 9900 50  0001 C CNN
+	1    17500 9900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:G6KU_OMRON K1
+U 1 1 46E35674
+P 3900 2500
+F 0 "K1" H 3900 2500 50  0001 C CNN
+F 1 "G6KU_OMRON" H 3900 2500 50  0001 C CNN
+F 2 "uiFirecrest_v2:G6KU_OMRON" H 3900 2500 50  0001 C CNN
+F 3 "" H 3900 2500 50  0001 C CNN
+F 4 "Mouser: 653-G6KU-2F-YDC5 " H 3900 2500 50  0001 C CNN "Vendor"
+	1    3900 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:DIODE-SOD123 D5
+U 1 1 A78D3F04
+P 8600 1800
+F 0 "D5" H 8700 1819 59  0000 L BNN
+F 1 "5V1" H 8700 1709 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOD123" H 8600 1800 50  0001 C CNN
+F 3 "" H 8600 1800 50  0001 C CNN
+F 4 "Mouser: 621-BZT52C5V1-F" H 8600 1800 50  0001 C CNN "Vendor"
+	1    8600 1800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:DIODE-SOD123 D6
+U 1 1 D892FEAF
+P 3800 11700
+F 0 "D6" H 3900 11719 59  0000 L BNN
+F 1 "5V1" H 3900 11609 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOD123" H 3800 11700 50  0001 C CNN
+F 3 "" H 3800 11700 50  0001 C CNN
+F 4 "Mouser: 621-BZT52C5V1-F" H 3800 11700 50  0001 C CNN "Vendor"
+	1    3800 11700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C15
+U 1 1 4DAA913A
+P 5400 11400
+F 0 "C15" H 5460 11415 59  0000 L BNN
+F 1 "0.1uF" H 5460 11215 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 5400 11400 50  0001 C CNN
+F 3 "" H 5400 11400 50  0001 C CNN
+	1    5400 11400
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND032
+U 1 1 BDD76BF8
+P 5400 11800
+F 0 "#GND032" H 5400 11800 50  0001 C CNN
+F 1 "GND" H 5300 11700 59  0000 L BNN
+F 2 "" H 5400 11800 50  0001 C CNN
+F 3 "" H 5400 11800 50  0001 C CNN
+	1    5400 11800
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R19
+U 1 1 6954CAE3
+P 2700 12700
+F 0 "R19" H 2550 12759 59  0000 L BNN
+F 1 "10k" H 2550 12570 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 2700 12700 50  0001 C CNN
+F 3 "" H 2700 12700 50  0001 C CNN
+	1    2700 12700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND034
+U 1 1 0FD0C583
+P 2700 13100
+F 0 "#GND034" H 2700 13100 50  0001 C CNN
+F 1 "GND" H 2600 13000 59  0000 L BNN
+F 2 "" H 2700 13100 50  0001 C CNN
+F 3 "" H 2700 13100 50  0001 C CNN
+	1    2700 13100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND026
+U 1 1 9E0685E6
+P 12000 11900
+F 0 "#GND026" H 12000 11900 50  0001 C CNN
+F 1 "GND" H 11900 11800 59  0000 L BNN
+F 2 "" H 12000 11900 50  0001 C CNN
+F 3 "" H 12000 11900 50  0001 C CNN
+	1    12000 11900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND028
+U 1 1 0345B4CC
+P 18100 5200
+F 0 "#GND028" H 18100 5200 50  0001 C CNN
+F 1 "GND" H 18000 5100 59  0000 L BNN
+F 2 "" H 18100 5200 50  0001 C CNN
+F 3 "" H 18100 5200 50  0001 C CNN
+	1    18100 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R21
+U 1 1 BEE17EE2
+P 17300 4800
+F 0 "R21" H 17250 4859 59  0000 L BNN
+F 1 "3k3" H 17050 4870 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 17300 4800 50  0001 C CNN
+F 3 "" H 17300 4800 50  0001 C CNN
+	1    17300 4800
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R22
+U 1 1 6A157FA4
+P 17300 4700
+F 0 "R22" H 17250 4559 59  0000 L BNN
+F 1 "3k3" H 17050 4570 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 17300 4700 50  0001 C CNN
+F 3 "" H 17300 4700 50  0001 C CNN
+	1    17300 4700
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C20
+U 1 1 3E17E284
+P 8800 4100
+F 0 "C20" V 8900 4125 59  0000 L BNN
+F 1 "10n" V 8900 3825 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 8800 4100 50  0001 C CNN
+F 3 "" H 8800 4100 50  0001 C CNN
+	1    8800 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C21
+U 1 1 30F436E8
+P 14000 4400
+F 0 "C21" H 14060 4415 59  0000 L BNN
+F 1 "1u" H 14060 4215 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 14000 4400 50  0001 C CNN
+F 3 "" H 14000 4400 50  0001 C CNN
+	1    14000 4400
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND041
+U 1 1 D9BFE6C2
+P 14000 4700
+F 0 "#GND041" H 14000 4700 50  0001 C CNN
+F 1 "GND" H 13900 4600 59  0000 L BNN
+F 2 "" H 14000 4700 50  0001 C CNN
+F 3 "" H 14000 4700 50  0001 C CNN
+	1    14000 4700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:LP2985-10DBVR U1
+U 1 1 F9562130
+P 12900 3900
+F 0 "U1" H 12734 4290 69  0000 L BNN
+F 1 "LP2985-33DBVR" H 12760 3127 69  0000 L BNN
+F 2 "uiFirecrest_v2:SOT95P280X145-5N" H 12900 3900 50  0001 C CNN
+F 3 "" H 12900 3900 50  0001 C CNN
+F 4 "Mouser: 595-LP2985-33DBVR" H 12900 3900 50  0001 C CNN "Vendor"
+	1    12900 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C22
+U 1 1 5FCC7970
+P 11500 4100
+F 0 "C22" H 11560 4115 59  0000 L BNN
+F 1 "1u" H 11560 3915 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 11500 4100 50  0001 C CNN
+F 3 "" H 11500 4100 50  0001 C CNN
+	1    11500 4100
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND042
+U 1 1 C4E41BBE
+P 11500 4500
+F 0 "#GND042" H 11500 4500 50  0001 C CNN
+F 1 "GND" H 11400 4400 59  0000 L BNN
+F 2 "" H 11500 4500 50  0001 C CNN
+F 3 "" H 11500 4500 50  0001 C CNN
+	1    11500 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C23
+U 1 1 5153732A
+P 12000 4100
+F 0 "C23" V 12100 4125 59  0000 L BNN
+F 1 "10n" V 12100 3825 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 12000 4100 50  0001 C CNN
+F 3 "" H 12000 4100 50  0001 C CNN
+	1    12000 4100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+3V3 #+3V07
+U 1 1 A36165E5
+P 14000 3700
+F 0 "#+3V07" H 14000 3700 50  0001 C CNN
+F 1 "+3V3" H 14100 3800 59  0000 R TNN
+F 2 "" H 14000 3700 50  0001 C CNN
+F 3 "" H 14000 3700 50  0001 C CNN
+	1    14000 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+5V #P+07
+U 1 1 BC2DCEA9
+P 10800 3700
+F 0 "#P+07" H 10800 3700 50  0001 C CNN
+F 1 "+5V" H 10900 3800 59  0000 R TNN
+F 2 "" H 10800 3700 50  0001 C CNN
+F 3 "" H 10800 3700 50  0001 C CNN
+	1    10800 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R1206W F1
+U 1 1 030BB7C5
+P 7400 1400
+F 0 "F1" H 7250 1459 59  0000 L BNN
+F 1 "FUSE" H 7250 1270 59  0000 L BNN
+F 2 "uiFirecrest_v2:R1206W" H 7400 1400 50  0001 C CNN
+F 3 "" H 7400 1400 50  0001 C CNN
+	1    7400 1400
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+3V3 #+3V04
+U 1 1 E81106EE
+P 16400 5000
+F 0 "#+3V04" H 16400 5000 50  0001 C CNN
+F 1 "+3V3" H 16500 5100 59  0000 R TNN
+F 2 "" H 16400 5000 50  0001 C CNN
+F 3 "" H 16400 5000 50  0001 C CNN
+	1    16400 5000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:ROTENC U$2
+U 1 1 A8B04D1A
+P 13000 11700
+F 0 "U$2" H 13000 11700 50  0001 C CNN
+F 1 "ROTENC" H 13000 11700 50  0001 C CNN
+F 2 "uiFirecrest_v2:ROTENC" H 13000 11700 50  0001 C CNN
+F 3 "" H 13000 11700 50  0001 C CNN
+F 4 "Mouser: 688-EC12D1564402 " H 13000 11700 50  0001 C CNN "Vendor"
+	1    13000 11700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND046
+U 1 1 D2AB3227
+P 16700 1700
+F 0 "#GND046" H 16700 1700 50  0001 C CNN
+F 1 "GND" H 16600 1600 59  0000 L BNN
+F 2 "" H 16700 1700 50  0001 C CNN
+F 3 "" H 16700 1700 50  0001 C CNN
+	1    16700 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND012
+U 1 1 A5F18D96
+P 2600 4500
+F 0 "#GND012" H 2600 4500 50  0001 C CNN
+F 1 "GND" H 2500 4400 59  0000 L BNN
+F 2 "" H 2600 4500 50  0001 C CNN
+F 3 "" H 2600 4500 50  0001 C CNN
+	1    2600 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND014
+U 1 1 109F320A
+P 4100 4500
+F 0 "#GND014" H 4100 4500 50  0001 C CNN
+F 1 "GND" H 4000 4400 59  0000 L BNN
+F 2 "" H 4100 4500 50  0001 C CNN
+F 3 "" H 4100 4500 50  0001 C CNN
+	1    4100 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND015
+U 1 1 257B06B4
+P 1500 5500
+F 0 "#GND015" H 1500 5500 50  0001 C CNN
+F 1 "GND" H 1400 5400 59  0000 L BNN
+F 2 "" H 1500 5500 50  0001 C CNN
+F 3 "" H 1500 5500 50  0001 C CNN
+	1    1500 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND016
+U 1 1 99D4D269
+P 5300 5500
+F 0 "#GND016" H 5300 5500 50  0001 C CNN
+F 1 "GND" H 5200 5400 59  0000 L BNN
+F 2 "" H 5300 5500 50  0001 C CNN
+F 3 "" H 5300 5500 50  0001 C CNN
+	1    5300 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND09
+U 1 1 928DF91D
+P 5000 2700
+F 0 "#GND09" H 5000 2700 50  0001 C CNN
+F 1 "GND" H 4900 2600 59  0000 L BNN
+F 2 "" H 5000 2700 50  0001 C CNN
+F 3 "" H 5000 2700 50  0001 C CNN
+	1    5000 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND017
+U 1 1 0A5A0AC8
+P 7500 2000
+F 0 "#GND017" H 7500 2000 50  0001 C CNN
+F 1 "GND" H 7400 1900 59  0000 L BNN
+F 2 "" H 7500 2000 50  0001 C CNN
+F 3 "" H 7500 2000 50  0001 C CNN
+	1    7500 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND018
+U 1 1 E0081D19
+P 8300 2600
+F 0 "#GND018" H 8300 2600 50  0001 C CNN
+F 1 "GND" H 8200 2500 59  0000 L BNN
+F 2 "" H 8300 2600 50  0001 C CNN
+F 3 "" H 8300 2600 50  0001 C CNN
+	1    8300 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND019
+U 1 1 48B3EBD8
+P 9100 2800
+F 0 "#GND019" H 9100 2800 50  0001 C CNN
+F 1 "GND" H 9000 2700 59  0000 L BNN
+F 2 "" H 9100 2800 50  0001 C CNN
+F 3 "" H 9100 2800 50  0001 C CNN
+	1    9100 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND020
+U 1 1 2DF12463
+P 9500 2800
+F 0 "#GND020" H 9500 2800 50  0001 C CNN
+F 1 "GND" H 9400 2700 59  0000 L BNN
+F 2 "" H 9500 2800 50  0001 C CNN
+F 3 "" H 9500 2800 50  0001 C CNN
+	1    9500 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND013
+U 1 1 9E3D6951
+P 10700 9100
+F 0 "#GND013" H 10700 9100 50  0001 C CNN
+F 1 "GND" H 10600 9000 59  0000 L BNN
+F 2 "" H 10700 9100 50  0001 C CNN
+F 3 "" H 10700 9100 50  0001 C CNN
+	1    10700 9100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND02
+U 1 1 13A376EC
+P 11100 5900
+F 0 "#GND02" H 11100 5900 50  0001 C CNN
+F 1 "GND" H 11000 5800 59  0000 L BNN
+F 2 "" H 11100 5900 50  0001 C CNN
+F 3 "" H 11100 5900 50  0001 C CNN
+	1    11100 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND04
+U 1 1 D896219B
+P 11500 5900
+F 0 "#GND04" H 11500 5900 50  0001 C CNN
+F 1 "GND" H 11400 5800 59  0000 L BNN
+F 2 "" H 11500 5900 50  0001 C CNN
+F 3 "" H 11500 5900 50  0001 C CNN
+	1    11500 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND05
+U 1 1 EF27308A
+P 11900 5900
+F 0 "#GND05" H 11900 5900 50  0001 C CNN
+F 1 "GND" H 11800 5800 59  0000 L BNN
+F 2 "" H 11900 5900 50  0001 C CNN
+F 3 "" H 11900 5900 50  0001 C CNN
+	1    11900 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND08
+U 1 1 DF24F9E8
+P 12300 5900
+F 0 "#GND08" H 12300 5900 50  0001 C CNN
+F 1 "GND" H 12200 5800 59  0000 L BNN
+F 2 "" H 12300 5900 50  0001 C CNN
+F 3 "" H 12300 5900 50  0001 C CNN
+	1    12300 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND06
+U 1 1 A07C0193
+P 6400 8900
+F 0 "#GND06" H 6400 8900 50  0001 C CNN
+F 1 "GND" H 6300 8800 59  0000 L BNN
+F 2 "" H 6400 8900 50  0001 C CNN
+F 3 "" H 6400 8900 50  0001 C CNN
+	1    6400 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND07
+U 1 1 9CDE76EF
+P 6800 8900
+F 0 "#GND07" H 6800 8900 50  0001 C CNN
+F 1 "GND" H 6700 8800 59  0000 L BNN
+F 2 "" H 6800 8900 50  0001 C CNN
+F 3 "" H 6800 8900 50  0001 C CNN
+	1    6800 8900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND024
+U 1 1 664B2FAE
+P 8400 6100
+F 0 "#GND024" H 8400 6100 50  0001 C CNN
+F 1 "GND" H 8300 6000 59  0000 L BNN
+F 2 "" H 8400 6100 50  0001 C CNN
+F 3 "" H 8400 6100 50  0001 C CNN
+	1    8400 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:RESONATORMU Y1
+U 1 1 770BBA00
+P 8800 5900
+F 0 "Y1" H 8600 6080 59  0000 L BNN
+F 1 "8 MHz" H 8600 5680 59  0000 L BNN
+F 2 "uiFirecrest_v2:RESONATOR" H 8800 5900 50  0001 C CNN
+F 3 "" H 8800 5900 50  0001 C CNN
+F 4 "Mouser: 81-CSTCE8M00G52A-R0 " H 8800 5900 50  0001 C CNN "Vendor"
+	1    8800 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:CPOL-EUSMCD C4
+U 1 1 94B4BBF3
+P 9800 1700
+F 0 "C4" H 9845 1719 59  0000 L BNN
+F 1 "100uF/16V" H 9845 1519 59  0000 L BNN
+F 2 "uiFirecrest_v2:SMC_D" H 9800 1700 50  0001 C CNN
+F 3 "" H 9800 1700 50  0001 C CNN
+F 4 "Mouser: 80-T495X107K25ATE150" H 9800 1700 50  0001 C CNN "Vendor"
+	1    9800 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND010
+U 1 1 845C69E3
+P 9800 2000
+F 0 "#GND010" H 9800 2000 50  0001 C CNN
+F 1 "GND" H 9700 1900 59  0000 L BNN
+F 2 "" H 9800 2000 50  0001 C CNN
+F 3 "" H 9800 2000 50  0001 C CNN
+	1    9800 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:SMA-142-0701-801_806 X3
+U 1 1 03A3F618
+P 1500 2300
+F 0 "X3" H 1400 2430 59  0000 L BNN
+F 1 "SMA-142-0701-801_806" H 1400 2100 59  0000 L BNN
+F 2 "uiFirecrest_v2:J502-ND-142-0701-801_806" H 1500 2300 50  0001 C CNN
+F 3 "" H 1500 2300 50  0001 C CNN
+	1    1500 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:SMA-142-0701-801_806 X4
+U 1 1 16444AAD
+P 5200 2300
+F 0 "X4" H 5100 2430 59  0000 L BNN
+F 1 "SMA-142-0701-801_806" H 5100 2100 59  0000 L BNN
+F 2 "uiFirecrest_v2:J502-ND-142-0701-801_806" H 5200 2300 50  0001 C CNN
+F 3 "" H 5200 2300 50  0001 C CNN
+	1    5200 2300
+	-1   0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:PINHD-1X6 JP1
+U 1 1 2F430EF2
+P 19300 1800
+F 0 "JP1" H 19050 2225 59  0000 L BNN
+F 1 "PINHD-1X6" H 19050 1400 59  0000 L BNN
+F 2 "uiFirecrest_v2:1X06" H 19300 1800 50  0001 C CNN
+F 3 "" H 19300 1800 50  0001 C CNN
+	1    19300 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:PINHD-1X8 JP2
+U 1 1 FA93C76E
+P 19300 2900
+F 0 "JP2" H 19050 3425 59  0000 L BNN
+F 1 "PINHD-1X8" H 19050 2400 59  0000 L BNN
+F 2 "uiFirecrest_v2:1X08" H 19300 2900 50  0001 C CNN
+F 3 "" H 19300 2900 50  0001 C CNN
+	1    19300 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+3V3 #+3V01
+U 1 1 406B5002
+P 12300 5300
+F 0 "#+3V01" H 12300 5300 50  0001 C CNN
+F 1 "+3V3" H 12400 5400 59  0000 R TNN
+F 2 "" H 12300 5300 50  0001 C CNN
+F 3 "" H 12300 5300 50  0001 C CNN
+	1    12300 5300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+3V3 #+3V02
+U 1 1 37D36547
+P 11700 6100
+F 0 "#+3V02" H 11700 6100 50  0001 C CNN
+F 1 "+3V3" H 11800 6200 59  0000 R TNN
+F 2 "" H 11700 6100 50  0001 C CNN
+F 3 "" H 11700 6100 50  0001 C CNN
+	1    11700 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+5V #P+01
+U 1 1 BCDF72C5
+P 18000 1800
+F 0 "#P+01" H 18000 1800 50  0001 C CNN
+F 1 "+5V" H 18100 1900 59  0000 R TNN
+F 2 "" H 18000 1800 50  0001 C CNN
+F 3 "" H 18000 1800 50  0001 C CNN
+	1    18000 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND021
+U 1 1 CF593DC2
+P 18000 2100
+F 0 "#GND021" H 18000 2100 50  0001 C CNN
+F 1 "GND" H 17900 2000 59  0000 L BNN
+F 2 "" H 18000 2100 50  0001 C CNN
+F 3 "" H 18000 2100 50  0001 C CNN
+	1    18000 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+3V3 #+3V03
+U 1 1 A56F219E
+P 18400 2400
+F 0 "#+3V03" H 18400 2400 50  0001 C CNN
+F 1 "+3V3" H 18500 2500 59  0000 R TNN
+F 2 "" H 18400 2400 50  0001 C CNN
+F 3 "" H 18400 2400 50  0001 C CNN
+	1    18400 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND022
+U 1 1 FB1CD9CF
+P 18400 3300
+F 0 "#GND022" H 18400 3300 50  0001 C CNN
+F 1 "GND" H 18300 3200 59  0000 L BNN
+F 2 "" H 18400 3300 50  0001 C CNN
+F 3 "" H 18400 3300 50  0001 C CNN
+	1    18400 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+3V3 #+3V05
+U 1 1 D30003A2
+P 16700 1300
+F 0 "#+3V05" H 16700 1300 50  0001 C CNN
+F 1 "+3V3" H 16800 1400 59  0000 R TNN
+F 2 "" H 16700 1300 50  0001 C CNN
+F 3 "" H 16700 1300 50  0001 C CNN
+	1    16700 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C5
+U 1 1 F9108C4C
+P 8300 11400
+F 0 "C5" H 8360 11415 59  0000 L BNN
+F 1 "100n" H 8360 11215 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 8300 11400 50  0001 C CNN
+F 3 "" H 8300 11400 50  0001 C CNN
+	1    8300 11400
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R1
+U 1 1 4B3B8125
+P 7700 11400
+F 0 "R1" H 7550 11459 59  0000 L BNN
+F 1 "1k" H 7550 11270 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 7700 11400 50  0001 C CNN
+F 3 "" H 7700 11400 50  0001 C CNN
+	1    7700 11400
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R2
+U 1 1 187662F0
+P 8600 11800
+F 0 "R2" H 8450 11859 59  0000 L BNN
+F 1 "2k2" H 8450 11670 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 8600 11800 50  0001 C CNN
+F 3 "" H 8600 11800 50  0001 C CNN
+	1    8600 11800
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R13
+U 1 1 4729D0E0
+P 9300 11800
+F 0 "R13" H 9150 11859 59  0000 L BNN
+F 1 "2k2" H 9150 11670 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 9300 11800 50  0001 C CNN
+F 3 "" H 9300 11800 50  0001 C CNN
+	1    9300 11800
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C12
+U 1 1 5225900B
+P 9000 11400
+F 0 "C12" H 9060 11415 59  0000 L BNN
+F 1 "100n" H 9060 11215 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 9000 11400 50  0001 C CNN
+F 3 "" H 9000 11400 50  0001 C CNN
+	1    9000 11400
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND023
+U 1 1 C7080FD3
+P 8600 12200
+F 0 "#GND023" H 8600 12200 50  0001 C CNN
+F 1 "GND" H 8500 12100 59  0000 L BNN
+F 2 "" H 8600 12200 50  0001 C CNN
+F 3 "" H 8600 12200 50  0001 C CNN
+	1    8600 12200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND031
+U 1 1 E3033BC1
+P 9300 12200
+F 0 "#GND031" H 9300 12200 50  0001 C CNN
+F 1 "GND" H 9200 12100 59  0000 L BNN
+F 2 "" H 9300 12200 50  0001 C CNN
+F 3 "" H 9300 12200 50  0001 C CNN
+	1    9300 12200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R20
+U 1 1 05C90C30
+P 10000 11600
+F 0 "R20" H 9850 11659 59  0000 L BNN
+F 1 "15k" H 9850 11470 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 10000 11600 50  0001 C CNN
+F 3 "" H 10000 11600 50  0001 C CNN
+	1    10000 11600
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R24
+U 1 1 37C8EA13
+P 10000 12200
+F 0 "R24" H 9850 12259 59  0000 L BNN
+F 1 "2k2" H 9850 12070 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 10000 12200 50  0001 C CNN
+F 3 "" H 10000 12200 50  0001 C CNN
+	1    10000 12200
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND033
+U 1 1 8D923520
+P 10000 12600
+F 0 "#GND033" H 10000 12600 50  0001 C CNN
+F 1 "GND" H 9900 12500 59  0000 L BNN
+F 2 "" H 10000 12600 50  0001 C CNN
+F 3 "" H 10000 12600 50  0001 C CNN
+	1    10000 12600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:RFCAN U$3
+U 1 1 54307519
+P 14700 7200
+F 0 "U$3" H 14700 7200 50  0001 C CNN
+F 1 "RFCAN" H 14700 7200 50  0001 C CNN
+F 2 "uiFirecrest_v2:CAN" H 14700 7200 50  0001 C CNN
+F 3 "" H 14700 7200 50  0001 C CNN
+	1    14700 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:RFCAN U$4
+U 1 1 84E86E02
+P 14700 7300
+F 0 "U$4" H 14700 7300 50  0001 C CNN
+F 1 "RFCAN" H 14700 7300 50  0001 C CNN
+F 2 "uiFirecrest_v2:CAN" H 14700 7300 50  0001 C CNN
+F 3 "" H 14700 7300 50  0001 C CNN
+	1    14700 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C72
+U 1 1 10ECA7E6
+P 12600 1500
+F 0 "C72" H 12660 1515 59  0000 L BNN
+F 1 "220n" H 12660 1315 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 12600 1500 50  0001 C CNN
+F 3 "" H 12600 1500 50  0001 C CNN
+	1    12600 1500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND035
+U 1 1 CF03C53C
+P 10800 2900
+F 0 "#GND035" H 10800 2900 50  0001 C CNN
+F 1 "GND" H 10700 2800 59  0000 L BNN
+F 2 "" H 10800 2900 50  0001 C CNN
+F 3 "" H 10800 2900 50  0001 C CNN
+	1    10800 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:LM2840X IC1
+U 1 1 06F92037
+P 11600 1700
+F 0 "IC1" H 11300 1300 59  0000 L BNN
+F 1 "LM2840X" H 11300 2000 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOT23-6" H 11600 1700 50  0001 C CNN
+F 3 "" H 11600 1700 50  0001 C CNN
+F 4 "Mouser: 926-LM2840YMKADJLNPB " H 11600 1700 50  0001 C CNN "Vendor"
+F 5 "x" H 11600 1700 50  0001 C CNN "Do not substitute"
+	1    11600 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R27
+U 1 1 8016EDED
+P 13600 2100
+F 0 "R27" H 13450 2159 59  0000 L BNN
+F 1 "35.7k" H 13450 1970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 13600 2100 50  0001 C CNN
+F 3 "" H 13600 2100 50  0001 C CNN
+	1    13600 2100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R28
+U 1 1 211F8F6E
+P 13600 2700
+F 0 "R28" H 13450 2759 59  0000 L BNN
+F 1 "10k" H 13450 2570 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 13600 2700 50  0001 C CNN
+F 3 "" H 13600 2700 50  0001 C CNN
+	1    13600 2700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C13
+U 1 1 A3FF58FC
+P 10800 1700
+F 0 "C13" H 10860 1715 59  0000 L BNN
+F 1 "1u" H 10860 1515 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 10800 1700 50  0001 C CNN
+F 3 "" H 10800 1700 50  0001 C CNN
+F 4 "Mouser: 81-GRM219R71E105KA8D" H 10800 1700 50  0001 C CNN "Vendor"
+F 5 "x" H 10800 1700 50  0001 C CNN "Do not substitute"
+	1    10800 1700
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:CPOL-EUSMCD C16
+U 1 1 5F8D3B5F
+P 14300 1900
+F 0 "C16" H 14345 1919 59  0000 L BNN
+F 1 "220u" H 14345 1719 59  0000 L BNN
+F 2 "uiFirecrest_v2:SMC_D" H 14300 1900 50  0001 C CNN
+F 3 "" H 14300 1900 50  0001 C CNN
+F 4 "x" H 14300 1900 50  0001 C CNN "Do not substitute"
+F 5 "Mouser: 667-6TPF220M5L" H 14300 1900 50  0001 C CNN "Vendor"
+	1    14300 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:CPOL-EUSMCD C17
+U 1 1 85B8DD81
+P 14800 1900
+F 0 "C17" H 14845 1919 59  0000 L BNN
+F 1 "220u" H 14845 1719 59  0000 L BNN
+F 2 "uiFirecrest_v2:SMC_D" H 14800 1900 50  0001 C CNN
+F 3 "" H 14800 1900 50  0001 C CNN
+F 4 "x" H 14800 1900 50  0001 C CNN "Do not substitute"
+F 5 "Mouser: 667-6TPF220M5L" H 14800 1900 50  0001 C CNN "Vendor"
+	1    14800 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND036
+U 1 1 397F6EFB
+P 13600 3100
+F 0 "#GND036" H 13600 3100 50  0001 C CNN
+F 1 "GND" H 13500 3000 59  0000 L BNN
+F 2 "" H 13600 3100 50  0001 C CNN
+F 3 "" H 13600 3100 50  0001 C CNN
+	1    13600 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND037
+U 1 1 7CFE796D
+P 14300 3000
+F 0 "#GND037" H 14300 3000 50  0001 C CNN
+F 1 "GND" H 14200 2900 59  0000 L BNN
+F 2 "" H 14300 3000 50  0001 C CNN
+F 3 "" H 14300 3000 50  0001 C CNN
+	1    14300 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:LPS8045B-224MRB L1
+U 1 1 4CAB314C
+P 13600 1700
+F 0 "L1" V 13350 1800 59  0000 L TNN
+F 1 "MSS7341-104MLB" V 13700 1300 59  0000 L TNN
+F 2 "uiFirecrest_v2:LPS8045B-224MRB" H 13600 1700 50  0001 C CNN
+F 3 "" H 13600 1700 50  0001 C CNN
+F 4 "Mouser: 994-MSS7341-104MLB" H 13600 1700 50  0001 C CNN "Vendor"
+	1    13600 1700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:CMS06 D1
+U 1 1 8D141E84
+P 12800 2000
+F 0 "D1" H 12710 2075 59  0000 L BNN
+F 1 "CMS06" H 12710 1865 59  0000 L BNN
+F 2 "uiFirecrest_v2:CMS06_DIODE" H 12800 2000 50  0001 C CNN
+F 3 "" H 12800 2000 50  0001 C CNN
+F 4 "Mouser: 757-CMS06TE12L,Q,M" H 12800 2000 50  0001 C CNN "Vendor"
+F 5 "x" H 12800 2000 50  0001 C CNN "Do not substitute"
+	1    12800 2000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND038
+U 1 1 9C9B1271
+P 12800 2200
+F 0 "#GND038" H 12800 2200 50  0001 C CNN
+F 1 "GND" H 12700 2100 59  0000 L BNN
+F 2 "" H 12800 2200 50  0001 C CNN
+F 3 "" H 12800 2200 50  0001 C CNN
+	1    12800 2200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R29
+U 1 1 AF7A2CC4
+P 3500 12000
+F 0 "R29" H 3350 12059 59  0000 L BNN
+F 1 "22k" H 3350 11870 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 3500 12000 50  0001 C CNN
+F 3 "" H 3500 12000 50  0001 C CNN
+	1    3500 12000
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND039
+U 1 1 D092AC48
+P 7000 3500
+F 0 "#GND039" H 7000 3500 50  0001 C CNN
+F 1 "GND" H 6900 3400 59  0000 L BNN
+F 2 "" H 7000 3500 50  0001 C CNN
+F 3 "" H 7000 3500 50  0001 C CNN
+	1    7000 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:LM2936MP? IC3
+U 1 1 5ED25CA7
+P 7000 3000
+F 0 "IC3" H 6700 3250 59  0000 L BNN
+F 1 "LM2937" H 7025 3275 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOT223" H 7000 3000 50  0001 C CNN
+F 3 "" H 7000 3000 50  0001 C CNN
+	1    7000 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:SMD5 PAD1
+U 1 1 0344E6DA
+P 7900 2900
+F 0 "PAD1" H 7855 2973 59  0000 L BNN
+F 1 "SMD5" H 7855 2770 59  0000 L BNN
+F 2 "uiFirecrest_v2:SMD2,54-5,08" H 7900 2900 50  0001 C CNN
+F 3 "" H 7900 2900 50  0001 C CNN
+	1    7900 2900
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:SN74AHCT125PW U5
+U 1 1 FECC9F54
+P 16700 6800
+F 0 "U5" H 16489 7659 69  0000 L BNN
+F 1 "SN74AHCT125PW" H 16532 5691 69  0000 L BNN
+F 2 "uiFirecrest_v2:SOP65P640X120-14N" H 16700 6800 50  0001 C CNN
+F 3 "" H 16700 6800 50  0001 C CNN
+F 4 "Mouser: 595-SN74AHCT125PW" H 16700 6800 50  0001 C CNN "Vendor"
+	1    16700 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+5V #P+02
+U 1 1 339DE9D3
+P 15600 6100
+F 0 "#P+02" H 15600 6100 50  0001 C CNN
+F 1 "+5V" H 15700 6200 59  0000 R TNN
+F 2 "" H 15600 6100 50  0001 C CNN
+F 3 "" H 15600 6100 50  0001 C CNN
+	1    15600 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND040
+U 1 1 E4BD4CA6
+P 15600 7700
+F 0 "#GND040" H 15600 7700 50  0001 C CNN
+F 1 "GND" H 15500 7600 59  0000 L BNN
+F 2 "" H 15600 7700 50  0001 C CNN
+F 3 "" H 15600 7700 50  0001 C CNN
+	1    15600 7700
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND043
+U 1 1 C96F3BDD
+P 15500 6500
+F 0 "#GND043" H 15500 6500 50  0001 C CNN
+F 1 "GND" H 15400 6400 59  0000 L BNN
+F 2 "" H 15500 6500 50  0001 C CNN
+F 3 "" H 15500 6500 50  0001 C CNN
+	1    15500 6500
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND044
+U 1 1 1165F8F0
+P 14900 7800
+F 0 "#GND044" H 14900 7800 50  0001 C CNN
+F 1 "GND" H 14800 7700 59  0000 L BNN
+F 2 "" H 14900 7800 50  0001 C CNN
+F 3 "" H 14900 7800 50  0001 C CNN
+	1    14900 7800
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND045
+U 1 1 9E0B3A99
+P 2500 2700
+F 0 "#GND045" H 2500 2700 50  0001 C CNN
+F 1 "GND" H 2400 2600 59  0000 L BNN
+F 2 "" H 2500 2700 50  0001 C CNN
+F 3 "" H 2500 2700 50  0001 C CNN
+	1    2500 2700
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND011
+U 1 1 19DA8D48
+P 3200 3100
+F 0 "#GND011" H 3200 3100 50  0001 C CNN
+F 1 "GND" H 3100 3000 59  0000 L BNN
+F 2 "" H 3200 3100 50  0001 C CNN
+F 3 "" H 3200 3100 50  0001 C CNN
+	1    3200 3100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND03
+U 1 1 7679BDCC
+P 3500 3100
+F 0 "#GND03" H 3500 3100 50  0001 C CNN
+F 1 "GND" H 3400 3000 59  0000 L BNN
+F 2 "" H 3500 3100 50  0001 C CNN
+F 3 "" H 3500 3100 50  0001 C CNN
+	1    3500 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:T37_THRU T2
+U 1 1 9E4548F9
+P 3900 3100
+F 0 "T2" V 3850 2950 59  0000 L BNN
+F 1 "T37-43" H 3900 3100 50  0001 C CNN
+F 2 "uiFirecrest_v2:T37_THRU" H 3900 3100 50  0001 C CNN
+F 3 "" H 3900 3100 50  0001 C CNN
+	1    3900 3100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:T37_THRU T1
+U 1 1 011D2A96
+P 2700 3100
+F 0 "T1" V 2650 2950 59  0000 L BNN
+F 1 "T37-43" H 2700 3100 50  0001 C CNN
+F 2 "uiFirecrest_v2:T37_THRU" H 2700 3100 50  0001 C CNN
+F 3 "" H 2700 3100 50  0001 C CNN
+	1    2700 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C18
+U 1 1 6BB2805E
+P 7600 3200
+F 0 "C18" H 7660 3215 59  0000 L BNN
+F 1 "1u" H 7660 3015 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 7600 3200 50  0001 C CNN
+F 3 "" H 7600 3200 50  0001 C CNN
+	1    7600 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0805K C19
+U 1 1 648C00B4
+P 6400 3200
+F 0 "C19" H 6460 3215 59  0000 L BNN
+F 1 "100n" H 6460 3015 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0805K" H 6400 3200 50  0001 C CNN
+F 3 "" H 6400 3200 50  0001 C CNN
+	1    6400 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND047
+U 1 1 D3B7AFF0
+P 6400 3600
+F 0 "#GND047" H 6400 3600 50  0001 C CNN
+F 1 "GND" H 6300 3500 59  0000 L BNN
+F 2 "" H 6400 3600 50  0001 C CNN
+F 3 "" H 6400 3600 50  0001 C CNN
+	1    6400 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND049
+U 1 1 141F4D3B
+P 7600 3600
+F 0 "#GND049" H 7600 3600 50  0001 C CNN
+F 1 "GND" H 7500 3500 59  0000 L BNN
+F 2 "" H 7600 3600 50  0001 C CNN
+F 3 "" H 7600 3600 50  0001 C CNN
+	1    7600 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R30
+U 1 1 11652270
+P 15200 6900
+F 0 "R30" H 15150 6759 59  0000 L BNN
+F 1 "4k7" H 14950 6770 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 15200 6900 50  0001 C CNN
+F 3 "" H 15200 6900 50  0001 C CNN
+	1    15200 6900
+	0    1    1    0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:BSS123 Q2
+U 1 1 DA191B3C
+P 2500 8500
+F 0 "Q2" H 2600 8500 59  0000 L BNN
+F 1 "BSS123" H 2600 8400 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOT23" H 2500 8500 50  0001 C CNN
+F 3 "" H 2500 8500 50  0001 C CNN
+F 4 "Mouser: 512-BSS123" H 2500 8500 50  0001 C CNN "Vendor"
+	1    2500 8500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:BSS123 Q5
+U 1 1 2EFB3759
+P 4300 8500
+F 0 "Q5" H 4400 8500 59  0000 L BNN
+F 1 "BSS123" H 4400 8400 59  0000 L BNN
+F 2 "uiFirecrest_v2:SOT23" H 4300 8500 50  0001 C CNN
+F 3 "" H 4300 8500 50  0001 C CNN
+F 4 "Mouser: 512-BSS123" H 4300 8500 50  0001 C CNN "Vendor"
+	1    4300 8500
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND050
+U 1 1 D585A541
+P 4300 9300
+F 0 "#GND050" H 4300 9300 50  0001 C CNN
+F 1 "GND" H 4200 9200 59  0000 L BNN
+F 2 "" H 4300 9300 50  0001 C CNN
+F 3 "" H 4300 9300 50  0001 C CNN
+	1    4300 9300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND051
+U 1 1 C788EC95
+P 2500 9300
+F 0 "#GND051" H 2500 9300 50  0001 C CNN
+F 1 "GND" H 2400 9200 59  0000 L BNN
+F 2 "" H 2500 9300 50  0001 C CNN
+F 3 "" H 2500 9300 50  0001 C CNN
+	1    2500 9300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R31
+U 1 1 A86E1611
+P 1700 8800
+F 0 "R31" H 1550 8859 59  0000 L BNN
+F 1 "10k" H 1550 8670 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 1700 8800 50  0001 C CNN
+F 3 "" H 1700 8800 50  0001 C CNN
+	1    1700 8800
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R32
+U 1 1 148BEDB9
+P 3400 8900
+F 0 "R32" H 3250 8959 59  0000 L BNN
+F 1 "10k" H 3250 8770 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 3400 8900 50  0001 C CNN
+F 3 "" H 3400 8900 50  0001 C CNN
+	1    3400 8900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND052
+U 1 1 97122CDC
+P 1700 9300
+F 0 "#GND052" H 1700 9300 50  0001 C CNN
+F 1 "GND" H 1600 9200 59  0000 L BNN
+F 2 "" H 1700 9300 50  0001 C CNN
+F 3 "" H 1700 9300 50  0001 C CNN
+	1    1700 9300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND053
+U 1 1 B7E5E056
+P 3400 9300
+F 0 "#GND053" H 3400 9300 50  0001 C CNN
+F 1 "GND" H 3300 9200 59  0000 L BNN
+F 2 "" H 3400 9300 50  0001 C CNN
+F 3 "" H 3400 9300 50  0001 C CNN
+	1    3400 9300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R33
+U 1 1 773E747C
+P 2500 7700
+F 0 "R33" H 2350 7759 59  0000 L BNN
+F 1 "46" H 2350 7570 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 2500 7700 50  0001 C CNN
+F 3 "" H 2500 7700 50  0001 C CNN
+	1    2500 7700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R34
+U 1 1 AAD9DEFE
+P 4300 7700
+F 0 "R34" H 4150 7759 59  0000 L BNN
+F 1 "46" H 4150 7570 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 4300 7700 50  0001 C CNN
+F 3 "" H 4300 7700 50  0001 C CNN
+	1    4300 7700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+5V #P+03
+U 1 1 00F05DF6
+P 4300 7300
+F 0 "#P+03" H 4300 7300 50  0001 C CNN
+F 1 "+5V" H 4400 7400 59  0000 R TNN
+F 2 "" H 4300 7300 50  0001 C CNN
+F 3 "" H 4300 7300 50  0001 C CNN
+	1    4300 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:+5V #P+04
+U 1 1 A7FDB2D8
+P 2500 7300
+F 0 "#P+04" H 2500 7300 50  0001 C CNN
+F 1 "+5V" H 2600 7400 59  0000 R TNN
+F 2 "" H 2500 7300 50  0001 C CNN
+F 3 "" H 2500 7300 50  0001 C CNN
+	1    2500 7300
+	1    0    0    -1  
+$EndComp
+Text Notes 17800 900  0    59   ~ 0
+Placements on RF board
+Text Notes 1500 1000 0    59   ~ 0
+SWR bridge
+Text Notes 17900 4000 0    59   ~ 0
+LCD
+Text Notes 17500 8800 0    59   ~ 0
+Paddle Key
+Text Notes 6800 1100 0    59   ~ 0
+Power supplies
+Text Notes 15400 900  0    59   ~ 0
+AVR programming header
+Text Notes 4100 10900 0    59   ~ 0
+TXV conditioning
+Text Notes 11300 10900 0    59   ~ 0
+Rotary Encoder
+Text Notes 7800 10900 0    59   ~ 0
+Sidetone
+Wire Wire Line
+	16500 4700 17100 4700
+Wire Wire Line
+	8700 8400 9200 8400
+Wire Wire Line
+	10600 7600 11200 7600
+$Comp
+L uiFirecrest_v2-eagle-import:R-EU_R0603 R23
+U 1 1 BD816B85
+P 6700 8100
+F 0 "R23" H 6550 8159 59  0000 L BNN
+F 1 "DNF" H 6550 7970 59  0000 L BNN
+F 2 "uiFirecrest_v2:R0603" H 6700 8100 50  0001 C CNN
+F 3 "" H 6700 8100 50  0001 C CNN
+	1    6700 8100
+	-1   0    0    1   
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:LEDSML0805 LED2
+U 1 1 6A31474D
+P 6800 8600
+F 0 "LED2" V 6940 8420 59  0000 L BNN
+F 1 "DNF" V 7025 8420 59  0000 L BNN
+F 2 "uiFirecrest_v2:SML0805" H 6800 8600 50  0001 C CNN
+F 3 "" H 6800 8600 50  0001 C CNN
+	1    6800 8600
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:GND #GND061
+U 1 1 D91DE639
+P 16050 12250
+F 0 "#GND061" H 16050 12250 50  0001 C CNN
+F 1 "GND" H 15950 12150 59  0000 L BNN
+F 2 "" H 16050 12250 50  0001 C CNN
+F 3 "" H 16050 12250 50  0001 C CNN
+	1    16050 12250
+	1    0    0    -1  
+$EndComp
+$Comp
+L uiFirecrest_v2-eagle-import:C-EUC0603K C75
+U 1 1 C9907D1B
+P 8300 4100
+F 0 "C75" H 8360 4115 59  0000 L BNN
+F 1 "1u" H 8360 3915 59  0000 L BNN
+F 2 "uiFirecrest_v2:C0603K" H 8300 4100 50  0001 C CNN
+F 3 "" H 8300 4100 50  0001 C CNN
+	1    8300 4100
+	-1   0    0    1   
+$EndComp
+$EndSCHEMATC

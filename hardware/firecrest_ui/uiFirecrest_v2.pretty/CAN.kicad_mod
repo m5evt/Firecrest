@@ -1,0 +1,9 @@
+(module CAN (layer F.Cu) (tedit 0)
+  (fp_text reference U$4 (at 0 0) (layer F.SilkS) hide
+    (effects (font (size 1.27 1.27) (thickness 0.15)))
+  )
+  (fp_text value RFCAN (at 0 0) (layer F.SilkS) hide
+    (effects (font (size 1.27 1.27) (thickness 0.15)))
+  )
+  (pad P$1 smd rect (at 0 0) (size 9.4 2.3) (layers F.Cu F.Paste F.Mask))
+)
