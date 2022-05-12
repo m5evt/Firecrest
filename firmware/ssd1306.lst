@@ -297,22 +297,26 @@
  304 023e CF91      		pop r28
  305 0240 0895      		ret
  307               		.comm	callStr,15,1
- 308               		.comm	OLEDbuffer,512,1
- 309               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
- 310               	.global __do_clear_bss
+ 308               		.comm	wpm,1,1
+ 309               		.comm	wpmcnt,2,1
+ 310               		.comm	OLEDbuffer,512,1
+ 311               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
+ 312               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ssd1306.c
-     /tmp/ccCK8qVq.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccCK8qVq.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccCK8qVq.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccCK8qVq.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccCK8qVq.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccCK8qVq.s:9      .text:0000000000000000 ssd1306SendByte
-     /tmp/ccCK8qVq.s:45     .text:000000000000002c ssd1306Init
-     /tmp/ccCK8qVq.s:226    .text:00000000000001b4 ssd1306ClearScreen
+     /tmp/ccs0SvIE.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccs0SvIE.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccs0SvIE.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccs0SvIE.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccs0SvIE.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccs0SvIE.s:9      .text:0000000000000000 ssd1306SendByte
+     /tmp/ccs0SvIE.s:45     .text:000000000000002c ssd1306Init
+     /tmp/ccs0SvIE.s:226    .text:00000000000001b4 ssd1306ClearScreen
                             *COM*:0000000000000200 OLEDbuffer
-     /tmp/ccCK8qVq.s:246    .text:00000000000001ca ssd1306Refresh
+     /tmp/ccs0SvIE.s:246    .text:00000000000001ca ssd1306Refresh
                             *COM*:000000000000000f callStr
+                            *COM*:0000000000000001 wpm
+                            *COM*:0000000000000002 wpmcnt
 
 UNDEFINED SYMBOLS
 yackbeat

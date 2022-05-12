@@ -68,7 +68,6 @@ uint8_t magic EEMEM = MAGPAT;	// Needs to contain 'A5' if mem is valid
 // Settings for EEPROM
 eesave_t ee_vars EEMEM;
 
-const char batLowStr[] PROGMEM = " BAT LOW ";
 char cqStr[] = "CQ CQ CQ de";
 
 ///============Function Prototypes=========/////////////////
@@ -142,6 +141,7 @@ int main(void) {
     mySettings.band = ram_vars.e_band;
     mySettings.filterMode = ram_vars.e_filt;
     mySettings.autoReplay = ram_vars.e_replay_time;
+    mySettings.increment = ram_vars.e_increment;
 
   }
   else {
@@ -152,10 +152,10 @@ int main(void) {
     mySettings.filterMode = 0;
     mySettings.autoReplay = 5;
     mySettings.band = 10;
+    mySettings.increment = 1000;       
   }
   
   ChangeBand(mySettings.band, &mySettings);
-  mySettings.increment = 1000;       
     
 	memoryReplayNow = 0;
 	enableMemoryReplay = 0;
@@ -173,7 +173,6 @@ int main(void) {
   si5351aSetInitFrequency(mySettings.freq);
   si5351aSetInitTXFrequency((mySettings.freq / 4) - TXOFFSET);
   si5351_clock_enable(SI5351_CLK2, 0);    
-  //si5351_clock_enable(SI5351_CLK2, 1);
 
 	//Keyer init
 	yackinit();
@@ -264,6 +263,7 @@ int main(void) {
         ram_vars.e_filt = mySettings.filterMode;
         ram_vars.e_band = mySettings.band;
         ram_vars.e_replay_time = mySettings.autoReplay;
+        ram_vars.e_increment = mySettings.increment;
         eeprom_update_block(&ram_vars, &ee_vars, sizeof(eesave_t));
       } 
             
@@ -277,7 +277,7 @@ int main(void) {
 		if (battery_state == 4) {
 		  // Battery is low, so disable tx
 	    yackinhibit(ON);  
-	    yackstring(batLowStr);
+	    yackstring(" BAT LOW ");
     }
 	  else {
 		  // Service keyer/transmitter code
@@ -596,6 +596,7 @@ static uint8_t serviceMenu(struct menuStateMachine *state, struct systemSettings
 					setting->increment = (newStep*4);		
 					clearMainArea();								
 					drawIntNumber((setting->increment)/4);
+          save = 1;
 				}
 				else if (longclick == 1) {		
           yackinhibit(ON);		
@@ -761,7 +762,7 @@ static uint8_t serviceMenu(struct menuStateMachine *state, struct systemSettings
 						rxMUTE = 0;	
 						setting->filterMode = WIDE;
 					}	
-                    save = 1;
+          save = 1;
 					clearMainArea();
 					drawMainAreaSmall(setting->filterMode + Narrow);					
 				}
@@ -773,43 +774,22 @@ static uint8_t serviceMenu(struct menuStateMachine *state, struct systemSettings
 
 				break;
 			}
-			/*
-            case	Batv: 		// 10
-				{
-				if (inc == 1 && setting->batLow <120) {
-					setting->batLow += 1;
-					clearMainArea();	
-					drawBatLowNum(setting->batLow);									
-				}
-				else if (dec == 1 && setting->batLow != 0) {
-					setting->batLow -= 1;
-					clearMainArea();	
-					drawBatLowNum(setting->batLow);						
-					}
-				else {	
-					clearMainArea();								
-					drawBatLowNum(setting->batLow);
-				}			
-				
-				break;
-			}
-      */
 			case	MAR: 		// 10
 				{	
 				if (inc == 1 && (setting->autoReplay < 10)) {
 					setting->autoReplay += 1;
-				    clearMainArea();
+				  clearMainArea();
 					drawIntNumber(setting->autoReplay);	
-                    save = 1;			
+          save = 1;			
 				}
 				else if (dec == 1 && (setting->autoReplay != 0)) {
 					setting->autoReplay -= 1;
-				    clearMainArea();
+				  clearMainArea();
 					drawIntNumber(setting->autoReplay);					
-                    save = 1;
+          save = 1;
 				}
 				else if (click == 1) {	
-				    clearMainArea();
+				  clearMainArea();
 					drawIntNumber(setting->autoReplay);
 				}	
 				break;
@@ -825,7 +805,7 @@ static uint8_t serviceMenu(struct menuStateMachine *state, struct systemSettings
 						setting->band = BAND1;
 						ChangeBand(BAND1, &*setting);												
 					}	
-                    save = 1;
+          save = 1;
 					clearMainArea();	
 					drawIntNumber(setting->band);
 				}

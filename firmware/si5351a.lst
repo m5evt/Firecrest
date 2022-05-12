@@ -668,18 +668,18 @@
  682               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 si5351a.c
-     /tmp/ccAQEgHu.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccAQEgHu.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccAQEgHu.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccAQEgHu.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccAQEgHu.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccAQEgHu.s:14     .text:0000000000000000 setupPLL
-     /tmp/ccAQEgHu.s:174    .text:0000000000000144 setupMultisynth
-     /tmp/ccAQEgHu.s:249    .text:00000000000001d6 si5351_clock_enable
-     /tmp/ccAQEgHu.s:322    .text:0000000000000262 si5351aSetInitFrequency
-     /tmp/ccAQEgHu.s:414    .text:000000000000031c si5351aSetInitTXFrequency
-     /tmp/ccAQEgHu.s:506    .text:00000000000003d6 si5351aSetTXFrequency
-     /tmp/ccAQEgHu.s:595    .text:0000000000000488 si5351aSetFrequency
+     /tmp/ccNFBp1J.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccNFBp1J.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccNFBp1J.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccNFBp1J.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccNFBp1J.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccNFBp1J.s:14     .text:0000000000000000 setupPLL
+     /tmp/ccNFBp1J.s:174    .text:0000000000000144 setupMultisynth
+     /tmp/ccNFBp1J.s:249    .text:00000000000001d6 si5351_clock_enable
+     /tmp/ccNFBp1J.s:322    .text:0000000000000262 si5351aSetInitFrequency
+     /tmp/ccNFBp1J.s:414    .text:000000000000031c si5351aSetInitTXFrequency
+     /tmp/ccNFBp1J.s:506    .text:00000000000003d6 si5351aSetTXFrequency
+     /tmp/ccNFBp1J.s:595    .text:0000000000000488 si5351aSetFrequency
 
 UNDEFINED SYMBOLS
 __floatunsisf

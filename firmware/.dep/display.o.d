@@ -14,7 +14,7 @@ display.o: display.c \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/version.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/fuse.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/lock.h helper.h \
- ssd1306.h display.h \
+ yack.h ssd1306.h display.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/pgmspace.h
 
 /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/stdlib.h:
@@ -48,6 +48,8 @@ firecrest.h:
 /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/lock.h:
 
 helper.h:
+
+yack.h:
 
 ssd1306.h:
 

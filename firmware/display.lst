@@ -5098,37 +5098,41 @@
  5087 10d8 80        		.byte	-128
  5088               		.comm	OLEDbuffer,512,1
  5089               		.comm	callStr,15,1
- 5090               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
- 5091               	.global __do_clear_bss
+ 5090               		.comm	wpm,1,1
+ 5091               		.comm	wpmcnt,2,1
+ 5092               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
+ 5093               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 display.c
-     /tmp/ccMUqbPW.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccMUqbPW.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccMUqbPW.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccMUqbPW.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccMUqbPW.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccMUqbPW.s:9      .text:0000000000000000 drawNumberBig
+     /tmp/cc8YEI4d.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cc8YEI4d.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cc8YEI4d.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cc8YEI4d.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cc8YEI4d.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cc8YEI4d.s:9      .text:0000000000000000 drawNumberBig
                             *COM*:0000000000000200 OLEDbuffer
-     /tmp/ccMUqbPW.s:3532   .progmem.data:0000000000000aca bigNumbers
-     /tmp/ccMUqbPW.s:50     .text:0000000000000036 drawNumberSmall
-     /tmp/ccMUqbPW.s:3252   .progmem.data:000000000000093e smallNumbers
-     /tmp/ccMUqbPW.s:108    .text:000000000000008a drawDot.constprop.0
-     /tmp/ccMUqbPW.s:3235   .progmem.data:0000000000000911 bigDot
-     /tmp/ccMUqbPW.s:143    .text:00000000000000b2 displayFreqSmall
-     /tmp/ccMUqbPW.s:448    .text:0000000000000334 drawBat
-     /tmp/ccMUqbPW.s:3101   .progmem.data:0000000000000817 batIcon
-     /tmp/ccMUqbPW.s:484    .text:000000000000035e displayFreq
-     /tmp/ccMUqbPW.s:708    .text:0000000000000532 drawMainArea
-     /tmp/ccMUqbPW.s:2440   .progmem.data:0000000000000586 mainBigText
-     /tmp/ccMUqbPW.s:751    .text:000000000000056a drawMainAreaSmall
-     /tmp/ccMUqbPW.s:1086   .progmem.data:0000000000000040 mainSmallText
-     /tmp/ccMUqbPW.s:794    .text:00000000000005a2 displayChangeStateIcon
-     /tmp/ccMUqbPW.s:4031   .progmem.data:0000000000000cb9 stateIcons
-     /tmp/ccMUqbPW.s:853    .text:00000000000005ee drawIntNumber
-     /tmp/ccMUqbPW.s:949    .text:00000000000006aa clearMainArea
-     /tmp/ccMUqbPW.s:976    .text:00000000000006cc drawVSWR
-     /tmp/ccMUqbPW.s:1033   .progmem.data:0000000000000000 vswrToOne
+     /tmp/cc8YEI4d.s:3532   .progmem.data:0000000000000aca bigNumbers
+     /tmp/cc8YEI4d.s:50     .text:0000000000000036 drawNumberSmall
+     /tmp/cc8YEI4d.s:3252   .progmem.data:000000000000093e smallNumbers
+     /tmp/cc8YEI4d.s:108    .text:000000000000008a drawDot.constprop.0
+     /tmp/cc8YEI4d.s:3235   .progmem.data:0000000000000911 bigDot
+     /tmp/cc8YEI4d.s:143    .text:00000000000000b2 displayFreqSmall
+     /tmp/cc8YEI4d.s:448    .text:0000000000000334 drawBat
+     /tmp/cc8YEI4d.s:3101   .progmem.data:0000000000000817 batIcon
+     /tmp/cc8YEI4d.s:484    .text:000000000000035e displayFreq
+     /tmp/cc8YEI4d.s:708    .text:0000000000000532 drawMainArea
+     /tmp/cc8YEI4d.s:2440   .progmem.data:0000000000000586 mainBigText
+     /tmp/cc8YEI4d.s:751    .text:000000000000056a drawMainAreaSmall
+     /tmp/cc8YEI4d.s:1086   .progmem.data:0000000000000040 mainSmallText
+     /tmp/cc8YEI4d.s:794    .text:00000000000005a2 displayChangeStateIcon
+     /tmp/cc8YEI4d.s:4031   .progmem.data:0000000000000cb9 stateIcons
+     /tmp/cc8YEI4d.s:853    .text:00000000000005ee drawIntNumber
+     /tmp/cc8YEI4d.s:949    .text:00000000000006aa clearMainArea
+     /tmp/cc8YEI4d.s:976    .text:00000000000006cc drawVSWR
+     /tmp/cc8YEI4d.s:1033   .progmem.data:0000000000000000 vswrToOne
                             *COM*:000000000000000f callStr
+                            *COM*:0000000000000001 wpm
+                            *COM*:0000000000000002 wpmcnt
 
 UNDEFINED SYMBOLS
 __udivmodsi4

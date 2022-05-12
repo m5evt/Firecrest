@@ -193,18 +193,18 @@
  209               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 i2c.c
-     /tmp/ccQcpWeT.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccQcpWeT.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccQcpWeT.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccQcpWeT.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccQcpWeT.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccQcpWeT.s:10     .text:0000000000000000 i2c_init
-     /tmp/ccQcpWeT.s:25     .text:0000000000000016 i2c_start
-     /tmp/ccQcpWeT.s:42     .text:000000000000002c i2c_stop
-     /tmp/ccQcpWeT.s:58     .text:000000000000003c i2c_write
-     /tmp/ccQcpWeT.s:76     .text:0000000000000056 i2c_read_nack
-     /tmp/ccQcpWeT.s:92     .text:000000000000006a i2c_status
-     /tmp/ccQcpWeT.s:103    .text:0000000000000072 i2cSendRegister
-     /tmp/ccQcpWeT.s:149    .text:00000000000000bc i2cReadRegister
+     /tmp/cc8R4kna.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/cc8R4kna.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/cc8R4kna.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/cc8R4kna.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/cc8R4kna.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/cc8R4kna.s:10     .text:0000000000000000 i2c_init
+     /tmp/cc8R4kna.s:25     .text:0000000000000016 i2c_start
+     /tmp/cc8R4kna.s:42     .text:000000000000002c i2c_stop
+     /tmp/cc8R4kna.s:58     .text:000000000000003c i2c_write
+     /tmp/cc8R4kna.s:76     .text:0000000000000056 i2c_read_nack
+     /tmp/cc8R4kna.s:92     .text:000000000000006a i2c_status
+     /tmp/cc8R4kna.s:103    .text:0000000000000072 i2cSendRegister
+     /tmp/cc8R4kna.s:149    .text:00000000000000bc i2cReadRegister
 
 NO UNDEFINED SYMBOLS

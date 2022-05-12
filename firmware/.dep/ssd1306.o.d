@@ -12,7 +12,8 @@ ssd1306.o: ssd1306.c \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/common.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/version.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/fuse.h \
- /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/lock.h helper.h
+ /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/lock.h helper.h \
+ yack.h
 
 /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/string.h:
 
@@ -47,3 +48,5 @@ firecrest.h:
 /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/lock.h:
 
 helper.h:
+
+yack.h:

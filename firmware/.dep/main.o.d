@@ -19,7 +19,7 @@ main.o: main.c /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/io.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/lib/gcc/avr/5.4.0/include/stdarg.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/math.h \
  /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/eeprom.h helper.h \
- firecrest.h i2c.h si5351a.h ssd1306.h display.h yack.h
+ firecrest.h yack.h i2c.h si5351a.h ssd1306.h display.h
 
 /opt/avr8-gnu-toolchain-linux_x86_64/avr/include/avr/io.h:
 
@@ -67,6 +67,8 @@ helper.h:
 
 firecrest.h:
 
+yack.h:
+
 i2c.h:
 
 si5351a.h:
@@ -74,5 +76,3 @@ si5351a.h:
 ssd1306.h:
 
 display.h:
-
-yack.h:

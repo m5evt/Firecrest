@@ -765,7 +765,7 @@
  788 0604 1092 0000 		sts txKeyed,__zero_reg__
  789 0608 5E98      		cbi 0xb,6
  790               	/* #APP */
- 791               	 ;  1212 "main.c" 1
+ 791               	 ;  1192 "main.c" 1
  792 060a F894      		cli
  793               	 ;  0 "" 2
  794               	/* #NOAPP */
@@ -773,7 +773,7 @@
  796 060e 82E0      		ldi r24,lo8(2)
  797 0610 0E94 0000 		call si5351_clock_enable
  798               	/* #APP */
- 799               	 ;  1214 "main.c" 1
+ 799               	 ;  1194 "main.c" 1
  800 0614 7894      		sei
  801               	 ;  0 "" 2
  802               	/* #NOAPP */
@@ -788,7 +788,7 @@
  813 061a 8093 0000 		sts txKeyed,r24
  814 061e 5E9A      		sbi 0xb,6
  815               	/* #APP */
- 816               	 ;  1220 "main.c" 1
+ 816               	 ;  1200 "main.c" 1
  817 0620 F894      		cli
  818               	 ;  0 "" 2
  819               	/* #NOAPP */
@@ -796,7 +796,7 @@
  821 0624 82E0      		ldi r24,lo8(2)
  822 0626 0E94 0000 		call si5351_clock_enable
  823               	/* #APP */
- 824               	 ;  1222 "main.c" 1
+ 824               	 ;  1202 "main.c" 1
  825 062a 7894      		sei
  826               	 ;  0 "" 2
  827               	/* #NOAPP */
@@ -821,1537 +821,1548 @@
  838      2025 7300 
  839               	.LC4:
  840 0033 5400      		.string	"T"
- 841               		.section	.text.startup,"ax",@progbits
- 842               	.global	main
- 844               	main:
- 845 0000 CF93      		push r28
- 846 0002 DF93      		push r29
- 847 0004 CDB7      		in r28,__SP_L__
- 848 0006 DEB7      		in r29,__SP_H__
- 849 0008 C056      		subi r28,96
- 850 000a D109      		sbc r29,__zero_reg__
- 851 000c 0FB6      		in __tmp_reg__,__SREG__
- 852 000e F894      		cli
- 853 0010 DEBF      		out __SP_H__,r29
- 854 0012 0FBE      		out __SREG__,__tmp_reg__
- 855 0014 CDBF      		out __SP_L__,r28
- 856               	/* prologue: function */
- 857               	/* frame size = 96 */
- 858               	/* stack size = 98 */
- 859               	.L__stack_usage = 98
- 860 0016 5A98      		cbi 0xb,2
- 861 0018 5E9A      		sbi 0xb,6
- 862 001a 60E0      		ldi r22,lo8(.LC0)
- 863 001c 70E0      		ldi r23,hi8(.LC0)
- 864 001e 80E0      		ldi r24,lo8(callStr)
- 865 0020 90E0      		ldi r25,hi8(callStr)
- 866 0022 0E94 0000 		call strcpy
- 867 0026 44E1      		ldi r20,lo8(20)
- 868 0028 50E0      		ldi r21,0
- 869 002a 60E0      		ldi r22,lo8(ee_vars)
- 870 002c 70E0      		ldi r23,hi8(ee_vars)
- 871 002e CE01      		movw r24,r28
- 872 0030 855B      		subi r24,-75
- 873 0032 9F4F      		sbci r25,-1
- 874 0034 0E94 0000 		call eeprom_read_block
- 875 0038 88E9      		ldi r24,lo8(-104)
- 876 003a 81B9      		out 0x1,r24
- 877 003c 8FEF      		ldi r24,lo8(-1)
- 878 003e 84B9      		out 0x4,r24
- 879 0040 9BE3      		ldi r25,lo8(59)
- 880 0042 97B9      		out 0x7,r25
- 881 0044 8AB9      		out 0xa,r24
- 882 0046 98EF      		ldi r25,lo8(-8)
- 883 0048 92B9      		out 0x2,r25
- 884 004a 85B9      		out 0x5,r24
- 885 004c 88B9      		out 0x8,r24
- 886 004e 8BEF      		ldi r24,lo8(-5)
- 887 0050 8BB9      		out 0xb,r24
- 888 0052 8091 6900 		lds r24,105
- 889 0056 8062      		ori r24,lo8(32)
- 890 0058 8093 6900 		sts 105,r24
- 891 005c 8091 6800 		lds r24,104
- 892 0060 8460      		ori r24,lo8(4)
- 893 0062 8093 6800 		sts 104,r24
- 894 0066 8091 6D00 		lds r24,109
- 895 006a 8068      		ori r24,lo8(-128)
- 896 006c 8093 6D00 		sts 109,r24
- 897 0070 82E0      		ldi r24,lo8(2)
- 898 0072 8093 6E00 		sts 110,r24
- 899 0076 84BD      		out 0x24,r24
- 900 0078 16BC      		out 0x26,__zero_reg__
- 901 007a 83E0      		ldi r24,lo8(3)
- 902 007c 85BD      		out 0x25,r24
- 903 007e 80E6      		ldi r24,lo8(96)
- 904 0080 87BD      		out 0x27,r24
- 905 0082 1092 6F00 		sts 111,__zero_reg__
- 906 0086 1092 8500 		sts 132+1,__zero_reg__
- 907 008a 1092 8400 		sts 132,__zero_reg__
- 908 008e 8091 8100 		lds r24,129
- 909 0092 8B60      		ori r24,lo8(11)
- 910 0094 8093 8100 		sts 129,r24
- 911 0098 81E7      		ldi r24,lo8(113)
- 912 009a 92E0      		ldi r25,lo8(2)
- 913 009c 9093 8900 		sts 136+1,r25
- 914 00a0 8093 8800 		sts 136,r24
- 915 00a4 2898      		cbi 0x5,0
- 916 00a6 2998      		cbi 0x5,1
- 917 00a8 0E94 0000 		call yackbeat
- 918 00ac 289A      		sbi 0x5,0
- 919 00ae 2998      		cbi 0x5,1
- 920 00b0 0E94 0000 		call yackbeat
- 921 00b4 2898      		cbi 0x5,0
- 922 00b6 2998      		cbi 0x5,1
- 923 00b8 80E0      		ldi r24,lo8(magic)
- 924 00ba 90E0      		ldi r25,hi8(magic)
- 925 00bc 0E94 0000 		call eeprom_read_byte
- 926 00c0 853A      		cpi r24,lo8(-91)
- 927 00c2 01F4      		brne .L68
- 928 00c4 4CE0      		ldi r20,lo8(12)
- 929 00c6 50E0      		ldi r21,0
- 930 00c8 BE01      		movw r22,r28
- 931 00ca 655B      		subi r22,-75
- 932 00cc 7F4F      		sbci r23,-1
- 933 00ce 80E0      		ldi r24,lo8(callStr)
- 934 00d0 90E0      		ldi r25,hi8(callStr)
- 935 00d2 0E94 0000 		call strncpy
- 936 00d6 6B96      		adiw r28,90-63
- 937 00d8 4FAD      		ldd r20,Y+63
- 938 00da 6B97      		sbiw r28,90-63
- 939 00dc 2B96      		adiw r28,74-63
- 940 00de 4FAF      		std Y+63,r20
- 941 00e0 2B97      		sbiw r28,74-63
- 942 00e2 60E0      		ldi r22,0
- 943 00e4 80E0      		ldi r24,0
- 944 00e6 0E94 0000 		call serviceKeyerMode
- 945 00ea 6C96      		adiw r28,91-63
- 946 00ec 8FAD      		ldd r24,Y+63
- 947 00ee 6C97      		sbiw r28,91-63
- 948 00f0 8093 0000 		sts wpm,r24
- 949 00f4 6E96      		adiw r28,93-63
- 950 00f6 8FAD      		ldd r24,Y+63
- 951 00f8 6E97      		sbiw r28,93-63
- 952 00fa 2A96      		adiw r28,73-63
- 953 00fc 8FAF      		std Y+63,r24
- 954 00fe 2A97      		sbiw r28,73-63
- 955 0100 6D96      		adiw r28,92-63
- 956 0102 8FAD      		ldd r24,Y+63
- 957 0104 6D97      		sbiw r28,92-63
- 958 0106 2896      		adiw r28,71-63
- 959 0108 8FAF      		std Y+63,r24
- 960 010a 2897      		sbiw r28,71-63
- 961 010c 6F96      		adiw r28,94-63
- 962 010e 8FAD      		ldd r24,Y+63
- 963 0110 6F97      		sbiw r28,94-63
- 964 0112 2996      		adiw r28,72-63
- 965 0114 8FAF      		std Y+63,r24
- 966 0116 2997      		sbiw r28,72-63
- 967 0118 00C0      		rjmp .L69
- 968               	.L68:
- 969 011a 85E0      		ldi r24,lo8(5)
- 970 011c 2B96      		adiw r28,74-63
- 971 011e 8FAF      		std Y+63,r24
- 972 0120 2B97      		sbiw r28,74-63
- 973 0122 92E1      		ldi r25,lo8(18)
- 974 0124 9093 0000 		sts wpm,r25
- 975 0128 2896      		adiw r28,71-63
- 976 012a 1FAE      		std Y+63,__zero_reg__
- 977 012c 2897      		sbiw r28,71-63
- 978 012e 2996      		adiw r28,72-63
- 979 0130 8FAF      		std Y+63,r24
- 980 0132 2997      		sbiw r28,72-63
- 981 0134 8AE0      		ldi r24,lo8(10)
- 982 0136 2A96      		adiw r28,73-63
- 983 0138 8FAF      		std Y+63,r24
- 984 013a 2A97      		sbiw r28,73-63
- 985               	.L69:
- 986 013c BE01      		movw r22,r28
- 987 013e 6D5C      		subi r22,-51
- 988 0140 7F4F      		sbci r23,-1
- 989 0142 2A96      		adiw r28,73-63
- 990 0144 8FAD      		ldd r24,Y+63
- 991 0146 2A97      		sbiw r28,73-63
- 992 0148 0E94 0000 		call ChangeBand
- 993 014c 88EE      		ldi r24,lo8(-24)
- 994 014e 93E0      		ldi r25,lo8(3)
- 995 0150 9CAB      		std Y+52,r25
- 996 0152 8BAB      		std Y+51,r24
- 997 0154 1092 0000 		sts memoryReplayNow,__zero_reg__
- 998 0158 1092 0000 		sts enableMemoryReplay,__zero_reg__
- 999 015c 81E0      		ldi r24,lo8(1)
- 1000 015e 0E94 0000 		call ssd1306Init
- 1001 0162 0E94 0000 		call ssd1306ClearScreen
- 1002 0166 0E94 0000 		call ssd1306Refresh
- 1003               	/* #APP */
- 1004               	 ;  169 "main.c" 1
- 1005 016a 7894      		sei
- 1006               	 ;  0 "" 2
- 1007               	/* #NOAPP */
- 1008 016c 0E94 0000 		call i2c_init
- 1009 0170 6DA9      		ldd r22,Y+53
- 1010 0172 7EA9      		ldd r23,Y+54
- 1011 0174 8FA9      		ldd r24,Y+55
- 1012 0176 98AD      		ldd r25,Y+56
- 1013 0178 0E94 0000 		call si5351aSetInitFrequency
- 1014 017c 8DA9      		ldd r24,Y+53
- 1015 017e 9EA9      		ldd r25,Y+54
- 1016 0180 AFA9      		ldd r26,Y+55
- 1017 0182 B8AD      		ldd r27,Y+56
- 1018 0184 12E0      		ldi r17,2
- 1019               		1:
- 1020 0186 B695      		lsr r27
- 1021 0188 A795      		ror r26
- 1022 018a 9795      		ror r25
- 1023 018c 8795      		ror r24
- 1024 018e 1A95      		dec r17
- 1025 0190 01F4      		brne 1b
- 1026 0192 BC01      		movw r22,r24
- 1027 0194 CD01      		movw r24,r26
- 1028 0196 6A58      		subi r22,-118
- 1029 0198 7240      		sbci r23,2
- 1030 019a 8109      		sbc r24,__zero_reg__
- 1031 019c 9109      		sbc r25,__zero_reg__
- 1032 019e 0E94 0000 		call si5351aSetInitTXFrequency
- 1033 01a2 60E0      		ldi r22,0
- 1034 01a4 82E0      		ldi r24,lo8(2)
- 1035 01a6 0E94 0000 		call si5351_clock_enable
- 1036 01aa 0E94 0000 		call yackinit
- 1037 01ae 08E0      		ldi r16,lo8(8)
- 1038 01b0 10E0      		ldi r17,0
- 1039               	.L70:
- 1040 01b2 0E94 0000 		call volumeDOWNone
- 1041 01b6 0150      		subi r16,1
- 1042 01b8 1109      		sbc r17,__zero_reg__
- 1043 01ba 01F4      		brne .L70
- 1044 01bc 0E94 0000 		call volumeUPone
- 1045 01c0 04E0      		ldi r16,lo8(4)
- 1046 01c2 10E0      		ldi r17,0
- 1047 01c4 2796      		adiw r28,69-62
- 1048 01c6 1FAF      		std Y+63,r17
- 1049 01c8 0EAF      		std Y+62,r16
- 1050 01ca 2797      		sbiw r28,69-62
- 1051 01cc 0E94 0000 		call volumeUPone
- 1052 01d0 2796      		adiw r28,69-62
- 1053 01d2 1FAF      		std Y+63,r17
- 1054 01d4 0EAF      		std Y+62,r16
- 1055 01d6 2797      		sbiw r28,69-62
- 1056 01d8 0E94 0000 		call volumeUPone
- 1057 01dc 2796      		adiw r28,69-62
- 1058 01de 1FAF      		std Y+63,r17
- 1059 01e0 0EAF      		std Y+62,r16
- 1060 01e2 2797      		sbiw r28,69-62
- 1061 01e4 0E94 0000 		call volumeUPone
- 1062 01e8 2796      		adiw r28,69-62
- 1063 01ea 1FAF      		std Y+63,r17
- 1064 01ec 0EAF      		std Y+62,r16
- 1065 01ee 2797      		sbiw r28,69-62
- 1066 01f0 08E0      		ldi r16,lo8(8)
- 1067 01f2 10E0      		ldi r17,0
- 1068               	.L71:
- 1069 01f4 0E94 0000 		call filterDOWNone
- 1070 01f8 0150      		subi r16,1
- 1071 01fa 1109      		sbc r17,__zero_reg__
- 1072 01fc 01F4      		brne .L71
- 1073 01fe 2896      		adiw r28,71-63
- 1074 0200 8FAD      		ldd r24,Y+63
- 1075 0202 2897      		sbiw r28,71-63
- 1076 0204 8111      		cpse r24,__zero_reg__
- 1077 0206 00C0      		rjmp .L72
- 1078               	.L75:
- 1079 0208 0E94 0000 		call ssd1306ClearScreen
- 1080 020c 0E94 0000 		call serviceBattery
- 1081 0210 6DA9      		ldd r22,Y+53
- 1082 0212 7EA9      		ldd r23,Y+54
- 1083 0214 8FA9      		ldd r24,Y+55
- 1084 0216 98AD      		ldd r25,Y+56
- 1085 0218 4091 0000 		lds r20,battery_state
- 1086 021c 0E94 0000 		call displayFreq
- 1087 0220 0E94 0000 		call ssd1306Refresh
- 1088 0224 5E98      		cbi 0xb,6
- 1089 0226 81E0      		ldi r24,lo8(1)
- 1090 0228 0E94 0000 		call yackinhibit
- 1091 022c 80E0      		ldi r24,lo8(callStr)
- 1092 022e 90E0      		ldi r25,hi8(callStr)
- 1093 0230 0E94 0000 		call yackstring
- 1094 0234 80E0      		ldi r24,0
- 1095 0236 0E94 0000 		call yackinhibit
- 1096 023a 412C      		mov r4,__zero_reg__
- 1097 023c 10E0      		ldi r17,0
- 1098 023e 78E0      		ldi r23,lo8(8)
- 1099 0240 E72E      		mov r14,r23
- 1100 0242 F12C      		mov r15,__zero_reg__
- 1101 0244 6E01      		movw r12,r28
- 1102 0246 2FE5      		ldi r18,95
- 1103 0248 C20E      		add r12,r18
- 1104 024a D11C      		adc r13,__zero_reg__
- 1105 024c CE01      		movw r24,r28
- 1106 024e 0196      		adiw r24,1
- 1107 0250 5C01      		movw r10,r24
- 1108 0252 E0EF      		ldi r30,lo8(-16)
- 1109 0254 8E2E      		mov r8,r30
- 1110 0256 912C      		mov r9,__zero_reg__
- 1111 0258 F2E0      		ldi r31,lo8(2)
- 1112 025a 2F2E      		mov r2,r31
- 1113 025c 00C0      		rjmp .L73
- 1114               	.L72:
- 1115 025e 08E0      		ldi r16,lo8(8)
- 1116 0260 10E0      		ldi r17,0
- 1117               	.L74:
- 1118 0262 0E94 0000 		call filterUPone
- 1119 0266 0150      		subi r16,1
- 1120 0268 1109      		sbc r17,__zero_reg__
- 1121 026a 01F4      		brne .L74
- 1122 026c 00C0      		rjmp .L75
- 1123               	.L105:
- 1124 026e 21E0      		ldi r18,lo8(1)
- 1125 0270 6212      		cpse r6,r18
- 1126 0272 00C0      		rjmp .L303
- 1127               	.L152:
- 1128 0274 2B96      		adiw r28,74-63
- 1129 0276 4FAD      		ldd r20,Y+63
- 1130 0278 2B97      		sbiw r28,74-63
- 1131 027a 672D      		mov r22,r7
- 1132 027c 862D      		mov r24,r6
- 1133 027e 0E94 0000 		call serviceKeyerMode
- 1134 0282 2B96      		adiw r28,74-63
- 1135 0284 8FAF      		std Y+63,r24
- 1136 0286 2B97      		sbiw r28,74-63
- 1137 0288 0E94 0000 		call clearMainArea
- 1138 028c 2B96      		adiw r28,74-63
- 1139 028e 8FAD      		ldd r24,Y+63
- 1140 0290 2B97      		sbiw r28,74-63
- 1141 0292 90E0      		ldi r25,0
- 1142 0294 0E94 0000 		call drawMainAreaSmall
- 1143 0298 18E0      		ldi r17,lo8(8)
- 1144               	.L293:
- 1145 029a 01E0      		ldi r16,lo8(1)
- 1146               	.L96:
- 1147 029c F1E0      		ldi r31,lo8(1)
- 1148 029e 6F16      		cp r6,r31
- 1149 02a0 01F4      		brne .+2
- 1150 02a2 00C0      		rjmp .L112
- 1151 02a4 7F16      		cp r7,r31
- 1152 02a6 01F4      		brne .+2
- 1153 02a8 00C0      		rjmp .L112
- 1154               	.L169:
- 1155 02aa 21E0      		ldi r18,lo8(1)
- 1156 02ac 5216      		cp r5,r18
- 1157 02ae 01F4      		brne .+2
- 1158 02b0 00C0      		rjmp .L112
- 1159               	.L185:
- 1160 02b2 31E0      		ldi r19,lo8(1)
- 1161 02b4 3316      		cp r3,r19
- 1162 02b6 01F4      		brne .+2
- 1163 02b8 00C0      		rjmp .L112
- 1164               	.L170:
- 1165 02ba 0130      		cpi r16,lo8(1)
- 1166 02bc 01F4      		brne .+2
- 1167 02be 00C0      		rjmp .L148
- 1168               	.L171:
- 1169 02c0 88EC      		ldi r24,-56
- 1170 02c2 E816      		cp r14,r24
- 1171 02c4 F104      		cpc r15,__zero_reg__
- 1172 02c6 01F4      		brne .L77
- 1173 02c8 0E94 0000 		call serviceBattery
- 1174 02cc E12C      		mov r14,__zero_reg__
- 1175 02ce F12C      		mov r15,__zero_reg__
- 1176               	.L77:
- 1177 02d0 8091 0000 		lds r24,battery_state
- 1178 02d4 8430      		cpi r24,lo8(4)
- 1179 02d6 01F0      		breq .+2
- 1180 02d8 00C0      		rjmp .L172
- 1181 02da 81E0      		ldi r24,lo8(1)
- 1182 02dc 0E94 0000 		call yackinhibit
- 1183 02e0 80E0      		ldi r24,lo8(batLowStr)
- 1184 02e2 90E0      		ldi r25,hi8(batLowStr)
- 1185 02e4 0E94 0000 		call yackstring
- 1186               	.L73:
- 1187 02e8 8091 0000 		lds r24,txKeyed
- 1188 02ec 8111      		cpse r24,__zero_reg__
- 1189 02ee 00C0      		rjmp .L77
- 1190 02f0 9FEF      		ldi r25,-1
- 1191 02f2 E91A      		sub r14,r25
- 1192 02f4 F90A      		sbc r15,r25
- 1193 02f6 1111      		cpse r17,__zero_reg__
- 1194 02f8 00C0      		rjmp .L78
- 1195 02fa 8091 0000 		lds r24,rotEncChange
- 1196 02fe 9091 0000 		lds r25,rotEncChange+1
- 1197 0302 0197      		sbiw r24,1
- 1198 0304 01F4      		brne .L79
- 1199 0306 CE01      		movw r24,r28
- 1200 0308 C396      		adiw r24,51
- 1201 030a 0E94 0000 		call serviceFreq.part.1
- 1202 030e 00C0      		rjmp .L79
- 1203               	.L78:
- 1204 0310 1330      		cpi r17,lo8(3)
- 1205 0312 00F0      		brlo .L79
- 1206 0314 1630      		cpi r17,lo8(6)
- 1207 0316 01F0      		breq .L79
- 1208 0318 059B      		sbis 0,5
- 1209 031a 00C0      		rjmp .L80
- 1210 031c 0699      		sbic 0,6
- 1211 031e 00C0      		rjmp .L79
- 1212               	.L80:
- 1213 0320 80E0      		ldi r24,0
- 1214 0322 0E94 0000 		call yackinhibit
- 1215 0326 0E94 0000 		call ssd1306ClearScreen
- 1216 032a 6DA9      		ldd r22,Y+53
- 1217 032c 7EA9      		ldd r23,Y+54
- 1218 032e 8FA9      		ldd r24,Y+55
- 1219 0330 98AD      		ldd r25,Y+56
- 1220 0332 4091 0000 		lds r20,battery_state
- 1221 0336 0E94 0000 		call displayFreq
- 1222 033a 0E94 0000 		call ssd1306Refresh
- 1223 033e 85E0      		ldi r24,lo8(5)
- 1224 0340 0E94 0000 		call yackdelay
- 1225 0344 10E0      		ldi r17,0
- 1226               	.L79:
- 1227 0346 2091 0000 		lds r18,enableMemoryReplay
- 1228 034a 2130      		cpi r18,lo8(1)
- 1229 034c 01F4      		brne .L81
- 1230 034e 8091 0000 		lds r24,countDownMemoryTimer
- 1231 0352 9091 0000 		lds r25,countDownMemoryTimer+1
- 1232 0356 0197      		sbiw r24,1
- 1233 0358 9093 0000 		sts countDownMemoryTimer+1,r25
- 1234 035c 8093 0000 		sts countDownMemoryTimer,r24
- 1235 0360 892B      		or r24,r25
- 1236 0362 01F4      		brne .L81
- 1237 0364 1092 0000 		sts enableMemoryReplay,__zero_reg__
- 1238 0368 2093 0000 		sts memoryReplayNow,r18
- 1239 036c 15E0      		ldi r17,lo8(5)
- 1240               	.L81:
- 1241 036e 3299      		sbic 0x6,2
- 1242 0370 00C0      		rjmp .L186
- 1243 0372 1111      		cpse r17,__zero_reg__
- 1244 0374 00C0      		rjmp .L304
- 1245 0376 68EC      		ldi r22,lo8(-56)
- 1246 0378 662E      		mov r6,r22
- 1247 037a 712C      		mov r7,__zero_reg__
- 1248               	.L85:
- 1249 037c 3299      		sbic 0x6,2
- 1250 037e 00C0      		rjmp .L88
- 1251 0380 E1E0      		ldi r30,1
- 1252 0382 6E1A      		sub r6,r30
- 1253 0384 7108      		sbc r7,__zero_reg__
- 1254 0386 0E94 0000 		call yackbeat
- 1255 038a 6114      		cp r6,__zero_reg__
- 1256 038c 7104      		cpc r7,__zero_reg__
- 1257 038e 01F4      		brne .L85
- 1258               	.L88:
- 1259 0390 329B      		sbis 0x6,2
- 1260 0392 00C0      		rjmp .L88
- 1261 0394 6114      		cp r6,__zero_reg__
- 1262 0396 7104      		cpc r7,__zero_reg__
- 1263 0398 01F4      		brne .+2
- 1264 039a 00C0      		rjmp .L187
- 1265 039c F4EB      		ldi r31,-76
- 1266 039e 6F16      		cp r6,r31
- 1267 03a0 7104      		cpc r7,__zero_reg__
- 1268 03a2 00F0      		brlo .L89
- 1269 03a4 00C0      		rjmp .L295
- 1270               	.L304:
- 1271 03a6 4394      		inc r4
- 1272 03a8 25E0      		ldi r18,lo8(5)
- 1273 03aa 4212      		cpse r4,r18
- 1274 03ac 00C0      		rjmp .L295
- 1275 03ae 00C0      		rjmp .L90
- 1276               	.L89:
- 1277 03b0 1F5F      		subi r17,lo8(-(1))
- 1278               	.L289:
- 1279 03b2 312C      		mov r3,__zero_reg__
- 1280 03b4 5524      		clr r5
- 1281 03b6 5394      		inc r5
- 1282               	.L92:
- 1283 03b8 8091 0000 		lds r24,rotEncChange
- 1284 03bc 9091 0000 		lds r25,rotEncChange+1
- 1285 03c0 412F      		mov r20,r17
- 1286 03c2 50E0      		ldi r21,0
- 1287 03c4 0197      		sbiw r24,1
- 1288 03c6 01F0      		breq .+2
- 1289 03c8 00C0      		rjmp .L93
- 1290 03ca 8091 0000 		lds r24,storedRotA
- 1291 03ce 9091 0000 		lds r25,storedRotA+1
- 1292 03d2 E091 0000 		lds r30,storedRotB
- 1293 03d6 F091 0000 		lds r31,storedRotB+1
- 1294 03da 8E17      		cp r24,r30
- 1295 03dc 9F07      		cpc r25,r31
- 1296 03de 01F4      		brne .L188
- 1297 03e0 8091 0000 		lds r24,storedRotA
- 1298 03e4 9091 0000 		lds r25,storedRotA+1
- 1299 03e8 E091 0000 		lds r30,storedRotB
- 1300 03ec F091 0000 		lds r31,storedRotB+1
- 1301 03f0 7724      		clr r7
- 1302 03f2 7394      		inc r7
- 1303 03f4 8E17      		cp r24,r30
- 1304 03f6 9F07      		cpc r25,r31
- 1305 03f8 01F0      		breq .L95
- 1306 03fa 712C      		mov r7,__zero_reg__
- 1307               	.L95:
- 1308 03fc 612C      		mov r6,__zero_reg__
- 1309 03fe 00C0      		rjmp .L94
- 1310               	.L188:
- 1311 0400 712C      		mov r7,__zero_reg__
- 1312 0402 6624      		clr r6
- 1313 0404 6394      		inc r6
- 1314               	.L94:
- 1315 0406 1092 0000 		sts rotEncChange+1,__zero_reg__
- 1316 040a 1092 0000 		sts rotEncChange,__zero_reg__
- 1317 040e FA01      		movw r30,r20
- 1318 0410 3197      		sbiw r30,1
- 1319 0412 EB30      		cpi r30,11
- 1320 0414 F105      		cpc r31,__zero_reg__
- 1321 0416 00F0      		brlo .+2
- 1322 0418 00C0      		rjmp .L292
- 1323 041a E050      		subi r30,lo8(-(gs(.L98)))
- 1324 041c F040      		sbci r31,hi8(-(gs(.L98)))
- 1325 041e 0C94 0000 		jmp __tablejump2__
- 1326               		.section	.progmem.gcc_sw_table,"a",@progbits
- 1327               		.p2align	1
- 1328               	.L98:
- 1329 0000 0000      		.word gs(.L97)
- 1330 0002 0000      		.word gs(.L99)
- 1331 0004 0000      		.word gs(.L100)
- 1332 0006 0000      		.word gs(.L101)
- 1333 0008 0000      		.word gs(.L102)
- 1334 000a 0000      		.word gs(.L103)
- 1335 000c 0000      		.word gs(.L104)
- 1336 000e 0000      		.word gs(.L105)
- 1337 0010 0000      		.word gs(.L106)
- 1338 0012 0000      		.word gs(.L107)
- 1339 0014 0000      		.word gs(.L108)
- 1340               		.section	.text.startup
- 1341               	.L97:
- 1342 0422 31E0      		ldi r19,lo8(1)
- 1343 0424 6312      		cpse r6,r19
- 1344 0426 00C0      		rjmp .L109
- 1345 0428 89AD      		ldd r24,Y+57
- 1346 042a 9AAD      		ldd r25,Y+58
- 1347 042c ABAD      		ldd r26,Y+59
- 1348 042e BCAD      		ldd r27,Y+60
- 1349 0430 BC01      		movw r22,r24
- 1350 0432 CD01      		movw r24,r26
- 1351 0434 685D      		subi r22,-40
- 1352 0436 7F4F      		sbci r23,-1
- 1353 0438 8F4F      		sbci r24,-1
- 1354 043a 9F4F      		sbci r25,-1
- 1355 043c 00C0      		rjmp .L302
- 1356               	.L109:
- 1357 043e 81E0      		ldi r24,lo8(1)
- 1358 0440 7812      		cpse r7,r24
- 1359 0442 00C0      		rjmp .L111
- 1360 0444 89AD      		ldd r24,Y+57
- 1361 0446 9AAD      		ldd r25,Y+58
- 1362 0448 ABAD      		ldd r26,Y+59
- 1363 044a BCAD      		ldd r27,Y+60
- 1364 044c BC01      		movw r22,r24
- 1365 044e CD01      		movw r24,r26
- 1366 0450 6852      		subi r22,40
- 1367 0452 7109      		sbc r23,__zero_reg__
- 1368 0454 8109      		sbc r24,__zero_reg__
- 1369 0456 9109      		sbc r25,__zero_reg__
- 1370               	.L302:
- 1371 0458 69AF      		std Y+57,r22
- 1372 045a 7AAF      		std Y+58,r23
- 1373 045c 8BAF      		std Y+59,r24
- 1374 045e 9CAF      		std Y+60,r25
- 1375 0460 0E94 0000 		call si5351aSetFrequency
- 1376 0464 00C0      		rjmp .L300
- 1377               	.L111:
- 1378 0466 91E0      		ldi r25,lo8(1)
- 1379 0468 5912      		cpse r5,r25
- 1380 046a 00C0      		rjmp .L190
- 1381               	.L300:
- 1382 046c 0E94 0000 		call clearMainArea
- 1383 0470 29AD      		ldd r18,Y+57
- 1384 0472 3AAD      		ldd r19,Y+58
- 1385 0474 4BAD      		ldd r20,Y+59
- 1386 0476 5CAD      		ldd r21,Y+60
- 1387 0478 6DA9      		ldd r22,Y+53
- 1388 047a 7EA9      		ldd r23,Y+54
- 1389 047c 8FA9      		ldd r24,Y+55
- 1390 047e 98AD      		ldd r25,Y+56
- 1391 0480 0E94 0000 		call displayFreqSmall
- 1392 0484 00C0      		rjmp .L211
- 1393               	.L99:
- 1394 0486 E1E0      		ldi r30,lo8(1)
- 1395 0488 6E12      		cpse r6,r30
- 1396 048a 00C0      		rjmp .L115
- 1397 048c 2796      		adiw r28,69-62
- 1398 048e 8EAD      		ldd r24,Y+62
- 1399 0490 9FAD      		ldd r25,Y+63
- 1400 0492 2797      		sbiw r28,69-62
- 1401 0494 0997      		sbiw r24,9
- 1402 0496 01F4      		brne .+2
- 1403 0498 00C0      		rjmp .L116
- 1404 049a 5E9A      		sbi 0xb,6
- 1405 049c 0E94 0000 		call volumeUPone
- 1406 04a0 5E98      		cbi 0xb,6
- 1407 04a2 2796      		adiw r28,69-62
- 1408 04a4 8EAD      		ldd r24,Y+62
- 1409 04a6 9FAD      		ldd r25,Y+63
- 1410 04a8 2797      		sbiw r28,69-62
- 1411 04aa 0196      		adiw r24,1
- 1412 04ac 2796      		adiw r28,69-62
- 1413 04ae 9FAF      		std Y+63,r25
- 1414 04b0 8EAF      		std Y+62,r24
- 1415 04b2 2797      		sbiw r28,69-62
- 1416 04b4 0E94 0000 		call clearMainArea
- 1417 04b8 2796      		adiw r28,69-62
- 1418 04ba 8EAD      		ldd r24,Y+62
- 1419 04bc 9FAD      		ldd r25,Y+63
- 1420 04be 2797      		sbiw r28,69-62
- 1421 04c0 00C0      		rjmp .L301
- 1422               	.L115:
- 1423 04c2 F1E0      		ldi r31,lo8(1)
- 1424 04c4 7F12      		cpse r7,r31
- 1425 04c6 00C0      		rjmp .L117
- 1426 04c8 2796      		adiw r28,69-62
- 1427 04ca 8EAD      		ldd r24,Y+62
- 1428 04cc 9FAD      		ldd r25,Y+63
- 1429 04ce 2797      		sbiw r28,69-62
- 1430 04d0 892B      		or r24,r25
- 1431 04d2 01F4      		brne .+2
- 1432 04d4 00C0      		rjmp .L118
- 1433               	.L181:
- 1434 04d6 5E9A      		sbi 0xb,6
- 1435 04d8 0E94 0000 		call volumeDOWNone
- 1436 04dc 5E98      		cbi 0xb,6
- 1437 04de 2796      		adiw r28,69-62
- 1438 04e0 8EAD      		ldd r24,Y+62
- 1439 04e2 9FAD      		ldd r25,Y+63
- 1440 04e4 2797      		sbiw r28,69-62
- 1441 04e6 0197      		sbiw r24,1
- 1442 04e8 2796      		adiw r28,69-62
- 1443 04ea 9FAF      		std Y+63,r25
- 1444 04ec 8EAF      		std Y+62,r24
- 1445 04ee 2797      		sbiw r28,69-62
- 1446               	.L184:
- 1447 04f0 0E94 0000 		call clearMainArea
- 1448 04f4 2796      		adiw r28,69-62
- 1449 04f6 8EAD      		ldd r24,Y+62
- 1450 04f8 9FAD      		ldd r25,Y+63
- 1451 04fa 2797      		sbiw r28,69-62
- 1452 04fc 0E94 0000 		call drawIntNumber
- 1453 0500 12E0      		ldi r17,lo8(2)
- 1454 0502 00C0      		rjmp .L292
- 1455               	.L100:
- 1456 0504 21E0      		ldi r18,lo8(1)
- 1457 0506 6216      		cp r6,r18
- 1458 0508 01F0      		breq .L119
- 1459 050a 7212      		cpse r7,r18
- 1460 050c 00C0      		rjmp .L121
- 1461               	.L119:
- 1462 050e 8BA9      		ldd r24,Y+51
- 1463 0510 9CA9      		ldd r25,Y+52
- 1464 0512 9695      		lsr r25
- 1465 0514 8795      		ror r24
- 1466 0516 9695      		lsr r25
- 1467 0518 8795      		ror r24
- 1468 051a 31E0      		ldi r19,lo8(1)
- 1469 051c 6312      		cpse r6,r19
- 1470 051e 00C0      		rjmp .L122
- 1471 0520 8233      		cpi r24,50
- 1472 0522 9105      		cpc r25,__zero_reg__
- 1473 0524 01F0      		breq .L135
- 1474 0526 00F4      		brsh .L125
- 1475 0528 8130      		cpi r24,1
- 1476 052a 9105      		cpc r25,__zero_reg__
- 1477 052c 01F0      		breq .L191
- 1478 052e 8A30      		cpi r24,10
- 1479 0530 9105      		cpc r25,__zero_reg__
- 1480 0532 01F0      		breq .L134
- 1481 0534 00C0      		rjmp .L126
- 1482               	.L125:
- 1483 0536 8436      		cpi r24,100
- 1484 0538 9105      		cpc r25,__zero_reg__
- 1485 053a 01F0      		breq .L192
- 1486 053c 8A3F      		cpi r24,-6
- 1487 053e 9105      		cpc r25,__zero_reg__
- 1488 0540 01F0      		breq .L133
- 1489 0542 00C0      		rjmp .L126
- 1490               	.L122:
- 1491 0544 8233      		cpi r24,50
- 1492 0546 9105      		cpc r25,__zero_reg__
- 1493 0548 01F0      		breq .L191
- 1494 054a 00F4      		brsh .L132
- 1495 054c 8130      		cpi r24,1
- 1496 054e 9105      		cpc r25,__zero_reg__
- 1497 0550 01F0      		breq .L192
- 1498 0552 8A30      		cpi r24,10
- 1499 0554 9105      		cpc r25,__zero_reg__
- 1500 0556 01F0      		breq .L133
- 1501 0558 00C0      		rjmp .L126
- 1502               	.L132:
- 1503 055a 8436      		cpi r24,100
- 1504 055c 9105      		cpc r25,__zero_reg__
- 1505 055e 01F0      		breq .L134
- 1506 0560 8A3F      		cpi r24,-6
- 1507 0562 9105      		cpc r25,__zero_reg__
- 1508 0564 01F0      		breq .L135
- 1509 0566 00C0      		rjmp .L126
- 1510               	.L133:
- 1511 0568 81E0      		ldi r24,lo8(1)
- 1512 056a 90E0      		ldi r25,0
- 1513 056c 00C0      		rjmp .L126
- 1514               	.L134:
- 1515 056e 82E3      		ldi r24,lo8(50)
- 1516 0570 90E0      		ldi r25,0
- 1517 0572 00C0      		rjmp .L126
- 1518               	.L135:
- 1519 0574 84E6      		ldi r24,lo8(100)
- 1520 0576 90E0      		ldi r25,0
- 1521 0578 00C0      		rjmp .L126
- 1522               	.L191:
- 1523 057a 8AE0      		ldi r24,lo8(10)
- 1524 057c 90E0      		ldi r25,0
- 1525 057e 00C0      		rjmp .L126
- 1526               	.L192:
- 1527 0580 8AEF      		ldi r24,lo8(-6)
- 1528 0582 90E0      		ldi r25,0
- 1529               	.L126:
- 1530 0584 880F      		lsl r24
- 1531 0586 991F      		rol r25
- 1532 0588 880F      		lsl r24
- 1533 058a 991F      		rol r25
- 1534 058c 9CAB      		std Y+52,r25
- 1535 058e 8BAB      		std Y+51,r24
- 1536 0590 0E94 0000 		call clearMainArea
- 1537 0594 8BA9      		ldd r24,Y+51
- 1538 0596 9CA9      		ldd r25,Y+52
- 1539 0598 9695      		lsr r25
- 1540 059a 8795      		ror r24
- 1541 059c 9695      		lsr r25
- 1542 059e 8795      		ror r24
- 1543 05a0 0E94 0000 		call drawIntNumber
- 1544 05a4 13E0      		ldi r17,lo8(3)
- 1545 05a6 00C0      		rjmp .L292
- 1546               	.L121:
- 1547 05a8 81E0      		ldi r24,lo8(1)
- 1548 05aa 3812      		cpse r3,r24
- 1549 05ac 00C0      		rjmp .L136
- 1550 05ae 0E94 0000 		call yackinhibit
- 1551 05b2 0E94 0000 		call clearMainArea
- 1552 05b6 8BA9      		ldd r24,Y+51
- 1553 05b8 9CA9      		ldd r25,Y+52
- 1554 05ba 9695      		lsr r25
- 1555 05bc 8795      		ror r24
- 1556 05be 9695      		lsr r25
- 1557 05c0 8795      		ror r24
- 1558 05c2 0E94 0000 		call drawIntNumber
- 1559 05c6 00C0      		rjmp .L136
- 1560               	.L101:
- 1561 05c8 91E0      		ldi r25,lo8(1)
- 1562 05ca 6916      		cp r6,r25
- 1563 05cc 01F0      		breq .L137
- 1564 05ce 7912      		cpse r7,r25
- 1565 05d0 00C0      		rjmp .L139
- 1566               	.L137:
- 1567 05d2 0E94 0000 		call clearMainArea
- 1568 05d6 80E0      		ldi r24,0
- 1569 05d8 90E0      		ldi r25,0
- 1570 05da 0E94 0000 		call drawMainArea
- 1571 05de 2898      		cbi 0x5,0
- 1572 05e0 2998      		cbi 0x5,1
- 1573 05e2 0E94 0000 		call yackbeat
- 1574 05e6 2898      		cbi 0x5,0
- 1575 05e8 299A      		sbi 0x5,1
- 1576 05ea 0E94 0000 		call yackbeat
- 1577 05ee 2898      		cbi 0x5,0
- 1578 05f0 2998      		cbi 0x5,1
- 1579 05f2 0E94 0000 		call yacktune
- 1580 05f6 289A      		sbi 0x5,0
- 1581 05f8 2998      		cbi 0x5,1
- 1582 05fa 0E94 0000 		call yackbeat
- 1583 05fe 2898      		cbi 0x5,0
- 1584 0600 2998      		cbi 0x5,1
- 1585 0602 80E0      		ldi r24,0
- 1586 0604 0E94 0000 		call yackinhibit
- 1587 0608 0E94 0000 		call ssd1306ClearScreen
- 1588 060c 6DA9      		ldd r22,Y+53
- 1589 060e 7EA9      		ldd r23,Y+54
- 1590 0610 8FA9      		ldd r24,Y+55
- 1591 0612 98AD      		ldd r25,Y+56
- 1592 0614 4091 0000 		lds r20,battery_state
- 1593 0618 0E94 0000 		call displayFreq
- 1594 061c 0E94 0000 		call ssd1306Refresh
- 1595 0620 85E0      		ldi r24,lo8(5)
- 1596 0622 0E94 0000 		call yackdelay
- 1597 0626 00C0      		rjmp .L299
- 1598               	.L139:
- 1599 0628 E1E0      		ldi r30,lo8(1)
- 1600 062a 5E12      		cpse r5,r30
- 1601 062c 00C0      		rjmp .L193
- 1602               	.L145:
- 1603 062e 0E94 0000 		call clearMainArea
- 1604 0632 00C0      		rjmp .L297
- 1605               	.L102:
- 1606 0634 F1E0      		ldi r31,lo8(1)
- 1607 0636 6F16      		cp r6,r31
- 1608 0638 01F0      		breq .L140
- 1609 063a 21E0      		ldi r18,lo8(1)
- 1610 063c 7216      		cp r7,r18
- 1611 063e 01F0      		breq .L140
- 1612               	.L285:
- 1613 0640 8091 0000 		lds r24,memoryReplayNow
- 1614 0644 8130      		cpi r24,lo8(1)
- 1615 0646 01F0      		breq .+2
- 1616 0648 00C0      		rjmp .L142
- 1617               	.L140:
- 1618 064a 0E94 0000 		call clearMainArea
- 1619 064e 1092 0000 		sts memoryReplayNow,__zero_reg__
- 1620 0652 81E0      		ldi r24,lo8(1)
- 1621 0654 90E0      		ldi r25,0
- 1622 0656 0E94 0000 		call drawMainArea
- 1623 065a 85E0      		ldi r24,lo8(5)
- 1624 065c 0E94 0000 		call displayChangeStateIcon
- 1625 0660 0E94 0000 		call ssd1306Refresh
- 1626 0664 31E0      		ldi r19,lo8(1)
- 1627 0666 6312      		cpse r6,r19
- 1628 0668 00C0      		rjmp .L143
- 1629 066a 60E0      		ldi r22,lo8(.LC1)
- 1630 066c 70E0      		ldi r23,hi8(.LC1)
- 1631 066e 00C0      		rjmp .L290
- 1632               	.L143:
- 1633 0670 81E0      		ldi r24,lo8(1)
- 1634 0672 7812      		cpse r7,r24
- 1635 0674 00C0      		rjmp .L144
- 1636 0676 60E0      		ldi r22,lo8(.LC2)
- 1637 0678 70E0      		ldi r23,hi8(.LC2)
- 1638               	.L290:
- 1639 067a 80E0      		ldi r24,lo8(cqStr)
- 1640 067c 90E0      		ldi r25,hi8(cqStr)
- 1641 067e 0E94 0000 		call strcpy
- 1642               	.L144:
- 1643 0682 80E0      		ldi r24,0
- 1644 0684 0E94 0000 		call yackinhibit
- 1645 0688 0E94 0000 		call transition_to_tx
- 1646 068c 2BE4      		ldi r18,lo8(75)
- 1647 068e 30E0      		ldi r19,0
- 1648 0690 F601      		movw r30,r12
- 1649 0692 3183      		std Z+1,r19
- 1650 0694 2083      		st Z,r18
- 1651 0696 DF92      		push r13
- 1652 0698 CF92      		push r12
- 1653 069a 80E0      		ldi r24,lo8(callStr)
- 1654 069c 90E0      		ldi r25,hi8(callStr)
- 1655 069e 9F93      		push r25
- 1656 06a0 8F93      		push r24
- 1657 06a2 9F93      		push r25
- 1658 06a4 8F93      		push r24
- 1659 06a6 80E0      		ldi r24,lo8(cqStr)
- 1660 06a8 90E0      		ldi r25,hi8(cqStr)
- 1661 06aa 9F93      		push r25
- 1662 06ac 8F93      		push r24
- 1663 06ae 20E0      		ldi r18,lo8(.LC3)
- 1664 06b0 30E0      		ldi r19,hi8(.LC3)
- 1665 06b2 3F93      		push r19
- 1666 06b4 2F93      		push r18
- 1667 06b6 BF92      		push r11
- 1668 06b8 AF92      		push r10
- 1669 06ba 0E94 0000 		call sprintf
- 1670 06be C501      		movw r24,r10
- 1671 06c0 0E94 0000 		call yackstring
- 1672 06c4 0E94 0000 		call transistion_to_rx
- 1673 06c8 0E94 0000 		call ssd1306ClearScreen
- 1674 06cc 6DA9      		ldd r22,Y+53
- 1675 06ce 7EA9      		ldd r23,Y+54
- 1676 06d0 8FA9      		ldd r24,Y+55
- 1677 06d2 98AD      		ldd r25,Y+56
- 1678 06d4 4091 0000 		lds r20,battery_state
- 1679 06d8 0E94 0000 		call displayFreq
- 1680 06dc 0E94 0000 		call ssd1306Refresh
- 1681 06e0 2996      		adiw r28,72-63
- 1682 06e2 8FAD      		ldd r24,Y+63
- 1683 06e4 2997      		sbiw r28,72-63
- 1684 06e6 0FB6      		in __tmp_reg__,__SREG__
- 1685 06e8 F894      		cli
- 1686 06ea DEBF      		out __SP_H__,r29
- 1687 06ec 0FBE      		out __SREG__,__tmp_reg__
- 1688 06ee CDBF      		out __SP_L__,r28
- 1689 06f0 8823      		tst r24
- 1690 06f2 01F0      		breq .L299
- 1691 06f4 91E0      		ldi r25,lo8(1)
- 1692 06f6 9093 0000 		sts enableMemoryReplay,r25
- 1693 06fa F8EC      		ldi r31,lo8(-56)
- 1694 06fc 8F9F      		mul r24,r31
- 1695 06fe C001      		movw r24,r0
- 1696 0700 1124      		clr __zero_reg__
- 1697 0702 9093 0000 		sts countDownMemoryTimer+1,r25
- 1698 0706 8093 0000 		sts countDownMemoryTimer,r24
- 1699               	.L299:
- 1700 070a 10E0      		ldi r17,0
- 1701 070c 00C0      		rjmp .L292
- 1702               	.L142:
- 1703 070e 21E0      		ldi r18,lo8(1)
- 1704 0710 5216      		cp r5,r18
- 1705 0712 01F4      		brne .+2
- 1706 0714 00C0      		rjmp .L145
- 1707 0716 15E0      		ldi r17,lo8(5)
- 1708 0718 00C0      		rjmp .L113
- 1709               	.L103:
- 1710 071a 31E0      		ldi r19,lo8(1)
- 1711 071c 6316      		cp r6,r19
- 1712 071e 01F0      		breq .L146
- 1713 0720 7312      		cpse r7,r19
- 1714 0722 00C0      		rjmp .L147
- 1715               	.L146:
- 1716 0724 0E94 0000 		call clearMainArea
- 1717 0728 82E0      		ldi r24,lo8(2)
- 1718 072a 90E0      		ldi r25,0
- 1719 072c 0E94 0000 		call drawMainArea
- 1720 0730 86E0      		ldi r24,lo8(6)
- 1721 0732 0E94 0000 		call displayChangeStateIcon
- 1722 0736 0E94 0000 		call ssd1306Refresh
- 1723 073a 61E0      		ldi r22,lo8(1)
- 1724 073c 81E0      		ldi r24,lo8(1)
- 1725 073e 0E94 0000 		call yackmessage
- 1726 0742 0E94 0000 		call ssd1306ClearScreen
- 1727 0746 6DA9      		ldd r22,Y+53
- 1728 0748 7EA9      		ldd r23,Y+54
- 1729 074a 8FA9      		ldd r24,Y+55
- 1730 074c 98AD      		ldd r25,Y+56
- 1731 074e 4091 0000 		lds r20,battery_state
- 1732 0752 0E94 0000 		call displayFreq
- 1733 0756 0E94 0000 		call ssd1306Refresh
- 1734 075a 10E0      		ldi r17,0
- 1735 075c 00C0      		rjmp .L148
- 1736               	.L147:
- 1737 075e 81E0      		ldi r24,lo8(1)
- 1738 0760 5812      		cpse r5,r24
- 1739 0762 00C0      		rjmp .L195
- 1740               	.L297:
- 1741 0764 80E0      		ldi r24,0
- 1742 0766 90E0      		ldi r25,0
- 1743 0768 0E94 0000 		call drawMainArea
- 1744 076c 00C0      		rjmp .L211
- 1745               	.L104:
- 1746 076e 91E0      		ldi r25,lo8(1)
- 1747 0770 6912      		cpse r6,r25
- 1748 0772 00C0      		rjmp .L149
- 1749 0774 6091 0000 		lds r22,wpm
- 1750 0778 6233      		cpi r22,lo8(50)
- 1751 077a 00F4      		brsh .L149
- 1752 077c 6F5F      		subi r22,lo8(-(1))
- 1753 077e 6093 0000 		sts wpm,r22
- 1754 0782 70E0      		ldi r23,0
- 1755 0784 C401      		movw r24,r8
- 1756 0786 0E94 0000 		call __divmodhi4
- 1757 078a 7093 0000 		sts wpmcnt+1,r23
- 1758 078e 6093 0000 		sts wpmcnt,r22
- 1759 0792 0E94 0000 		call clearMainArea
- 1760 0796 8091 0000 		lds r24,wpm
- 1761 079a 00C0      		rjmp .L298
- 1762               	.L149:
- 1763 079c E1E0      		ldi r30,lo8(1)
- 1764 079e 7E12      		cpse r7,r30
- 1765 07a0 00C0      		rjmp .L150
- 1766 07a2 6091 0000 		lds r22,wpm
- 1767 07a6 6B30      		cpi r22,lo8(11)
- 1768 07a8 00F0      		brlo .L150
- 1769 07aa 6150      		subi r22,lo8(-(-1))
- 1770 07ac 6093 0000 		sts wpm,r22
- 1771 07b0 70E0      		ldi r23,0
- 1772 07b2 C401      		movw r24,r8
- 1773 07b4 0E94 0000 		call __divmodhi4
- 1774 07b8 7093 0000 		sts wpmcnt+1,r23
- 1775 07bc 6093 0000 		sts wpmcnt,r22
- 1776 07c0 0E94 0000 		call clearMainArea
- 1777 07c4 8091 0000 		lds r24,wpm
- 1778 07c8 90E0      		ldi r25,0
- 1779 07ca 0E94 0000 		call drawIntNumber
- 1780 07ce 17E0      		ldi r17,lo8(7)
- 1781 07d0 00C0      		rjmp .L151
- 1782               	.L207:
- 1783 07d2 712C      		mov r7,__zero_reg__
- 1784 07d4 612C      		mov r6,__zero_reg__
- 1785               	.L150:
- 1786 07d6 F1E0      		ldi r31,lo8(1)
- 1787 07d8 5F12      		cpse r5,r31
- 1788 07da 00C0      		rjmp .L196
- 1789 07dc 0E94 0000 		call clearMainArea
- 1790 07e0 8091 0000 		lds r24,wpm
- 1791 07e4 90E0      		ldi r25,0
- 1792 07e6 0E94 0000 		call drawIntNumber
- 1793 07ea 00C0      		rjmp .L196
- 1794               	.L303:
- 1795 07ec 7216      		cp r7,r18
- 1796 07ee 01F4      		brne .+2
- 1797 07f0 00C0      		rjmp .L152
- 1798               	.L154:
- 1799 07f2 31E0      		ldi r19,lo8(1)
- 1800 07f4 5312      		cpse r5,r19
- 1801 07f6 00C0      		rjmp .L197
- 1802 07f8 0E94 0000 		call clearMainArea
- 1803 07fc 2B96      		adiw r28,74-63
- 1804 07fe 8FAD      		ldd r24,Y+63
- 1805 0800 2B97      		sbiw r28,74-63
- 1806 0802 90E0      		ldi r25,0
- 1807 0804 00C0      		rjmp .L296
- 1808               	.L106:
- 1809 0806 81E0      		ldi r24,lo8(1)
- 1810 0808 6816      		cp r6,r24
- 1811 080a 01F0      		breq .L155
- 1812 080c 7812      		cpse r7,r24
- 1813 080e 00C0      		rjmp .L157
- 1814               	.L155:
- 1815 0810 2896      		adiw r28,71-63
- 1816 0812 8FAD      		ldd r24,Y+63
- 1817 0814 2897      		sbiw r28,71-63
- 1818 0816 8130      		cpi r24,lo8(1)
- 1819 0818 01F4      		brne .L158
- 1820 081a 5E9A      		sbi 0xb,6
- 1821 081c 18E0      		ldi r17,lo8(8)
- 1822               	.L159:
- 1823 081e 0E94 0000 		call filterDOWNone
- 1824 0822 1150      		subi r17,lo8(-(-1))
- 1825 0824 01F4      		brne .L159
- 1826 0826 5E98      		cbi 0xb,6
- 1827 0828 2896      		adiw r28,71-63
- 1828 082a 1FAE      		std Y+63,__zero_reg__
- 1829 082c 2897      		sbiw r28,71-63
- 1830 082e 00C0      		rjmp .L160
- 1831               	.L158:
- 1832 0830 8111      		cpse r24,__zero_reg__
- 1833 0832 00C0      		rjmp .L160
- 1834 0834 5E9A      		sbi 0xb,6
- 1835 0836 18E0      		ldi r17,lo8(8)
- 1836               	.L161:
- 1837 0838 0E94 0000 		call filterUPone
- 1838 083c 1150      		subi r17,lo8(-(-1))
- 1839 083e 01F4      		brne .L161
- 1840 0840 5E98      		cbi 0xb,6
- 1841 0842 81E0      		ldi r24,lo8(1)
- 1842 0844 2896      		adiw r28,71-63
- 1843 0846 8FAF      		std Y+63,r24
- 1844 0848 2897      		sbiw r28,71-63
- 1845               	.L160:
- 1846 084a 0E94 0000 		call clearMainArea
- 1847 084e 2896      		adiw r28,71-63
- 1848 0850 8FAD      		ldd r24,Y+63
- 1849 0852 2897      		sbiw r28,71-63
- 1850 0854 90E0      		ldi r25,0
- 1851 0856 0396      		adiw r24,3
- 1852 0858 0E94 0000 		call drawMainAreaSmall
- 1853 085c 19E0      		ldi r17,lo8(9)
- 1854 085e 00C0      		rjmp .L293
- 1855               	.L157:
- 1856 0860 91E0      		ldi r25,lo8(1)
- 1857 0862 5912      		cpse r5,r25
- 1858 0864 00C0      		rjmp .L198
- 1859 0866 0E94 0000 		call clearMainArea
- 1860 086a 2896      		adiw r28,71-63
- 1861 086c 8FAD      		ldd r24,Y+63
- 1862 086e 2897      		sbiw r28,71-63
- 1863 0870 90E0      		ldi r25,0
- 1864 0872 0396      		adiw r24,3
- 1865               	.L296:
- 1866 0874 0E94 0000 		call drawMainAreaSmall
- 1867 0878 00C0      		rjmp .L211
- 1868               	.L107:
- 1869 087a E1E0      		ldi r30,lo8(1)
- 1870 087c 6E12      		cpse r6,r30
- 1871 087e 00C0      		rjmp .L162
- 1872 0880 2996      		adiw r28,72-63
- 1873 0882 8FAD      		ldd r24,Y+63
- 1874 0884 2997      		sbiw r28,72-63
- 1875 0886 8A30      		cpi r24,lo8(10)
- 1876 0888 00F4      		brsh .L162
- 1877 088a 8F5F      		subi r24,lo8(-(1))
- 1878 088c 2996      		adiw r28,72-63
- 1879 088e 8FAF      		std Y+63,r24
- 1880 0890 2997      		sbiw r28,72-63
- 1881 0892 0E94 0000 		call clearMainArea
- 1882 0896 2996      		adiw r28,72-63
- 1883 0898 8FAD      		ldd r24,Y+63
- 1884 089a 2997      		sbiw r28,72-63
- 1885               	.L298:
- 1886 089c 90E0      		ldi r25,0
- 1887 089e 0E94 0000 		call drawIntNumber
- 1888 08a2 00C0      		rjmp .L151
- 1889               	.L162:
- 1890 08a4 F1E0      		ldi r31,lo8(1)
- 1891 08a6 7F12      		cpse r7,r31
- 1892 08a8 00C0      		rjmp .L163
- 1893 08aa 2996      		adiw r28,72-63
- 1894 08ac 8FAD      		ldd r24,Y+63
- 1895 08ae 2997      		sbiw r28,72-63
- 1896 08b0 8823      		tst r24
- 1897 08b2 01F0      		breq .L163
- 1898 08b4 8150      		subi r24,lo8(-(-1))
- 1899 08b6 2996      		adiw r28,72-63
- 1900 08b8 8FAF      		std Y+63,r24
- 1901 08ba 2997      		sbiw r28,72-63
- 1902 08bc 0E94 0000 		call clearMainArea
- 1903 08c0 2996      		adiw r28,72-63
- 1904 08c2 8FAD      		ldd r24,Y+63
- 1905 08c4 2997      		sbiw r28,72-63
- 1906 08c6 90E0      		ldi r25,0
- 1907 08c8 0E94 0000 		call drawIntNumber
- 1908 08cc 1AE0      		ldi r17,lo8(10)
- 1909 08ce 00C0      		rjmp .L151
- 1910               	.L210:
- 1911 08d0 712C      		mov r7,__zero_reg__
- 1912 08d2 612C      		mov r6,__zero_reg__
- 1913               	.L163:
- 1914 08d4 21E0      		ldi r18,lo8(1)
- 1915 08d6 5212      		cpse r5,r18
- 1916 08d8 00C0      		rjmp .L199
- 1917 08da 0E94 0000 		call clearMainArea
- 1918 08de 2996      		adiw r28,72-63
- 1919 08e0 8FAD      		ldd r24,Y+63
- 1920 08e2 2997      		sbiw r28,72-63
- 1921 08e4 90E0      		ldi r25,0
- 1922 08e6 0E94 0000 		call drawIntNumber
- 1923 08ea 00C0      		rjmp .L199
- 1924               	.L108:
- 1925 08ec 31E0      		ldi r19,lo8(1)
- 1926 08ee 6316      		cp r6,r19
- 1927 08f0 01F0      		breq .L164
- 1928 08f2 7312      		cpse r7,r19
- 1929 08f4 00C0      		rjmp .L166
- 1930               	.L164:
- 1931 08f6 2A96      		adiw r28,73-63
- 1932 08f8 8FAD      		ldd r24,Y+63
- 1933 08fa 2A97      		sbiw r28,73-63
- 1934 08fc 8A30      		cpi r24,lo8(10)
- 1935 08fe 01F4      		brne .L167
- 1936 0900 8EE0      		ldi r24,lo8(14)
- 1937 0902 2A96      		adiw r28,73-63
- 1938 0904 8FAF      		std Y+63,r24
- 1939 0906 2A97      		sbiw r28,73-63
- 1940 0908 BE01      		movw r22,r28
- 1941 090a 6D5C      		subi r22,-51
- 1942 090c 7F4F      		sbci r23,-1
- 1943 090e 00C0      		rjmp .L291
- 1944               	.L167:
- 1945 0910 8E30      		cpi r24,lo8(14)
- 1946 0912 01F4      		brne .L168
- 1947 0914 9AE0      		ldi r25,lo8(10)
- 1948 0916 2A96      		adiw r28,73-63
- 1949 0918 9FAF      		std Y+63,r25
- 1950 091a 2A97      		sbiw r28,73-63
- 1951 091c BE01      		movw r22,r28
- 1952 091e 6D5C      		subi r22,-51
- 1953 0920 7F4F      		sbci r23,-1
- 1954 0922 8AE0      		ldi r24,lo8(10)
- 1955               	.L291:
- 1956 0924 0E94 0000 		call ChangeBand
- 1957               	.L168:
- 1958 0928 0E94 0000 		call clearMainArea
- 1959 092c 2A96      		adiw r28,73-63
- 1960 092e 8FAD      		ldd r24,Y+63
- 1961 0930 2A97      		sbiw r28,73-63
- 1962 0932 90E0      		ldi r25,0
- 1963 0934 0E94 0000 		call drawIntNumber
- 1964 0938 1BE0      		ldi r17,lo8(11)
- 1965 093a 00C0      		rjmp .L293
- 1966               	.L166:
- 1967 093c E1E0      		ldi r30,lo8(1)
- 1968 093e 5E12      		cpse r5,r30
- 1969 0940 00C0      		rjmp .L200
- 1970 0942 0E94 0000 		call clearMainArea
- 1971 0946 2A96      		adiw r28,73-63
- 1972 0948 8FAD      		ldd r24,Y+63
- 1973 094a 2A97      		sbiw r28,73-63
- 1974 094c 90E0      		ldi r25,0
- 1975               	.L301:
- 1976 094e 0E94 0000 		call drawIntNumber
- 1977 0952 00C0      		rjmp .L211
- 1978               	.L196:
- 1979 0954 17E0      		ldi r17,lo8(7)
- 1980 0956 00C0      		rjmp .L292
- 1981               	.L199:
- 1982 0958 1AE0      		ldi r17,lo8(10)
- 1983               	.L292:
- 1984 095a 00E0      		ldi r16,0
- 1985 095c 00C0      		rjmp .L96
- 1986               	.L118:
- 1987 095e F1E0      		ldi r31,lo8(1)
- 1988 0960 5F16      		cp r5,r31
- 1989 0962 01F4      		brne .+2
- 1990 0964 00C0      		rjmp .L184
- 1991 0966 12E0      		ldi r17,lo8(2)
- 1992               	.L211:
- 1993 0968 00E0      		ldi r16,0
- 1994               	.L112:
- 1995 096a 812F      		mov r24,r17
- 1996 096c 0E94 0000 		call displayChangeStateIcon
- 1997 0970 0E94 0000 		call ssd1306Refresh
- 1998 0974 00C0      		rjmp .L170
- 1999               	.L148:
- 2000 0976 81E0      		ldi r24,lo8(1)
- 2001 0978 0E94 0000 		call yackinhibit
- 2002 097c 80E0      		ldi r24,lo8(.LC4)
- 2003 097e 90E0      		ldi r25,hi8(.LC4)
- 2004 0980 0E94 0000 		call yackstring
- 2005 0984 80E0      		ldi r24,0
- 2006 0986 0E94 0000 		call yackinhibit
- 2007 098a 65EA      		ldi r22,lo8(-91)
- 2008 098c 80E0      		ldi r24,lo8(magic)
- 2009 098e 90E0      		ldi r25,hi8(magic)
- 2010 0990 0E94 0000 		call eeprom_update_byte
- 2011 0994 4FE0      		ldi r20,lo8(15)
- 2012 0996 50E0      		ldi r21,0
- 2013 0998 60E0      		ldi r22,lo8(callStr)
- 2014 099a 70E0      		ldi r23,hi8(callStr)
- 2015 099c CE01      		movw r24,r28
- 2016 099e 855B      		subi r24,-75
- 2017 09a0 9F4F      		sbci r25,-1
- 2018 09a2 0E94 0000 		call strncpy
- 2019 09a6 2B96      		adiw r28,74-63
- 2020 09a8 8FAD      		ldd r24,Y+63
- 2021 09aa 2B97      		sbiw r28,74-63
- 2022 09ac 6B96      		adiw r28,90-63
- 2023 09ae 8FAF      		std Y+63,r24
- 2024 09b0 6B97      		sbiw r28,90-63
- 2025 09b2 8091 0000 		lds r24,wpm
- 2026 09b6 6C96      		adiw r28,91-63
- 2027 09b8 8FAF      		std Y+63,r24
- 2028 09ba 6C97      		sbiw r28,91-63
- 2029 09bc 2896      		adiw r28,71-63
- 2030 09be 8FAD      		ldd r24,Y+63
- 2031 09c0 2897      		sbiw r28,71-63
- 2032 09c2 6D96      		adiw r28,92-63
- 2033 09c4 8FAF      		std Y+63,r24
- 2034 09c6 6D97      		sbiw r28,92-63
- 2035 09c8 2A96      		adiw r28,73-63
- 2036 09ca 8FAD      		ldd r24,Y+63
- 2037 09cc 2A97      		sbiw r28,73-63
- 2038 09ce 6E96      		adiw r28,93-63
- 2039 09d0 8FAF      		std Y+63,r24
- 2040 09d2 6E97      		sbiw r28,93-63
- 2041 09d4 2996      		adiw r28,72-63
- 2042 09d6 8FAD      		ldd r24,Y+63
- 2043 09d8 2997      		sbiw r28,72-63
- 2044 09da 6F96      		adiw r28,94-63
- 2045 09dc 8FAF      		std Y+63,r24
- 2046 09de 6F97      		sbiw r28,94-63
- 2047 09e0 44E1      		ldi r20,lo8(20)
- 2048 09e2 50E0      		ldi r21,0
- 2049 09e4 60E0      		ldi r22,lo8(ee_vars)
- 2050 09e6 70E0      		ldi r23,hi8(ee_vars)
- 2051 09e8 CE01      		movw r24,r28
- 2052 09ea 855B      		subi r24,-75
- 2053 09ec 9F4F      		sbci r25,-1
- 2054 09ee 0E94 0000 		call eeprom_update_block
- 2055 09f2 00C0      		rjmp .L171
- 2056               	.L172:
- 2057 09f4 0E94 0000 		call yackbeat
- 2058 09f8 8091 0000 		lds r24,straight_key
- 2059 09fc 8111      		cpse r24,__zero_reg__
- 2060 09fe 00C0      		rjmp .L173
- 2061 0a00 0E94 0000 		call yackiambic
- 2062 0a04 00C0      		rjmp .L73
- 2063               	.L173:
- 2064 0a06 8091 0000 		lds r24,sk_state
- 2065 0a0a 8130      		cpi r24,lo8(1)
- 2066 0a0c 01F0      		breq .L174
- 2067 0a0e 00F0      		brlo .L175
- 2068 0a10 8230      		cpi r24,lo8(2)
- 2069 0a12 01F0      		breq .L176
- 2070 0a14 00C0      		rjmp .L73
- 2071               	.L175:
- 2072 0a16 0599      		sbic 0,5
- 2073 0a18 00C0      		rjmp .L73
- 2074 0a1a 82E3      		ldi r24,lo8(50)
- 2075 0a1c 90E0      		ldi r25,0
- 2076 0a1e 9093 0000 		sts sk_timer+1,r25
- 2077 0a22 8093 0000 		sts sk_timer,r24
- 2078 0a26 81E0      		ldi r24,lo8(1)
- 2079 0a28 8093 0000 		sts txKeyed,r24
- 2080 0a2c 0E94 0000 		call transition_to_tx
- 2081 0a30 82E0      		ldi r24,lo8(2)
- 2082 0a32 0E94 0000 		call key
- 2083 0a36 1092 0000 		sts enableMemoryReplay,__zero_reg__
- 2084 0a3a 8091 0000 		lds r24,sk_state
- 2085 0a3e 8F5F      		subi r24,lo8(-(1))
- 2086 0a40 8093 0000 		sts sk_state,r24
- 2087 0a44 00C0      		rjmp .L73
- 2088               	.L174:
- 2089 0a46 0599      		sbic 0,5
- 2090 0a48 00C0      		rjmp .L177
- 2091 0a4a 82E0      		ldi r24,lo8(2)
- 2092 0a4c 0E94 0000 		call key
- 2093 0a50 82E3      		ldi r24,lo8(50)
- 2094 0a52 90E0      		ldi r25,0
- 2095 0a54 00C0      		rjmp .L288
- 2096               	.L177:
- 2097 0a56 8091 0000 		lds r24,sk_timer
- 2098 0a5a 9091 0000 		lds r25,sk_timer+1
- 2099 0a5e 892B      		or r24,r25
- 2100 0a60 01F0      		breq .L178
- 2101 0a62 81E0      		ldi r24,lo8(1)
- 2102 0a64 0E94 0000 		call key
- 2103 0a68 8091 0000 		lds r24,sk_timer
- 2104 0a6c 9091 0000 		lds r25,sk_timer+1
- 2105 0a70 0197      		sbiw r24,1
- 2106               	.L288:
- 2107 0a72 9093 0000 		sts sk_timer+1,r25
- 2108 0a76 8093 0000 		sts sk_timer,r24
- 2109 0a7a 00C0      		rjmp .L73
- 2110               	.L178:
- 2111 0a7c 81E0      		ldi r24,lo8(1)
- 2112 0a7e 0E94 0000 		call key
- 2113 0a82 2092 0000 		sts sk_state,r2
- 2114               	.L176:
- 2115 0a86 81E0      		ldi r24,lo8(1)
- 2116 0a88 0E94 0000 		call key
- 2117 0a8c 0E94 0000 		call transistion_to_rx
- 2118 0a90 1092 0000 		sts sk_state,__zero_reg__
- 2119 0a94 00C0      		rjmp .L73
- 2120               	.L186:
- 2121 0a96 412C      		mov r4,__zero_reg__
- 2122               	.L295:
- 2123 0a98 312C      		mov r3,__zero_reg__
- 2124 0a9a 00C0      		rjmp .L82
- 2125               	.L187:
- 2126 0a9c 13E0      		ldi r17,lo8(3)
- 2127 0a9e 3324      		clr r3
- 2128 0aa0 3394      		inc r3
- 2129               	.L82:
- 2130 0aa2 512C      		mov r5,__zero_reg__
- 2131 0aa4 00C0      		rjmp .L92
- 2132               	.L90:
- 2133 0aa6 1230      		cpi r17,lo8(2)
- 2134 0aa8 01F0      		breq .L179
- 2135 0aaa 1B30      		cpi r17,lo8(11)
- 2136 0aac 01F4      		brne .L91
- 2137               	.L179:
- 2138 0aae 80E0      		ldi r24,0
- 2139 0ab0 0E94 0000 		call yackinhibit
- 2140 0ab4 0E94 0000 		call ssd1306ClearScreen
- 2141 0ab8 6DA9      		ldd r22,Y+53
- 2142 0aba 7EA9      		ldd r23,Y+54
- 2143 0abc 8FA9      		ldd r24,Y+55
- 2144 0abe 98AD      		ldd r25,Y+56
- 2145 0ac0 4091 0000 		lds r20,battery_state
- 2146 0ac4 0E94 0000 		call displayFreq
- 2147 0ac8 0E94 0000 		call ssd1306Refresh
- 2148 0acc 10E0      		ldi r17,0
- 2149 0ace 00C0      		rjmp .L289
- 2150               	.L91:
- 2151 0ad0 1130      		cpi r17,lo8(1)
- 2152 0ad2 01F0      		breq .+2
- 2153 0ad4 00C0      		rjmp .L89
- 2154               	/* #APP */
- 2155               	 ;  521 "main.c" 1
- 2156 0ad6 F894      		cli
- 2157               	 ;  0 "" 2
- 2158               	/* #NOAPP */
- 2159 0ad8 6DA9      		ldd r22,Y+53
- 2160 0ada 7EA9      		ldd r23,Y+54
- 2161 0adc 8FA9      		ldd r24,Y+55
- 2162 0ade 98AD      		ldd r25,Y+56
- 2163 0ae0 0E94 0000 		call si5351aSetFrequency
- 2164               	/* #APP */
- 2165               	 ;  523 "main.c" 1
- 2166 0ae4 7894      		sei
- 2167               	 ;  0 "" 2
- 2168               	/* #NOAPP */
- 2169 0ae6 12E0      		ldi r17,lo8(2)
- 2170 0ae8 00C0      		rjmp .L289
- 2171               	.L116:
- 2172 0aea 91E0      		ldi r25,lo8(1)
- 2173 0aec 7912      		cpse r7,r25
- 2174 0aee 00C0      		rjmp .L287
- 2175 0af0 00C0      		rjmp .L181
- 2176               	.L136:
- 2177 0af2 00E0      		ldi r16,0
- 2178 0af4 13E0      		ldi r17,lo8(3)
- 2179 0af6 00C0      		rjmp .L169
- 2180               	.L93:
- 2181 0af8 FA01      		movw r30,r20
- 2182 0afa 3197      		sbiw r30,1
- 2183 0afc EB30      		cpi r30,11
- 2184 0afe F105      		cpc r31,__zero_reg__
- 2185 0b00 00F0      		brlo .L305
- 2186 0b02 00E0      		ldi r16,0
- 2187 0b04 00C0      		rjmp .L169
- 2188               	.L305:
- 2189 0b06 E050      		subi r30,lo8(-(gs(.L183)))
- 2190 0b08 F040      		sbci r31,hi8(-(gs(.L183)))
- 2191 0b0a 0C94 0000 		jmp __tablejump2__
- 2192               		.section	.progmem.gcc_sw_table,"a",@progbits
- 2193               		.p2align	1
- 2194               	.L183:
- 2195 0016 0000      		.word gs(.L111)
- 2196 0018 0000      		.word gs(.L203)
- 2197 001a 0000      		.word gs(.L121)
- 2198 001c 0000      		.word gs(.L139)
- 2199 001e 0000      		.word gs(.L206)
- 2200 0020 0000      		.word gs(.L147)
- 2201 0022 0000      		.word gs(.L207)
- 2202 0024 0000      		.word gs(.L154)
- 2203 0026 0000      		.word gs(.L157)
- 2204 0028 0000      		.word gs(.L210)
- 2205 002a 0000      		.word gs(.L166)
- 2206               		.section	.text.startup
- 2207               	.L203:
- 2208 0b0e 712C      		mov r7,__zero_reg__
- 2209 0b10 612C      		mov r6,__zero_reg__
- 2210 0b12 00C0      		rjmp .L117
- 2211               	.L206:
- 2212 0b14 712C      		mov r7,__zero_reg__
- 2213 0b16 612C      		mov r6,__zero_reg__
- 2214 0b18 00C0      		rjmp .L285
- 2215               	.L117:
- 2216 0b1a E1E0      		ldi r30,lo8(1)
- 2217 0b1c 5E16      		cp r5,r30
- 2218 0b1e 01F4      		brne .+2
- 2219 0b20 00C0      		rjmp .L184
- 2220 0b22 00E0      		ldi r16,0
- 2221 0b24 12E0      		ldi r17,lo8(2)
- 2222 0b26 00C0      		rjmp .L185
- 2223               	.L287:
- 2224 0b28 21E0      		ldi r18,lo8(1)
- 2225 0b2a 5212      		cpse r5,r18
- 2226 0b2c 00C0      		rjmp .L211
- 2227 0b2e 00C0      		rjmp .L184
- 2228               	.L151:
- 2229 0b30 01E0      		ldi r16,lo8(1)
- 2230 0b32 00C0      		rjmp .L112
- 2231               	.L190:
- 2232 0b34 11E0      		ldi r17,lo8(1)
- 2233 0b36 00C0      		rjmp .L113
- 2234               	.L193:
- 2235 0b38 14E0      		ldi r17,lo8(4)
- 2236 0b3a 00C0      		rjmp .L113
- 2237               	.L195:
- 2238 0b3c 16E0      		ldi r17,lo8(6)
- 2239 0b3e 00C0      		rjmp .L113
- 2240               	.L197:
- 2241 0b40 18E0      		ldi r17,lo8(8)
- 2242 0b42 00C0      		rjmp .L113
- 2243               	.L198:
- 2244 0b44 19E0      		ldi r17,lo8(9)
- 2245 0b46 00C0      		rjmp .L113
- 2246               	.L200:
- 2247 0b48 1BE0      		ldi r17,lo8(11)
- 2248               	.L113:
- 2249 0b4a 31E0      		ldi r19,lo8(1)
- 2250 0b4c 3312      		cpse r3,r19
- 2251 0b4e 00C0      		rjmp .L171
- 2252 0b50 00C0      		rjmp .L211
- 2254               		.text
- 2255               	.global	service_vswr
- 2257               	service_vswr:
- 2258               	/* prologue: function */
- 2259               	/* frame size = 0 */
- 2260               	/* stack size = 0 */
- 2261               	.L__stack_usage = 0
- 2262 062e 0E94 0000 		call clearMainArea
- 2263 0632 84E0      		ldi r24,lo8(4)
- 2264 0634 0E94 0000 		call displayChangeStateIcon
- 2265 0638 0E94 0000 		call getVSWR
- 2266 063c 0C94 0000 		jmp drawVSWR
- 2268               	.global	disable_memory_replay
- 2270               	disable_memory_replay:
- 2271               	/* prologue: function */
- 2272               	/* frame size = 0 */
- 2273               	/* stack size = 0 */
- 2274               	.L__stack_usage = 0
- 2275 0640 1092 0000 		sts enableMemoryReplay,__zero_reg__
- 2276 0644 0895      		ret
- 2278               		.comm	wpm,1,1
- 2279               		.comm	wpmcnt,2,1
- 2280               		.comm	OLEDbuffer,512,1
- 2281               	.global	cqStr
- 2282               		.data
- 2285               	cqStr:
- 2286 0000 4351 2043 		.string	"CQ CQ CQ de"
- 2286      5120 4351 
- 2286      2064 6500 
- 2287               	.global	batLowStr
- 2288               		.section	.progmem.data,"a",@progbits
- 2291               	batLowStr:
- 2292 0000 2042 4154 		.string	" BAT LOW "
- 2292      204C 4F57 
- 2292      2000 
- 2293               	.global	ee_vars
- 2294               		.section	.eeprom,"aw",@progbits
- 2297               	ee_vars:
- 2298 0000 0000 0000 		.zero	20
- 2298      0000 0000 
- 2298      0000 0000 
- 2298      0000 0000 
- 2298      0000 0000 
- 2299               	.global	magic
- 2302               	magic:
- 2303 0014 A5        		.byte	-91
- 2304               		.comm	txKeyed,1,1
- 2305               		.comm	sk_timer,2,1
- 2306               	.global	sk_state
- 2307               		.section .bss
- 2310               	sk_state:
- 2311 0000 00        		.zero	1
- 2312               		.comm	memoryReplayNow,1,1
- 2313               	.global	countDownMemoryTimer
- 2316               	countDownMemoryTimer:
- 2317 0001 0000      		.zero	2
- 2318               	.global	straight_key
- 2321               	straight_key:
- 2322 0003 00        		.zero	1
- 2323               		.comm	enableMemoryReplay,1,1
- 2324               		.comm	battery_state,1,1
- 2325               	.global	storedRot
- 2328               	storedRot:
- 2329 0004 0000      		.zero	2
- 2330               	.global	storedRotB
- 2333               	storedRotB:
- 2334 0006 0000      		.zero	2
- 2335               	.global	storedRotA
- 2338               	storedRotA:
- 2339 0008 0000      		.zero	2
- 2340               	.global	rotEncChange
- 2343               	rotEncChange:
- 2344 000a 0000      		.zero	2
- 2345               		.comm	callStr,15,1
- 2346               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
- 2347               	.global __do_copy_data
- 2348               	.global __do_clear_bss
+ 841               	.LC5:
+ 842 0035 2042 4154 		.string	" BAT LOW "
+ 842      204C 4F57 
+ 842      2000 
+ 843               		.section	.text.startup,"ax",@progbits
+ 844               	.global	main
+ 846               	main:
+ 847 0000 CF93      		push r28
+ 848 0002 DF93      		push r29
+ 849 0004 CDB7      		in r28,__SP_L__
+ 850 0006 DEB7      		in r29,__SP_H__
+ 851 0008 C256      		subi r28,98
+ 852 000a D109      		sbc r29,__zero_reg__
+ 853 000c 0FB6      		in __tmp_reg__,__SREG__
+ 854 000e F894      		cli
+ 855 0010 DEBF      		out __SP_H__,r29
+ 856 0012 0FBE      		out __SREG__,__tmp_reg__
+ 857 0014 CDBF      		out __SP_L__,r28
+ 858               	/* prologue: function */
+ 859               	/* frame size = 98 */
+ 860               	/* stack size = 100 */
+ 861               	.L__stack_usage = 100
+ 862 0016 5A98      		cbi 0xb,2
+ 863 0018 5E9A      		sbi 0xb,6
+ 864 001a 60E0      		ldi r22,lo8(.LC0)
+ 865 001c 70E0      		ldi r23,hi8(.LC0)
+ 866 001e 80E0      		ldi r24,lo8(callStr)
+ 867 0020 90E0      		ldi r25,hi8(callStr)
+ 868 0022 0E94 0000 		call strcpy
+ 869 0026 46E1      		ldi r20,lo8(22)
+ 870 0028 50E0      		ldi r21,0
+ 871 002a 60E0      		ldi r22,lo8(ee_vars)
+ 872 002c 70E0      		ldi r23,hi8(ee_vars)
+ 873 002e CE01      		movw r24,r28
+ 874 0030 855B      		subi r24,-75
+ 875 0032 9F4F      		sbci r25,-1
+ 876 0034 0E94 0000 		call eeprom_read_block
+ 877 0038 88E9      		ldi r24,lo8(-104)
+ 878 003a 81B9      		out 0x1,r24
+ 879 003c 8FEF      		ldi r24,lo8(-1)
+ 880 003e 84B9      		out 0x4,r24
+ 881 0040 9BE3      		ldi r25,lo8(59)
+ 882 0042 97B9      		out 0x7,r25
+ 883 0044 8AB9      		out 0xa,r24
+ 884 0046 98EF      		ldi r25,lo8(-8)
+ 885 0048 92B9      		out 0x2,r25
+ 886 004a 85B9      		out 0x5,r24
+ 887 004c 88B9      		out 0x8,r24
+ 888 004e 8BEF      		ldi r24,lo8(-5)
+ 889 0050 8BB9      		out 0xb,r24
+ 890 0052 8091 6900 		lds r24,105
+ 891 0056 8062      		ori r24,lo8(32)
+ 892 0058 8093 6900 		sts 105,r24
+ 893 005c 8091 6800 		lds r24,104
+ 894 0060 8460      		ori r24,lo8(4)
+ 895 0062 8093 6800 		sts 104,r24
+ 896 0066 8091 6D00 		lds r24,109
+ 897 006a 8068      		ori r24,lo8(-128)
+ 898 006c 8093 6D00 		sts 109,r24
+ 899 0070 82E0      		ldi r24,lo8(2)
+ 900 0072 8093 6E00 		sts 110,r24
+ 901 0076 84BD      		out 0x24,r24
+ 902 0078 16BC      		out 0x26,__zero_reg__
+ 903 007a 83E0      		ldi r24,lo8(3)
+ 904 007c 85BD      		out 0x25,r24
+ 905 007e 80E6      		ldi r24,lo8(96)
+ 906 0080 87BD      		out 0x27,r24
+ 907 0082 1092 6F00 		sts 111,__zero_reg__
+ 908 0086 1092 8500 		sts 132+1,__zero_reg__
+ 909 008a 1092 8400 		sts 132,__zero_reg__
+ 910 008e 8091 8100 		lds r24,129
+ 911 0092 8B60      		ori r24,lo8(11)
+ 912 0094 8093 8100 		sts 129,r24
+ 913 0098 81E7      		ldi r24,lo8(113)
+ 914 009a 92E0      		ldi r25,lo8(2)
+ 915 009c 9093 8900 		sts 136+1,r25
+ 916 00a0 8093 8800 		sts 136,r24
+ 917 00a4 2898      		cbi 0x5,0
+ 918 00a6 2998      		cbi 0x5,1
+ 919 00a8 0E94 0000 		call yackbeat
+ 920 00ac 289A      		sbi 0x5,0
+ 921 00ae 2998      		cbi 0x5,1
+ 922 00b0 0E94 0000 		call yackbeat
+ 923 00b4 2898      		cbi 0x5,0
+ 924 00b6 2998      		cbi 0x5,1
+ 925 00b8 80E0      		ldi r24,lo8(magic)
+ 926 00ba 90E0      		ldi r25,hi8(magic)
+ 927 00bc 0E94 0000 		call eeprom_read_byte
+ 928 00c0 853A      		cpi r24,lo8(-91)
+ 929 00c2 01F4      		brne .L68
+ 930 00c4 4CE0      		ldi r20,lo8(12)
+ 931 00c6 50E0      		ldi r21,0
+ 932 00c8 BE01      		movw r22,r28
+ 933 00ca 655B      		subi r22,-75
+ 934 00cc 7F4F      		sbci r23,-1
+ 935 00ce 80E0      		ldi r24,lo8(callStr)
+ 936 00d0 90E0      		ldi r25,hi8(callStr)
+ 937 00d2 0E94 0000 		call strncpy
+ 938 00d6 6B96      		adiw r28,90-63
+ 939 00d8 4FAD      		ldd r20,Y+63
+ 940 00da 6B97      		sbiw r28,90-63
+ 941 00dc 2B96      		adiw r28,74-63
+ 942 00de 4FAF      		std Y+63,r20
+ 943 00e0 2B97      		sbiw r28,74-63
+ 944 00e2 60E0      		ldi r22,0
+ 945 00e4 80E0      		ldi r24,0
+ 946 00e6 0E94 0000 		call serviceKeyerMode
+ 947 00ea 6C96      		adiw r28,91-63
+ 948 00ec 8FAD      		ldd r24,Y+63
+ 949 00ee 6C97      		sbiw r28,91-63
+ 950 00f0 8093 0000 		sts wpm,r24
+ 951 00f4 6E96      		adiw r28,93-63
+ 952 00f6 8FAD      		ldd r24,Y+63
+ 953 00f8 6E97      		sbiw r28,93-63
+ 954 00fa 2A96      		adiw r28,73-63
+ 955 00fc 8FAF      		std Y+63,r24
+ 956 00fe 2A97      		sbiw r28,73-63
+ 957 0100 6D96      		adiw r28,92-63
+ 958 0102 8FAD      		ldd r24,Y+63
+ 959 0104 6D97      		sbiw r28,92-63
+ 960 0106 2896      		adiw r28,71-63
+ 961 0108 8FAF      		std Y+63,r24
+ 962 010a 2897      		sbiw r28,71-63
+ 963 010c 6F96      		adiw r28,94-63
+ 964 010e 8FAD      		ldd r24,Y+63
+ 965 0110 6F97      		sbiw r28,94-63
+ 966 0112 2996      		adiw r28,72-63
+ 967 0114 8FAF      		std Y+63,r24
+ 968 0116 2997      		sbiw r28,72-63
+ 969 0118 A196      		adiw r28,95-62
+ 970 011a 8EAD      		ldd r24,Y+62
+ 971 011c 9FAD      		ldd r25,Y+63
+ 972 011e A197      		sbiw r28,95-62
+ 973 0120 00C0      		rjmp .L288
+ 974               	.L68:
+ 975 0122 85E0      		ldi r24,lo8(5)
+ 976 0124 2B96      		adiw r28,74-63
+ 977 0126 8FAF      		std Y+63,r24
+ 978 0128 2B97      		sbiw r28,74-63
+ 979 012a 92E1      		ldi r25,lo8(18)
+ 980 012c 9093 0000 		sts wpm,r25
+ 981 0130 2896      		adiw r28,71-63
+ 982 0132 1FAE      		std Y+63,__zero_reg__
+ 983 0134 2897      		sbiw r28,71-63
+ 984 0136 2996      		adiw r28,72-63
+ 985 0138 8FAF      		std Y+63,r24
+ 986 013a 2997      		sbiw r28,72-63
+ 987 013c 8AE0      		ldi r24,lo8(10)
+ 988 013e 2A96      		adiw r28,73-63
+ 989 0140 8FAF      		std Y+63,r24
+ 990 0142 2A97      		sbiw r28,73-63
+ 991 0144 88EE      		ldi r24,lo8(-24)
+ 992 0146 93E0      		ldi r25,lo8(3)
+ 993               	.L288:
+ 994 0148 9CAB      		std Y+52,r25
+ 995 014a 8BAB      		std Y+51,r24
+ 996 014c BE01      		movw r22,r28
+ 997 014e 6D5C      		subi r22,-51
+ 998 0150 7F4F      		sbci r23,-1
+ 999 0152 2A96      		adiw r28,73-63
+ 1000 0154 8FAD      		ldd r24,Y+63
+ 1001 0156 2A97      		sbiw r28,73-63
+ 1002 0158 0E94 0000 		call ChangeBand
+ 1003 015c 1092 0000 		sts memoryReplayNow,__zero_reg__
+ 1004 0160 1092 0000 		sts enableMemoryReplay,__zero_reg__
+ 1005 0164 81E0      		ldi r24,lo8(1)
+ 1006 0166 0E94 0000 		call ssd1306Init
+ 1007 016a 0E94 0000 		call ssd1306ClearScreen
+ 1008 016e 0E94 0000 		call ssd1306Refresh
+ 1009               	/* #APP */
+ 1010               	 ;  169 "main.c" 1
+ 1011 0172 7894      		sei
+ 1012               	 ;  0 "" 2
+ 1013               	/* #NOAPP */
+ 1014 0174 0E94 0000 		call i2c_init
+ 1015 0178 6DA9      		ldd r22,Y+53
+ 1016 017a 7EA9      		ldd r23,Y+54
+ 1017 017c 8FA9      		ldd r24,Y+55
+ 1018 017e 98AD      		ldd r25,Y+56
+ 1019 0180 0E94 0000 		call si5351aSetInitFrequency
+ 1020 0184 8DA9      		ldd r24,Y+53
+ 1021 0186 9EA9      		ldd r25,Y+54
+ 1022 0188 AFA9      		ldd r26,Y+55
+ 1023 018a B8AD      		ldd r27,Y+56
+ 1024 018c 12E0      		ldi r17,2
+ 1025               		1:
+ 1026 018e B695      		lsr r27
+ 1027 0190 A795      		ror r26
+ 1028 0192 9795      		ror r25
+ 1029 0194 8795      		ror r24
+ 1030 0196 1A95      		dec r17
+ 1031 0198 01F4      		brne 1b
+ 1032 019a BC01      		movw r22,r24
+ 1033 019c CD01      		movw r24,r26
+ 1034 019e 6A58      		subi r22,-118
+ 1035 01a0 7240      		sbci r23,2
+ 1036 01a2 8109      		sbc r24,__zero_reg__
+ 1037 01a4 9109      		sbc r25,__zero_reg__
+ 1038 01a6 0E94 0000 		call si5351aSetInitTXFrequency
+ 1039 01aa 60E0      		ldi r22,0
+ 1040 01ac 82E0      		ldi r24,lo8(2)
+ 1041 01ae 0E94 0000 		call si5351_clock_enable
+ 1042 01b2 0E94 0000 		call yackinit
+ 1043 01b6 08E0      		ldi r16,lo8(8)
+ 1044 01b8 10E0      		ldi r17,0
+ 1045               	.L70:
+ 1046 01ba 0E94 0000 		call volumeDOWNone
+ 1047 01be 0150      		subi r16,1
+ 1048 01c0 1109      		sbc r17,__zero_reg__
+ 1049 01c2 01F4      		brne .L70
+ 1050 01c4 0E94 0000 		call volumeUPone
+ 1051 01c8 04E0      		ldi r16,lo8(4)
+ 1052 01ca 10E0      		ldi r17,0
+ 1053 01cc 2796      		adiw r28,69-62
+ 1054 01ce 1FAF      		std Y+63,r17
+ 1055 01d0 0EAF      		std Y+62,r16
+ 1056 01d2 2797      		sbiw r28,69-62
+ 1057 01d4 0E94 0000 		call volumeUPone
+ 1058 01d8 2796      		adiw r28,69-62
+ 1059 01da 1FAF      		std Y+63,r17
+ 1060 01dc 0EAF      		std Y+62,r16
+ 1061 01de 2797      		sbiw r28,69-62
+ 1062 01e0 0E94 0000 		call volumeUPone
+ 1063 01e4 2796      		adiw r28,69-62
+ 1064 01e6 1FAF      		std Y+63,r17
+ 1065 01e8 0EAF      		std Y+62,r16
+ 1066 01ea 2797      		sbiw r28,69-62
+ 1067 01ec 0E94 0000 		call volumeUPone
+ 1068 01f0 2796      		adiw r28,69-62
+ 1069 01f2 1FAF      		std Y+63,r17
+ 1070 01f4 0EAF      		std Y+62,r16
+ 1071 01f6 2797      		sbiw r28,69-62
+ 1072 01f8 08E0      		ldi r16,lo8(8)
+ 1073 01fa 10E0      		ldi r17,0
+ 1074               	.L71:
+ 1075 01fc 0E94 0000 		call filterDOWNone
+ 1076 0200 0150      		subi r16,1
+ 1077 0202 1109      		sbc r17,__zero_reg__
+ 1078 0204 01F4      		brne .L71
+ 1079 0206 2896      		adiw r28,71-63
+ 1080 0208 8FAD      		ldd r24,Y+63
+ 1081 020a 2897      		sbiw r28,71-63
+ 1082 020c 8111      		cpse r24,__zero_reg__
+ 1083 020e 00C0      		rjmp .L72
+ 1084               	.L75:
+ 1085 0210 0E94 0000 		call ssd1306ClearScreen
+ 1086 0214 0E94 0000 		call serviceBattery
+ 1087 0218 6DA9      		ldd r22,Y+53
+ 1088 021a 7EA9      		ldd r23,Y+54
+ 1089 021c 8FA9      		ldd r24,Y+55
+ 1090 021e 98AD      		ldd r25,Y+56
+ 1091 0220 4091 0000 		lds r20,battery_state
+ 1092 0224 0E94 0000 		call displayFreq
+ 1093 0228 0E94 0000 		call ssd1306Refresh
+ 1094 022c 5E98      		cbi 0xb,6
+ 1095 022e 81E0      		ldi r24,lo8(1)
+ 1096 0230 0E94 0000 		call yackinhibit
+ 1097 0234 80E0      		ldi r24,lo8(callStr)
+ 1098 0236 90E0      		ldi r25,hi8(callStr)
+ 1099 0238 0E94 0000 		call yackstring
+ 1100 023c 80E0      		ldi r24,0
+ 1101 023e 0E94 0000 		call yackinhibit
+ 1102 0242 412C      		mov r4,__zero_reg__
+ 1103 0244 10E0      		ldi r17,0
+ 1104 0246 78E0      		ldi r23,lo8(8)
+ 1105 0248 E72E      		mov r14,r23
+ 1106 024a F12C      		mov r15,__zero_reg__
+ 1107 024c 6E01      		movw r12,r28
+ 1108 024e 21E6      		ldi r18,97
+ 1109 0250 C20E      		add r12,r18
+ 1110 0252 D11C      		adc r13,__zero_reg__
+ 1111 0254 CE01      		movw r24,r28
+ 1112 0256 0196      		adiw r24,1
+ 1113 0258 5C01      		movw r10,r24
+ 1114 025a E0EF      		ldi r30,lo8(-16)
+ 1115 025c 8E2E      		mov r8,r30
+ 1116 025e 912C      		mov r9,__zero_reg__
+ 1117 0260 F2E0      		ldi r31,lo8(2)
+ 1118 0262 2F2E      		mov r2,r31
+ 1119 0264 00C0      		rjmp .L73
+ 1120               	.L72:
+ 1121 0266 08E0      		ldi r16,lo8(8)
+ 1122 0268 10E0      		ldi r17,0
+ 1123               	.L74:
+ 1124 026a 0E94 0000 		call filterUPone
+ 1125 026e 0150      		subi r16,1
+ 1126 0270 1109      		sbc r17,__zero_reg__
+ 1127 0272 01F4      		brne .L74
+ 1128 0274 00C0      		rjmp .L75
+ 1129               	.L100:
+ 1130 0276 21E0      		ldi r18,lo8(1)
+ 1131 0278 6212      		cpse r6,r18
+ 1132 027a 00C0      		rjmp .L304
+ 1133               	.L119:
+ 1134 027c 8BA9      		ldd r24,Y+51
+ 1135 027e 9CA9      		ldd r25,Y+52
+ 1136 0280 9695      		lsr r25
+ 1137 0282 8795      		ror r24
+ 1138 0284 9695      		lsr r25
+ 1139 0286 8795      		ror r24
+ 1140 0288 31E0      		ldi r19,lo8(1)
+ 1141 028a 6312      		cpse r6,r19
+ 1142 028c 00C0      		rjmp .L122
+ 1143 028e 8233      		cpi r24,50
+ 1144 0290 9105      		cpc r25,__zero_reg__
+ 1145 0292 01F4      		brne .+2
+ 1146 0294 00C0      		rjmp .L135
+ 1147 0296 00F0      		brlo .+2
+ 1148 0298 00C0      		rjmp .L125
+ 1149 029a 8130      		cpi r24,1
+ 1150 029c 9105      		cpc r25,__zero_reg__
+ 1151 029e 01F4      		brne .+2
+ 1152 02a0 00C0      		rjmp .L191
+ 1153 02a2 8A30      		cpi r24,10
+ 1154 02a4 9105      		cpc r25,__zero_reg__
+ 1155 02a6 01F4      		brne .+2
+ 1156 02a8 00C0      		rjmp .L134
+ 1157               	.L126:
+ 1158 02aa 880F      		lsl r24
+ 1159 02ac 991F      		rol r25
+ 1160 02ae 880F      		lsl r24
+ 1161 02b0 991F      		rol r25
+ 1162 02b2 9CAB      		std Y+52,r25
+ 1163 02b4 8BAB      		std Y+51,r24
+ 1164 02b6 0E94 0000 		call clearMainArea
+ 1165 02ba 8BA9      		ldd r24,Y+51
+ 1166 02bc 9CA9      		ldd r25,Y+52
+ 1167 02be 9695      		lsr r25
+ 1168 02c0 8795      		ror r24
+ 1169 02c2 9695      		lsr r25
+ 1170 02c4 8795      		ror r24
+ 1171 02c6 0E94 0000 		call drawIntNumber
+ 1172 02ca 13E0      		ldi r17,lo8(3)
+ 1173               	.L294:
+ 1174 02cc 01E0      		ldi r16,lo8(1)
+ 1175               	.L96:
+ 1176 02ce F1E0      		ldi r31,lo8(1)
+ 1177 02d0 6F16      		cp r6,r31
+ 1178 02d2 01F4      		brne .+2
+ 1179 02d4 00C0      		rjmp .L112
+ 1180 02d6 7F16      		cp r7,r31
+ 1181 02d8 01F4      		brne .+2
+ 1182 02da 00C0      		rjmp .L112
+ 1183               	.L169:
+ 1184 02dc 21E0      		ldi r18,lo8(1)
+ 1185 02de 5216      		cp r5,r18
+ 1186 02e0 01F4      		brne .+2
+ 1187 02e2 00C0      		rjmp .L112
+ 1188               	.L185:
+ 1189 02e4 31E0      		ldi r19,lo8(1)
+ 1190 02e6 3316      		cp r3,r19
+ 1191 02e8 01F4      		brne .+2
+ 1192 02ea 00C0      		rjmp .L112
+ 1193               	.L170:
+ 1194 02ec 0130      		cpi r16,lo8(1)
+ 1195 02ee 01F4      		brne .+2
+ 1196 02f0 00C0      		rjmp .L148
+ 1197               	.L171:
+ 1198 02f2 88EC      		ldi r24,-56
+ 1199 02f4 E816      		cp r14,r24
+ 1200 02f6 F104      		cpc r15,__zero_reg__
+ 1201 02f8 01F4      		brne .L77
+ 1202 02fa 0E94 0000 		call serviceBattery
+ 1203 02fe E12C      		mov r14,__zero_reg__
+ 1204 0300 F12C      		mov r15,__zero_reg__
+ 1205               	.L77:
+ 1206 0302 8091 0000 		lds r24,battery_state
+ 1207 0306 8430      		cpi r24,lo8(4)
+ 1208 0308 01F0      		breq .+2
+ 1209 030a 00C0      		rjmp .L172
+ 1210 030c 81E0      		ldi r24,lo8(1)
+ 1211 030e 0E94 0000 		call yackinhibit
+ 1212 0312 80E0      		ldi r24,lo8(.LC5)
+ 1213 0314 90E0      		ldi r25,hi8(.LC5)
+ 1214 0316 0E94 0000 		call yackstring
+ 1215               	.L73:
+ 1216 031a 8091 0000 		lds r24,txKeyed
+ 1217 031e 8111      		cpse r24,__zero_reg__
+ 1218 0320 00C0      		rjmp .L77
+ 1219 0322 9FEF      		ldi r25,-1
+ 1220 0324 E91A      		sub r14,r25
+ 1221 0326 F90A      		sbc r15,r25
+ 1222 0328 1111      		cpse r17,__zero_reg__
+ 1223 032a 00C0      		rjmp .L78
+ 1224 032c 8091 0000 		lds r24,rotEncChange
+ 1225 0330 9091 0000 		lds r25,rotEncChange+1
+ 1226 0334 0197      		sbiw r24,1
+ 1227 0336 01F4      		brne .L79
+ 1228 0338 CE01      		movw r24,r28
+ 1229 033a C396      		adiw r24,51
+ 1230 033c 0E94 0000 		call serviceFreq.part.1
+ 1231 0340 00C0      		rjmp .L79
+ 1232               	.L78:
+ 1233 0342 1330      		cpi r17,lo8(3)
+ 1234 0344 00F0      		brlo .L79
+ 1235 0346 1630      		cpi r17,lo8(6)
+ 1236 0348 01F0      		breq .L79
+ 1237 034a 059B      		sbis 0,5
+ 1238 034c 00C0      		rjmp .L80
+ 1239 034e 0699      		sbic 0,6
+ 1240 0350 00C0      		rjmp .L79
+ 1241               	.L80:
+ 1242 0352 80E0      		ldi r24,0
+ 1243 0354 0E94 0000 		call yackinhibit
+ 1244 0358 0E94 0000 		call ssd1306ClearScreen
+ 1245 035c 6DA9      		ldd r22,Y+53
+ 1246 035e 7EA9      		ldd r23,Y+54
+ 1247 0360 8FA9      		ldd r24,Y+55
+ 1248 0362 98AD      		ldd r25,Y+56
+ 1249 0364 4091 0000 		lds r20,battery_state
+ 1250 0368 0E94 0000 		call displayFreq
+ 1251 036c 0E94 0000 		call ssd1306Refresh
+ 1252 0370 85E0      		ldi r24,lo8(5)
+ 1253 0372 0E94 0000 		call yackdelay
+ 1254 0376 10E0      		ldi r17,0
+ 1255               	.L79:
+ 1256 0378 2091 0000 		lds r18,enableMemoryReplay
+ 1257 037c 2130      		cpi r18,lo8(1)
+ 1258 037e 01F4      		brne .L81
+ 1259 0380 8091 0000 		lds r24,countDownMemoryTimer
+ 1260 0384 9091 0000 		lds r25,countDownMemoryTimer+1
+ 1261 0388 0197      		sbiw r24,1
+ 1262 038a 9093 0000 		sts countDownMemoryTimer+1,r25
+ 1263 038e 8093 0000 		sts countDownMemoryTimer,r24
+ 1264 0392 892B      		or r24,r25
+ 1265 0394 01F4      		brne .L81
+ 1266 0396 1092 0000 		sts enableMemoryReplay,__zero_reg__
+ 1267 039a 2093 0000 		sts memoryReplayNow,r18
+ 1268 039e 15E0      		ldi r17,lo8(5)
+ 1269               	.L81:
+ 1270 03a0 3299      		sbic 0x6,2
+ 1271 03a2 00C0      		rjmp .L186
+ 1272 03a4 1111      		cpse r17,__zero_reg__
+ 1273 03a6 00C0      		rjmp .L305
+ 1274 03a8 68EC      		ldi r22,lo8(-56)
+ 1275 03aa 662E      		mov r6,r22
+ 1276 03ac 712C      		mov r7,__zero_reg__
+ 1277               	.L85:
+ 1278 03ae 3299      		sbic 0x6,2
+ 1279 03b0 00C0      		rjmp .L88
+ 1280 03b2 E1E0      		ldi r30,1
+ 1281 03b4 6E1A      		sub r6,r30
+ 1282 03b6 7108      		sbc r7,__zero_reg__
+ 1283 03b8 0E94 0000 		call yackbeat
+ 1284 03bc 6114      		cp r6,__zero_reg__
+ 1285 03be 7104      		cpc r7,__zero_reg__
+ 1286 03c0 01F4      		brne .L85
+ 1287               	.L88:
+ 1288 03c2 329B      		sbis 0x6,2
+ 1289 03c4 00C0      		rjmp .L88
+ 1290 03c6 6114      		cp r6,__zero_reg__
+ 1291 03c8 7104      		cpc r7,__zero_reg__
+ 1292 03ca 01F4      		brne .+2
+ 1293 03cc 00C0      		rjmp .L187
+ 1294 03ce F4EB      		ldi r31,-76
+ 1295 03d0 6F16      		cp r6,r31
+ 1296 03d2 7104      		cpc r7,__zero_reg__
+ 1297 03d4 00F0      		brlo .L89
+ 1298 03d6 00C0      		rjmp .L296
+ 1299               	.L305:
+ 1300 03d8 4394      		inc r4
+ 1301 03da 25E0      		ldi r18,lo8(5)
+ 1302 03dc 4212      		cpse r4,r18
+ 1303 03de 00C0      		rjmp .L296
+ 1304 03e0 00C0      		rjmp .L90
+ 1305               	.L89:
+ 1306 03e2 1F5F      		subi r17,lo8(-(1))
+ 1307               	.L290:
+ 1308 03e4 312C      		mov r3,__zero_reg__
+ 1309 03e6 5524      		clr r5
+ 1310 03e8 5394      		inc r5
+ 1311               	.L92:
+ 1312 03ea 8091 0000 		lds r24,rotEncChange
+ 1313 03ee 9091 0000 		lds r25,rotEncChange+1
+ 1314 03f2 412F      		mov r20,r17
+ 1315 03f4 50E0      		ldi r21,0
+ 1316 03f6 0197      		sbiw r24,1
+ 1317 03f8 01F0      		breq .+2
+ 1318 03fa 00C0      		rjmp .L93
+ 1319 03fc 8091 0000 		lds r24,storedRotA
+ 1320 0400 9091 0000 		lds r25,storedRotA+1
+ 1321 0404 E091 0000 		lds r30,storedRotB
+ 1322 0408 F091 0000 		lds r31,storedRotB+1
+ 1323 040c 8E17      		cp r24,r30
+ 1324 040e 9F07      		cpc r25,r31
+ 1325 0410 01F4      		brne .L188
+ 1326 0412 8091 0000 		lds r24,storedRotA
+ 1327 0416 9091 0000 		lds r25,storedRotA+1
+ 1328 041a E091 0000 		lds r30,storedRotB
+ 1329 041e F091 0000 		lds r31,storedRotB+1
+ 1330 0422 7724      		clr r7
+ 1331 0424 7394      		inc r7
+ 1332 0426 8E17      		cp r24,r30
+ 1333 0428 9F07      		cpc r25,r31
+ 1334 042a 01F0      		breq .L95
+ 1335 042c 712C      		mov r7,__zero_reg__
+ 1336               	.L95:
+ 1337 042e 612C      		mov r6,__zero_reg__
+ 1338 0430 00C0      		rjmp .L94
+ 1339               	.L188:
+ 1340 0432 712C      		mov r7,__zero_reg__
+ 1341 0434 6624      		clr r6
+ 1342 0436 6394      		inc r6
+ 1343               	.L94:
+ 1344 0438 1092 0000 		sts rotEncChange+1,__zero_reg__
+ 1345 043c 1092 0000 		sts rotEncChange,__zero_reg__
+ 1346 0440 FA01      		movw r30,r20
+ 1347 0442 3197      		sbiw r30,1
+ 1348 0444 EB30      		cpi r30,11
+ 1349 0446 F105      		cpc r31,__zero_reg__
+ 1350 0448 00F0      		brlo .+2
+ 1351 044a 00C0      		rjmp .L293
+ 1352 044c E050      		subi r30,lo8(-(gs(.L98)))
+ 1353 044e F040      		sbci r31,hi8(-(gs(.L98)))
+ 1354 0450 0C94 0000 		jmp __tablejump2__
+ 1355               		.section	.progmem.gcc_sw_table,"a",@progbits
+ 1356               		.p2align	1
+ 1357               	.L98:
+ 1358 0000 0000      		.word gs(.L97)
+ 1359 0002 0000      		.word gs(.L99)
+ 1360 0004 0000      		.word gs(.L100)
+ 1361 0006 0000      		.word gs(.L101)
+ 1362 0008 0000      		.word gs(.L102)
+ 1363 000a 0000      		.word gs(.L103)
+ 1364 000c 0000      		.word gs(.L104)
+ 1365 000e 0000      		.word gs(.L105)
+ 1366 0010 0000      		.word gs(.L106)
+ 1367 0012 0000      		.word gs(.L107)
+ 1368 0014 0000      		.word gs(.L108)
+ 1369               		.section	.text.startup
+ 1370               	.L97:
+ 1371 0454 31E0      		ldi r19,lo8(1)
+ 1372 0456 6312      		cpse r6,r19
+ 1373 0458 00C0      		rjmp .L109
+ 1374 045a 89AD      		ldd r24,Y+57
+ 1375 045c 9AAD      		ldd r25,Y+58
+ 1376 045e ABAD      		ldd r26,Y+59
+ 1377 0460 BCAD      		ldd r27,Y+60
+ 1378 0462 BC01      		movw r22,r24
+ 1379 0464 CD01      		movw r24,r26
+ 1380 0466 685D      		subi r22,-40
+ 1381 0468 7F4F      		sbci r23,-1
+ 1382 046a 8F4F      		sbci r24,-1
+ 1383 046c 9F4F      		sbci r25,-1
+ 1384 046e 00C0      		rjmp .L303
+ 1385               	.L109:
+ 1386 0470 81E0      		ldi r24,lo8(1)
+ 1387 0472 7812      		cpse r7,r24
+ 1388 0474 00C0      		rjmp .L111
+ 1389 0476 89AD      		ldd r24,Y+57
+ 1390 0478 9AAD      		ldd r25,Y+58
+ 1391 047a ABAD      		ldd r26,Y+59
+ 1392 047c BCAD      		ldd r27,Y+60
+ 1393 047e BC01      		movw r22,r24
+ 1394 0480 CD01      		movw r24,r26
+ 1395 0482 6852      		subi r22,40
+ 1396 0484 7109      		sbc r23,__zero_reg__
+ 1397 0486 8109      		sbc r24,__zero_reg__
+ 1398 0488 9109      		sbc r25,__zero_reg__
+ 1399               	.L303:
+ 1400 048a 69AF      		std Y+57,r22
+ 1401 048c 7AAF      		std Y+58,r23
+ 1402 048e 8BAF      		std Y+59,r24
+ 1403 0490 9CAF      		std Y+60,r25
+ 1404 0492 0E94 0000 		call si5351aSetFrequency
+ 1405 0496 00C0      		rjmp .L301
+ 1406               	.L111:
+ 1407 0498 91E0      		ldi r25,lo8(1)
+ 1408 049a 5912      		cpse r5,r25
+ 1409 049c 00C0      		rjmp .L190
+ 1410               	.L301:
+ 1411 049e 0E94 0000 		call clearMainArea
+ 1412 04a2 29AD      		ldd r18,Y+57
+ 1413 04a4 3AAD      		ldd r19,Y+58
+ 1414 04a6 4BAD      		ldd r20,Y+59
+ 1415 04a8 5CAD      		ldd r21,Y+60
+ 1416 04aa 6DA9      		ldd r22,Y+53
+ 1417 04ac 7EA9      		ldd r23,Y+54
+ 1418 04ae 8FA9      		ldd r24,Y+55
+ 1419 04b0 98AD      		ldd r25,Y+56
+ 1420 04b2 0E94 0000 		call displayFreqSmall
+ 1421 04b6 00C0      		rjmp .L211
+ 1422               	.L99:
+ 1423 04b8 E1E0      		ldi r30,lo8(1)
+ 1424 04ba 6E12      		cpse r6,r30
+ 1425 04bc 00C0      		rjmp .L115
+ 1426 04be 2796      		adiw r28,69-62
+ 1427 04c0 8EAD      		ldd r24,Y+62
+ 1428 04c2 9FAD      		ldd r25,Y+63
+ 1429 04c4 2797      		sbiw r28,69-62
+ 1430 04c6 0997      		sbiw r24,9
+ 1431 04c8 01F4      		brne .+2
+ 1432 04ca 00C0      		rjmp .L116
+ 1433 04cc 5E9A      		sbi 0xb,6
+ 1434 04ce 0E94 0000 		call volumeUPone
+ 1435 04d2 5E98      		cbi 0xb,6
+ 1436 04d4 2796      		adiw r28,69-62
+ 1437 04d6 8EAD      		ldd r24,Y+62
+ 1438 04d8 9FAD      		ldd r25,Y+63
+ 1439 04da 2797      		sbiw r28,69-62
+ 1440 04dc 0196      		adiw r24,1
+ 1441 04de 2796      		adiw r28,69-62
+ 1442 04e0 9FAF      		std Y+63,r25
+ 1443 04e2 8EAF      		std Y+62,r24
+ 1444 04e4 2797      		sbiw r28,69-62
+ 1445 04e6 0E94 0000 		call clearMainArea
+ 1446 04ea 2796      		adiw r28,69-62
+ 1447 04ec 8EAD      		ldd r24,Y+62
+ 1448 04ee 9FAD      		ldd r25,Y+63
+ 1449 04f0 2797      		sbiw r28,69-62
+ 1450 04f2 00C0      		rjmp .L302
+ 1451               	.L115:
+ 1452 04f4 F1E0      		ldi r31,lo8(1)
+ 1453 04f6 7F12      		cpse r7,r31
+ 1454 04f8 00C0      		rjmp .L117
+ 1455 04fa 2796      		adiw r28,69-62
+ 1456 04fc 8EAD      		ldd r24,Y+62
+ 1457 04fe 9FAD      		ldd r25,Y+63
+ 1458 0500 2797      		sbiw r28,69-62
+ 1459 0502 892B      		or r24,r25
+ 1460 0504 01F4      		brne .+2
+ 1461 0506 00C0      		rjmp .L118
+ 1462               	.L181:
+ 1463 0508 5E9A      		sbi 0xb,6
+ 1464 050a 0E94 0000 		call volumeDOWNone
+ 1465 050e 5E98      		cbi 0xb,6
+ 1466 0510 2796      		adiw r28,69-62
+ 1467 0512 8EAD      		ldd r24,Y+62
+ 1468 0514 9FAD      		ldd r25,Y+63
+ 1469 0516 2797      		sbiw r28,69-62
+ 1470 0518 0197      		sbiw r24,1
+ 1471 051a 2796      		adiw r28,69-62
+ 1472 051c 9FAF      		std Y+63,r25
+ 1473 051e 8EAF      		std Y+62,r24
+ 1474 0520 2797      		sbiw r28,69-62
+ 1475               	.L184:
+ 1476 0522 0E94 0000 		call clearMainArea
+ 1477 0526 2796      		adiw r28,69-62
+ 1478 0528 8EAD      		ldd r24,Y+62
+ 1479 052a 9FAD      		ldd r25,Y+63
+ 1480 052c 2797      		sbiw r28,69-62
+ 1481 052e 0E94 0000 		call drawIntNumber
+ 1482 0532 12E0      		ldi r17,lo8(2)
+ 1483 0534 00C0      		rjmp .L293
+ 1484               	.L304:
+ 1485 0536 7212      		cpse r7,r18
+ 1486 0538 00C0      		rjmp .L121
+ 1487 053a 00C0      		rjmp .L119
+ 1488               	.L125:
+ 1489 053c 8436      		cpi r24,100
+ 1490 053e 9105      		cpc r25,__zero_reg__
+ 1491 0540 01F0      		breq .L192
+ 1492 0542 8A3F      		cpi r24,-6
+ 1493 0544 9105      		cpc r25,__zero_reg__
+ 1494 0546 01F0      		breq .L133
+ 1495 0548 00C0      		rjmp .L126
+ 1496               	.L122:
+ 1497 054a 8233      		cpi r24,50
+ 1498 054c 9105      		cpc r25,__zero_reg__
+ 1499 054e 01F0      		breq .L191
+ 1500 0550 00F4      		brsh .L132
+ 1501 0552 8130      		cpi r24,1
+ 1502 0554 9105      		cpc r25,__zero_reg__
+ 1503 0556 01F0      		breq .L192
+ 1504 0558 8A30      		cpi r24,10
+ 1505 055a 9105      		cpc r25,__zero_reg__
+ 1506 055c 01F0      		breq .L133
+ 1507 055e 00C0      		rjmp .L126
+ 1508               	.L132:
+ 1509 0560 8436      		cpi r24,100
+ 1510 0562 9105      		cpc r25,__zero_reg__
+ 1511 0564 01F0      		breq .L134
+ 1512 0566 8A3F      		cpi r24,-6
+ 1513 0568 9105      		cpc r25,__zero_reg__
+ 1514 056a 01F0      		breq .L135
+ 1515 056c 00C0      		rjmp .L126
+ 1516               	.L133:
+ 1517 056e 81E0      		ldi r24,lo8(1)
+ 1518 0570 90E0      		ldi r25,0
+ 1519 0572 00C0      		rjmp .L126
+ 1520               	.L134:
+ 1521 0574 82E3      		ldi r24,lo8(50)
+ 1522 0576 90E0      		ldi r25,0
+ 1523 0578 00C0      		rjmp .L126
+ 1524               	.L135:
+ 1525 057a 84E6      		ldi r24,lo8(100)
+ 1526 057c 90E0      		ldi r25,0
+ 1527 057e 00C0      		rjmp .L126
+ 1528               	.L191:
+ 1529 0580 8AE0      		ldi r24,lo8(10)
+ 1530 0582 90E0      		ldi r25,0
+ 1531 0584 00C0      		rjmp .L126
+ 1532               	.L192:
+ 1533 0586 8AEF      		ldi r24,lo8(-6)
+ 1534 0588 90E0      		ldi r25,0
+ 1535 058a 00C0      		rjmp .L126
+ 1536               	.L121:
+ 1537 058c 81E0      		ldi r24,lo8(1)
+ 1538 058e 3812      		cpse r3,r24
+ 1539 0590 00C0      		rjmp .L136
+ 1540 0592 0E94 0000 		call yackinhibit
+ 1541 0596 0E94 0000 		call clearMainArea
+ 1542 059a 8BA9      		ldd r24,Y+51
+ 1543 059c 9CA9      		ldd r25,Y+52
+ 1544 059e 9695      		lsr r25
+ 1545 05a0 8795      		ror r24
+ 1546 05a2 9695      		lsr r25
+ 1547 05a4 8795      		ror r24
+ 1548 05a6 0E94 0000 		call drawIntNumber
+ 1549 05aa 00C0      		rjmp .L136
+ 1550               	.L101:
+ 1551 05ac 91E0      		ldi r25,lo8(1)
+ 1552 05ae 6916      		cp r6,r25
+ 1553 05b0 01F0      		breq .L137
+ 1554 05b2 7912      		cpse r7,r25
+ 1555 05b4 00C0      		rjmp .L139
+ 1556               	.L137:
+ 1557 05b6 0E94 0000 		call clearMainArea
+ 1558 05ba 80E0      		ldi r24,0
+ 1559 05bc 90E0      		ldi r25,0
+ 1560 05be 0E94 0000 		call drawMainArea
+ 1561 05c2 2898      		cbi 0x5,0
+ 1562 05c4 2998      		cbi 0x5,1
+ 1563 05c6 0E94 0000 		call yackbeat
+ 1564 05ca 2898      		cbi 0x5,0
+ 1565 05cc 299A      		sbi 0x5,1
+ 1566 05ce 0E94 0000 		call yackbeat
+ 1567 05d2 2898      		cbi 0x5,0
+ 1568 05d4 2998      		cbi 0x5,1
+ 1569 05d6 0E94 0000 		call yacktune
+ 1570 05da 289A      		sbi 0x5,0
+ 1571 05dc 2998      		cbi 0x5,1
+ 1572 05de 0E94 0000 		call yackbeat
+ 1573 05e2 2898      		cbi 0x5,0
+ 1574 05e4 2998      		cbi 0x5,1
+ 1575 05e6 80E0      		ldi r24,0
+ 1576 05e8 0E94 0000 		call yackinhibit
+ 1577 05ec 0E94 0000 		call ssd1306ClearScreen
+ 1578 05f0 6DA9      		ldd r22,Y+53
+ 1579 05f2 7EA9      		ldd r23,Y+54
+ 1580 05f4 8FA9      		ldd r24,Y+55
+ 1581 05f6 98AD      		ldd r25,Y+56
+ 1582 05f8 4091 0000 		lds r20,battery_state
+ 1583 05fc 0E94 0000 		call displayFreq
+ 1584 0600 0E94 0000 		call ssd1306Refresh
+ 1585 0604 85E0      		ldi r24,lo8(5)
+ 1586 0606 0E94 0000 		call yackdelay
+ 1587 060a 00C0      		rjmp .L300
+ 1588               	.L139:
+ 1589 060c E1E0      		ldi r30,lo8(1)
+ 1590 060e 5E12      		cpse r5,r30
+ 1591 0610 00C0      		rjmp .L193
+ 1592               	.L145:
+ 1593 0612 0E94 0000 		call clearMainArea
+ 1594 0616 00C0      		rjmp .L298
+ 1595               	.L102:
+ 1596 0618 F1E0      		ldi r31,lo8(1)
+ 1597 061a 6F16      		cp r6,r31
+ 1598 061c 01F0      		breq .L140
+ 1599 061e 21E0      		ldi r18,lo8(1)
+ 1600 0620 7216      		cp r7,r18
+ 1601 0622 01F0      		breq .L140
+ 1602               	.L285:
+ 1603 0624 8091 0000 		lds r24,memoryReplayNow
+ 1604 0628 8130      		cpi r24,lo8(1)
+ 1605 062a 01F0      		breq .+2
+ 1606 062c 00C0      		rjmp .L142
+ 1607               	.L140:
+ 1608 062e 0E94 0000 		call clearMainArea
+ 1609 0632 1092 0000 		sts memoryReplayNow,__zero_reg__
+ 1610 0636 81E0      		ldi r24,lo8(1)
+ 1611 0638 90E0      		ldi r25,0
+ 1612 063a 0E94 0000 		call drawMainArea
+ 1613 063e 85E0      		ldi r24,lo8(5)
+ 1614 0640 0E94 0000 		call displayChangeStateIcon
+ 1615 0644 0E94 0000 		call ssd1306Refresh
+ 1616 0648 31E0      		ldi r19,lo8(1)
+ 1617 064a 6312      		cpse r6,r19
+ 1618 064c 00C0      		rjmp .L143
+ 1619 064e 60E0      		ldi r22,lo8(.LC1)
+ 1620 0650 70E0      		ldi r23,hi8(.LC1)
+ 1621 0652 00C0      		rjmp .L291
+ 1622               	.L143:
+ 1623 0654 81E0      		ldi r24,lo8(1)
+ 1624 0656 7812      		cpse r7,r24
+ 1625 0658 00C0      		rjmp .L144
+ 1626 065a 60E0      		ldi r22,lo8(.LC2)
+ 1627 065c 70E0      		ldi r23,hi8(.LC2)
+ 1628               	.L291:
+ 1629 065e 80E0      		ldi r24,lo8(cqStr)
+ 1630 0660 90E0      		ldi r25,hi8(cqStr)
+ 1631 0662 0E94 0000 		call strcpy
+ 1632               	.L144:
+ 1633 0666 80E0      		ldi r24,0
+ 1634 0668 0E94 0000 		call yackinhibit
+ 1635 066c 0E94 0000 		call transition_to_tx
+ 1636 0670 2BE4      		ldi r18,lo8(75)
+ 1637 0672 30E0      		ldi r19,0
+ 1638 0674 F601      		movw r30,r12
+ 1639 0676 3183      		std Z+1,r19
+ 1640 0678 2083      		st Z,r18
+ 1641 067a DF92      		push r13
+ 1642 067c CF92      		push r12
+ 1643 067e 80E0      		ldi r24,lo8(callStr)
+ 1644 0680 90E0      		ldi r25,hi8(callStr)
+ 1645 0682 9F93      		push r25
+ 1646 0684 8F93      		push r24
+ 1647 0686 9F93      		push r25
+ 1648 0688 8F93      		push r24
+ 1649 068a 80E0      		ldi r24,lo8(cqStr)
+ 1650 068c 90E0      		ldi r25,hi8(cqStr)
+ 1651 068e 9F93      		push r25
+ 1652 0690 8F93      		push r24
+ 1653 0692 20E0      		ldi r18,lo8(.LC3)
+ 1654 0694 30E0      		ldi r19,hi8(.LC3)
+ 1655 0696 3F93      		push r19
+ 1656 0698 2F93      		push r18
+ 1657 069a BF92      		push r11
+ 1658 069c AF92      		push r10
+ 1659 069e 0E94 0000 		call sprintf
+ 1660 06a2 C501      		movw r24,r10
+ 1661 06a4 0E94 0000 		call yackstring
+ 1662 06a8 0E94 0000 		call transistion_to_rx
+ 1663 06ac 0E94 0000 		call ssd1306ClearScreen
+ 1664 06b0 6DA9      		ldd r22,Y+53
+ 1665 06b2 7EA9      		ldd r23,Y+54
+ 1666 06b4 8FA9      		ldd r24,Y+55
+ 1667 06b6 98AD      		ldd r25,Y+56
+ 1668 06b8 4091 0000 		lds r20,battery_state
+ 1669 06bc 0E94 0000 		call displayFreq
+ 1670 06c0 0E94 0000 		call ssd1306Refresh
+ 1671 06c4 2996      		adiw r28,72-63
+ 1672 06c6 8FAD      		ldd r24,Y+63
+ 1673 06c8 2997      		sbiw r28,72-63
+ 1674 06ca 0FB6      		in __tmp_reg__,__SREG__
+ 1675 06cc F894      		cli
+ 1676 06ce DEBF      		out __SP_H__,r29
+ 1677 06d0 0FBE      		out __SREG__,__tmp_reg__
+ 1678 06d2 CDBF      		out __SP_L__,r28
+ 1679 06d4 8823      		tst r24
+ 1680 06d6 01F0      		breq .L300
+ 1681 06d8 91E0      		ldi r25,lo8(1)
+ 1682 06da 9093 0000 		sts enableMemoryReplay,r25
+ 1683 06de F8EC      		ldi r31,lo8(-56)
+ 1684 06e0 8F9F      		mul r24,r31
+ 1685 06e2 C001      		movw r24,r0
+ 1686 06e4 1124      		clr __zero_reg__
+ 1687 06e6 9093 0000 		sts countDownMemoryTimer+1,r25
+ 1688 06ea 8093 0000 		sts countDownMemoryTimer,r24
+ 1689               	.L300:
+ 1690 06ee 10E0      		ldi r17,0
+ 1691 06f0 00C0      		rjmp .L293
+ 1692               	.L142:
+ 1693 06f2 21E0      		ldi r18,lo8(1)
+ 1694 06f4 5216      		cp r5,r18
+ 1695 06f6 01F4      		brne .+2
+ 1696 06f8 00C0      		rjmp .L145
+ 1697 06fa 15E0      		ldi r17,lo8(5)
+ 1698 06fc 00C0      		rjmp .L113
+ 1699               	.L103:
+ 1700 06fe 31E0      		ldi r19,lo8(1)
+ 1701 0700 6316      		cp r6,r19
+ 1702 0702 01F0      		breq .L146
+ 1703 0704 7312      		cpse r7,r19
+ 1704 0706 00C0      		rjmp .L147
+ 1705               	.L146:
+ 1706 0708 0E94 0000 		call clearMainArea
+ 1707 070c 82E0      		ldi r24,lo8(2)
+ 1708 070e 90E0      		ldi r25,0
+ 1709 0710 0E94 0000 		call drawMainArea
+ 1710 0714 86E0      		ldi r24,lo8(6)
+ 1711 0716 0E94 0000 		call displayChangeStateIcon
+ 1712 071a 0E94 0000 		call ssd1306Refresh
+ 1713 071e 61E0      		ldi r22,lo8(1)
+ 1714 0720 81E0      		ldi r24,lo8(1)
+ 1715 0722 0E94 0000 		call yackmessage
+ 1716 0726 0E94 0000 		call ssd1306ClearScreen
+ 1717 072a 6DA9      		ldd r22,Y+53
+ 1718 072c 7EA9      		ldd r23,Y+54
+ 1719 072e 8FA9      		ldd r24,Y+55
+ 1720 0730 98AD      		ldd r25,Y+56
+ 1721 0732 4091 0000 		lds r20,battery_state
+ 1722 0736 0E94 0000 		call displayFreq
+ 1723 073a 0E94 0000 		call ssd1306Refresh
+ 1724 073e 10E0      		ldi r17,0
+ 1725 0740 00C0      		rjmp .L148
+ 1726               	.L147:
+ 1727 0742 81E0      		ldi r24,lo8(1)
+ 1728 0744 5812      		cpse r5,r24
+ 1729 0746 00C0      		rjmp .L195
+ 1730               	.L298:
+ 1731 0748 80E0      		ldi r24,0
+ 1732 074a 90E0      		ldi r25,0
+ 1733 074c 0E94 0000 		call drawMainArea
+ 1734 0750 00C0      		rjmp .L211
+ 1735               	.L104:
+ 1736 0752 91E0      		ldi r25,lo8(1)
+ 1737 0754 6912      		cpse r6,r25
+ 1738 0756 00C0      		rjmp .L149
+ 1739 0758 6091 0000 		lds r22,wpm
+ 1740 075c 6233      		cpi r22,lo8(50)
+ 1741 075e 00F4      		brsh .L149
+ 1742 0760 6F5F      		subi r22,lo8(-(1))
+ 1743 0762 6093 0000 		sts wpm,r22
+ 1744 0766 70E0      		ldi r23,0
+ 1745 0768 C401      		movw r24,r8
+ 1746 076a 0E94 0000 		call __divmodhi4
+ 1747 076e 7093 0000 		sts wpmcnt+1,r23
+ 1748 0772 6093 0000 		sts wpmcnt,r22
+ 1749 0776 0E94 0000 		call clearMainArea
+ 1750 077a 8091 0000 		lds r24,wpm
+ 1751 077e 00C0      		rjmp .L299
+ 1752               	.L149:
+ 1753 0780 E1E0      		ldi r30,lo8(1)
+ 1754 0782 7E12      		cpse r7,r30
+ 1755 0784 00C0      		rjmp .L150
+ 1756 0786 6091 0000 		lds r22,wpm
+ 1757 078a 6B30      		cpi r22,lo8(11)
+ 1758 078c 00F0      		brlo .L150
+ 1759 078e 6150      		subi r22,lo8(-(-1))
+ 1760 0790 6093 0000 		sts wpm,r22
+ 1761 0794 70E0      		ldi r23,0
+ 1762 0796 C401      		movw r24,r8
+ 1763 0798 0E94 0000 		call __divmodhi4
+ 1764 079c 7093 0000 		sts wpmcnt+1,r23
+ 1765 07a0 6093 0000 		sts wpmcnt,r22
+ 1766 07a4 0E94 0000 		call clearMainArea
+ 1767 07a8 8091 0000 		lds r24,wpm
+ 1768 07ac 90E0      		ldi r25,0
+ 1769 07ae 0E94 0000 		call drawIntNumber
+ 1770 07b2 17E0      		ldi r17,lo8(7)
+ 1771 07b4 00C0      		rjmp .L151
+ 1772               	.L207:
+ 1773 07b6 712C      		mov r7,__zero_reg__
+ 1774 07b8 612C      		mov r6,__zero_reg__
+ 1775               	.L150:
+ 1776 07ba F1E0      		ldi r31,lo8(1)
+ 1777 07bc 5F12      		cpse r5,r31
+ 1778 07be 00C0      		rjmp .L196
+ 1779 07c0 0E94 0000 		call clearMainArea
+ 1780 07c4 8091 0000 		lds r24,wpm
+ 1781 07c8 90E0      		ldi r25,0
+ 1782 07ca 0E94 0000 		call drawIntNumber
+ 1783 07ce 00C0      		rjmp .L196
+ 1784               	.L105:
+ 1785 07d0 21E0      		ldi r18,lo8(1)
+ 1786 07d2 6216      		cp r6,r18
+ 1787 07d4 01F0      		breq .L152
+ 1788 07d6 7212      		cpse r7,r18
+ 1789 07d8 00C0      		rjmp .L154
+ 1790               	.L152:
+ 1791 07da 2B96      		adiw r28,74-63
+ 1792 07dc 4FAD      		ldd r20,Y+63
+ 1793 07de 2B97      		sbiw r28,74-63
+ 1794 07e0 672D      		mov r22,r7
+ 1795 07e2 862D      		mov r24,r6
+ 1796 07e4 0E94 0000 		call serviceKeyerMode
+ 1797 07e8 2B96      		adiw r28,74-63
+ 1798 07ea 8FAF      		std Y+63,r24
+ 1799 07ec 2B97      		sbiw r28,74-63
+ 1800 07ee 0E94 0000 		call clearMainArea
+ 1801 07f2 2B96      		adiw r28,74-63
+ 1802 07f4 8FAD      		ldd r24,Y+63
+ 1803 07f6 2B97      		sbiw r28,74-63
+ 1804 07f8 90E0      		ldi r25,0
+ 1805 07fa 0E94 0000 		call drawMainAreaSmall
+ 1806 07fe 18E0      		ldi r17,lo8(8)
+ 1807 0800 00C0      		rjmp .L294
+ 1808               	.L154:
+ 1809 0802 31E0      		ldi r19,lo8(1)
+ 1810 0804 5312      		cpse r5,r19
+ 1811 0806 00C0      		rjmp .L197
+ 1812 0808 0E94 0000 		call clearMainArea
+ 1813 080c 2B96      		adiw r28,74-63
+ 1814 080e 8FAD      		ldd r24,Y+63
+ 1815 0810 2B97      		sbiw r28,74-63
+ 1816 0812 90E0      		ldi r25,0
+ 1817 0814 00C0      		rjmp .L297
+ 1818               	.L106:
+ 1819 0816 81E0      		ldi r24,lo8(1)
+ 1820 0818 6816      		cp r6,r24
+ 1821 081a 01F0      		breq .L155
+ 1822 081c 7812      		cpse r7,r24
+ 1823 081e 00C0      		rjmp .L157
+ 1824               	.L155:
+ 1825 0820 2896      		adiw r28,71-63
+ 1826 0822 8FAD      		ldd r24,Y+63
+ 1827 0824 2897      		sbiw r28,71-63
+ 1828 0826 8130      		cpi r24,lo8(1)
+ 1829 0828 01F4      		brne .L158
+ 1830 082a 5E9A      		sbi 0xb,6
+ 1831 082c 18E0      		ldi r17,lo8(8)
+ 1832               	.L159:
+ 1833 082e 0E94 0000 		call filterDOWNone
+ 1834 0832 1150      		subi r17,lo8(-(-1))
+ 1835 0834 01F4      		brne .L159
+ 1836 0836 5E98      		cbi 0xb,6
+ 1837 0838 2896      		adiw r28,71-63
+ 1838 083a 1FAE      		std Y+63,__zero_reg__
+ 1839 083c 2897      		sbiw r28,71-63
+ 1840 083e 00C0      		rjmp .L160
+ 1841               	.L158:
+ 1842 0840 8111      		cpse r24,__zero_reg__
+ 1843 0842 00C0      		rjmp .L160
+ 1844 0844 5E9A      		sbi 0xb,6
+ 1845 0846 18E0      		ldi r17,lo8(8)
+ 1846               	.L161:
+ 1847 0848 0E94 0000 		call filterUPone
+ 1848 084c 1150      		subi r17,lo8(-(-1))
+ 1849 084e 01F4      		brne .L161
+ 1850 0850 5E98      		cbi 0xb,6
+ 1851 0852 81E0      		ldi r24,lo8(1)
+ 1852 0854 2896      		adiw r28,71-63
+ 1853 0856 8FAF      		std Y+63,r24
+ 1854 0858 2897      		sbiw r28,71-63
+ 1855               	.L160:
+ 1856 085a 0E94 0000 		call clearMainArea
+ 1857 085e 2896      		adiw r28,71-63
+ 1858 0860 8FAD      		ldd r24,Y+63
+ 1859 0862 2897      		sbiw r28,71-63
+ 1860 0864 90E0      		ldi r25,0
+ 1861 0866 0396      		adiw r24,3
+ 1862 0868 0E94 0000 		call drawMainAreaSmall
+ 1863 086c 19E0      		ldi r17,lo8(9)
+ 1864 086e 00C0      		rjmp .L294
+ 1865               	.L157:
+ 1866 0870 91E0      		ldi r25,lo8(1)
+ 1867 0872 5912      		cpse r5,r25
+ 1868 0874 00C0      		rjmp .L198
+ 1869 0876 0E94 0000 		call clearMainArea
+ 1870 087a 2896      		adiw r28,71-63
+ 1871 087c 8FAD      		ldd r24,Y+63
+ 1872 087e 2897      		sbiw r28,71-63
+ 1873 0880 90E0      		ldi r25,0
+ 1874 0882 0396      		adiw r24,3
+ 1875               	.L297:
+ 1876 0884 0E94 0000 		call drawMainAreaSmall
+ 1877 0888 00C0      		rjmp .L211
+ 1878               	.L107:
+ 1879 088a E1E0      		ldi r30,lo8(1)
+ 1880 088c 6E12      		cpse r6,r30
+ 1881 088e 00C0      		rjmp .L162
+ 1882 0890 2996      		adiw r28,72-63
+ 1883 0892 8FAD      		ldd r24,Y+63
+ 1884 0894 2997      		sbiw r28,72-63
+ 1885 0896 8A30      		cpi r24,lo8(10)
+ 1886 0898 00F4      		brsh .L162
+ 1887 089a 8F5F      		subi r24,lo8(-(1))
+ 1888 089c 2996      		adiw r28,72-63
+ 1889 089e 8FAF      		std Y+63,r24
+ 1890 08a0 2997      		sbiw r28,72-63
+ 1891 08a2 0E94 0000 		call clearMainArea
+ 1892 08a6 2996      		adiw r28,72-63
+ 1893 08a8 8FAD      		ldd r24,Y+63
+ 1894 08aa 2997      		sbiw r28,72-63
+ 1895               	.L299:
+ 1896 08ac 90E0      		ldi r25,0
+ 1897 08ae 0E94 0000 		call drawIntNumber
+ 1898 08b2 00C0      		rjmp .L151
+ 1899               	.L162:
+ 1900 08b4 F1E0      		ldi r31,lo8(1)
+ 1901 08b6 7F12      		cpse r7,r31
+ 1902 08b8 00C0      		rjmp .L163
+ 1903 08ba 2996      		adiw r28,72-63
+ 1904 08bc 8FAD      		ldd r24,Y+63
+ 1905 08be 2997      		sbiw r28,72-63
+ 1906 08c0 8823      		tst r24
+ 1907 08c2 01F0      		breq .L163
+ 1908 08c4 8150      		subi r24,lo8(-(-1))
+ 1909 08c6 2996      		adiw r28,72-63
+ 1910 08c8 8FAF      		std Y+63,r24
+ 1911 08ca 2997      		sbiw r28,72-63
+ 1912 08cc 0E94 0000 		call clearMainArea
+ 1913 08d0 2996      		adiw r28,72-63
+ 1914 08d2 8FAD      		ldd r24,Y+63
+ 1915 08d4 2997      		sbiw r28,72-63
+ 1916 08d6 90E0      		ldi r25,0
+ 1917 08d8 0E94 0000 		call drawIntNumber
+ 1918 08dc 1AE0      		ldi r17,lo8(10)
+ 1919 08de 00C0      		rjmp .L151
+ 1920               	.L210:
+ 1921 08e0 712C      		mov r7,__zero_reg__
+ 1922 08e2 612C      		mov r6,__zero_reg__
+ 1923               	.L163:
+ 1924 08e4 21E0      		ldi r18,lo8(1)
+ 1925 08e6 5212      		cpse r5,r18
+ 1926 08e8 00C0      		rjmp .L199
+ 1927 08ea 0E94 0000 		call clearMainArea
+ 1928 08ee 2996      		adiw r28,72-63
+ 1929 08f0 8FAD      		ldd r24,Y+63
+ 1930 08f2 2997      		sbiw r28,72-63
+ 1931 08f4 90E0      		ldi r25,0
+ 1932 08f6 0E94 0000 		call drawIntNumber
+ 1933 08fa 00C0      		rjmp .L199
+ 1934               	.L108:
+ 1935 08fc 31E0      		ldi r19,lo8(1)
+ 1936 08fe 6316      		cp r6,r19
+ 1937 0900 01F0      		breq .L164
+ 1938 0902 7312      		cpse r7,r19
+ 1939 0904 00C0      		rjmp .L166
+ 1940               	.L164:
+ 1941 0906 2A96      		adiw r28,73-63
+ 1942 0908 8FAD      		ldd r24,Y+63
+ 1943 090a 2A97      		sbiw r28,73-63
+ 1944 090c 8A30      		cpi r24,lo8(10)
+ 1945 090e 01F4      		brne .L167
+ 1946 0910 8EE0      		ldi r24,lo8(14)
+ 1947 0912 2A96      		adiw r28,73-63
+ 1948 0914 8FAF      		std Y+63,r24
+ 1949 0916 2A97      		sbiw r28,73-63
+ 1950 0918 BE01      		movw r22,r28
+ 1951 091a 6D5C      		subi r22,-51
+ 1952 091c 7F4F      		sbci r23,-1
+ 1953 091e 00C0      		rjmp .L292
+ 1954               	.L167:
+ 1955 0920 8E30      		cpi r24,lo8(14)
+ 1956 0922 01F4      		brne .L168
+ 1957 0924 9AE0      		ldi r25,lo8(10)
+ 1958 0926 2A96      		adiw r28,73-63
+ 1959 0928 9FAF      		std Y+63,r25
+ 1960 092a 2A97      		sbiw r28,73-63
+ 1961 092c BE01      		movw r22,r28
+ 1962 092e 6D5C      		subi r22,-51
+ 1963 0930 7F4F      		sbci r23,-1
+ 1964 0932 8AE0      		ldi r24,lo8(10)
+ 1965               	.L292:
+ 1966 0934 0E94 0000 		call ChangeBand
+ 1967               	.L168:
+ 1968 0938 0E94 0000 		call clearMainArea
+ 1969 093c 2A96      		adiw r28,73-63
+ 1970 093e 8FAD      		ldd r24,Y+63
+ 1971 0940 2A97      		sbiw r28,73-63
+ 1972 0942 90E0      		ldi r25,0
+ 1973 0944 0E94 0000 		call drawIntNumber
+ 1974 0948 1BE0      		ldi r17,lo8(11)
+ 1975 094a 00C0      		rjmp .L294
+ 1976               	.L166:
+ 1977 094c E1E0      		ldi r30,lo8(1)
+ 1978 094e 5E12      		cpse r5,r30
+ 1979 0950 00C0      		rjmp .L200
+ 1980 0952 0E94 0000 		call clearMainArea
+ 1981 0956 2A96      		adiw r28,73-63
+ 1982 0958 8FAD      		ldd r24,Y+63
+ 1983 095a 2A97      		sbiw r28,73-63
+ 1984 095c 90E0      		ldi r25,0
+ 1985               	.L302:
+ 1986 095e 0E94 0000 		call drawIntNumber
+ 1987 0962 00C0      		rjmp .L211
+ 1988               	.L196:
+ 1989 0964 17E0      		ldi r17,lo8(7)
+ 1990 0966 00C0      		rjmp .L293
+ 1991               	.L199:
+ 1992 0968 1AE0      		ldi r17,lo8(10)
+ 1993               	.L293:
+ 1994 096a 00E0      		ldi r16,0
+ 1995 096c 00C0      		rjmp .L96
+ 1996               	.L118:
+ 1997 096e F1E0      		ldi r31,lo8(1)
+ 1998 0970 5F16      		cp r5,r31
+ 1999 0972 01F4      		brne .+2
+ 2000 0974 00C0      		rjmp .L184
+ 2001 0976 12E0      		ldi r17,lo8(2)
+ 2002               	.L211:
+ 2003 0978 00E0      		ldi r16,0
+ 2004               	.L112:
+ 2005 097a 812F      		mov r24,r17
+ 2006 097c 0E94 0000 		call displayChangeStateIcon
+ 2007 0980 0E94 0000 		call ssd1306Refresh
+ 2008 0984 00C0      		rjmp .L170
+ 2009               	.L148:
+ 2010 0986 81E0      		ldi r24,lo8(1)
+ 2011 0988 0E94 0000 		call yackinhibit
+ 2012 098c 80E0      		ldi r24,lo8(.LC4)
+ 2013 098e 90E0      		ldi r25,hi8(.LC4)
+ 2014 0990 0E94 0000 		call yackstring
+ 2015 0994 80E0      		ldi r24,0
+ 2016 0996 0E94 0000 		call yackinhibit
+ 2017 099a 65EA      		ldi r22,lo8(-91)
+ 2018 099c 80E0      		ldi r24,lo8(magic)
+ 2019 099e 90E0      		ldi r25,hi8(magic)
+ 2020 09a0 0E94 0000 		call eeprom_update_byte
+ 2021 09a4 4FE0      		ldi r20,lo8(15)
+ 2022 09a6 50E0      		ldi r21,0
+ 2023 09a8 60E0      		ldi r22,lo8(callStr)
+ 2024 09aa 70E0      		ldi r23,hi8(callStr)
+ 2025 09ac CE01      		movw r24,r28
+ 2026 09ae 855B      		subi r24,-75
+ 2027 09b0 9F4F      		sbci r25,-1
+ 2028 09b2 0E94 0000 		call strncpy
+ 2029 09b6 2B96      		adiw r28,74-63
+ 2030 09b8 8FAD      		ldd r24,Y+63
+ 2031 09ba 2B97      		sbiw r28,74-63
+ 2032 09bc 6B96      		adiw r28,90-63
+ 2033 09be 8FAF      		std Y+63,r24
+ 2034 09c0 6B97      		sbiw r28,90-63
+ 2035 09c2 8091 0000 		lds r24,wpm
+ 2036 09c6 6C96      		adiw r28,91-63
+ 2037 09c8 8FAF      		std Y+63,r24
+ 2038 09ca 6C97      		sbiw r28,91-63
+ 2039 09cc 2896      		adiw r28,71-63
+ 2040 09ce 8FAD      		ldd r24,Y+63
+ 2041 09d0 2897      		sbiw r28,71-63
+ 2042 09d2 6D96      		adiw r28,92-63
+ 2043 09d4 8FAF      		std Y+63,r24
+ 2044 09d6 6D97      		sbiw r28,92-63
+ 2045 09d8 2A96      		adiw r28,73-63
+ 2046 09da 8FAD      		ldd r24,Y+63
+ 2047 09dc 2A97      		sbiw r28,73-63
+ 2048 09de 6E96      		adiw r28,93-63
+ 2049 09e0 8FAF      		std Y+63,r24
+ 2050 09e2 6E97      		sbiw r28,93-63
+ 2051 09e4 2996      		adiw r28,72-63
+ 2052 09e6 8FAD      		ldd r24,Y+63
+ 2053 09e8 2997      		sbiw r28,72-63
+ 2054 09ea 6F96      		adiw r28,94-63
+ 2055 09ec 8FAF      		std Y+63,r24
+ 2056 09ee 6F97      		sbiw r28,94-63
+ 2057 09f0 8BA9      		ldd r24,Y+51
+ 2058 09f2 9CA9      		ldd r25,Y+52
+ 2059 09f4 A196      		adiw r28,95-62
+ 2060 09f6 9FAF      		std Y+63,r25
+ 2061 09f8 8EAF      		std Y+62,r24
+ 2062 09fa A197      		sbiw r28,95-62
+ 2063 09fc 46E1      		ldi r20,lo8(22)
+ 2064 09fe 50E0      		ldi r21,0
+ 2065 0a00 60E0      		ldi r22,lo8(ee_vars)
+ 2066 0a02 70E0      		ldi r23,hi8(ee_vars)
+ 2067 0a04 CE01      		movw r24,r28
+ 2068 0a06 855B      		subi r24,-75
+ 2069 0a08 9F4F      		sbci r25,-1
+ 2070 0a0a 0E94 0000 		call eeprom_update_block
+ 2071 0a0e 00C0      		rjmp .L171
+ 2072               	.L172:
+ 2073 0a10 0E94 0000 		call yackbeat
+ 2074 0a14 8091 0000 		lds r24,straight_key
+ 2075 0a18 8111      		cpse r24,__zero_reg__
+ 2076 0a1a 00C0      		rjmp .L173
+ 2077 0a1c 0E94 0000 		call yackiambic
+ 2078 0a20 00C0      		rjmp .L73
+ 2079               	.L173:
+ 2080 0a22 8091 0000 		lds r24,sk_state
+ 2081 0a26 8130      		cpi r24,lo8(1)
+ 2082 0a28 01F0      		breq .L174
+ 2083 0a2a 00F0      		brlo .L175
+ 2084 0a2c 8230      		cpi r24,lo8(2)
+ 2085 0a2e 01F0      		breq .L176
+ 2086 0a30 00C0      		rjmp .L73
+ 2087               	.L175:
+ 2088 0a32 0599      		sbic 0,5
+ 2089 0a34 00C0      		rjmp .L73
+ 2090 0a36 82E3      		ldi r24,lo8(50)
+ 2091 0a38 90E0      		ldi r25,0
+ 2092 0a3a 9093 0000 		sts sk_timer+1,r25
+ 2093 0a3e 8093 0000 		sts sk_timer,r24
+ 2094 0a42 81E0      		ldi r24,lo8(1)
+ 2095 0a44 8093 0000 		sts txKeyed,r24
+ 2096 0a48 0E94 0000 		call transition_to_tx
+ 2097 0a4c 82E0      		ldi r24,lo8(2)
+ 2098 0a4e 0E94 0000 		call key
+ 2099 0a52 1092 0000 		sts enableMemoryReplay,__zero_reg__
+ 2100 0a56 8091 0000 		lds r24,sk_state
+ 2101 0a5a 8F5F      		subi r24,lo8(-(1))
+ 2102 0a5c 8093 0000 		sts sk_state,r24
+ 2103 0a60 00C0      		rjmp .L73
+ 2104               	.L174:
+ 2105 0a62 0599      		sbic 0,5
+ 2106 0a64 00C0      		rjmp .L177
+ 2107 0a66 82E0      		ldi r24,lo8(2)
+ 2108 0a68 0E94 0000 		call key
+ 2109 0a6c 82E3      		ldi r24,lo8(50)
+ 2110 0a6e 90E0      		ldi r25,0
+ 2111 0a70 00C0      		rjmp .L289
+ 2112               	.L177:
+ 2113 0a72 8091 0000 		lds r24,sk_timer
+ 2114 0a76 9091 0000 		lds r25,sk_timer+1
+ 2115 0a7a 892B      		or r24,r25
+ 2116 0a7c 01F0      		breq .L178
+ 2117 0a7e 81E0      		ldi r24,lo8(1)
+ 2118 0a80 0E94 0000 		call key
+ 2119 0a84 8091 0000 		lds r24,sk_timer
+ 2120 0a88 9091 0000 		lds r25,sk_timer+1
+ 2121 0a8c 0197      		sbiw r24,1
+ 2122               	.L289:
+ 2123 0a8e 9093 0000 		sts sk_timer+1,r25
+ 2124 0a92 8093 0000 		sts sk_timer,r24
+ 2125 0a96 00C0      		rjmp .L73
+ 2126               	.L178:
+ 2127 0a98 81E0      		ldi r24,lo8(1)
+ 2128 0a9a 0E94 0000 		call key
+ 2129 0a9e 2092 0000 		sts sk_state,r2
+ 2130               	.L176:
+ 2131 0aa2 81E0      		ldi r24,lo8(1)
+ 2132 0aa4 0E94 0000 		call key
+ 2133 0aa8 0E94 0000 		call transistion_to_rx
+ 2134 0aac 1092 0000 		sts sk_state,__zero_reg__
+ 2135 0ab0 00C0      		rjmp .L73
+ 2136               	.L186:
+ 2137 0ab2 412C      		mov r4,__zero_reg__
+ 2138               	.L296:
+ 2139 0ab4 312C      		mov r3,__zero_reg__
+ 2140 0ab6 00C0      		rjmp .L82
+ 2141               	.L187:
+ 2142 0ab8 13E0      		ldi r17,lo8(3)
+ 2143 0aba 3324      		clr r3
+ 2144 0abc 3394      		inc r3
+ 2145               	.L82:
+ 2146 0abe 512C      		mov r5,__zero_reg__
+ 2147 0ac0 00C0      		rjmp .L92
+ 2148               	.L90:
+ 2149 0ac2 1230      		cpi r17,lo8(2)
+ 2150 0ac4 01F0      		breq .L179
+ 2151 0ac6 1B30      		cpi r17,lo8(11)
+ 2152 0ac8 01F4      		brne .L91
+ 2153               	.L179:
+ 2154 0aca 80E0      		ldi r24,0
+ 2155 0acc 0E94 0000 		call yackinhibit
+ 2156 0ad0 0E94 0000 		call ssd1306ClearScreen
+ 2157 0ad4 6DA9      		ldd r22,Y+53
+ 2158 0ad6 7EA9      		ldd r23,Y+54
+ 2159 0ad8 8FA9      		ldd r24,Y+55
+ 2160 0ada 98AD      		ldd r25,Y+56
+ 2161 0adc 4091 0000 		lds r20,battery_state
+ 2162 0ae0 0E94 0000 		call displayFreq
+ 2163 0ae4 0E94 0000 		call ssd1306Refresh
+ 2164 0ae8 10E0      		ldi r17,0
+ 2165 0aea 00C0      		rjmp .L290
+ 2166               	.L91:
+ 2167 0aec 1130      		cpi r17,lo8(1)
+ 2168 0aee 01F0      		breq .+2
+ 2169 0af0 00C0      		rjmp .L89
+ 2170               	/* #APP */
+ 2171               	 ;  521 "main.c" 1
+ 2172 0af2 F894      		cli
+ 2173               	 ;  0 "" 2
+ 2174               	/* #NOAPP */
+ 2175 0af4 6DA9      		ldd r22,Y+53
+ 2176 0af6 7EA9      		ldd r23,Y+54
+ 2177 0af8 8FA9      		ldd r24,Y+55
+ 2178 0afa 98AD      		ldd r25,Y+56
+ 2179 0afc 0E94 0000 		call si5351aSetFrequency
+ 2180               	/* #APP */
+ 2181               	 ;  523 "main.c" 1
+ 2182 0b00 7894      		sei
+ 2183               	 ;  0 "" 2
+ 2184               	/* #NOAPP */
+ 2185 0b02 12E0      		ldi r17,lo8(2)
+ 2186 0b04 00C0      		rjmp .L290
+ 2187               	.L116:
+ 2188 0b06 91E0      		ldi r25,lo8(1)
+ 2189 0b08 7912      		cpse r7,r25
+ 2190 0b0a 00C0      		rjmp .L287
+ 2191 0b0c 00C0      		rjmp .L181
+ 2192               	.L136:
+ 2193 0b0e 00E0      		ldi r16,0
+ 2194 0b10 13E0      		ldi r17,lo8(3)
+ 2195 0b12 00C0      		rjmp .L169
+ 2196               	.L93:
+ 2197 0b14 FA01      		movw r30,r20
+ 2198 0b16 3197      		sbiw r30,1
+ 2199 0b18 EB30      		cpi r30,11
+ 2200 0b1a F105      		cpc r31,__zero_reg__
+ 2201 0b1c 00F0      		brlo .L306
+ 2202 0b1e 00E0      		ldi r16,0
+ 2203 0b20 00C0      		rjmp .L169
+ 2204               	.L306:
+ 2205 0b22 E050      		subi r30,lo8(-(gs(.L183)))
+ 2206 0b24 F040      		sbci r31,hi8(-(gs(.L183)))
+ 2207 0b26 0C94 0000 		jmp __tablejump2__
+ 2208               		.section	.progmem.gcc_sw_table,"a",@progbits
+ 2209               		.p2align	1
+ 2210               	.L183:
+ 2211 0016 0000      		.word gs(.L111)
+ 2212 0018 0000      		.word gs(.L203)
+ 2213 001a 0000      		.word gs(.L121)
+ 2214 001c 0000      		.word gs(.L139)
+ 2215 001e 0000      		.word gs(.L206)
+ 2216 0020 0000      		.word gs(.L147)
+ 2217 0022 0000      		.word gs(.L207)
+ 2218 0024 0000      		.word gs(.L154)
+ 2219 0026 0000      		.word gs(.L157)
+ 2220 0028 0000      		.word gs(.L210)
+ 2221 002a 0000      		.word gs(.L166)
+ 2222               		.section	.text.startup
+ 2223               	.L203:
+ 2224 0b2a 712C      		mov r7,__zero_reg__
+ 2225 0b2c 612C      		mov r6,__zero_reg__
+ 2226 0b2e 00C0      		rjmp .L117
+ 2227               	.L206:
+ 2228 0b30 712C      		mov r7,__zero_reg__
+ 2229 0b32 612C      		mov r6,__zero_reg__
+ 2230 0b34 00C0      		rjmp .L285
+ 2231               	.L117:
+ 2232 0b36 E1E0      		ldi r30,lo8(1)
+ 2233 0b38 5E16      		cp r5,r30
+ 2234 0b3a 01F4      		brne .+2
+ 2235 0b3c 00C0      		rjmp .L184
+ 2236 0b3e 00E0      		ldi r16,0
+ 2237 0b40 12E0      		ldi r17,lo8(2)
+ 2238 0b42 00C0      		rjmp .L185
+ 2239               	.L287:
+ 2240 0b44 21E0      		ldi r18,lo8(1)
+ 2241 0b46 5212      		cpse r5,r18
+ 2242 0b48 00C0      		rjmp .L211
+ 2243 0b4a 00C0      		rjmp .L184
+ 2244               	.L151:
+ 2245 0b4c 01E0      		ldi r16,lo8(1)
+ 2246 0b4e 00C0      		rjmp .L112
+ 2247               	.L190:
+ 2248 0b50 11E0      		ldi r17,lo8(1)
+ 2249 0b52 00C0      		rjmp .L113
+ 2250               	.L193:
+ 2251 0b54 14E0      		ldi r17,lo8(4)
+ 2252 0b56 00C0      		rjmp .L113
+ 2253               	.L195:
+ 2254 0b58 16E0      		ldi r17,lo8(6)
+ 2255 0b5a 00C0      		rjmp .L113
+ 2256               	.L197:
+ 2257 0b5c 18E0      		ldi r17,lo8(8)
+ 2258 0b5e 00C0      		rjmp .L113
+ 2259               	.L198:
+ 2260 0b60 19E0      		ldi r17,lo8(9)
+ 2261 0b62 00C0      		rjmp .L113
+ 2262               	.L200:
+ 2263 0b64 1BE0      		ldi r17,lo8(11)
+ 2264               	.L113:
+ 2265 0b66 31E0      		ldi r19,lo8(1)
+ 2266 0b68 3312      		cpse r3,r19
+ 2267 0b6a 00C0      		rjmp .L171
+ 2268 0b6c 00C0      		rjmp .L211
+ 2270               		.text
+ 2271               	.global	service_vswr
+ 2273               	service_vswr:
+ 2274               	/* prologue: function */
+ 2275               	/* frame size = 0 */
+ 2276               	/* stack size = 0 */
+ 2277               	.L__stack_usage = 0
+ 2278 062e 0E94 0000 		call clearMainArea
+ 2279 0632 84E0      		ldi r24,lo8(4)
+ 2280 0634 0E94 0000 		call displayChangeStateIcon
+ 2281 0638 0E94 0000 		call getVSWR
+ 2282 063c 0C94 0000 		jmp drawVSWR
+ 2284               	.global	disable_memory_replay
+ 2286               	disable_memory_replay:
+ 2287               	/* prologue: function */
+ 2288               	/* frame size = 0 */
+ 2289               	/* stack size = 0 */
+ 2290               	.L__stack_usage = 0
+ 2291 0640 1092 0000 		sts enableMemoryReplay,__zero_reg__
+ 2292 0644 0895      		ret
+ 2294               		.comm	OLEDbuffer,512,1
+ 2295               	.global	cqStr
+ 2296               		.data
+ 2299               	cqStr:
+ 2300 0000 4351 2043 		.string	"CQ CQ CQ de"
+ 2300      5120 4351 
+ 2300      2064 6500 
+ 2301               	.global	ee_vars
+ 2302               		.section	.eeprom,"aw",@progbits
+ 2305               	ee_vars:
+ 2306 0000 0000 0000 		.zero	22
+ 2306      0000 0000 
+ 2306      0000 0000 
+ 2306      0000 0000 
+ 2306      0000 0000 
+ 2307               	.global	magic
+ 2310               	magic:
+ 2311 0016 A5        		.byte	-91
+ 2312               		.comm	txKeyed,1,1
+ 2313               		.comm	sk_timer,2,1
+ 2314               	.global	sk_state
+ 2315               		.section .bss
+ 2318               	sk_state:
+ 2319 0000 00        		.zero	1
+ 2320               		.comm	memoryReplayNow,1,1
+ 2321               	.global	countDownMemoryTimer
+ 2324               	countDownMemoryTimer:
+ 2325 0001 0000      		.zero	2
+ 2326               	.global	straight_key
+ 2329               	straight_key:
+ 2330 0003 00        		.zero	1
+ 2331               		.comm	enableMemoryReplay,1,1
+ 2332               		.comm	battery_state,1,1
+ 2333               	.global	storedRot
+ 2336               	storedRot:
+ 2337 0004 0000      		.zero	2
+ 2338               	.global	storedRotB
+ 2341               	storedRotB:
+ 2342 0006 0000      		.zero	2
+ 2343               	.global	storedRotA
+ 2346               	storedRotA:
+ 2347 0008 0000      		.zero	2
+ 2348               	.global	rotEncChange
+ 2351               	rotEncChange:
+ 2352 000a 0000      		.zero	2
+ 2353               		.comm	callStr,15,1
+ 2354               		.comm	wpm,1,1
+ 2355               		.comm	wpmcnt,2,1
+ 2356               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
+ 2357               	.global __do_copy_data
+ 2358               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccoNBCYy.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccoNBCYy.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccoNBCYy.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccoNBCYy.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccoNBCYy.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccoNBCYy.s:9      .text:0000000000000000 serviceBattery
+     /tmp/ccfnRGYS.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccfnRGYS.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccfnRGYS.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccfnRGYS.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccfnRGYS.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccfnRGYS.s:9      .text:0000000000000000 serviceBattery
                             *COM*:0000000000000001 battery_state
-     /tmp/ccoNBCYy.s:71     .text:0000000000000084 volumeDOWNone
-     /tmp/ccoNBCYy.s:95     .text:00000000000000aa volumeUPone
-     /tmp/ccoNBCYy.s:120    .text:00000000000000d2 filterDOWNone
-     /tmp/ccoNBCYy.s:144    .text:00000000000000f8 filterUPone
-     /tmp/ccoNBCYy.s:169    .text:0000000000000120 serviceKeyerMode
-     /tmp/ccoNBCYy.s:2321   .bss:0000000000000003 straight_key
-     /tmp/ccoNBCYy.s:292    .text:0000000000000218 serviceFreq.part.1
-     /tmp/ccoNBCYy.s:2338   .bss:0000000000000008 storedRotA
-     /tmp/ccoNBCYy.s:2333   .bss:0000000000000006 storedRotB
-     /tmp/ccoNBCYy.s:2343   .bss:000000000000000a rotEncChange
-     /tmp/ccoNBCYy.s:428    .text:0000000000000330 ChangeBand
-     /tmp/ccoNBCYy.s:532    .text:00000000000003f2 __vector_16
-     /tmp/ccoNBCYy.s:561    .text:000000000000041a __vector_6
+     /tmp/ccfnRGYS.s:71     .text:0000000000000084 volumeDOWNone
+     /tmp/ccfnRGYS.s:95     .text:00000000000000aa volumeUPone
+     /tmp/ccfnRGYS.s:120    .text:00000000000000d2 filterDOWNone
+     /tmp/ccfnRGYS.s:144    .text:00000000000000f8 filterUPone
+     /tmp/ccfnRGYS.s:169    .text:0000000000000120 serviceKeyerMode
+     /tmp/ccfnRGYS.s:2329   .bss:0000000000000003 straight_key
+     /tmp/ccfnRGYS.s:292    .text:0000000000000218 serviceFreq.part.1
+     /tmp/ccfnRGYS.s:2346   .bss:0000000000000008 storedRotA
+     /tmp/ccfnRGYS.s:2341   .bss:0000000000000006 storedRotB
+     /tmp/ccfnRGYS.s:2351   .bss:000000000000000a rotEncChange
+     /tmp/ccfnRGYS.s:428    .text:0000000000000330 ChangeBand
+     /tmp/ccfnRGYS.s:532    .text:00000000000003f2 __vector_16
+     /tmp/ccfnRGYS.s:561    .text:000000000000041a __vector_6
                             *COM*:0000000000000001 enableMemoryReplay
-     /tmp/ccoNBCYy.s:613    .text:0000000000000472 getVSWR
-     /tmp/ccoNBCYy.s:783    .text:0000000000000604 transistion_to_rx
+     /tmp/ccfnRGYS.s:613    .text:0000000000000472 getVSWR
+     /tmp/ccfnRGYS.s:783    .text:0000000000000604 transistion_to_rx
                             *COM*:0000000000000001 txKeyed
-     /tmp/ccoNBCYy.s:807    .text:0000000000000618 transition_to_tx
-     /tmp/ccoNBCYy.s:844    .text.startup:0000000000000000 main
+     /tmp/ccfnRGYS.s:807    .text:0000000000000618 transition_to_tx
+     /tmp/ccfnRGYS.s:846    .text.startup:0000000000000000 main
                             *COM*:000000000000000f callStr
-     /tmp/ccoNBCYy.s:2297   .eeprom:0000000000000000 ee_vars
-     /tmp/ccoNBCYy.s:2302   .eeprom:0000000000000014 magic
+     /tmp/ccfnRGYS.s:2305   .eeprom:0000000000000000 ee_vars
+     /tmp/ccfnRGYS.s:2310   .eeprom:0000000000000016 magic
                             *COM*:0000000000000001 wpm
                             *COM*:0000000000000001 memoryReplayNow
-     /tmp/ccoNBCYy.s:2291   .progmem.data:0000000000000000 batLowStr
-     /tmp/ccoNBCYy.s:2316   .bss:0000000000000001 countDownMemoryTimer
-     /tmp/ccoNBCYy.s:2285   .data:0000000000000000 cqStr
+     /tmp/ccfnRGYS.s:2324   .bss:0000000000000001 countDownMemoryTimer
+     /tmp/ccfnRGYS.s:2299   .data:0000000000000000 cqStr
                             *COM*:0000000000000002 wpmcnt
-     /tmp/ccoNBCYy.s:2310   .bss:0000000000000000 sk_state
+     /tmp/ccfnRGYS.s:2318   .bss:0000000000000000 sk_state
                             *COM*:0000000000000002 sk_timer
-     /tmp/ccoNBCYy.s:2257   .text:000000000000062e service_vswr
-     /tmp/ccoNBCYy.s:2270   .text:0000000000000640 disable_memory_replay
+     /tmp/ccfnRGYS.s:2273   .text:000000000000062e service_vswr
+     /tmp/ccfnRGYS.s:2286   .text:0000000000000640 disable_memory_replay
                             *COM*:0000000000000200 OLEDbuffer
-     /tmp/ccoNBCYy.s:2328   .bss:0000000000000004 storedRot
+     /tmp/ccfnRGYS.s:2336   .bss:0000000000000004 storedRot
 
 UNDEFINED SYMBOLS
 yackbeat
@@ -2380,17 +2391,17 @@ si5351aSetInitTXFrequency
 yackinit
 yackstring
 clearMainArea
-drawMainAreaSmall
+drawIntNumber
 yackdelay
 __tablejump2__
 displayFreqSmall
-drawIntNumber
 drawMainArea
 yacktune
 displayChangeStateIcon
 sprintf
 yackmessage
 __divmodhi4
+drawMainAreaSmall
 eeprom_update_byte
 eeprom_update_block
 yackiambic

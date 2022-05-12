@@ -583,19 +583,19 @@
  622               	/* stack size = 1 */
  623               	.L__stack_usage = 1
  624 038c C82F      		mov r28,r24
- 625 038e 8091 0000 		lds r24,timer.2343
- 626 0392 9091 0000 		lds r25,timer.2343+1
+ 625 038e 8091 0000 		lds r24,timer.2344
+ 626 0392 9091 0000 		lds r25,timer.2344+1
  627 0396 0097      		sbiw r24,0
  628 0398 01F0      		breq .L116
  629 039a 0197      		sbiw r24,1
- 630 039c 9093 0000 		sts timer.2343+1,r25
- 631 03a0 8093 0000 		sts timer.2343,r24
+ 630 039c 9093 0000 		sts timer.2344+1,r25
+ 631 03a0 8093 0000 		sts timer.2344,r24
  632               	.L116:
  633 03a4 C111      		cpse r28,__zero_reg__
  634 03a6 00C0      		rjmp .L117
- 635 03a8 1092 0000 		sts iwgflag.2347,__zero_reg__
+ 635 03a8 1092 0000 		sts iwgflag.2348,__zero_reg__
  636               	.L117:
- 637 03ac 8091 0000 		lds r24,fsms.2342
+ 637 03ac 8091 0000 		lds r24,fsms.2343
  638 03b0 8130      		cpi r24,lo8(1)
  639 03b2 01F4      		brne .+2
  640 03b4 00C0      		rjmp .L119
@@ -621,12 +621,12 @@
  660 03dc 01F0      		breq .L126
  661 03de 00C0      		rjmp .L122
  662               	.L123:
- 663 03e0 8091 0000 		lds r24,lastsymbol.2344
+ 663 03e0 8091 0000 		lds r24,lastsymbol.2345
  664 03e4 8095      		com r24
  665 03e6 9091 0000 		lds r25,volflags
  666 03ea 8923      		and r24,r25
  667 03ec 8093 0000 		sts volflags,r24
- 668 03f0 1092 0000 		sts lastsymbol.2344,__zero_reg__
+ 668 03f0 1092 0000 		sts lastsymbol.2345,__zero_reg__
  669 03f4 00C0      		rjmp .L122
  670               	.L125:
  671 03f6 8091 0000 		lds r24,volflags
@@ -634,14 +634,14 @@
  673 03fc 9370      		andi r25,lo8(3)
  674 03fe 9330      		cpi r25,lo8(3)
  675 0400 01F4      		brne .L127
- 676 0402 9091 0000 		lds r25,ultimem.2348
+ 676 0402 9091 0000 		lds r25,ultimem.2349
  677 0406 9923      		tst r25
  678 0408 01F0      		breq .L157
  679 040a 9095      		com r25
  680 040c 8923      		and r24,r25
  681 040e 00C0      		rjmp .L158
  682               	.L127:
- 683 0410 9093 0000 		sts ultimem.2348,r25
+ 683 0410 9093 0000 		sts ultimem.2349,r25
  684 0414 00C0      		rjmp .L122
  685               	.L126:
  686 0416 8091 0000 		lds r24,volflags
@@ -654,16 +654,16 @@
  693               	.L158:
  694 0424 8093 0000 		sts volflags,r24
  695               	.L122:
- 696 0428 8091 0000 		lds r24,timer.2343
- 697 042c 9091 0000 		lds r25,timer.2343+1
+ 696 0428 8091 0000 		lds r24,timer.2344
+ 697 042c 9091 0000 		lds r25,timer.2344+1
  698 0430 892B      		or r24,r25
  699 0432 01F0      		breq .+2
  700 0434 00C0      		rjmp .L129
- 701 0436 8091 0000 		lds r24,bcntr.2346
+ 701 0436 8091 0000 		lds r24,bcntr.2347
  702 043a 8823      		tst r24
  703 043c 01F4      		brne .+2
  704 043e 00C0      		rjmp .L130
- 705 0440 9091 0000 		lds r25,buffer.2345
+ 705 0440 9091 0000 		lds r25,buffer.2346
  706 0444 990F      		lsl r25
  707 0446 9160      		ori r25,lo8(1)
  708 0448 27E0      		ldi r18,lo8(7)
@@ -719,24 +719,24 @@
  758 048c 01F4      		brne .L135
  759 048e 80E0      		ldi r24,0
  760               	.L133:
- 761 0490 1092 0000 		sts bcntr.2346,__zero_reg__
- 762 0494 1092 0000 		sts buffer.2345,__zero_reg__
+ 761 0490 1092 0000 		sts bcntr.2347,__zero_reg__
+ 762 0494 1092 0000 		sts buffer.2346,__zero_reg__
  763 0498 2091 0000 		lds r18,wpmcnt
  764 049c 3091 0000 		lds r19,wpmcnt+1
  765 04a0 220F      		lsl r18
  766 04a2 331F      		rol r19
  767 04a4 220F      		lsl r18
  768 04a6 331F      		rol r19
- 769 04a8 3093 0000 		sts timer.2343+1,r19
- 770 04ac 2093 0000 		sts timer.2343,r18
+ 769 04a8 3093 0000 		sts timer.2344+1,r19
+ 770 04ac 2093 0000 		sts timer.2344,r18
  771 04b0 91E0      		ldi r25,lo8(1)
- 772 04b2 9093 0000 		sts iwgflag.2347,r25
+ 772 04b2 9093 0000 		sts iwgflag.2348,r25
  773 04b6 00C0      		rjmp .L118
  774               	.L130:
- 775 04b8 8091 0000 		lds r24,iwgflag.2347
+ 775 04b8 8091 0000 		lds r24,iwgflag.2348
  776 04bc 8823      		tst r24
  777 04be 01F0      		breq .L129
- 778 04c0 1092 0000 		sts iwgflag.2347,__zero_reg__
+ 778 04c0 1092 0000 		sts iwgflag.2348,__zero_reg__
  779 04c4 80E2      		ldi r24,lo8(32)
  780 04c6 00C0      		rjmp .L118
  781               	.L129:
@@ -745,21 +745,21 @@
  784 04ce 8370      		andi r24,lo8(3)
  785 04d0 01F4      		brne .+2
  786 04d2 00C0      		rjmp .L156
- 787 04d4 1092 0000 		sts iwgflag.2347,__zero_reg__
- 788 04d8 8091 0000 		lds r24,bcntr.2346
+ 787 04d4 1092 0000 		sts iwgflag.2348,__zero_reg__
+ 788 04d8 8091 0000 		lds r24,bcntr.2347
  789 04dc 8F5F      		subi r24,lo8(-(1))
- 790 04de 8093 0000 		sts bcntr.2346,r24
- 791 04e2 8091 0000 		lds r24,buffer.2345
+ 790 04de 8093 0000 		sts bcntr.2347,r24
+ 791 04e2 8091 0000 		lds r24,buffer.2346
  792 04e6 880F      		lsl r24
- 793 04e8 8093 0000 		sts buffer.2345,r24
+ 793 04e8 8093 0000 		sts buffer.2346,r24
  794 04ec 2091 0000 		lds r18,wpmcnt
  795 04f0 3091 0000 		lds r19,wpmcnt+1
  796 04f4 90FF      		sbrs r25,0
  797 04f6 00C0      		rjmp .L137
- 798 04f8 3093 0000 		sts timer.2343+1,r19
- 799 04fc 2093 0000 		sts timer.2343,r18
+ 798 04f8 3093 0000 		sts timer.2344+1,r19
+ 799 04fc 2093 0000 		sts timer.2344,r18
  800 0500 81E0      		ldi r24,lo8(1)
- 801 0502 8093 0000 		sts lastsymbol.2344,r24
+ 801 0502 8093 0000 		sts lastsymbol.2345,r24
  802 0506 00C0      		rjmp .L138
  803               	.L137:
  804 0508 A901      		movw r20,r18
@@ -767,12 +767,12 @@
  806 050c 551F      		rol r21
  807 050e 240F      		add r18,r20
  808 0510 351F      		adc r19,r21
- 809 0512 3093 0000 		sts timer.2343+1,r19
- 810 0516 2093 0000 		sts timer.2343,r18
+ 809 0512 3093 0000 		sts timer.2344+1,r19
+ 810 0516 2093 0000 		sts timer.2344,r18
  811 051a 92E0      		ldi r25,lo8(2)
- 812 051c 9093 0000 		sts lastsymbol.2344,r25
+ 812 051c 9093 0000 		sts lastsymbol.2345,r25
  813 0520 8160      		ori r24,lo8(1)
- 814 0522 8093 0000 		sts buffer.2345,r24
+ 814 0522 8093 0000 		sts buffer.2346,r24
  815               	.L138:
  816 0526 C111      		cpse r28,__zero_reg__
  817 0528 00C0      		rjmp .L139
@@ -784,7 +784,7 @@
  823 0538 8C7F      		andi r24,lo8(-4)
  824 053a 8093 0000 		sts volflags,r24
  825 053e 81E0      		ldi r24,lo8(1)
- 826 0540 8093 0000 		sts fsms.2342,r24
+ 826 0540 8093 0000 		sts fsms.2343,r24
  827 0544 0E94 0000 		call disable_memory_replay
  828 0548 00C0      		rjmp .L156
  829               	.L119:
@@ -794,30 +794,30 @@
  833 0552 01F4      		brne .L140
  834 0554 0E94 0000 		call keylatch
  835               	.L140:
- 836 0558 8091 0000 		lds r24,timer.2343
- 837 055c 9091 0000 		lds r25,timer.2343+1
+ 836 0558 8091 0000 		lds r24,timer.2344
+ 837 055c 9091 0000 		lds r25,timer.2344+1
  838 0560 892B      		or r24,r25
  839 0562 01F4      		brne .L156
  840 0564 81E0      		ldi r24,lo8(1)
  841 0566 0E94 0000 		call key
  842 056a 8091 0000 		lds r24,wpmcnt
  843 056e 9091 0000 		lds r25,wpmcnt+1
- 844 0572 9093 0000 		sts timer.2343+1,r25
- 845 0576 8093 0000 		sts timer.2343,r24
+ 844 0572 9093 0000 		sts timer.2344+1,r25
+ 845 0576 8093 0000 		sts timer.2344,r24
  846 057a 82E0      		ldi r24,lo8(2)
- 847 057c 8093 0000 		sts fsms.2342,r24
+ 847 057c 8093 0000 		sts fsms.2343,r24
  848 0580 00C0      		rjmp .L156
  849               	.L121:
  850 0582 0E94 0000 		call keylatch
- 851 0586 8091 0000 		lds r24,timer.2343
- 852 058a 9091 0000 		lds r25,timer.2343+1
+ 851 0586 8091 0000 		lds r24,timer.2344
+ 852 058a 9091 0000 		lds r25,timer.2344+1
  853 058e 892B      		or r24,r25
  854 0590 01F4      		brne .L156
- 855 0592 1092 0000 		sts fsms.2342,__zero_reg__
+ 855 0592 1092 0000 		sts fsms.2343,__zero_reg__
  856 0596 8091 0000 		lds r24,wpmcnt
  857 059a 9091 0000 		lds r25,wpmcnt+1
- 858 059e 9093 0000 		sts timer.2343+1,r25
- 859 05a2 8093 0000 		sts timer.2343,r24
+ 858 059e 9093 0000 		sts timer.2344+1,r25
+ 859 05a2 8093 0000 		sts timer.2344,r24
  860 05a6 C111      		cpse r28,__zero_reg__
  861 05a8 00C0      		rjmp .L156
  862 05aa 0E94 0000 		call transistion_to_rx
@@ -993,20 +993,20 @@
  1032 06ec 9F90      		pop r9
  1033 06ee 8F90      		pop r8
  1034 06f0 0C94 0000 		jmp yackinhibit.part.1
- 1036               		.local	buffer.2345
- 1037               		.comm	buffer.2345,1,1
- 1038               		.local	bcntr.2346
- 1039               		.comm	bcntr.2346,1,1
- 1040               		.local	ultimem.2348
- 1041               		.comm	ultimem.2348,1,1
- 1042               		.local	lastsymbol.2344
- 1043               		.comm	lastsymbol.2344,1,1
- 1044               		.local	fsms.2342
- 1045               		.comm	fsms.2342,1,1
- 1046               		.local	iwgflag.2347
- 1047               		.comm	iwgflag.2347,1,1
- 1048               		.local	timer.2343
- 1049               		.comm	timer.2343,2,1
+ 1036               		.local	buffer.2346
+ 1037               		.comm	buffer.2346,1,1
+ 1038               		.local	bcntr.2347
+ 1039               		.comm	bcntr.2347,1,1
+ 1040               		.local	ultimem.2349
+ 1041               		.comm	ultimem.2349,1,1
+ 1042               		.local	lastsymbol.2345
+ 1043               		.comm	lastsymbol.2345,1,1
+ 1044               		.local	fsms.2343
+ 1045               		.comm	fsms.2343,1,1
+ 1046               		.local	iwgflag.2348
+ 1047               		.comm	iwgflag.2348,1,1
+ 1048               		.local	timer.2344
+ 1049               		.comm	timer.2344,2,1
  1050               	.global	spechar
  1051               		.section	.progmem.data,"a",@progbits
  1054               	spechar:
@@ -1062,54 +1062,54 @@
  1105               		.comm	volflags,1,1
  1106               		.local	yackflags
  1107               		.comm	yackflags,1,1
- 1108               		.comm	wpm,1,1
- 1109               		.comm	wpmcnt,2,1
- 1110               		.comm	callStr,15,1
+ 1108               		.comm	callStr,15,1
+ 1109               		.comm	wpm,1,1
+ 1110               		.comm	wpmcnt,2,1
  1111               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
  1112               	.global __do_copy_data
  1113               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 yack.c
-     /tmp/ccJg1Es4.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccJg1Es4.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccJg1Es4.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccJg1Es4.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccJg1Es4.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccJg1Es4.s:9      .text:0000000000000000 keylatch
-     /tmp/ccJg1Es4.s:1105   .bss:000000000000000a yackflags
-     /tmp/ccJg1Es4.s:1103   .bss:0000000000000009 volflags
-     /tmp/ccJg1Es4.s:46     .text:0000000000000038 yackreset
+     /tmp/ccKHpTQj.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccKHpTQj.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccKHpTQj.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccKHpTQj.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccKHpTQj.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccKHpTQj.s:9      .text:0000000000000000 keylatch
+     /tmp/ccKHpTQj.s:1105   .bss:000000000000000a yackflags
+     /tmp/ccKHpTQj.s:1103   .bss:0000000000000009 volflags
+     /tmp/ccKHpTQj.s:46     .text:0000000000000038 yackreset
                             *COM*:0000000000000001 wpm
                             *COM*:0000000000000002 wpmcnt
-     /tmp/ccJg1Es4.s:67     .text:0000000000000060 yackwpm
-     /tmp/ccJg1Es4.s:78     .text:0000000000000068 yackbeat
-     /tmp/ccJg1Es4.s:91     .text:0000000000000070 yackmode
-     /tmp/ccJg1Es4.s:107    .text:0000000000000088 yackflag
-     /tmp/ccJg1Es4.s:118    .text:0000000000000090 yacktoggle
-     /tmp/ccJg1Es4.s:133    .text:00000000000000a6 key
-     /tmp/ccJg1Es4.s:173    .text:00000000000000ec yackinhibit.part.1
-     /tmp/ccJg1Es4.s:190    .text:0000000000000106 yackinhibit
-     /tmp/ccJg1Es4.s:207    .text:000000000000011c yackinit
-     /tmp/ccJg1Es4.s:217    .text:0000000000000124 yacktune
-     /tmp/ccJg1Es4.s:265    .text:0000000000000178 yackdelay
-     /tmp/ccJg1Es4.s:294    .text:000000000000019c yackplay
-     /tmp/ccJg1Es4.s:321    .text:00000000000001c0 yackspeed
-     /tmp/ccJg1Es4.s:1049   .bss:0000000000000008 farnsworth
-     /tmp/ccJg1Es4.s:383    .text:000000000000023e yackchar
-     /tmp/ccJg1Es4.s:1059   .progmem.data:0000000000000006 morse
-     /tmp/ccJg1Es4.s:1054   .progmem.data:0000000000000000 spechar
-     /tmp/ccJg1Es4.s:494    .text:00000000000002c8 yackerror
-     /tmp/ccJg1Es4.s:515    .text:00000000000002e4 yackstring
-     /tmp/ccJg1Es4.s:558    .text:0000000000000324 yacknumber
-     /tmp/ccJg1Es4.s:618    .text:000000000000038a yackiambic
-     /tmp/ccJg1Es4.s:1047   .bss:0000000000000006 timer.2343
-     /tmp/ccJg1Es4.s:1045   .bss:0000000000000005 iwgflag.2347
-     /tmp/ccJg1Es4.s:1043   .bss:0000000000000004 fsms.2342
-     /tmp/ccJg1Es4.s:1041   .bss:0000000000000003 lastsymbol.2344
-     /tmp/ccJg1Es4.s:1039   .bss:0000000000000002 ultimem.2348
-     /tmp/ccJg1Es4.s:1037   .bss:0000000000000001 bcntr.2346
-                             .bss:0000000000000000 buffer.2345
-     /tmp/ccJg1Es4.s:876    .text:00000000000005b4 yackmessage
+     /tmp/ccKHpTQj.s:67     .text:0000000000000060 yackwpm
+     /tmp/ccKHpTQj.s:78     .text:0000000000000068 yackbeat
+     /tmp/ccKHpTQj.s:91     .text:0000000000000070 yackmode
+     /tmp/ccKHpTQj.s:107    .text:0000000000000088 yackflag
+     /tmp/ccKHpTQj.s:118    .text:0000000000000090 yacktoggle
+     /tmp/ccKHpTQj.s:133    .text:00000000000000a6 key
+     /tmp/ccKHpTQj.s:173    .text:00000000000000ec yackinhibit.part.1
+     /tmp/ccKHpTQj.s:190    .text:0000000000000106 yackinhibit
+     /tmp/ccKHpTQj.s:207    .text:000000000000011c yackinit
+     /tmp/ccKHpTQj.s:217    .text:0000000000000124 yacktune
+     /tmp/ccKHpTQj.s:265    .text:0000000000000178 yackdelay
+     /tmp/ccKHpTQj.s:294    .text:000000000000019c yackplay
+     /tmp/ccKHpTQj.s:321    .text:00000000000001c0 yackspeed
+     /tmp/ccKHpTQj.s:1049   .bss:0000000000000008 farnsworth
+     /tmp/ccKHpTQj.s:383    .text:000000000000023e yackchar
+     /tmp/ccKHpTQj.s:1059   .progmem.data:0000000000000006 morse
+     /tmp/ccKHpTQj.s:1054   .progmem.data:0000000000000000 spechar
+     /tmp/ccKHpTQj.s:494    .text:00000000000002c8 yackerror
+     /tmp/ccKHpTQj.s:515    .text:00000000000002e4 yackstring
+     /tmp/ccKHpTQj.s:558    .text:0000000000000324 yacknumber
+     /tmp/ccKHpTQj.s:618    .text:000000000000038a yackiambic
+     /tmp/ccKHpTQj.s:1047   .bss:0000000000000006 timer.2344
+     /tmp/ccKHpTQj.s:1045   .bss:0000000000000005 iwgflag.2348
+     /tmp/ccKHpTQj.s:1043   .bss:0000000000000004 fsms.2343
+     /tmp/ccKHpTQj.s:1041   .bss:0000000000000003 lastsymbol.2345
+     /tmp/ccKHpTQj.s:1039   .bss:0000000000000002 ultimem.2349
+     /tmp/ccKHpTQj.s:1037   .bss:0000000000000001 bcntr.2347
+                             .bss:0000000000000000 buffer.2346
+     /tmp/ccKHpTQj.s:876    .text:00000000000005b4 yackmessage
                             *COM*:000000000000000f callStr
 
 UNDEFINED SYMBOLS

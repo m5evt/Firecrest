@@ -23,6 +23,7 @@
 
 #include <avr/eeprom.h>
 #include "helper.h"
+#include "yack.h"
 /*
 #define vFWD		SBIT(PINA, 0) 
 #define vREV 		SBIT(PINA, 1) 
@@ -145,22 +146,9 @@ typedef struct {
   uint8_t e_filt;
   uint8_t e_band;
   uint8_t e_replay_time;
+  uint16_t e_increment;
 } eesave_t;
 
-// Settings for EEPROM
-//eesave_t ee_vars EEMEM;
-/*
-eesave_t ee_vars EEMEM = {	
-  .e_call = "M5EVT/P",
-  .e_kmod = 5,
-  .e_kwpm = 16,
-  // Wide filter
-  .e_filt = 0,
-  // 30m
-	.e_band = 10,
-  .e_replay_time = 5
-};
-*/
 struct systemSettings {
 	uint16_t increment;
 	uint32_t freq;
@@ -196,20 +184,17 @@ enum menuStateDescript {
 	Band
 };       
 
-// DELETE THIS
-
 enum menuDetailsDescript {
-	OffTest,
-	On,
-	Rec,
-	Narrow,
-	Wide,
-	IA,
-	IB,
-	Str,
-	Ul
-};      
-
+    OffTest,
+    On,
+    Rec,
+    Narrow,
+    Wide,
+    IA,
+    IB,
+    Str,
+    Ul
+};  
 
 /*************************************************************************
 //Function Prototypes
