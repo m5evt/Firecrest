@@ -99,7 +99,7 @@
  112 007a 0E94 0000 		call i2c_start
  113 007e 8830      		cpi r24,lo8(8)
  114 0080 01F4      		brne .L18
- 115 0082 80EC      		ldi r24,lo8(-64)
+ 115 0082 8EED      		ldi r24,lo8(-34)
  116 0084 0E94 0000 		call i2c_write
  117 0088 8831      		cpi r24,lo8(24)
  118 008a 01F4      		brne .L19
@@ -144,7 +144,7 @@
  159 00c6 0E94 0000 		call i2c_start
  160 00ca 8830      		cpi r24,lo8(8)
  161 00cc 01F4      		brne .L25
- 162 00ce 80EC      		ldi r24,lo8(-64)
+ 162 00ce 8EED      		ldi r24,lo8(-34)
  163 00d0 0E94 0000 		call i2c_write
  164 00d4 8831      		cpi r24,lo8(24)
  165 00d6 01F4      		brne .L26
@@ -155,7 +155,7 @@
  170 00e2 0E94 0000 		call i2c_start
  171 00e6 8031      		cpi r24,lo8(16)
  172 00e8 01F4      		brne .L28
- 173 00ea 81EC      		ldi r24,lo8(-63)
+ 173 00ea 8FED      		ldi r24,lo8(-33)
  174 00ec 0E94 0000 		call i2c_write
  175 00f0 8034      		cpi r24,lo8(64)
  176 00f2 01F4      		brne .L29
@@ -190,21 +190,21 @@
  205 0124 CF91      		pop r28
  206 0126 1F91      		pop r17
  207 0128 0895      		ret
- 209               		.ident	"GCC: (GNU) 5.4.0"
+ 209               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 i2c.c
-     /tmp/ccPdpsoi.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccPdpsoi.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccPdpsoi.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccPdpsoi.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccPdpsoi.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccPdpsoi.s:10     .text:0000000000000000 i2c_init
-     /tmp/ccPdpsoi.s:25     .text:0000000000000016 i2c_start
-     /tmp/ccPdpsoi.s:42     .text:000000000000002c i2c_stop
-     /tmp/ccPdpsoi.s:58     .text:000000000000003c i2c_write
-     /tmp/ccPdpsoi.s:76     .text:0000000000000056 i2c_read_nack
-     /tmp/ccPdpsoi.s:92     .text:000000000000006a i2c_status
-     /tmp/ccPdpsoi.s:103    .text:0000000000000072 i2cSendRegister
-     /tmp/ccPdpsoi.s:149    .text:00000000000000bc i2cReadRegister
+     /tmp/ccQcpWeT.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccQcpWeT.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccQcpWeT.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccQcpWeT.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccQcpWeT.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccQcpWeT.s:10     .text:0000000000000000 i2c_init
+     /tmp/ccQcpWeT.s:25     .text:0000000000000016 i2c_start
+     /tmp/ccQcpWeT.s:42     .text:000000000000002c i2c_stop
+     /tmp/ccQcpWeT.s:58     .text:000000000000003c i2c_write
+     /tmp/ccQcpWeT.s:76     .text:0000000000000056 i2c_read_nack
+     /tmp/ccQcpWeT.s:92     .text:000000000000006a i2c_status
+     /tmp/ccQcpWeT.s:103    .text:0000000000000072 i2cSendRegister
+     /tmp/ccQcpWeT.s:149    .text:00000000000000bc i2cReadRegister
 
 NO UNDEFINED SYMBOLS

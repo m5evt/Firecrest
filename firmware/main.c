@@ -68,13 +68,11 @@ uint8_t magic EEMEM = MAGPAT;	// Needs to contain 'A5' if mem is valid
 // Settings for EEPROM
 eesave_t ee_vars EEMEM;
 
-
-const char batLowStr[] = " BAT LOW ";
+const char batLowStr[] PROGMEM = " BAT LOW ";
 char cqStr[] = "CQ CQ CQ de";
 
 ///============Function Prototypes=========/////////////////
 static void initMicro(void);
-//static void serviceEncoder(void);
 static void serviceFreq(struct systemSettings *setting);
 static void service_straight_key(void);
 static uint8_t serviceMenu(struct menuStateMachine *state, struct systemSettings *setting);
@@ -91,7 +89,6 @@ static uint8_t serviceKeyerMode(uint8_t up, uint8_t down, uint8_t keyerMode);
 /*************************************************************************
 //Added from yack main.c
 *************************************************************************/
-
 #include "ssd1306.h"
 #include "display.h"
 #include "yack.h"
@@ -104,15 +101,8 @@ int main(void) {
 	
 	KEYTX = 0;
 	rxMUTE = 1;
-    
-  callStr[0] = "M";   
-  callStr[1] = "5";
-  callStr[2] = "E";
-  callStr[3] = "V";
-  callStr[4] = "T";
-  callStr[5] = "/";
-  callStr[6] = "P";
-  //callStr[7] = "\0";
+  // Default callsign
+  strcpy(callStr, "M5EVT/P");    
 
   // EEPROM settings in RAM
   //struct 
@@ -132,7 +122,13 @@ int main(void) {
 	initMicro();
   RFSWMINS = 0;
   RFSWPLUS = 0;
-    
+  yackbeat();
+  RFSWMINS = 1;
+	RFSWPLUS = 0;
+  yackbeat();
+  RFSWMINS = 0;
+	RFSWPLUS = 0;  
+
   // Is the EEPROM valid?
 	uint8_t magval = eeprom_read_byte(&magic); // Retrieve magic value
   if (magval == MAGPAT) {
@@ -151,13 +147,13 @@ int main(void) {
   else {
     // Corrupt EEPROM, load defaults
     mySettings.keyMode = 5;
-    wpm = 16;
+    wpm = 18;
     // Wide filter
     mySettings.filterMode = 0;
     mySettings.autoReplay = 5;
     mySettings.band = 10;
   }
-        
+  
   ChangeBand(mySettings.band, &mySettings);
   mySettings.increment = 1000;       
     
@@ -177,6 +173,7 @@ int main(void) {
   si5351aSetInitFrequency(mySettings.freq);
   si5351aSetInitTXFrequency((mySettings.freq / 4) - TXOFFSET);
   si5351_clock_enable(SI5351_CLK2, 0);    
+  //si5351_clock_enable(SI5351_CLK2, 1);
 
 	//Keyer init
 	yackinit();
@@ -212,7 +209,6 @@ int main(void) {
 	ssd1306Refresh();
 	
 	//Mute: 1 = mute, 0 = audio
-	//KEYTX = 0;
   rxMUTE = 0;
 	
 	//Send call sign welcome CW
@@ -256,7 +252,8 @@ int main(void) {
 			uint8_t write_eeprom = serviceMenu(&myStateMachine, &mySettings);
             
       if (write_eeprom == 1) {
-        yackinhibit(ON);  //side tone greeting to confirm the unit is alive
+        // Ack that EEPROM is being saved, but don't TX it
+        yackinhibit(ON);  
         yackstring("T");
         yackinhibit(OFF);
                 
@@ -612,7 +609,7 @@ static uint8_t serviceMenu(struct menuStateMachine *state, struct systemSettings
 				if ((inc == 1) || (dec == 1)) {
 					clearMainArea();
 					drawMainArea(0);
-          
+ 
 					RFSWMINS = 0;
 					RFSWPLUS = 0;                    
           yackbeat();
@@ -857,7 +854,7 @@ uint16_t getVSWR(void) {
 	
 	//****Vfwd
 	//ADMUX |= (0<<MUX2) | (0<<MUX1) | (1<<MUX0); // switch ADC to 0000 ADC1
-	ADMUX = 0b00000001;
+	ADMUX = 0b00000000;
 	//ADCSRA |= (1 << ADATE);  // Set ADC to Free-Running Mode 
 	ADCSRA |= (1 << ADEN);  // Enable ADC 
 	ADCSRA |= (1 << ADSC);  // Start A2D Conversions 
@@ -871,22 +868,18 @@ uint16_t getVSWR(void) {
 	uint8_t theLowADC = ADCL;
 	uint16_t theTenBitResults = ADCH<<8 | theLowADC;
 	
-	float batteryVol;
-	
-	batteryVol = ((5 * (float)theTenBitResults)/1023);
-	
-	batteryVol = batteryVol * 1000;
-
-	measVfwd = (uint16_t)batteryVol;
+	float meas_pwr;
+	meas_pwr = ((5 * (float)theTenBitResults)/1023);
+	meas_pwr = meas_pwr * 1000;
+	measVfwd = (uint16_t)meas_pwr;
 
 	//********************
 	// V reflected
 	//********************
-	ADMUX = 0b00000000;
+	ADMUX = 0b00000001;
 	ADCSRA |= (1 << ADEN);  // Enable ADC 
 	ADCSRA |= (1 << ADSC);  // Start A2D Conversions 
 	while (ADCSRA & (1<<ADSC));
-	
 	
 	ADCSRA |= (1 << ADEN);  // Enable ADC 
 	ADCSRA |= (1 << ADSC);  // Start A2D Conversions 
@@ -895,22 +888,16 @@ uint16_t getVSWR(void) {
 	theLowADC = ADCL;
 	theTenBitResults = ADCH<<8 | theLowADC;
 
-	batteryVol = ((5 * (float)theTenBitResults)/1023);
-	
-	batteryVol = batteryVol * 1000;
-
-	measVrev = (uint16_t)batteryVol;
+	meas_pwr = ((5 * (float)theTenBitResults)/1023);
+	meas_pwr = meas_pwr * 1000;
+	measVrev = (uint16_t)meas_pwr;
 	
 	// (Vf + Vr) / (Vf - Vr)
-	float measSWR;
-	
-	uint16_t displaySWR;
-	
-	measSWR = ((float)measVfwd + (float)measVrev) / ((float)measVfwd - (float)measVrev);
+	float measSWR = ((float)measVfwd + (float)measVrev) / ((float)measVfwd - (float)measVrev);
 	measSWR = measSWR * 10;
 	measSWR = measSWR + 0.5;
 	
-	displaySWR = (uint16_t)measSWR;
+	uint16_t displaySWR = (uint16_t)measSWR;
 
 	return displaySWR;
 }
@@ -1204,10 +1191,9 @@ static void memoryCQ(void) {
   
 	char str1[50];
 	
-	//char cqStr[] = "CQ CQ CQ de"; // 
-	const char overStr[] PROGMEM = "K"; // 
+	const char overStr[] = "K"; // 
 
-	sprintf(str1, "%s %s %s %s %s", cqStr, callStr, callStr, overStr);
+	sprintf(str1, "%s %s %s %s", cqStr, callStr, callStr, overStr);
 	
 	yackstring(str1);
 	

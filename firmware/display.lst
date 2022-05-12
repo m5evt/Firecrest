@@ -30,7 +30,7 @@
   31 001e E050      		subi r30,lo8(-(bigNumbers))
   32 0020 F040      		sbci r31,hi8(-(bigNumbers))
   33               	/* #APP */
-  34               	 ;  207 "display.c" 1
+  34               	 ;  227 "display.c" 1
   35 0022 E491      		lpm r30, Z
   36               		
   37               	 ;  0 "" 2
@@ -85,7 +85,7 @@
   88 0074 E050      		subi r30,lo8(-(smallNumbers))
   89 0076 F040      		sbci r31,hi8(-(smallNumbers))
   90               	/* #APP */
-  91               	 ;  221 "display.c" 1
+  91               	 ;  241 "display.c" 1
   92 0078 E491      		lpm r30, Z
   93               		
   94               	 ;  0 "" 2
@@ -118,7 +118,7 @@
  123 009a E050      		subi r30,lo8(-(bigDot))
  124 009c F040      		sbci r31,hi8(-(bigDot))
  125               	/* #APP */
- 126               	 ;  235 "display.c" 1
+ 126               	 ;  255 "display.c" 1
  127 009e E491      		lpm r30, Z
  128               		
  129               	 ;  0 "" 2
@@ -456,7 +456,7 @@
  465 034a E050      		subi r30,lo8(-(batIcon))
  466 034c F040      		sbci r31,hi8(-(batIcon))
  467               	/* #APP */
- 468               	 ;  251 "display.c" 1
+ 468               	 ;  271 "display.c" 1
  469 034e E491      		lpm r30, Z
  470               		
  471               	 ;  0 "" 2
@@ -717,7 +717,7 @@
  730 0550 E050      		subi r30,lo8(-(mainBigText))
  731 0552 F040      		sbci r31,hi8(-(mainBigText))
  732               	/* #APP */
- 733               	 ;  279 "display.c" 1
+ 733               	 ;  299 "display.c" 1
  734 0554 E491      		lpm r30, Z
  735               		
  736               	 ;  0 "" 2
@@ -758,7 +758,7 @@
  773 0588 E050      		subi r30,lo8(-(mainSmallText))
  774 058a F040      		sbci r31,hi8(-(mainSmallText))
  775               	/* #APP */
- 776               	 ;  293 "display.c" 1
+ 776               	 ;  313 "display.c" 1
  777 058c E491      		lpm r30, Z
  778               		
  779               	 ;  0 "" 2
@@ -794,7 +794,7 @@
  811 05b8 E050      		subi r30,lo8(-(stateIcons))
  812 05ba F040      		sbci r31,hi8(-(stateIcons))
  813               	/* #APP */
- 814               	 ;  307 "display.c" 1
+ 814               	 ;  327 "display.c" 1
  815 05bc E491      		lpm r30, Z
  816               		
  817               	 ;  0 "" 2
@@ -817,7 +817,7 @@
  834 05da E050      		subi r30,lo8(-(stateIcons))
  835 05dc F040      		sbci r31,hi8(-(stateIcons))
  836               	/* #APP */
- 837               	 ;  307 "display.c" 1
+ 837               	 ;  327 "display.c" 1
  838 05de E491      		lpm r30, Z
  839               		
  840               	 ;  0 "" 2
@@ -985,7 +985,7 @@
  1008 0708 E050      		subi r30,lo8(-(vswrToOne))
  1009 070a F040      		sbci r31,hi8(-(vswrToOne))
  1010               	/* #APP */
- 1011               	 ;  265 "display.c" 1
+ 1011               	 ;  285 "display.c" 1
  1012 070c E491      		lpm r30, Z
  1013               		
  1014               	 ;  0 "" 2
@@ -5098,36 +5098,36 @@
  5087 10d8 80        		.byte	-128
  5088               		.comm	OLEDbuffer,512,1
  5089               		.comm	callStr,15,1
- 5090               		.ident	"GCC: (GNU) 5.4.0"
+ 5090               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
  5091               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 display.c
-     /tmp/ccdq895U.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccdq895U.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccdq895U.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccdq895U.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccdq895U.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccdq895U.s:9      .text:0000000000000000 drawNumberBig
+     /tmp/ccMUqbPW.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccMUqbPW.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccMUqbPW.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccMUqbPW.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccMUqbPW.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccMUqbPW.s:9      .text:0000000000000000 drawNumberBig
                             *COM*:0000000000000200 OLEDbuffer
-     /tmp/ccdq895U.s:3532   .progmem.data:0000000000000aca bigNumbers
-     /tmp/ccdq895U.s:50     .text:0000000000000036 drawNumberSmall
-     /tmp/ccdq895U.s:3252   .progmem.data:000000000000093e smallNumbers
-     /tmp/ccdq895U.s:108    .text:000000000000008a drawDot.constprop.0
-     /tmp/ccdq895U.s:3235   .progmem.data:0000000000000911 bigDot
-     /tmp/ccdq895U.s:143    .text:00000000000000b2 displayFreqSmall
-     /tmp/ccdq895U.s:448    .text:0000000000000334 drawBat
-     /tmp/ccdq895U.s:3101   .progmem.data:0000000000000817 batIcon
-     /tmp/ccdq895U.s:484    .text:000000000000035e displayFreq
-     /tmp/ccdq895U.s:708    .text:0000000000000532 drawMainArea
-     /tmp/ccdq895U.s:2440   .progmem.data:0000000000000586 mainBigText
-     /tmp/ccdq895U.s:751    .text:000000000000056a drawMainAreaSmall
-     /tmp/ccdq895U.s:1086   .progmem.data:0000000000000040 mainSmallText
-     /tmp/ccdq895U.s:794    .text:00000000000005a2 displayChangeStateIcon
-     /tmp/ccdq895U.s:4031   .progmem.data:0000000000000cb9 stateIcons
-     /tmp/ccdq895U.s:853    .text:00000000000005ee drawIntNumber
-     /tmp/ccdq895U.s:949    .text:00000000000006aa clearMainArea
-     /tmp/ccdq895U.s:976    .text:00000000000006cc drawVSWR
-     /tmp/ccdq895U.s:1033   .progmem.data:0000000000000000 vswrToOne
+     /tmp/ccMUqbPW.s:3532   .progmem.data:0000000000000aca bigNumbers
+     /tmp/ccMUqbPW.s:50     .text:0000000000000036 drawNumberSmall
+     /tmp/ccMUqbPW.s:3252   .progmem.data:000000000000093e smallNumbers
+     /tmp/ccMUqbPW.s:108    .text:000000000000008a drawDot.constprop.0
+     /tmp/ccMUqbPW.s:3235   .progmem.data:0000000000000911 bigDot
+     /tmp/ccMUqbPW.s:143    .text:00000000000000b2 displayFreqSmall
+     /tmp/ccMUqbPW.s:448    .text:0000000000000334 drawBat
+     /tmp/ccMUqbPW.s:3101   .progmem.data:0000000000000817 batIcon
+     /tmp/ccMUqbPW.s:484    .text:000000000000035e displayFreq
+     /tmp/ccMUqbPW.s:708    .text:0000000000000532 drawMainArea
+     /tmp/ccMUqbPW.s:2440   .progmem.data:0000000000000586 mainBigText
+     /tmp/ccMUqbPW.s:751    .text:000000000000056a drawMainAreaSmall
+     /tmp/ccMUqbPW.s:1086   .progmem.data:0000000000000040 mainSmallText
+     /tmp/ccMUqbPW.s:794    .text:00000000000005a2 displayChangeStateIcon
+     /tmp/ccMUqbPW.s:4031   .progmem.data:0000000000000cb9 stateIcons
+     /tmp/ccMUqbPW.s:853    .text:00000000000005ee drawIntNumber
+     /tmp/ccMUqbPW.s:949    .text:00000000000006aa clearMainArea
+     /tmp/ccMUqbPW.s:976    .text:00000000000006cc drawVSWR
+     /tmp/ccMUqbPW.s:1033   .progmem.data:0000000000000000 vswrToOne
                             *COM*:000000000000000f callStr
 
 UNDEFINED SYMBOLS

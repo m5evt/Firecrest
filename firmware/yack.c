@@ -724,7 +724,7 @@ void yackmessage(byte function, byte msgnr) {
 		
 		// Slow down to 12 wpm to record
     current_wpm = wpm;
-		wpm = 12;
+		wpm = 17;
 		wpmcnt=(1200/YACKBEAT)/wpm; // Calculate speed	
 					
 

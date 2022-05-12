@@ -10,12 +10,12 @@
 #define I2C_SLA_R_ACK 0x40
 #define I2C_DATA_ACK 0x28
 //For the old batch of chips
-//#define I2C_WRITE 0b11011110
-//#define I2C_READ  0b11011111
+#define I2C_WRITE 0b11011110
+#define I2C_READ  0b11011111
 
 //For the new batch of chips
-#define I2C_WRITE 0b11000000
-#define I2C_READ  0b11000001
+//#define I2C_WRITE 0b11000000
+//#define I2C_READ  0b11000001
 
 extern void i2c_init(void);
 extern uint8_t i2c_start(void);

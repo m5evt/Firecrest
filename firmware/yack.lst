@@ -364,7 +364,7 @@
  395 024c E050      		subi r30,lo8(-(morse-48))
  396 024e F040      		sbci r31,hi8(-(morse-48))
  397               	/* #APP */
- 398               	 ;  528 "yack.c" 1
+ 398               	 ;  530 "yack.c" 1
  399 0250 C491      		lpm r28, Z
  400               		
  401               	 ;  0 "" 2
@@ -382,7 +382,7 @@
  413 0262 E050      		subi r30,lo8(-(morse-87))
  414 0264 F040      		sbci r31,hi8(-(morse-87))
  415               	/* #APP */
- 416               	 ;  531 "yack.c" 1
+ 416               	 ;  533 "yack.c" 1
  417 0266 C491      		lpm r28, Z
  418               		
  419               	 ;  0 "" 2
@@ -397,7 +397,7 @@
  428 0274 E050      		subi r30,lo8(-(morse-55))
  429 0276 F040      		sbci r31,hi8(-(morse-55))
  430               	/* #APP */
- 431               	 ;  534 "yack.c" 1
+ 431               	 ;  536 "yack.c" 1
  432 0278 C491      		lpm r28, Z
  433               		
  434               	 ;  0 "" 2
@@ -410,7 +410,7 @@
  441 0280 E050      		subi r30,lo8(-(spechar))
  442 0282 F040      		sbci r31,hi8(-(spechar))
  443               	/* #APP */
- 444               	 ;  540 "yack.c" 1
+ 444               	 ;  542 "yack.c" 1
  445 0284 E491      		lpm r30, Z
  446               		
  447               	 ;  0 "" 2
@@ -421,7 +421,7 @@
  452 028c E050      		subi r30,lo8(-(morse+36))
  453 028e F040      		sbci r31,hi8(-(morse+36))
  454               	/* #APP */
- 455               	 ;  541 "yack.c" 1
+ 455               	 ;  543 "yack.c" 1
  456 0290 C491      		lpm r28, Z
  457               		
  458               	 ;  0 "" 2
@@ -684,7 +684,7 @@
  723 0460 E050      		subi r30,lo8(-(morse))
  724 0462 F040      		sbci r31,hi8(-(morse))
  725               	/* #APP */
- 726               	 ;  677 "yack.c" 1
+ 726               	 ;  679 "yack.c" 1
  727 0464 E491      		lpm r30, Z
  728               		
  729               	 ;  0 "" 2
@@ -705,7 +705,7 @@
  744 047c E050      		subi r30,lo8(-(spechar-36))
  745 047e F040      		sbci r31,hi8(-(spechar-36))
  746               	/* #APP */
- 747               	 ;  681 "yack.c" 1
+ 747               	 ;  683 "yack.c" 1
  748 0480 8491      		lpm r24, Z
  749               		
  750               	 ;  0 "" 2
@@ -876,9 +876,9 @@
  915 05fa 90E0      		ldi r25,hi8(.LC0)
  916 05fc 0E94 0000 		call yackstring
  917 0600 F090 0000 		lds r15,wpm
- 918 0604 8CE0      		ldi r24,lo8(12)
+ 918 0604 81E1      		ldi r24,lo8(17)
  919 0606 8093 0000 		sts wpm,r24
- 920 060a 84E1      		ldi r24,lo8(20)
+ 920 060a 8EE0      		ldi r24,lo8(14)
  921 060c 90E0      		ldi r25,0
  922 060e 9093 0000 		sts wpmcnt+1,r25
  923 0612 8093 0000 		sts wpmcnt,r24
@@ -1065,51 +1065,51 @@
  1108               		.comm	wpm,1,1
  1109               		.comm	wpmcnt,2,1
  1110               		.comm	callStr,15,1
- 1111               		.ident	"GCC: (GNU) 5.4.0"
+ 1111               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
  1112               	.global __do_copy_data
  1113               	.global __do_clear_bss
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 yack.c
-     /tmp/ccWQasoz.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/ccWQasoz.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/ccWQasoz.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/ccWQasoz.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/ccWQasoz.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/ccWQasoz.s:9      .text:0000000000000000 keylatch
-     /tmp/ccWQasoz.s:1105   .bss:000000000000000a yackflags
-     /tmp/ccWQasoz.s:1103   .bss:0000000000000009 volflags
-     /tmp/ccWQasoz.s:46     .text:0000000000000038 yackreset
+     /tmp/ccJg1Es4.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccJg1Es4.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccJg1Es4.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccJg1Es4.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccJg1Es4.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccJg1Es4.s:9      .text:0000000000000000 keylatch
+     /tmp/ccJg1Es4.s:1105   .bss:000000000000000a yackflags
+     /tmp/ccJg1Es4.s:1103   .bss:0000000000000009 volflags
+     /tmp/ccJg1Es4.s:46     .text:0000000000000038 yackreset
                             *COM*:0000000000000001 wpm
                             *COM*:0000000000000002 wpmcnt
-     /tmp/ccWQasoz.s:67     .text:0000000000000060 yackwpm
-     /tmp/ccWQasoz.s:78     .text:0000000000000068 yackbeat
-     /tmp/ccWQasoz.s:91     .text:0000000000000070 yackmode
-     /tmp/ccWQasoz.s:107    .text:0000000000000088 yackflag
-     /tmp/ccWQasoz.s:118    .text:0000000000000090 yacktoggle
-     /tmp/ccWQasoz.s:133    .text:00000000000000a6 key
-     /tmp/ccWQasoz.s:173    .text:00000000000000ec yackinhibit.part.1
-     /tmp/ccWQasoz.s:190    .text:0000000000000106 yackinhibit
-     /tmp/ccWQasoz.s:207    .text:000000000000011c yackinit
-     /tmp/ccWQasoz.s:217    .text:0000000000000124 yacktune
-     /tmp/ccWQasoz.s:265    .text:0000000000000178 yackdelay
-     /tmp/ccWQasoz.s:294    .text:000000000000019c yackplay
-     /tmp/ccWQasoz.s:321    .text:00000000000001c0 yackspeed
-     /tmp/ccWQasoz.s:1049   .bss:0000000000000008 farnsworth
-     /tmp/ccWQasoz.s:383    .text:000000000000023e yackchar
-     /tmp/ccWQasoz.s:1059   .progmem.data:0000000000000006 morse
-     /tmp/ccWQasoz.s:1054   .progmem.data:0000000000000000 spechar
-     /tmp/ccWQasoz.s:494    .text:00000000000002c8 yackerror
-     /tmp/ccWQasoz.s:515    .text:00000000000002e4 yackstring
-     /tmp/ccWQasoz.s:558    .text:0000000000000324 yacknumber
-     /tmp/ccWQasoz.s:618    .text:000000000000038a yackiambic
-     /tmp/ccWQasoz.s:1047   .bss:0000000000000006 timer.2343
-     /tmp/ccWQasoz.s:1045   .bss:0000000000000005 iwgflag.2347
-     /tmp/ccWQasoz.s:1043   .bss:0000000000000004 fsms.2342
-     /tmp/ccWQasoz.s:1041   .bss:0000000000000003 lastsymbol.2344
-     /tmp/ccWQasoz.s:1039   .bss:0000000000000002 ultimem.2348
-     /tmp/ccWQasoz.s:1037   .bss:0000000000000001 bcntr.2346
+     /tmp/ccJg1Es4.s:67     .text:0000000000000060 yackwpm
+     /tmp/ccJg1Es4.s:78     .text:0000000000000068 yackbeat
+     /tmp/ccJg1Es4.s:91     .text:0000000000000070 yackmode
+     /tmp/ccJg1Es4.s:107    .text:0000000000000088 yackflag
+     /tmp/ccJg1Es4.s:118    .text:0000000000000090 yacktoggle
+     /tmp/ccJg1Es4.s:133    .text:00000000000000a6 key
+     /tmp/ccJg1Es4.s:173    .text:00000000000000ec yackinhibit.part.1
+     /tmp/ccJg1Es4.s:190    .text:0000000000000106 yackinhibit
+     /tmp/ccJg1Es4.s:207    .text:000000000000011c yackinit
+     /tmp/ccJg1Es4.s:217    .text:0000000000000124 yacktune
+     /tmp/ccJg1Es4.s:265    .text:0000000000000178 yackdelay
+     /tmp/ccJg1Es4.s:294    .text:000000000000019c yackplay
+     /tmp/ccJg1Es4.s:321    .text:00000000000001c0 yackspeed
+     /tmp/ccJg1Es4.s:1049   .bss:0000000000000008 farnsworth
+     /tmp/ccJg1Es4.s:383    .text:000000000000023e yackchar
+     /tmp/ccJg1Es4.s:1059   .progmem.data:0000000000000006 morse
+     /tmp/ccJg1Es4.s:1054   .progmem.data:0000000000000000 spechar
+     /tmp/ccJg1Es4.s:494    .text:00000000000002c8 yackerror
+     /tmp/ccJg1Es4.s:515    .text:00000000000002e4 yackstring
+     /tmp/ccJg1Es4.s:558    .text:0000000000000324 yacknumber
+     /tmp/ccJg1Es4.s:618    .text:000000000000038a yackiambic
+     /tmp/ccJg1Es4.s:1047   .bss:0000000000000006 timer.2343
+     /tmp/ccJg1Es4.s:1045   .bss:0000000000000005 iwgflag.2347
+     /tmp/ccJg1Es4.s:1043   .bss:0000000000000004 fsms.2342
+     /tmp/ccJg1Es4.s:1041   .bss:0000000000000003 lastsymbol.2344
+     /tmp/ccJg1Es4.s:1039   .bss:0000000000000002 ultimem.2348
+     /tmp/ccJg1Es4.s:1037   .bss:0000000000000001 bcntr.2346
                              .bss:0000000000000000 buffer.2345
-     /tmp/ccWQasoz.s:876    .text:00000000000005b4 yackmessage
+     /tmp/ccJg1Es4.s:876    .text:00000000000005b4 yackmessage
                             *COM*:000000000000000f callStr
 
 UNDEFINED SYMBOLS

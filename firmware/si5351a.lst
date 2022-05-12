@@ -254,7 +254,7 @@
  259 01e0 0E94 0000 		call i2c_start
  260 01e4 8830      		cpi r24,lo8(8)
  261 01e6 01F4      		brne .L9
- 262 01e8 80EC      		ldi r24,lo8(-64)
+ 262 01e8 8EED      		ldi r24,lo8(-34)
  263 01ea 0E94 0000 		call i2c_write
  264 01ee 8831      		cpi r24,lo8(24)
  265 01f0 01F4      		brne .L9
@@ -265,7 +265,7 @@
  270 01fc 0E94 0000 		call i2c_start
  271 0200 8031      		cpi r24,lo8(16)
  272 0202 01F4      		brne .L9
- 273 0204 81EC      		ldi r24,lo8(-63)
+ 273 0204 8FED      		ldi r24,lo8(-33)
  274 0206 0E94 0000 		call i2c_write
  275 020a 8034      		cpi r24,lo8(64)
  276 020c 01F4      		brne .L9
@@ -300,7 +300,7 @@
  305 0240 1F91      		pop r17
  306 0242 0C94 0000 		jmp i2c_stop
  307               	.L8:
- 308 0246 80EC      		ldi r24,lo8(-64)
+ 308 0246 8EED      		ldi r24,lo8(-34)
  309 0248 0E94 0000 		call i2c_write
  310 024c 8831      		cpi r24,lo8(24)
  311 024e 01F4      		brne .L9
@@ -665,21 +665,21 @@
  678 0532 9F90      		pop r9
  679 0534 8F90      		pop r8
  680 0536 0C94 0000 		jmp i2cSendRegister
- 682               		.ident	"GCC: (GNU) 5.4.0"
+ 682               		.ident	"GCC: (AVR_8_bit_GNU_Toolchain_3.6.2_1778) 5.4.0"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 si5351a.c
-     /tmp/cci11u6j.s:2      *ABS*:000000000000003e __SP_H__
-     /tmp/cci11u6j.s:3      *ABS*:000000000000003d __SP_L__
-     /tmp/cci11u6j.s:4      *ABS*:000000000000003f __SREG__
-     /tmp/cci11u6j.s:5      *ABS*:0000000000000000 __tmp_reg__
-     /tmp/cci11u6j.s:6      *ABS*:0000000000000001 __zero_reg__
-     /tmp/cci11u6j.s:14     .text:0000000000000000 setupPLL
-     /tmp/cci11u6j.s:174    .text:0000000000000144 setupMultisynth
-     /tmp/cci11u6j.s:249    .text:00000000000001d6 si5351_clock_enable
-     /tmp/cci11u6j.s:322    .text:0000000000000262 si5351aSetInitFrequency
-     /tmp/cci11u6j.s:414    .text:000000000000031c si5351aSetInitTXFrequency
-     /tmp/cci11u6j.s:506    .text:00000000000003d6 si5351aSetTXFrequency
-     /tmp/cci11u6j.s:595    .text:0000000000000488 si5351aSetFrequency
+     /tmp/ccAQEgHu.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccAQEgHu.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccAQEgHu.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccAQEgHu.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccAQEgHu.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccAQEgHu.s:14     .text:0000000000000000 setupPLL
+     /tmp/ccAQEgHu.s:174    .text:0000000000000144 setupMultisynth
+     /tmp/ccAQEgHu.s:249    .text:00000000000001d6 si5351_clock_enable
+     /tmp/ccAQEgHu.s:322    .text:0000000000000262 si5351aSetInitFrequency
+     /tmp/ccAQEgHu.s:414    .text:000000000000031c si5351aSetInitTXFrequency
+     /tmp/ccAQEgHu.s:506    .text:00000000000003d6 si5351aSetTXFrequency
+     /tmp/ccAQEgHu.s:595    .text:0000000000000488 si5351aSetFrequency
 
 UNDEFINED SYMBOLS
 __floatunsisf

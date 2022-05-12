@@ -85,7 +85,7 @@
 #define VOLUD		SBIT(PORTC, 5) 
 
 #define BANDA		SBIT(PORTD, 3) 	
-#define BANDB		SBIT(PORTD, 4) 	//Inverse of bandA
+#define BANDB		SBIT(PORTD, 4) 	
 
 #define STPIN		SBIT(PORTD, 5)
 
@@ -111,15 +111,15 @@
 #define WIDE		1
 
 #define BAND1		10
-#define BAND2		7
+#define BAND2		14
 
 #define BAND1_UPPER 	10150000
 #define BAND1_LOWER		10100000
 #define BAND1_F			  10118000
 
-#define BAND2_UPPER		7050000
-#define BAND2_LOWER 	7000000
-#define BAND2_F			  7032000
+#define BAND2_UPPER	  14100000	
+#define BAND2_LOWER   14000000	
+#define BAND2_F			  14062000
 
 // If changing this, must change timer in init micro
 #define TXOFFSET  650
